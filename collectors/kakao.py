@@ -11,7 +11,7 @@ DOM 셀렉터(2026-09-11 실측, 강남제이스타의원 기준):
     .review_detail .txt_date          리뷰 작성일
     .wrap_review .desc_review         리뷰 본문
     .info_reply                       있으면 사장님 답글 존재
-    a.link_more (텍스트에 "후기" 포함)  리뷰 더 불러오기 버튼
+    (2026-10-12) "#review" 탭 + 스크롤로 추가 로딩 — 더보기 버튼 없음
 """
 
 from bs4 import BeautifulSoup
@@ -20,12 +20,16 @@ from playwright.sync_api import sync_playwright
 
 from collectors.base import polite_sleep
 
-USER_AGENT = (
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-    "(KHTML, like Gecko) Chrome/124.0 Safari/537.36"
-)
+# 2026-10-12 실측: 고정 문자열 "Chrome/124.0"은 카카오 게이트웨이가 403
+# "Restricted User Agent"로 막았다(9-16 이후 카카오 수집 0건의 원인). 버전이
+# 낡으면 또 막히므로 고정하지 않고, 실행 중인 Chromium의 실제 UA에서
+# "HeadlessChrome" 표기만 일반 "Chrome"으로 바꿔 쓴다(버전은 실제 엔진 그대로).
+def _browser_user_agent(browser):
+    return f"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{browser.version} Safari/537.36"
 
-MAX_LOAD_MORE_CLICKS = 15
+# 2026-10-12 실측: 리뷰는 홈이 아니라 "#review" 탭에 있고(홈은 미리보기 1~3건),
+# "후기 더보기" 버튼 대신 스크롤하면 다음 묶음(약 10건)이 붙는다.
+MAX_SCROLL_ROUNDS = 15
 
 # 2026-09-22 실측: 경쟁 병원이 6곳→22곳으로 늘면서 한 실행 안에서 카카오맵을
 # 22번 연속 요청했더니 전원(자사 포함) ".group_review" 대기 타임아웃으로
@@ -49,30 +53,31 @@ def _clean_text(el, drop_selectors=(".screen_out", ".btn_more", ".btn_less")):
 
 def _render_review_html(place_url):
     """실제 브라우저 렌더링 — 유닛테스트 대상이 아니다(계획 문서 Task 4 Step 6에서 수동 확인)."""
+    card_sel = ".group_review .list_review > li"
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         try:
-            page = browser.new_page(user_agent=USER_AGENT, locale="ko-KR")
-            page.goto(place_url, wait_until="networkidle", timeout=30000)
+            page = browser.new_page(user_agent=_browser_user_agent(browser), locale="ko-KR")
+            page.goto(place_url + "#review", wait_until="networkidle", timeout=30000)
             try:
-                page.wait_for_selector("text=후기미제공", timeout=3000)
-                return None
+                page.wait_for_selector(card_sel, timeout=15000)
             except PlaywrightTimeoutError:
-                pass
-            page.wait_for_selector(".group_review", timeout=15000)
+                # 병원이 후기를 막아 둔 곳(후기미제공)은 리뷰 0건이 정상이다.
+                # 페이지 하단 랭킹 위젯에도 다른 업체의 "후기미제공"이 뜰 수 있어,
+                # 리뷰 카드가 없을 때만 이 문구를 본다.
+                if page.locator("text=후기미제공").count() > 0:
+                    return None
+                raise
 
-            for _ in range(MAX_LOAD_MORE_CLICKS):
-                clicked = page.evaluate(
-                    """() => {
-                        const btn = Array.from(document.querySelectorAll('a.link_more'))
-                            .find(a => a.textContent.includes('후기'));
-                        if (btn) { btn.click(); return true; }
-                        return false;
-                    }"""
-                )
-                if not clicked:
+            prev = -1
+            for _ in range(MAX_SCROLL_ROUNDS):
+                count = page.locator(card_sel).count()
+                if count == prev:
                     break
-                page.wait_for_timeout(1200)
+                prev = count
+                page.locator(card_sel).last.scroll_into_view_if_needed()
+                page.mouse.wheel(0, 4000)
+                page.wait_for_timeout(1500)
 
             page.evaluate(
                 "document.querySelectorAll('.btn_more').forEach(el => el.click())"
