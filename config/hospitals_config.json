@@ -13,6 +13,370 @@
         "naver_place_url": "https://m.place.naver.com/hospital/31605858/review/visitor",
         "kakao_place_url": "https://place.map.kakao.com/18731017"
       }
+    },
+    {
+      "hospital_id": "gunpo_seoul_s_dental",
+      "hospital_name": "서울에스치과의원",
+      "category": "치과",
+      "lat": 37.358651,
+      "lng": 126.9307547,
+      "address": "경기 군포시 광정로 60 우주타운빌딩 3층",
+      "channels": {
+        "google_place_id": "0x357b670cef1d12b7:0xd725c075fb5d9fa6",
+        "naver_place_url": "https://m.place.naver.com/hospital/1171156532/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/31429066"
+      }
+    },
+    {
+      "hospital_id": "apgujeong_brandnew_clinic",
+      "hospital_name": "브랜뉴의원",
+      "category": "피부과",
+      "lat": 37.5268999,
+      "lng": 127.0451173,
+      "address": "서울 강남구 압구정로 437 일신빌딩 4층",
+      "channels": {
+        "google_place_id": "0x357ca5c811c8ad77:0xb88e29ca52b07ad3",
+        "naver_place_url": "https://m.place.naver.com/hospital/13355651/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/12108215"
+      }
+    },
+    {
+      "hospital_id": "songpa_sarangai_women",
+      "hospital_name": "사랑아이여성의원",
+      "category": "산부인과",
+      "lat": 37.5104535,
+      "lng": 127.079142,
+      "address": "서울 송파구 백제고분로 69 애플타워 2-3층",
+      "channels": {
+        "google_place_id": "0x357ca44d92e98b71:0x36b8f9a744de7816",
+        "naver_place_url": "https://m.place.naver.com/hospital/35769723/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/25817807"
+      }
+    },
+    {
+      "hospital_id": "yangcheon_seoul_keun_dental",
+      "hospital_name": "서울큰치과의원",
+      "category": "치과",
+      "lat": 37.519165,
+      "lng": 126.8529722,
+      "address": "서울 양천구 중앙로 255-1 2층,3층",
+      "channels": {
+        "google_place_id": "0x357c9db5f95e4ec1:0xb4e36091b70bb59a",
+        "naver_place_url": "https://m.place.naver.com/hospital/1948993675/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/2022585871"
+      }
+    },
+    {
+      "hospital_id": "daejeon_joandi_dental",
+      "hospital_name": "조앤이치과의원",
+      "category": "치과",
+      "lat": 36.3625177,
+      "lng": 127.3768859,
+      "address": "대전 서구 월평북로 77 2층",
+      "channels": {
+        "google_place_id": "0x35654bd0a82e474f:0x8f820aa8d603751a",
+        "naver_place_url": "https://m.place.naver.com/hospital/13246117/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/11151276"
+      }
+    },
+    {
+      "hospital_id": "incheon_cheongna_dental",
+      "hospital_name": "청라치과의원",
+      "category": "치과",
+      "lat": 37.5320163,
+      "lng": 126.6401609,
+      "address": "인천 서해구 크리스탈로74번길 31 월드프라자 5층 503~505호",
+      "channels": {
+        "google_place_id": "0x357b7f1506fd1527:0xa540264d300b52c6",
+        "naver_place_url": "https://m.place.naver.com/hospital/37662786/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/27538065"
+      }
+    },
+    {
+      "hospital_id": "seocho_seoul_mothers_ps",
+      "hospital_name": "서초서울마더스성형외과의원",
+      "category": "성형외과",
+      "lat": 37.4900808,
+      "lng": 126.9829788,
+      "address": "서울 서초구 동작대로 150 지하1층, 1~3층",
+      "channels": {
+        "google_place_id": "0x357ca1353ba8bdb7:0xb830a292fd90f656",
+        "naver_place_url": "https://m.place.naver.com/hospital/37361915/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/27304463"
+      }
+    },
+    {
+      "hospital_id": "cheongju_duri_ent",
+      "hospital_name": "두리이비인후과의원 청주점",
+      "category": "이비인후과",
+      "lat": 36.6081276,
+      "lng": 127.4445909,
+      "address": "충북 청주시 서원구 2순환로 1468 메디치빌딩 2-4층",
+      "channels": {
+        "google_place_id": "0x356528c88e035317:0x7441460f6ddaa171",
+        "naver_place_url": "https://m.place.naver.com/hospital/11674024/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/8954020"
+      }
+    },
+    {
+      "hospital_id": "siheung_saeroun_dental",
+      "hospital_name": "새로운치과의원",
+      "category": "치과",
+      "lat": 37.3543151,
+      "lng": 126.7229767,
+      "address": "경기 시흥시 정왕대로 56 세종월드 2층",
+      "channels": {
+        "google_place_id": "0x357b7133c40a417b:0xf7a96ff491700338",
+        "naver_place_url": "https://m.place.naver.com/hospital/13231843/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/16609199"
+      }
+    },
+    {
+      "hospital_id": "siheung_seoul_life_dental",
+      "hospital_name": "서울라이프치과의원",
+      "category": "치과",
+      "lat": 37.437524,
+      "lng": 126.8017766,
+      "address": "경기 시흥시 은계번영길 9 골드웨이 5층 512~514호",
+      "channels": {
+        "google_place_id": "0x357b6349a6e80b0b:0xa5b91a4d2c5cfb74",
+        "naver_place_url": "https://m.place.naver.com/hospital/1790228468/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/1941383682"
+      }
+    },
+    {
+      "hospital_id": "siheung_seoul_ansim_dental",
+      "hospital_name": "서울안심치과의원",
+      "category": "치과",
+      "lat": 37.4401704,
+      "lng": 126.7865805,
+      "address": "경기 시흥시 수인로 3350 종산타워 3-5층",
+      "channels": {
+        "google_place_id": "0x357b6531480a38f3:0xea404e069b5ccb64",
+        "naver_place_url": "https://m.place.naver.com/hospital/2063352013/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/2137619494"
+      }
+    },
+    {
+      "hospital_id": "cheongju_seoul_top_implant_dental",
+      "hospital_name": "서울탑플란트치과의원 청주",
+      "category": "치과",
+      "lat": 36.6248868,
+      "lng": 127.4300588,
+      "address": "충북 청주시 흥덕구 강서로 122 3층",
+      "channels": {
+        "google_place_id": "0x356529389bbf19f3:0xd4219c635425a19",
+        "naver_place_url": "https://m.place.naver.com/hospital/1192020876/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/884269375"
+      }
+    },
+    {
+      "hospital_id": "bupyeong_oracle_derm",
+      "hospital_name": "오라클피부과의원 부평점",
+      "category": "피부과",
+      "lat": 37.4935625,
+      "lng": 126.7225625,
+      "address": "인천 부평구 부평대로 23 7층",
+      "channels": {
+        "google_place_id": "0x357b7dbeb05ff061:0xeadfacd8d77c4200",
+        "naver_place_url": "https://m.place.naver.com/hospital/2039979615/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/1922726416"
+      }
+    },
+    {
+      "hospital_id": "cheongju_tunteun_ortho",
+      "hospital_name": "튼튼정형외과의원",
+      "category": "정형외과",
+      "lat": 36.6308066,
+      "lng": 127.5035476,
+      "address": "충북 청주시 상당구 산성로92번길 6 굿모닝타워 3,6-7층",
+      "channels": {
+        "google_place_id": "0x356527aefd44ad4f:0x53502cddbf5a87da",
+        "naver_place_url": "https://m.place.naver.com/hospital/13248143/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/10889794"
+      }
+    },
+    {
+      "hospital_id": "geomdan_365barunmun_dental",
+      "hospital_name": "365바른문치과의원",
+      "category": "치과",
+      "lat": 37.6030119,
+      "lng": 126.6989083,
+      "address": "인천 검단구 고산후로 216 메트로시티2 4층 404~410호",
+      "channels": {
+        "google_place_id": "0x357c8300279f981f:0x4f8608322c7c4c9",
+        "naver_place_url": "https://m.place.naver.com/hospital/2006977067/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/219482297"
+      }
+    },
+    {
+      "hospital_id": "daejeon_365seongsim_implant_dental",
+      "hospital_name": "365성심플란트치과의원",
+      "category": "치과",
+      "lat": 36.3172686,
+      "lng": 127.4572803,
+      "address": "대전 동구 옥천로 153 6-7층",
+      "channels": {
+        "google_place_id": "0x35654900704897b9:0x4b5fc3168b4f299",
+        "naver_place_url": "https://m.place.naver.com/hospital/1956968694/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/1249376053"
+      }
+    },
+    {
+      "hospital_id": "yaksu_365allcare_dental",
+      "hospital_name": "365올케어치과의원",
+      "category": "치과",
+      "lat": 37.5534104,
+      "lng": 127.0113909,
+      "address": "서울 중구 동호로 171 더그레이스빌딩 4층",
+      "channels": {
+        "google_place_id": "0x357ca3facfeda8cb:0x549f07856ccb3e69",
+        "naver_place_url": "https://m.place.naver.com/hospital/1932463952/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/2031808279"
+      }
+    },
+    {
+      "hospital_id": "cheongdam_thean_clinic",
+      "hospital_name": "더안청담의원",
+      "category": "피부과",
+      "lat": 37.5229013,
+      "lng": 127.0400014,
+      "address": "서울 강남구 도산대로 406 청담퍼스트타워 2층 201~202호",
+      "channels": {
+        "google_place_id": "0x357ca36c6552e041:0x29c99c94cb100b52",
+        "naver_place_url": "https://m.place.naver.com/hospital/1960345900/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/187991685"
+      }
+    },
+    {
+      "hospital_id": "dongbaek_seoul_u_dental",
+      "hospital_name": "동백서울유치과의원",
+      "category": "치과",
+      "lat": 37.2712993,
+      "lng": 127.152086,
+      "address": "경기 용인시 기흥구 동백중앙로 199 에이스프라자 203호",
+      "channels": {
+        "google_place_id": "0x357b51001346a3c3:0xed88f6bff873253",
+        "naver_place_url": "https://m.place.naver.com/hospital/1718743692/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/1858101811"
+      }
+    },
+    {
+      "hospital_id": "jongno_lemiel_ps",
+      "hospital_name": "르미엘성형외과의원",
+      "category": "성형외과",
+      "lat": 37.5700624,
+      "lng": 126.9908348,
+      "address": "서울 종로구 종로 120 동영타워 3층",
+      "channels": {
+        "google_place_id": "0x357ca2e7468e829d:0x4a98c9838ebb6b51",
+        "naver_place_url": "https://m.place.naver.com/hospital/1760780877/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/1376144851"
+      }
+    },
+    {
+      "hospital_id": "gangnam_mode_dental",
+      "hospital_name": "모드치과의원 강남",
+      "category": "치과",
+      "lat": 37.5047454,
+      "lng": 127.0238898,
+      "address": "서울 서초구 강남대로 475 브라운성형외과빌딩 5층",
+      "channels": {
+        "google_place_id": "",
+        "naver_place_url": "https://m.place.naver.com/hospital/2057518193/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/1322889119"
+      }
+    },
+    {
+      "hospital_id": "geomdan_seoul_thetop_dental",
+      "hospital_name": "서울더탑치과의원",
+      "category": "치과",
+      "lat": 37.5939469,
+      "lng": 126.6748799,
+      "address": "인천 검단구 원당대로 663 한종프라자 3층",
+      "channels": {
+        "google_place_id": "0x357c81cee93a6e5f:0x786c325f2831ca48",
+        "naver_place_url": "https://m.place.naver.com/hospital/1251605697/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/1618767953"
+      }
+    },
+    {
+      "hospital_id": "bupyeong_seongmo_hawayou_surgery",
+      "hospital_name": "성모하와유외과의원",
+      "category": "외과",
+      "lat": 37.4941449,
+      "lng": 126.7224672,
+      "address": "인천 부평구 부평문화로 55 와이디타워 11층 1101호",
+      "channels": {
+        "google_place_id": "0x357b7d25b55d7cfd:0x158f8ddab329203b",
+        "naver_place_url": "https://m.place.naver.com/hospital/1741898166/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/108091667"
+      }
+    },
+    {
+      "hospital_id": "sinsa_kimdongha_derm",
+      "hospital_name": "신사김동하피부과의원",
+      "category": "피부과",
+      "lat": 37.5173683,
+      "lng": 127.019503,
+      "address": "서울 강남구 강남대로 624 ICT TOWER 14층",
+      "channels": {
+        "google_place_id": "0x357ca38a02d937eb:0x66426d8b9734a9b7",
+        "naver_place_url": "https://m.place.naver.com/hospital/1312202331/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/13510181"
+      }
+    },
+    {
+      "hospital_id": "sinsa_egg_clinic",
+      "hospital_name": "신사에그의원",
+      "category": "피부과",
+      "lat": 37.5165313,
+      "lng": 127.0190211,
+      "address": "서울 서초구 강남대로 613 성락빌딩 3,5~7층",
+      "channels": {
+        "google_place_id": "0x357ca3e86936a015:0x2e87ba10aef16b68",
+        "naver_place_url": "https://m.place.naver.com/hospital/1103320291/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/1708325328"
+      }
+    },
+    {
+      "hospital_id": "cheongju_is_ps",
+      "hospital_name": "아이에스성형외과의원",
+      "category": "성형외과",
+      "lat": 36.6254731,
+      "lng": 127.4300781,
+      "address": "충북 청주시 흥덕구 2순환로 1240 MK타워 9층 902호",
+      "channels": {
+        "google_place_id": "0x356528d9708b85a5:0x748a4509ec4c509d",
+        "naver_place_url": "https://m.place.naver.com/hospital/20266107/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/13692152"
+      }
+    },
+    {
+      "hospital_id": "bucheon_yonsei_misoae_dental",
+      "hospital_name": "연세미소애치과의원",
+      "category": "치과",
+      "lat": 37.5160961,
+      "lng": 126.7704159,
+      "address": "경기 부천시 오정구 중동로 406 서경빌딩 3층 301호",
+      "channels": {
+        "google_place_id": "0x357b7d5a11c2ac19:0x841a5eda02d9fb",
+        "naver_place_url": "https://m.place.naver.com/hospital/13493482/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/12514713"
+      }
+    },
+    {
+      "hospital_id": "ilsan_danaeun_korean_med",
+      "hospital_name": "일산다나은한방병원",
+      "category": "한방병원",
+      "lat": 37.7004559,
+      "lng": 126.7789872,
+      "address": "경기 고양시 일산동구 고봉로 467-57 가동 지하1층, 1-3층",
+      "channels": {
+        "google_place_id": "0x357c8f000eb68b55:0x7c61aff1786d9d65",
+        "naver_place_url": "https://m.place.naver.com/hospital/1412309619/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/1555763070"
+      }
     }
   ]
 }

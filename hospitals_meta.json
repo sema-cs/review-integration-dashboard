@@ -27,5 +27,103 @@
       { "id": "comp_choidi", "name": "최동익성형외과의원", "lat": 37.3307284, "lng": 127.9488795 },
       { "id": "comp_midream", "name": "미드림의원", "lat": 37.3439314, "lng": 127.9298012 }
     ]
-  }
+  },
+  "gunpo_seoul_s_dental": {
+    "name": "서울에스치과의원",
+    "lat": 37.358651,
+    "lng": 126.9307547,
+    "competitors": []
+  },
+  "apgujeong_brandnew_clinic": {
+    "name": "브랜뉴의원",
+    "lat": 37.5268999,
+    "lng": 127.0451173,
+    "competitors": []
+  },
+  "songpa_sarangai_women": {
+    "name": "사랑아이여성의원",
+    "lat": 37.5104535,
+    "lng": 127.079142,
+    "competitors": []
+  },
+  "yangcheon_seoul_keun_dental": {
+    "name": "서울큰치과의원",
+    "lat": 37.519165,
+    "lng": 126.8529722,
+    "competitors": []
+  },
+  "daejeon_joandi_dental": {
+    "name": "조앤이치과의원",
+    "lat": 36.3625177,
+    "lng": 127.3768859,
+    "competitors": []
+  },
+  "incheon_cheongna_dental": {
+    "name": "청라치과의원",
+    "lat": 37.5320163,
+    "lng": 126.6401609,
+    "competitors": []
+  },
+  "seocho_seoul_mothers_ps": {
+    "name": "서초서울마더스성형외과의원",
+    "lat": 37.4900808,
+    "lng": 126.9829788,
+    "competitors": []
+  },
+  "cheongju_duri_ent": {
+    "name": "두리이비인후과의원 청주점",
+    "lat": 36.6081276,
+    "lng": 127.4445909,
+    "competitors": []
+  },
+  "siheung_saeroun_dental": {
+    "name": "새로운치과의원",
+    "lat": 37.3543151,
+    "lng": 126.7229767,
+    "competitors": []
+  },
+  "siheung_seoul_life_dental": {
+    "name": "서울라이프치과의원",
+    "lat": 37.437524,
+    "lng": 126.8017766,
+    "competitors": []
+  },
+  "siheung_seoul_ansim_dental": {
+    "name": "서울안심치과의원",
+    "lat": 37.4401704,
+    "lng": 126.7865805,
+    "competitors": []
+  },
+  "cheongju_seoul_top_implant_dental": {
+    "name": "서울탑플란트치과의원 청주",
+    "lat": 36.6248868,
+    "lng": 127.4300588,
+    "competitors": []
+  },
+  "bupyeong_oracle_derm": {
+    "name": "오라클피부과의원 부평점",
+    "lat": 37.4935625,
+    "lng": 126.7225625,
+    "competitors": []
+  },
+  "cheongju_tunteun_ortho": {
+    "name": "튼튼정형외과의원",
+    "lat": 36.6308066,
+    "lng": 127.5035476,
+    "competitors": []
+  },
+  "geomdan_365barunmun_dental": { "name": "365바른문치과의원", "lat": 37.6030119, "lng": 126.6989083, "competitors": [] },
+  "daejeon_365seongsim_implant_dental": { "name": "365성심플란트치과의원", "lat": 36.3172686, "lng": 127.4572803, "competitors": [] },
+  "yaksu_365allcare_dental": { "name": "365올케어치과의원", "lat": 37.5534104, "lng": 127.0113909, "competitors": [] },
+  "cheongdam_thean_clinic": { "name": "더안청담의원", "lat": 37.5229013, "lng": 127.0400014, "competitors": [] },
+  "dongbaek_seoul_u_dental": { "name": "동백서울유치과의원", "lat": 37.2712993, "lng": 127.152086, "competitors": [] },
+  "jongno_lemiel_ps": { "name": "르미엘성형외과의원", "lat": 37.5700624, "lng": 126.9908348, "competitors": [] },
+  "gangnam_mode_dental": { "name": "모드치과의원 강남", "lat": 37.5047454, "lng": 127.0238898, "competitors": [] },
+  "geomdan_seoul_thetop_dental": { "name": "서울더탑치과의원", "lat": 37.5939469, "lng": 126.6748799, "competitors": [] },
+  "bupyeong_seongmo_hawayou_surgery": { "name": "성모하와유외과의원", "lat": 37.4941449, "lng": 126.7224672, "competitors": [] },
+  "sinsa_kimdongha_derm": { "name": "신사김동하피부과의원", "lat": 37.5173683, "lng": 127.019503, "competitors": [] },
+  "sinsa_egg_clinic": { "name": "신사에그의원", "lat": 37.5165313, "lng": 127.0190211, "competitors": [] },
+  "cheongju_is_ps": { "name": "아이에스성형외과의원", "lat": 36.6254731, "lng": 127.4300781, "competitors": [] },
+  "bucheon_yonsei_misoae_dental": { "name": "연세미소애치과의원", "lat": 37.5160961, "lng": 126.7704159, "competitors": [] },
+  "ilsan_danaeun_korean_med": { "name": "일산다나은한방병원", "lat": 37.7004559, "lng": 126.7789872, "competitors": [] }
 }
