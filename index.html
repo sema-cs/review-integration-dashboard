@@ -277,6 +277,35 @@
   .summary-table .st-pos { color:var(--good); font-weight:700; }
   .summary-table .st-neg { color:var(--critical); font-weight:700; }
   .summary-table .st-muted { color:var(--text-muted); }
+  /* 지점별 VOC 마스터 대시보드 */
+  .kpi-grid { display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:14px; margin-bottom:18px; }
+  .kpi-card { background:var(--surface); border:1px solid var(--border); border-radius:14px; box-shadow:var(--shadow); padding:16px 18px; min-width:0; }
+  .kpi-label { font-size:12px; font-weight:700; color:var(--text-muted); }
+  .kpi-value { font-family:var(--font-display); font-size:26px; font-weight:800; margin-top:6px; line-height:1.2; overflow-wrap:anywhere; }
+  .kpi-value .unit { font-size:13px; font-weight:600; color:var(--text-muted); margin-left:2px; }
+  .kpi-value.kw { font-size:17px; }
+  .kpi-sub { font-size:11.5px; color:var(--text-secondary); margin-top:6px; }
+  .master-controls { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+  .master-controls input[type=search], .master-controls select { border:1px solid var(--border); background:var(--surface); color:var(--text-primary); border-radius:8px; padding:8px 10px; font-size:13px; }
+  .master-controls input[type=search] { width:240px; max-width:100%; }
+  .summary-table.master td { vertical-align:top; }
+  .summary-table.master tbody tr { cursor:default; }
+  .summary-table.master td.st-note { white-space:normal; text-align:left; min-width:280px; max-width:420px; line-height:1.5; color:var(--text-secondary); }
+  .summary-table.master td.st-kw { white-space:normal; text-align:left; min-width:120px; }
+  .summary-table.master th.left { text-align:left; }
+  .st-link { border:none; background:none; padding:0; font:inherit; font-weight:700; color:var(--chart-1); cursor:pointer; text-align:left; }
+  .st-link:hover { text-decoration:underline; }
+  .st-link:focus-visible { outline:2px solid var(--chart-1); outline-offset:2px; border-radius:3px; }
+  .risk-chip { display:inline-block; font-size:11px; font-weight:700; padding:2px 7px; border-radius:999px; margin-left:6px; vertical-align:1px; }
+  .risk-chip.risk { background:var(--critical-tint); color:var(--critical); }
+  .risk-chip.watch { background:var(--warning-tint); color:var(--warning); }
+  .ratio-bar { display:flex; width:96px; height:6px; border-radius:3px; overflow:hidden; background:var(--surface-sunken); margin:5px 0 0 auto; }
+  .ratio-bar .pos { background:var(--good); } .ratio-bar .neg { background:var(--critical); }
+  .kw-chip { display:inline-block; font-size:11.5px; font-weight:600; padding:2px 8px; border-radius:999px; background:var(--critical-tint); color:var(--critical); margin:0 4px 4px 0; }
+  .portal-links { display:inline-flex; gap:5px; }
+  .portal-btn { display:inline-flex; align-items:center; justify-content:center; width:26px; height:26px; border-radius:7px; font-size:12px; font-weight:800; text-decoration:none; }
+  .portal-btn.off { background:var(--surface-sunken); color:var(--text-muted); cursor:not-allowed; }
+  @media (max-width:900px) { .kpi-grid { grid-template-columns:repeat(2, minmax(0,1fr)); } }
 
   @media (max-width:900px) {
     .admin-tabs { padding:10px 16px; }
@@ -328,18 +357,33 @@
           <button data-range="3" aria-pressed="true">최근 3개월</button>
           <button data-range="6" aria-pressed="false">최근 6개월</button>
         </div>
+        <div class="master-controls">
+          <input type="search" id="summarySearch" placeholder="지점명 또는 부정 키워드 검색" aria-label="지점명 또는 부정 키워드 검색">
+          <select id="summaryFilter" aria-label="지점 필터">
+            <option value="all">전체 지점</option>
+            <option value="flagged">리스크·주의 지점</option>
+            <option value="negative">부정 리뷰 있는 지점</option>
+            <option value="quiet">이번 주 리뷰 없음</option>
+          </select>
+        </div>
       </div>
-      <div class="section-title" style="margin-bottom:4px;">관리 병원 전체 요약</div>
-      <div class="card-sub" id="summaryCaption" style="margin-bottom:10px;"></div>
+      <div class="section-title" style="margin-bottom:4px;">지점별 VOC 마스터 대시보드</div>
+      <div class="card-sub" id="summaryCaption" style="margin-bottom:12px;"></div>
+      <div class="kpi-grid">
+        <div class="kpi-card"><div class="kpi-label">총 리뷰 수</div><div class="kpi-value tnum" id="kpiTotal">-</div><div class="kpi-sub" id="kpiTotalSub"></div></div>
+        <div class="kpi-card"><div class="kpi-label">평균 긍정 비율</div><div class="kpi-value tnum" id="kpiPos">-</div><div class="kpi-sub" id="kpiPosSub"></div></div>
+        <div class="kpi-card"><div class="kpi-label">주요 부정 키워드 TOP 2</div><div class="kpi-value kw" id="kpiNegKw">-</div><div class="kpi-sub" id="kpiNegKwSub"></div></div>
+        <div class="kpi-card"><div class="kpi-label">총 관리 지점 수</div><div class="kpi-value tnum" id="kpiBranches">-</div><div class="kpi-sub" id="kpiBranchesSub"></div></div>
+      </div>
       <div class="card">
         <div class="summary-table-wrap">
-          <table class="summary-table">
-            <thead><tr><th>병원</th><th>리뷰</th><th>긍정</th><th>부정</th><th>부정 비율</th><th>최근 부정 리뷰</th><th>VOC 추이</th></tr></thead>
+          <table class="summary-table master">
+            <thead><tr><th>지점명</th><th>총 리뷰수</th><th>긍정 / 부정 비율</th><th class="left">주요 부정 키워드</th><th class="left">주간 특이사항 요약</th><th>바로가기</th></tr></thead>
             <tbody id="summaryBody"></tbody>
           </table>
         </div>
       </div>
-      <div class="card-sub" style="margin-top:10px;">행을 누르면 그 병원 화면으로 전환됩니다. 부정 급증 병원이 맨 위, 그다음 부정 건수가 많은 순입니다. 최근 부정 리뷰는 기간과 무관하게 가장 최근 날짜이고, VOC 추이 기준은 병원 화면의 급증 기준과 같습니다(조회 기간 3건 이상 AND 직전 동일 기간 대비 50% 이상 증가).</div>
+      <div class="card-sub" style="margin-top:10px;" id="summaryFootnote"></div>
     </div>
 
     <div class="content" id="dashboardView">
@@ -564,6 +608,18 @@
       var candidate = new Date(year, month - 1, day);
       if (candidate.getTime() > collectedDate.getTime() + 86400000) year -= 1;
       return year + "-" + pad2(month) + "-" + pad2(day);
+    }
+
+    // 네이버는 1년 넘은 리뷰를 "YY.M.D.요일"(예: 25.3.8.토)로 표기한다.
+    var mNaverOld = rawDate.match(/^(\d{2})\.(\d{1,2})\.(\d{1,2})\.[월화수목금토일]$/);
+    if (mNaverOld) return "20" + mNaverOld[1] + "-" + pad2(parseInt(mNaverOld[2], 10)) + "-" + pad2(parseInt(mNaverOld[3], 10));
+
+    // 구글의 하루 이내 리뷰는 "N시간 전"/"N분 전" — 수집 시각 기준으로 환산한다(KST 날짜).
+    var mRel = rawDate.match(/^(\d+)\s*(분|시간|일)\s*전$/);
+    if (mRel && collectedAtISO) {
+      var unitMs = { "분": 60000, "시간": 3600000, "일": 86400000 }[mRel[2]];
+      var kst = new Date(new Date(collectedAtISO).getTime() - parseInt(mRel[1], 10) * unitMs + 9 * 3600000);
+      return kst.getUTCFullYear() + "-" + pad2(kst.getUTCMonth() + 1) + "-" + pad2(kst.getUTCDate());
     }
 
     console.warn("[리뷰 대시보드] 알 수 없는 날짜 형식(" + channel + "): " + rawDate);
@@ -1249,7 +1305,7 @@
   function buildAdminTabs() {
     var nav = document.getElementById("adminTabs");
     nav.innerHTML = "";
-    [{ id: "summary", name: "전체 요약" }].concat(adminHospitalIds().map(function (id) {
+    [{ id: "summary", name: "마스터 대시보드" }].concat(adminHospitalIds().map(function (id) {
       return { id: id, name: META_ALL[id].name || id };
     })).forEach(function (t) {
       var btn = document.createElement("button");
@@ -1276,7 +1332,7 @@
     window.scrollTo(0, 0);
 
     if (isSummary) {
-      document.getElementById("hospitalTitle").textContent = "관리 병원 전체 요약";
+      document.getElementById("hospitalTitle").textContent = "지점별 VOC 마스터 대시보드";
       document.getElementById("brandName").textContent = "관리자 모드";
       document.getElementById("brandMark").textContent = "관리";
       renderLastUpdated(ALL_REVIEWS);
@@ -1304,51 +1360,162 @@
     history.replaceState(null, "", "?" + q.toString());
   }
 
-  function renderSummary() {
-    var ids = adminHospitalIds();
+  // ---------------------------------------------------------------
+  // 지점별 VOC 마스터 대시보드(관리자 첫 화면)
+  //   - 주간 특이사항: weekly_notes.json — "주간 특이사항 갱신" 요청 시 Claude Code가 최근 7일
+  //     리뷰를 읽고 지점별 1문장으로 작성한다(flag: risk=부정 이슈, watch=칭찬 속 개선 요청).
+  //   - 포털 원본 링크: config/hospitals_config.json(수집기 설정)의 채널 주소를 그대로 쓴다.
+  // ---------------------------------------------------------------
+  var WEEKLY_NOTES = null;
+  var CHANNEL_CONFIG = {};
+  var HIGH_NEG_PCT = 10;   // 조회 기간 부정 비율이 이 값(%) 이상이고 리뷰 5건 이상이면 리스크
+  var summaryFilterState = { search: "", filter: "all" };
+
+  function portalLinks(id) {
+    var ch = CHANNEL_CONFIG[id] || {};
+    var links = {};
+    if (ch.naver_place_url) links.naver = ch.naver_place_url;
+    if (ch.kakao_place_url) links.kakao = ch.kakao_place_url.replace(/#.*$/, "") + "#review";
+    if (ch.google_place_id) links.google = "https://www.google.com/maps/place/data=!4m2!3m1!1s" + encodeURIComponent(ch.google_place_id);
+    return links;
+  }
+
+  function topCounts(words, n) {
+    var counts = {};
+    words.forEach(function (w) { counts[w] = (counts[w] || 0) + 1; });
+    return Object.keys(counts).map(function (k) { return { word: k, count: counts[k] }; })
+      .sort(function (a, b) { return b.count - a.count || a.word.localeCompare(b.word); }).slice(0, n);
+  }
+
+  function buildSummaryRows() {
     var b = currentWindowBounds();
-    document.getElementById("summaryCaption").textContent = rangeLabel() + " 기준 · 관리 병원 " + ids.length + "곳";
-    var rows = ids.map(function (id) {
+    var notes = (WEEKLY_NOTES && WEEKLY_NOTES.notes) || {};
+    return adminHospitalIds().map(function (id) {
       var all = ALL_REVIEWS.filter(function (r) { return r.hospital_id === id; });
       var inRange = all.filter(function (r) { return r.date && d(r.date) >= b.start && d(r.date) <= b.end; });
       var pos = inRange.filter(function (r) { return r.sentiment === "positive"; }).length;
-      var neg = inRange.filter(function (r) { return r.sentiment === "negative"; }).length;
-      var negDates = all.filter(function (r) { return r.sentiment === "negative" && r.date; }).map(function (r) { return r.date; }).sort();
+      var negList = inRange.filter(function (r) { return r.sentiment === "negative"; });
+      var negWords = [];
+      negList.forEach(function (r) { negWords = negWords.concat(r.keyPoints); });
+      var note = notes[id] || null;
+      var spike = all.length ? computeSpike(all) : { negSpike: false };
+      var negPct = inRange.length ? Math.round((negList.length / inRange.length) * 100) : null;
+      var level = 0, reason = "";
+      if ((note && note.flag === "risk") || spike.negSpike) { level = 3; reason = spike.negSpike ? "부정 급증" : "주간 이슈"; }
+      else if (negPct != null && inRange.length >= 5 && negPct >= HIGH_NEG_PCT) { level = 2; reason = "부정 비율 " + negPct + "%"; }
+      else if (note && note.flag === "watch") { level = 1; reason = "개선 요청"; }
       return {
-        id: id, name: META_ALL[id].name || id, total: inRange.length, pos: pos, neg: neg,
-        negPct: inRange.length ? Math.round((neg / inRange.length) * 100) : null,
-        lastNeg: negDates.length ? negDates[negDates.length - 1] : null,
-        spike: all.length ? computeSpike(all) : { posSpike: false, negSpike: false }
+        id: id, name: META_ALL[id].name || id, total: inRange.length, pos: pos, neg: negList.length,
+        posPct: inRange.length ? Math.round((pos / inRange.length) * 100) : null, negPct: negPct,
+        negWords: negWords, topNeg: topCounts(negWords, 2), note: note, level: level, reason: reason,
+        links: portalLinks(id)
       };
     }).sort(function (x, y) {
-      if (x.spike.negSpike !== y.spike.negSpike) return x.spike.negSpike ? -1 : 1;
-      return y.neg - x.neg;
+      return (y.level - x.level) || ((y.negPct || 0) - (x.negPct || 0)) || (y.neg - x.neg) || (y.total - x.total);
     });
+  }
+
+  function renderSummaryKpis(rows) {
+    var total = rows.reduce(function (s, r) { return s + r.total; }, 0);
+    var withData = rows.filter(function (r) { return r.posPct != null; });
+    var avgPos = withData.length ? Math.round(withData.reduce(function (s, r) { return s + r.posPct; }, 0) / withData.length) : null;
+    var allNeg = [];
+    rows.forEach(function (r) { allNeg = allNeg.concat(r.negWords); });
+    var top2 = topCounts(allNeg, 2);
+    var risk = rows.filter(function (r) { return r.level >= 2; }).length;
+    var watch = rows.filter(function (r) { return r.level === 1; }).length;
+
+    document.getElementById("kpiTotal").innerHTML = total.toLocaleString() + '<span class="unit">건</span>';
+    document.getElementById("kpiTotalSub").textContent = rangeLabel() + " · 관리 지점 합계";
+    document.getElementById("kpiPos").innerHTML = avgPos == null ? "데이터 없음" : avgPos + '<span class="unit">%</span>';
+    document.getElementById("kpiPosSub").textContent = "리뷰가 있는 " + withData.length + "곳의 지점별 긍정 비율 평균";
+    document.getElementById("kpiNegKw").textContent = top2.length ? top2.map(function (k) { return k.word; }).join(" · ") : "데이터 없음";
+    document.getElementById("kpiNegKwSub").textContent = top2.length
+      ? top2.map(function (k) { return k.word + " " + k.count + "건"; }).join(", ") + " (부정 리뷰 주요 포인트)"
+      : "이 기간 부정 리뷰의 주요 포인트가 없습니다";
+    document.getElementById("kpiBranches").innerHTML = rows.length + '<span class="unit">곳</span>';
+    document.getElementById("kpiBranchesSub").textContent = "리스크 " + risk + "곳 · 주의 " + watch + "곳";
+  }
+
+  function summaryRowVisible(row) {
+    var q = summaryFilterState.search.trim().toLowerCase();
+    if (q) {
+      var hit = row.name.toLowerCase().indexOf(q) !== -1 ||
+        row.negWords.some(function (w) { return w.toLowerCase().indexOf(q) !== -1; });
+      if (!hit) return false;
+    }
+    switch (summaryFilterState.filter) {
+      case "flagged": return row.level > 0;
+      case "negative": return row.neg > 0;
+      case "quiet": return !!(row.note && row.note.count === 0);
+      default: return true;
+    }
+  }
+
+  function portalCell(links) {
+    return '<span class="portal-links">' + ["naver", "kakao", "google"].map(function (ch) {
+      var label = PLATFORM_LABEL[ch];
+      if (!links[ch]) return '<span class="portal-btn off" title="' + label + ' 링크 없음(미등록)">' + CHAN_BADGE[ch] + '</span>';
+      return '<a class="portal-btn" href="' + escapeHtml(links[ch]) + '" target="_blank" rel="noopener noreferrer" title="' + label + ' 리뷰 원본 열기" ' +
+        'style="background:' + css(PLATFORM_VAR[ch]) + ';color:' + PLATFORM_INK[ch] + '">' + CHAN_BADGE[ch] + '</a>';
+    }).join("") + '</span>';
+  }
+
+  function renderSummary() {
+    var rows = buildSummaryRows();
+    var notesInfo = WEEKLY_NOTES
+      ? "주간 특이사항 " + WEEKLY_NOTES.period_start + " ~ " + WEEKLY_NOTES.period_end + " 기준(Claude 작성)"
+      : "주간 특이사항 데이터 없음";
+    document.getElementById("summaryCaption").textContent = rangeLabel() + " 기준 · 관리 지점 " + rows.length + "곳 · " + notesInfo;
+    renderSummaryKpis(rows);
 
     var body = document.getElementById("summaryBody");
     if (!rows.length) {
-      body.innerHTML = '<tr><td colspan="7" class="empty-note" style="text-align:center;">등록된 관리 병원이 없습니다 (hospitals_meta.json 데이터 없음).</td></tr>';
+      body.innerHTML = '<tr><td colspan="6" class="empty-note" style="text-align:center;">등록된 관리 지점이 없습니다 (hospitals_meta.json 데이터 없음).</td></tr>';
       return;
     }
+    var visible = rows.filter(summaryRowVisible);
     body.innerHTML = "";
-    rows.forEach(function (row) {
-      var trend = row.spike.negSpike ? '<span class="st-neg">⚠️ 부정 급증</span>'
-        : (row.spike.posSpike ? '<span class="st-pos">🟢 긍정 상승</span>' : '<span class="st-muted">—</span>');
+    if (!visible.length) {
+      body.innerHTML = '<tr><td colspan="6" class="empty-note" style="text-align:center;">조건에 맞는 지점이 없습니다.</td></tr>';
+    }
+    visible.forEach(function (row) {
+      var chip = row.level >= 2 ? '<span class="risk-chip risk" title="' + escapeHtml(row.reason) + '">리스크</span>'
+        : (row.level === 1 ? '<span class="risk-chip watch" title="' + escapeHtml(row.reason) + '">주의</span>' : "");
+      var ratio = row.total
+        ? '<span class="st-pos">' + row.posPct + '%</span> / <span class="st-neg">' + row.negPct + '%</span>' +
+          '<div class="ratio-bar"><span class="pos" style="width:' + row.posPct + '%"></span><span class="neg" style="width:' + row.negPct + '%"></span></div>'
+        : '<span class="st-muted">데이터 없음</span>';
+      var kw = row.topNeg.length
+        ? row.topNeg.map(function (k) { return '<span class="kw-chip">' + escapeHtml(k.word) + ' ' + k.count + '</span>'; }).join("")
+        : (row.neg ? '<span class="st-muted">포인트 없음</span>' : '<span class="st-muted">없음</span>');
+      var note = row.note ? escapeHtml(row.note.summary) : '<span class="st-muted">데이터 없음(주간 특이사항 미작성)</span>';
       var tr = document.createElement("tr");
-      tr.setAttribute("tabindex", "0");
       tr.innerHTML =
-        '<td class="st-name">' + escapeHtml(row.name) + '</td>' +
+        '<td class="st-name"><button type="button" class="st-link">' + escapeHtml(row.name) + '</button>' + chip + '</td>' +
         '<td class="tnum">' + row.total + '</td>' +
-        '<td class="tnum st-pos">' + row.pos + '</td>' +
-        '<td class="tnum st-neg">' + row.neg + '</td>' +
-        '<td class="tnum">' + (row.negPct == null ? '<span class="st-muted">데이터 없음</span>' : row.negPct + "%") + '</td>' +
-        '<td class="tnum">' + (row.lastNeg || '<span class="st-muted">없음</span>') + '</td>' +
-        '<td>' + trend + '</td>';
-      tr.addEventListener("click", function () { showAdminView(row.id); });
-      tr.addEventListener("keydown", function (e) { if (e.key === "Enter") showAdminView(row.id); });
+        '<td class="tnum">' + ratio + '</td>' +
+        '<td class="st-kw">' + kw + '</td>' +
+        '<td class="st-note">' + note + '</td>' +
+        '<td>' + portalCell(row.links) + '</td>';
+      tr.querySelector(".st-link").addEventListener("click", function () { showAdminView(row.id); });
       body.appendChild(tr);
     });
+
+    document.getElementById("summaryFootnote").textContent =
+      "지점명을 누르면 그 지점 상세 대시보드로, N·K·G 버튼은 네이버·카카오·구글 리뷰 원본으로 이동합니다(회색은 미등록). " +
+      "정렬: 리스크(부정 급증·주간 이슈, 또는 리뷰 5건 이상에서 부정 비율 " + HIGH_NEG_PCT + "% 이상) → 주의(칭찬 속 개선 요청) → 부정 비율 순. " +
+      "총 리뷰수·비율·키워드는 선택한 조회 기간, 주간 특이사항은 위 기준 기간의 리뷰를 Claude가 읽고 작성한 요약입니다.";
   }
+
+  document.getElementById("summarySearch").addEventListener("input", function (e) {
+    summaryFilterState.search = e.target.value;
+    renderSummary();
+  });
+  document.getElementById("summaryFilter").addEventListener("change", function (e) {
+    summaryFilterState.filter = e.target.value;
+    renderSummary();
+  });
 
   // 요약 화면과 병원 화면의 기간 버튼이 같은 기간 상태(state)를 보여주게 맞춘다.
   function syncRangeButtons() {
@@ -1378,9 +1545,14 @@
       if (!res.ok) throw new Error("시트 응답 오류: " + res.status);
       return res.text();
     }),
-    fetch(META_URL).then(function (res) { return res.ok ? res.json() : {}; }).catch(function () { return {}; })
+    fetch(META_URL).then(function (res) { return res.ok ? res.json() : {}; }).catch(function () { return {}; }),
+    // 관리자 화면 전용: 주간 특이사항 + 포털 링크(없으면 '데이터 없음'으로 표시)
+    adminMode ? fetch("weekly_notes.json", { cache: "no-cache" }).then(function (res) { return res.ok ? res.json() : null; }).catch(function () { return null; }) : null,
+    adminMode ? fetch("config/hospitals_config.json").then(function (res) { return res.ok ? res.json() : null; }).catch(function () { return null; }) : null
   ]).then(function (results) {
     META_ALL = results[1] || {};
+    WEEKLY_NOTES = results[2];
+    ((results[3] && results[3].hospitals) || []).forEach(function (h) { CHANNEL_CONFIG[h.hospital_id] = h.channels || {}; });
     ALL_REVIEWS = csvToObjects(results[0]).map(toReview).filter(function (r) { return r.channel; });
     hideBanner();
 

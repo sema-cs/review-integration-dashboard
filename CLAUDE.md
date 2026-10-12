@@ -116,6 +116,31 @@ python reclassify.py --apply
 - 본문에 없는 내용을 추측하지 않는다. 구체적 포인트를 찾을 수 없으면 `["-"]`(다시 후보로 나오지
   않고, 대시보드는 집계하지 않는다).
 
+## 주간 특이사항 갱신 (`weekly_notes.json`)
+
+관리자 첫 화면(`?admin=1` "마스터 대시보드")의 "주간 특이사항 요약" 컬럼 원천이다. 2026-10-12
+사용자 결정으로 **요청 시 Claude Code가 작성**한다(유료 API 자동 생성 아님). "주간 특이사항 갱신"
+요청을 받으면:
+
+1. 시트(공개 CSV 또는 `--export`와 같은 읽기)에서 자사 병원(`hospitals_meta.json` 키)별로 최근 7일
+   (오늘 포함) 리뷰를 모은다. 날짜 정규화는 `index.html`의 `normalizeDate`와 같은 규칙을 쓴다.
+   재분류(`reclassify.py`)를 먼저 끝내 sentiment/key_points가 확정된 상태에서 쓴다.
+2. 지점별로 리뷰를 직접 읽고 1문장 요약을 쓴다. 본문에 없는 내용은 쓰지 않는다(추측 금지). 7일 리뷰가
+   없으면 "최근 7일 새 리뷰가 없습니다(마지막 리뷰 M월 D일)."처럼 사실만 쓴다.
+3. `flag`: `"risk"`=이번 주 부정 리뷰로 드러난 실제 불만 이슈, `"watch"`=칭찬 리뷰 속 개선 요청
+   (예: 대기 시간 언급), `"none"`=특이사항 없음. `count`=7일 리뷰 수.
+4. 형식:
+   ```json
+   {"generated_at": "...+09:00", "period_start": "YYYY-MM-DD", "period_end": "YYYY-MM-DD",
+    "notes": {"<hospital_id>": {"flag": "none|watch|risk", "count": 0, "summary": "1문장"}}}
+   ```
+5. 커밋·push하면 대시보드에 반영된다. 저장소가 public이라 요약도 공개된다(리뷰 원문이 이미 공개
+   시트에 있어 노출 수준은 같음). 환자 실명·연락처 등은 요약에 넣지 않는다.
+
+정렬 규칙(`index.html` `buildSummaryRows`): 리스크(부정 급증·`risk`, 또는 조회 기간 리뷰 5건 이상에서
+부정 비율 10% 이상) → 주의(`watch`) → 부정 비율 순. 포털 바로가기는 `config/hospitals_config.json`의
+채널 주소를 그대로 쓴다(구글은 `google_place_id`로 지도 링크 생성).
+
 ## 경쟁 병원 온보딩 — 네이버 플레이스 ID
 
 네이버는 스크립트 검색에 캡차를 요구해(2026-09-28 실측) 플레이스 ID 자동 조회가
