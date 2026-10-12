@@ -1052,9 +1052,42 @@
   });
 
   var navButtons = document.querySelectorAll(".nav-item");
+  function setActiveNav(sectionId) {
+    navButtons.forEach(function (b) { b.classList.toggle("active", b.getAttribute("data-target") === sectionId); });
+  }
+
+  // 스크롤 위치에 맞춰 사이드바 활성 메뉴를 따라가게 한다(scroll-spy).
+  // 메뉴 클릭으로 부드럽게 스크롤하는 동안에는 중간 섹션을 거치며 깜빡이지 않도록 잠근다.
+  var navScrollLockUntil = 0;
+  function syncNavToScroll() {
+    if (Date.now() < navScrollLockUntil) return;
+    var ids = [];
+    navButtons.forEach(function (b) { ids.push(b.getAttribute("data-target")); });
+    var current = ids[0];
+    var atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+    if (atBottom) {
+      current = ids[ids.length - 1];
+    } else {
+      var threshold = window.innerHeight * 0.3;
+      ids.forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= threshold) current = id;
+      });
+    }
+    setActiveNav(current);
+  }
+  var navScrollTicking = false;
+  window.addEventListener("scroll", function () {
+    if (navScrollTicking) return;
+    navScrollTicking = true;
+    requestAnimationFrame(function () { navScrollTicking = false; syncNavToScroll(); });
+  }, { passive: true });
+  window.addEventListener("scrollend", function () { navScrollLockUntil = 0; syncNavToScroll(); });
+
   navButtons.forEach(function (btn) {
     btn.addEventListener("click", function () {
-      navButtons.forEach(function (b) { b.classList.toggle("active", b === btn); });
+      setActiveNav(btn.getAttribute("data-target"));
+      navScrollLockUntil = Date.now() + 1000;
       var target = document.getElementById(btn.getAttribute("data-target"));
       if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
     });
