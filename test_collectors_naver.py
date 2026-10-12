@@ -2,7 +2,7 @@ import sys, os
 sys.path.insert(0, os.path.dirname(__file__))
 
 from unittest.mock import patch, MagicMock
-from collectors.naver import _extract_place_id, _via_graphql, collect_full, NaverBlockedError, NaverUrlFormatError
+from collectors.naver import _extract_place_id, _via_graphql, _via_embedded_state, collect_full, NaverBlockedError, NaverUrlFormatError
 
 
 def test_extract_place_id_hospital_segment():
@@ -108,3 +108,20 @@ if __name__ == "__main__":
     test_via_graphql_blocked()
     test_collect_full_raises_when_place_id_missing()
     test_collect_full_success_via_graphql()
+
+
+def test_via_embedded_state_decodes_utf8_without_charset_header():
+    # 2026-10-12 실측: 네이버 리뷰 페이지는 Content-Type에 charset 없이 "text/html"만 보내,
+    # requests가 ISO-8859-1로 읽어 본문이 깨진 채 시트에 들어갔다(더안청담의원 10건).
+    import requests
+    html = ('<script>window.__APOLLO_STATE__ = {"VisitorReview:1": '
+            '{"body": "친절하시고 시술도 꼼꼼히", "rating": 5, "created": "10.1.수"}};</script>')
+    resp = requests.Response()
+    resp.status_code = 200
+    resp.headers["Content-Type"] = "text/html"
+    resp._content = html.encode("utf-8")
+    resp.encoding = requests.utils.get_encoding_from_headers(resp.headers)  # 실제 어댑터와 동일: ISO-8859-1
+    with patch("collectors.naver.requests.get", return_value=resp):
+        reviews, err = _via_embedded_state("https://m.place.naver.com/hospital/1/review/visitor")
+    assert err is None
+    assert reviews[0]["content"] == "친절하시고 시술도 꼼꼼히"

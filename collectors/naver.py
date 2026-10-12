@@ -105,8 +105,16 @@ def _via_graphql(place_id, page=1, display=30):
 _APOLLO_STATE_RE = re.compile(r"window\.__APOLLO_STATE__\s*=\s*(\{.*?\})\s*;?\s*</script>", re.S)
 
 
-def _via_embedded_state(review_page_url):
+def _get_page(review_page_url):
     resp = requests.get(review_page_url, headers=MOBILE_HEADERS, timeout=15)
+    # 2026-10-12 실측: Content-Type이 charset 없이 "text/html"이라 requests가 ISO-8859-1로
+    # 읽어 한글 본문이 깨진 채 시트에 들어갔다(더안청담의원 10건). 페이지는 실제로 UTF-8이다.
+    resp.encoding = "utf-8"
+    return resp
+
+
+def _via_embedded_state(review_page_url):
+    resp = _get_page(review_page_url)
     if _looks_blocked(resp):
         return None, f"페이지 status={resp.status_code} (차단/캡차로 추정)"
 
@@ -144,7 +152,7 @@ SELECTORS = {
 
 
 def _via_html_selectors(review_page_url):
-    resp = requests.get(review_page_url, headers=MOBILE_HEADERS, timeout=15)
+    resp = _get_page(review_page_url)
     if _looks_blocked(resp):
         return None, f"페이지 status={resp.status_code} (차단/캡차로 추정)"
     soup = BeautifulSoup(resp.text, "html.parser")
