@@ -1301,7 +1301,12 @@
   // ---------------------------------------------------------------
   // 관리자 모드: 상단 탭(전체 요약 + hospitals_meta.json의 자사 병원별)으로 화면 전환
   // ---------------------------------------------------------------
-  function adminHospitalIds() { return Object.keys(META_ALL); }
+  // 상단 탭은 병원명 가나다순(숫자로 시작하는 이름이 앞). 마스터 표는 buildSummaryRows에서 따로 리스크순 정렬한다.
+  function adminHospitalIds() {
+    return Object.keys(META_ALL).sort(function (a, b) {
+      return (META_ALL[a].name || a).localeCompare(META_ALL[b].name || b, "ko");
+    });
+  }
 
   function buildAdminTabs() {
     var nav = document.getElementById("adminTabs");
