@@ -100,7 +100,26 @@ def test_collect_full_rejects_booking_and_short_urls():
     print("PASS: test_collect_full_rejects_booking_and_short_urls")
 
 
+def test_collect_full_warns_with_graphql_error_when_falling_back(capsys=None):
+    # 2026-10-12 더안청담의원: GraphQL이 실패해 예비 경로(HTML, 10건)로 수집됐는데, 예비 경로가
+    # 성공하면 GraphQL 실패 이유가 어디에도 남지 않아 원인을 확인할 수 없었다.
+    import io, contextlib
+    hospital = {"hospital_id": "test_clinic",
+                "channels": {"naver_place_url": "https://m.place.naver.com/hospital/1/review/visitor"}}
+    buf = io.StringIO()
+    with patch("collectors.naver.polite_sleep"), \
+         patch("collectors.naver._via_graphql", return_value=(None, "graphql status=429 (차단/캡차로 추정)")), \
+         patch("collectors.naver._via_embedded_state", return_value=([{"content": "x"}], None)), \
+         contextlib.redirect_stdout(buf):
+        reviews = collect_full(hospital)
+    out = buf.getvalue()
+    assert reviews == [{"content": "x"}]
+    assert "::warning" in out and "test_clinic" in out and "status=429" in out, f"실제 출력: {out!r}"
+    print("PASS: test_collect_full_warns_with_graphql_error_when_falling_back")
+
+
 if __name__ == "__main__":
+    test_collect_full_warns_with_graphql_error_when_falling_back()
     test_collect_full_rejects_booking_and_short_urls()
     test_extract_place_id_hospital_segment()
     test_extract_place_id_no_digits()

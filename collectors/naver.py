@@ -212,13 +212,21 @@ def collect_full(hospital):
         return reviews
     failures.append(f"graphql: {err}")
 
+    # 예비 경로가 성공하면 예외가 안 나 GraphQL 실패 이유가 사라진다(2026-10-12 더안청담의원,
+    # 30건 대신 10건만 수집). 원인을 추적할 수 있게 Actions 화면에 경고로 남긴다.
+    def _warn_fallback(method, count):
+        print(f"::warning title=네이버 GraphQL 실패(예비 경로 사용)::{hospital.get('hospital_id')}: "
+              f"{failures[0]} → {method}로 {count}건 수집")
+
     reviews, err = _via_embedded_state(review_page_url)
     if reviews is not None:
+        _warn_fallback("embedded_state", len(reviews))
         return reviews
     failures.append(f"embedded_state: {err}")
 
     reviews, err = _via_html_selectors(review_page_url)
     if reviews is not None:
+        _warn_fallback("html_selectors", len(reviews))
         return reviews
     failures.append(f"html_selectors: {err}")
 
