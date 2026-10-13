@@ -9,7 +9,9 @@ review_ingest.ingest 공통 함수 — 크롬 확장 브리지와 같은 경로)
 import argparse
 import datetime
 import json
+import math
 import os
+import time
 from pathlib import Path
 
 import review_ingest
@@ -19,6 +21,12 @@ from collectors.base import safe_run
 
 CONFIG_PATH = Path(__file__).resolve().parent / "config" / "hospitals_config.json"
 COMPETITORS_CONFIG_PATH = Path(__file__).resolve().parent / "config" / "competitors_config.json"
+
+# 경쟁병원 순번 수집(2026-10-13 사용자 확정: 경쟁병원 몫 하루 90분). 하루 정원 = 90분 / 실측 평균 66초.
+COMPETITOR_DAILY_CAPACITY = 80
+COMPETITOR_TIME_BUDGET_SECONDS = 90 * 60
+ROTATION_EPOCH = datetime.date(2026, 10, 14)
+KST = datetime.timezone(datetime.timedelta(hours=9))
 
 _CHANNEL_COLLECTORS = (
     ("네이버", naver, "naver_place_url"),
@@ -45,9 +53,36 @@ def load_competitors():
             "hospital_id": c["competitor_id"],
             "hospital_name": c["name"],
             "channels": c["channels"],
+            "for_hospitals": c.get("for_hospitals", []),
         }
         for c in data.get("competitors", [])
     ]
+
+
+def competitor_group_count(n_competitors, capacity=COMPETITOR_DAILY_CAPACITY):
+    return max(1, math.ceil(n_competitors / capacity))
+
+
+def todays_competitors(competitors, today, capacity=COMPETITOR_DAILY_CAPACITY):
+    """날짜만으로 오늘 수집할 그룹을 정한다(상태 저장 없음, 같은 날 재실행해도 같은 그룹).
+    competitor_id 순으로 정렬해 k번째를 k % G 그룹에 교차 배정 → 모든 경쟁병원이 G일에 한 번씩 수집된다."""
+    ordered = sorted(competitors, key=lambda c: c["hospital_id"])
+    n_groups = competitor_group_count(len(ordered), capacity)
+    group = (today - ROTATION_EPOCH).days % n_groups
+    return group, [c for k, c in enumerate(ordered) if k % n_groups == group]
+
+
+def select_competitors(competitors, today, override, capacity=COMPETITOR_DAILY_CAPACITY):
+    """override: ""=오늘 그룹, "all"=전체, 숫자=그 그룹(수동 실행용 COMPETITOR_GROUP)."""
+    override = (override or "").strip()
+    if override == "all":
+        return sorted(competitors, key=lambda c: c["hospital_id"])
+    if override.isdigit():
+        ordered = sorted(competitors, key=lambda c: c["hospital_id"])
+        n_groups = competitor_group_count(len(ordered), capacity)
+        g = int(override) % n_groups
+        return [c for k, c in enumerate(ordered) if k % n_groups == g]
+    return todays_competitors(competitors, today, capacity)[1]
 
 
 def collect_hospital(hospital):
@@ -70,12 +105,22 @@ def collect_hospital(hospital):
 
 
 def run(hospital_id_filter=None):
-    hospitals = load_hospitals() + load_competitors()
+    own = load_hospitals()
+    competitors = load_competitors()
     if hospital_id_filter:
-        hospitals = [h for h in hospitals if h["hospital_id"] == hospital_id_filter]
-        if not hospitals:
+        own = [h for h in own if h["hospital_id"] == hospital_id_filter]
+        competitors = [h for h in competitors if h["hospital_id"] == hospital_id_filter]
+        if not own and not competitors:
             print(f"등록되지 않은 hospital_id입니다: {hospital_id_filter!r}")
             return
+    else:
+        today = datetime.datetime.now(KST).date()
+        override = os.environ.get("COMPETITOR_GROUP", "")
+        total = len(competitors)
+        group_label = override or todays_competitors(competitors, today)[0]
+        competitors = select_competitors(competitors, today, override)
+        print(f"경쟁병원 {total}곳 중 오늘 {len(competitors)}곳 수집 "
+              f"(그룹 {group_label} / 전체 {competitor_group_count(total)}그룹)")
 
     sheet_id = os.environ["GOOGLE_SHEET_ID"]
     credentials_json = os.environ["GCP_SA_KEY"]
@@ -85,7 +130,7 @@ def run(hospital_id_filter=None):
     all_existing = sheets_writer.read_existing_reviews(worksheet)
     collected_at = datetime.datetime.now().astimezone().isoformat()
 
-    for hospital in hospitals:
+    def collect_and_ingest(hospital):
         hospital_id = hospital["hospital_id"]
         raw_reviews, errors = collect_hospital(hospital)
         for err in errors:
@@ -94,6 +139,19 @@ def run(hospital_id_filter=None):
         existing_for_hospital = [r for r in all_existing if r.get("hospital_id") == hospital_id]
         added = review_ingest.ingest(worksheet, existing_for_hospital, hospital_id, raw_reviews, collected_at)
         print(f"{hospital_id}: 수집 {len(raw_reviews)}건 중 신규 {added}건 반영 (실패 채널 {len(errors)}건)")
+
+    # 자사 병원은 매일 전부 수집한다
+    for hospital in own:
+        collect_and_ingest(hospital)
+
+    # 경쟁병원은 시간 예산 안에서만 — 넘기면 남은 곳은 다음 주기로 미룬다
+    started = time.monotonic()
+    for i, hospital in enumerate(competitors):
+        if time.monotonic() - started >= COMPETITOR_TIME_BUDGET_SECONDS:
+            print(f"::warning title=경쟁병원 수집 시간 예산 초과::{COMPETITOR_TIME_BUDGET_SECONDS // 60}분을 넘겨 "
+                  f"{len(competitors) - i}곳을 건너뛰었습니다. 반복되면 COMPETITOR_DAILY_CAPACITY를 낮추세요.")
+            break
+        collect_and_ingest(hospital)
 
 
 if __name__ == "__main__":

@@ -79,8 +79,11 @@ def test_load_competitors_reads_config():
     competitors = main.load_competitors()
     ids = [c["hospital_id"] for c in competitors]
     assert "comp_audrey" in ids and "comp_dodana" in ids, f"실제: {ids}"
-    # 2026-09-22 행정동(5곳)->시 단위(22곳)로 경쟁 병원 범위 확장
-    assert len(competitors) == 22, f"실제: {len(competitors)}"
+    # 2026-09-22 강남제이스타 원주시 22곳, 2026-10-13 자사 28곳으로 확장(병원당 최대 15곳)
+    jstar = [c for c in competitors if "gangnam_jstar" in c["for_hospitals"]]
+    assert len(jstar) == 22, f"실제: {len(jstar)}"
+    assert all(c["for_hospitals"] for c in competitors), "모든 경쟁병원은 붙을 자사 병원이 있어야 함"
+    assert len({c["hospital_id"] for c in competitors}) == len(competitors), "competitor_id 중복"
     dodana = next(c for c in competitors if c["hospital_id"] == "comp_dodana")
     assert dodana["hospital_name"] == "도다나피부과의원"
     # 빈 값(미확인)이거나, find_naver_place_ids.py로 채운 플레이스 URL 형식이어야 한다
@@ -111,7 +114,76 @@ def test_run_routes_new_reviews_through_review_ingest():
     print("PASS: test_run_routes_new_reviews_through_review_ingest")
 
 
+def _comps(n):
+    return [{"hospital_id": f"comp_{i:03d}", "hospital_name": f"c{i}", "channels": {}} for i in range(n)]
+
+
+def test_competitor_groups_cover_everyone_once_per_cycle():
+    import datetime
+    comps = _comps(330)
+    n_groups = main.competitor_group_count(len(comps), capacity=80)
+    assert n_groups == 5
+    seen = []
+    for d in range(n_groups):
+        day = main.ROTATION_EPOCH + datetime.timedelta(days=d)
+        group, picked = main.todays_competitors(comps, day, capacity=80)
+        assert group == d
+        assert len(picked) <= 80
+        seen += [c["hospital_id"] for c in picked]
+    assert sorted(seen) == sorted(c["hospital_id"] for c in comps), "한 주기 안에 모두 정확히 한 번"
+    # 같은 날짜 → 같은 그룹(재현성), 주기가 돌면 다시 0그룹
+    day = main.ROTATION_EPOCH + datetime.timedelta(days=n_groups)
+    assert main.todays_competitors(comps, day, capacity=80)[0] == 0
+    assert main.todays_competitors(comps, day, capacity=80) == main.todays_competitors(list(reversed(comps)), day, capacity=80)
+    print("PASS: test_competitor_groups_cover_everyone_once_per_cycle")
+
+
+def test_select_competitors_by_override():
+    import datetime
+    comps = _comps(10)
+    day = main.ROTATION_EPOCH
+    assert len(main.select_competitors(comps, day, "all", capacity=4)) == 10
+    g1 = main.select_competitors(comps, day, "1", capacity=4)
+    assert [c["hospital_id"] for c in g1] == ["comp_001", "comp_004", "comp_007"]
+    assert main.select_competitors(comps, day, "", capacity=4) == main.todays_competitors(comps, day, capacity=4)[1]
+    print("PASS: test_select_competitors_by_override")
+
+
+def _run_with(hospitals, competitors, clock, group_env="all"):
+    calls = []
+
+    def fake_collect(h):
+        calls.append(h["hospital_id"])
+        return [], []
+
+    with patch.dict(os.environ, {"GOOGLE_SHEET_ID": "x", "GCP_SA_KEY": "{}", "COMPETITOR_GROUP": group_env}), \
+         patch("main.load_hospitals", return_value=hospitals), \
+         patch("main.load_competitors", return_value=competitors), \
+         patch("main.sheets_writer.connect", return_value="WS"), \
+         patch("main.sheets_writer.ensure_header"), \
+         patch("main.sheets_writer.read_existing_reviews", return_value=[]), \
+         patch("main.collect_hospital", side_effect=fake_collect), \
+         patch("main.review_ingest.ingest", return_value=0), \
+         patch("main.time.monotonic", side_effect=clock):
+        main.run()
+    return calls
+
+
+def test_run_stops_competitors_at_time_budget_but_always_collects_own():
+    own = [{"hospital_id": "own_a", "hospital_name": "a", "channels": {}}]
+    comps = _comps(5)
+    # 경쟁병원 단계 시작 0초, 이후 매 확인마다 40분씩 흐른다고 가정 → 0, 40, 80분까지 수집, 120분에서 중단
+    ticks = iter([0, 0, 40 * 60, 80 * 60, 120 * 60, 160 * 60, 200 * 60])
+    calls = _run_with(own, comps, lambda: next(ticks))
+    assert calls[0] == "own_a"
+    assert calls[1:] == ["comp_000", "comp_001", "comp_002"], calls
+    print("PASS: test_run_stops_competitors_at_time_budget_but_always_collects_own")
+
+
 if __name__ == "__main__":
+    test_competitor_groups_cover_everyone_once_per_cycle()
+    test_select_competitors_by_override()
+    test_run_stops_competitors_at_time_budget_but_always_collects_own()
     test_collect_hospital_aggregates_all_channels()
     test_collect_hospital_isolates_single_channel_failure()
     test_collect_hospital_all_channels_fail_returns_empty_list_not_exception()

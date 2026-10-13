@@ -458,6 +458,7 @@
             <span class="map-legend-item">⚠️ 부정 급증</span>
             <span class="map-legend-item">🟢 긍정 상승</span>
           </div>
+          <div class="card-sub" style="margin-top:10px;margin-bottom:0;">※ 경쟁 병원: 같은 시(광역·특별시는 구)·같은 진료과 병원 중 카카오맵 상위 노출과 거리를 기준으로 최대 15곳을 골랐습니다. 경쟁 병원 리뷰는 매일이 아니라 며칠에 한 번씩 순번으로 갱신되어, 최근 며칠 치가 늦게 반영될 수 있습니다.</div>
         </div>
         <div class="surge-grid">
           <div class="card surge-card">
@@ -1019,7 +1020,14 @@
       L.marker([c.lat, c.lng], { icon: icon }).addTo(map);
     });
 
-    setTimeout(function () { map.invalidateSize(); }, 150);
+    // 경쟁병원이 시·구 전역에 흩어져 있어(2026-10-13 확장) 고정 확대(16)로는 대부분 화면 밖이다 —
+    // 자사+표시 중인 경쟁병원이 모두 들어오게 맞춘다(가까이 몰려 있으면 기존처럼 16에서 멈춤).
+    var points = [[HOSPITAL_META.lat, HOSPITAL_META.lng]].concat(comps.map(function (c) { return [c.lat, c.lng]; }));
+    function fitAll() {
+      map.invalidateSize();
+      if (points.length > 1) map.fitBounds(points, { padding: [60, 60], maxZoom: 16 });
+    }
+    setTimeout(fitAll, 150);
   }
 
   // ---------------------------------------------------------------

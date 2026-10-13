@@ -141,7 +141,32 @@ python reclassify.py --apply
 부정 비율 10% 이상) → 주의(`watch`) → 부정 비율 순. 포털 바로가기는 `config/hospitals_config.json`의
 채널 주소를 그대로 쓴다(구글은 `google_place_id`로 지도 링크 생성).
 
+## 자사 병원별 인근 경쟁 병원 선정·수집 (2026-10-13~)
+
+설계서는 `docs/superpowers/specs/2026-10-13-competitor-expansion-design.md`에 있다.
+
+- **기준(사용자 확정)**
+  - 같은 행정구역 + 같은 진료과 병원 중에서 고른다. 행정구역은 도 소속이면 시, 특별·광역시면 구다.
+  - 카카오맵 검색 상위 노출 45곳을 1차 후보로 받는다. 15곳 이하면 전부, 넘으면 노출 순위와 거리를 반씩 반영한 점수로 상위 15곳을 고른다.
+  - 강남제이스타의 22곳(9-22 실측 목록)은 그대로 둔다.
+- **자사 병원을 새로 추가했을 때** 아래 순서로 실행한다. 모두 Claude 세션에서 한다.
+  ```
+  python find_competitors.py search     # 카카오맵 검색(화면 응답 읽기, 차단 징후 시 중단)
+  python find_competitors.py select     # 15곳 선정 → competitor_onboarding_work/selected.json
+  python find_competitors.py channels   # 네이버·구글 대조(주소+이름 일치만), 중단돼도 이어서 진행
+  python find_competitors.py apply      # config/competitors_config.json 갱신(백업 생성)
+  python build_meta.py                  # hospitals_meta.json의 병원별 competitors 재생성
+  ```
+  `test_build_meta.py`가 meta와 config가 어긋나면 실패한다. 커밋 전에 꼭 돌린다.
+- **매일 수집 (`main.py`)**
+  - 자사 병원은 매일 전부 수집한다.
+  - 경쟁 병원은 `COMPETITOR_DAILY_CAPACITY`(80곳)씩 날짜 순번 그룹으로 수집하고, 90분 예산을 넘기면 남은 곳은 건너뛴다(Actions에 `::warning`이 남음). 경고가 반복되면 정원을 낮춘다.
+  - 수동 실행할 때 `competitor_group` 입력에 `all`을 넣으면 전체를, 숫자를 넣으면 그 그룹을 수집한다.
+- 사용자가 특정 병원의 경쟁 병원을 바꿔 달라고 하면 `competitors_config.json`의 해당 항목 `for_hospitals`를 고친 뒤 `build_meta.py`를 다시 실행한다.
+
 ## 경쟁 병원 온보딩 — 네이버 플레이스 ID
+
+> 2026-10-12부터 `m.search.naver.com` 일반 검색은 캡차 없이 열린다. `find_competitors.py channels`가 이 경로로 ID를 찾는다. 아래 수동 절차는 그 방법으로도 못 찾은 곳을 위한 예비 수단이다.
 
 네이버는 스크립트 검색에 캡차를 요구해(2026-09-28 실측) 플레이스 ID 자동 조회가
 불가능하다. 우회하지 않는다. 신규 경쟁 병원을 `config/competitors_config.json`에
