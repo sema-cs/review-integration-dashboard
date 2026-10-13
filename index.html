@@ -405,6 +405,7 @@
         <div class="section-title" style="margin-bottom:4px;">플랫폼별 리뷰 집계</div>
         <div class="card-sub" id="rangeCaption" style="margin-bottom:10px;"></div>
         <div class="channel-card-grid" id="channelCardGrid"></div>
+        <div class="card-sub" style="margin-top:10px;margin-bottom:0;">※ 구글: 로그인하지 않은 조회에는 구글 지도가 리뷰를 일부(대표 리뷰 약 5건)만 보여주는 "제한된 보기"를 적용합니다. 그래서 구글 리뷰는 전체가 아닌 일부만 수집될 수 있으며, 건수·비율은 참고용으로 봐 주세요. 전체 리뷰는 구글 지도에서 직접 확인할 수 있습니다.</div>
       </div>
 
       <div class="section" id="section-analysis">
@@ -1505,7 +1506,8 @@
     document.getElementById("summaryFootnote").textContent =
       "지점명을 누르면 그 지점 상세 대시보드로, N·K·G 버튼은 네이버·카카오·구글 리뷰 원본으로 이동합니다(회색은 미등록). " +
       "정렬: 리스크(부정 급증·주간 이슈, 또는 리뷰 5건 이상에서 부정 비율 " + HIGH_NEG_PCT + "% 이상) → 주의(칭찬 속 개선 요청) → 부정 비율 순. " +
-      "총 리뷰수·비율·키워드는 선택한 조회 기간, 주간 특이사항은 위 기준 기간의 리뷰를 Claude가 읽고 작성한 요약입니다.";
+      "총 리뷰수·비율·키워드는 선택한 조회 기간, 주간 특이사항은 위 기준 기간의 리뷰를 Claude가 읽고 작성한 요약입니다. " +
+      "구글 리뷰는 구글 지도의 \"제한된 보기\"(비로그인 조회 시 대표 리뷰 약 5건만 표시) 때문에 일부만 수집될 수 있습니다.";
   }
 
   document.getElementById("summarySearch").addEventListener("input", function (e) {
