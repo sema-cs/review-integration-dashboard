@@ -122,6 +122,21 @@ python reclassify.py --apply
 - 본문에 없는 내용을 추측하지 않는다. 구체적 포인트를 찾을 수 없으면 `["-"]`(다시 후보로 나오지
   않고, 대시보드는 집계하지 않는다).
 
+## 매일 자동 검수 (Windows 작업 스케줄러, 2026-10-14~)
+
+사용자 결정: 담당자 PC의 작업 스케줄러 `ReviewSheet_DailyReclassify`가 **매일 13:50**에
+`scheduled/daily_job.py`를 실행한다(PC가 꺼져 있었으면 켜진 뒤 바로 실행, 최대 5시간).
+
+1. 오늘 13시 Actions 수집 완료를 GitHub API로 확인(10분 간격, 16:30까지 — 넘으면 그대로 진행).
+2. 재분류: `reclassify.py --export --limit 300` → `claude -p`가 `[재분류결과].json` 작성 → `--apply`. 최대 4회, 남으면 다음 날.
+3. 주간 특이사항: `weekly_notes.py --due`(월요일, 또는 월요일을 놓쳐 7일 이상 지남)일 때만
+   `--export` → `claude -p`가 `weekly_work/[주간결과].json` 작성 → `--apply` → `weekly_notes.json`만 커밋·push.
+
+- 자동 실행되는 Claude에는 Read/Write/Edit/Glob/Grep만 허용하고 명령 실행 도구는 막는다. 판단만 하고, 시트·git은 스크립트가 한다.
+- 로그: `scheduled_logs/YYYY-MM-DD.log`, 마지막 결과 요약: `scheduled_logs/last_run.json`(둘 다 gitignore).
+- 수동 실행: 작업 스케줄러에서 해당 작업 "실행", 또는 `python scheduled/daily_job.py`.
+- 사람이 "재분류"/"주간 특이사항 갱신"을 요청하면 기존처럼 세션에서 직접 해도 된다(작업 파일이 남아 있으면 다음 자동 실행이 `_미반영_`으로 치워 둔다).
+
 ## 잘못 올라온 리뷰 제외 (`config/excluded_reviews.json`)
 
 이용자가 다른 업체·다른 병원 리뷰를 병원 페이지에 잘못 올린 건은 사용자 요청 시(2026-10-14~) 시트 행을
