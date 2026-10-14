@@ -346,6 +346,58 @@ def test_find_candidates_adds_key_point_task_for_positive_rows():
     print("PASS: test_find_candidates_adds_key_point_task_for_positive_rows")
 
 
+def test_review_date_formats():
+    at = "2026-10-14T13:00:00+09:00"
+    cases = [
+        (_dated("구글", "2026-09-03"), "2026-09-03"),
+        (_dated("구글", "2026-07"), "2026-07-01"),
+        (_dated("카카오맵", "2026.08.20."), "2026-08-20"),
+        (_dated("네이버", "9.16.수"), "2026-09-16"),
+        (_dated("네이버", "25.3.8.토"), "2025-03-08"),
+        (_dated("구글", "5시간 전"), "2026-10-14"),
+        (_dated("구글", "2일 전"), "2026-10-12"),
+        (_dated("구글", "알수없음"), None),
+        (_dated("네이버", ""), None),
+    ]
+    for review, expected in cases:
+        review["collected_at"] = at
+        got = reclassify.review_date(review)
+        assert (got.isoformat() if got else None) == expected, f"{review['date']!r}: 실제 {got}"
+    print("PASS: test_review_date_formats")
+
+
+def _dated(channel, date, hospital_id="gangnam_jstar"):
+    row = _row(hospital_id=hospital_id, channel=channel)
+    row["date"] = date
+    return row
+
+
+def test_find_candidates_competitor_only_recent_3_months():
+    # 2026-10-14 사용자 결정(B): 경쟁병원은 대시보드 기본 조회 기간(최근 3개월) 리뷰만 재분류한다.
+    today = __import__("datetime").date(2026, 10, 14)
+    existing = [
+        _dated("카카오맵", "2026.07.14.", hospital_id="comp_k1"),   # 경계일(3개월 전 같은 날) 포함
+        _dated("카카오맵", "2026.07.13.", hospital_id="comp_k1"),   # 3개월보다 오래됨 → 제외
+        _dated("구글", "깨진값", hospital_id="comp_k1"),            # 날짜 모름 → 제외
+        _dated("카카오맵", "2020.01.01.", hospital_id="gangnam_jstar"),  # 자사는 기간 무관
+    ]
+    candidates = reclassify.find_candidates(existing, competitor_ids={"comp_k1"}, today=today)
+    assert [(c["hospital_id"], c["id"]) for c in candidates] == [("gangnam_jstar", 0), ("comp_k1", 1)], f"실제: {candidates}"
+    print("PASS: test_find_candidates_competitor_only_recent_3_months")
+
+
+def test_find_candidates_limit_puts_own_hospitals_first():
+    today = __import__("datetime").date(2026, 10, 14)
+    existing = [
+        _dated("카카오맵", "2026.10.01.", hospital_id="comp_k1"),
+        _dated("카카오맵", "2026.10.02.", hospital_id="gangnam_jstar"),
+        _dated("카카오맵", "2026.10.03.", hospital_id="comp_k2"),
+    ]
+    candidates = reclassify.find_candidates(existing, competitor_ids={"comp_k1", "comp_k2"}, today=today, limit=2)
+    assert [(c["hospital_id"], c["id"]) for c in candidates] == [("gangnam_jstar", 0), ("comp_k1", 1)], f"실제: {candidates}"
+    print("PASS: test_find_candidates_limit_puts_own_hospitals_first")
+
+
 if __name__ == "__main__":
     test_find_candidates_filters_lexicon_only()
     test_find_candidates_splits_matched_words_into_list()
@@ -365,3 +417,6 @@ if __name__ == "__main__":
     test_apply_results_key_points_distinct_rows()
     test_apply_results_key_points_string_is_one_point()
     test_find_candidates_adds_key_point_task_for_positive_rows()
+    test_review_date_formats()
+    test_find_candidates_competitor_only_recent_3_months()
+    test_find_candidates_limit_puts_own_hospitals_first()

@@ -13,12 +13,17 @@ import argparse
 import datetime
 import json
 import os
+import re
 from collections import Counter
 from pathlib import Path
 
+import dedup
 import sheets_writer
 
 WORK_DIR = Path(__file__).resolve().parent / "reclassify_work"
+COMPETITORS_CONFIG_PATH = Path(__file__).resolve().parent / "config" / "competitors_config.json"
+COMPETITOR_RECENT_MONTHS = 3
+_KST = datetime.timezone(datetime.timedelta(hours=9))
 REQUEST_FILENAME = "[재분류요청].json"
 RESULT_FILENAME = "[재분류결과].json"
 LOG_FILENAME = "reclassify_log.jsonl"
@@ -43,13 +48,79 @@ def _tasks_for(review):
     return []
 
 
-def find_candidates(existing_reviews):
-    """Claude에게 보낼 후보 목록(작업 종류 tasks 포함)."""
-    candidates = []
+def review_date(review):
+    """시트 date 컬럼 → datetime.date (index.html normalizeDate와 같은 규칙). 모르면 None."""
+    raw = str(review.get("date") or "").strip()
+    if not raw:
+        return None
+    m = re.match(r"^(\d{4})-(\d{2})(?:-(\d{2}))?", raw)
+    if review.get("channel") == "구글" and m:
+        return datetime.date(int(m[1]), int(m[2]), int(m[3] or 1))
+    m = re.match(r"^(\d{4})\.(\d{2})\.(\d{2})\.?$", raw)
+    if m:
+        return datetime.date(int(m[1]), int(m[2]), int(m[3]))
+    naver = dedup.parse_naver_date(raw, review.get("collected_at"))
+    if naver:
+        return datetime.date.fromisoformat(naver)
+    m = re.match(r"^(\d+)\s*(분|시간|일)\s*전$", raw)
+    if m:
+        try:
+            collected = datetime.datetime.fromisoformat(str(review.get("collected_at") or ""))
+        except ValueError:
+            return None
+        unit = {"분": "minutes", "시간": "hours", "일": "days"}[m[2]]
+        moment = collected - datetime.timedelta(**{unit: int(m[1])})
+        if moment.tzinfo is not None:
+            moment = moment.astimezone(_KST)
+        return moment.date()
+    return None
+
+
+def _months_ago(today, months):
+    """달력 기준 N개월 전 같은 날(말일 보정) — 대시보드 '최근 N개월'과 맞춘다."""
+    year, month = divmod(today.year * 12 + today.month - 1 - months, 12)
+    month += 1
+    for day in (today.day, 30, 29, 28):
+        try:
+            return datetime.date(year, month, day)
+        except ValueError:
+            continue
+
+
+def load_competitor_ids():
+    if not COMPETITORS_CONFIG_PATH.exists():
+        return set()
+    data = json.loads(COMPETITORS_CONFIG_PATH.read_text(encoding="utf-8"))
+    return {c["competitor_id"] for c in data.get("competitors", [])}
+
+
+def find_candidates(existing_reviews, competitor_ids=(), today=None, limit=None):
+    """Claude에게 보낼 후보 목록(작업 종류 tasks 포함).
+
+    경쟁병원 행은 최근 COMPETITOR_RECENT_MONTHS개월(작성일 기준) 리뷰만 후보로 낸다 — 2026-10-14
+    사용자 결정(초기수집 ~1.8만 건 중 대시보드 기본 조회 기간만 재분류). 작성일을 모르면 제외한다.
+    limit이 있으면 자사 병원 후보를 먼저 채우고 남는 자리에 경쟁병원 후보를 넣는다."""
+    today = today or datetime.datetime.now(_KST).date()
+    since = _months_ago(today, COMPETITOR_RECENT_MONTHS)
+    competitor_ids = set(competitor_ids)
+    own, competitors = [], []
     for review in existing_reviews:
         tasks = _tasks_for(review)
         if not tasks:
             continue
+        if review.get("hospital_id") in competitor_ids:
+            written = review_date(review)
+            if written is None or written < since:
+                continue
+            competitors.append((review, tasks))
+        else:
+            own.append((review, tasks))
+    picked = own + competitors
+    if limit is not None:
+        picked = picked[:limit]
+
+    candidates = []
+    for review, tasks in picked:
         matched_words = review.get("matched_words") or ""
         candidates.append({
             "id": len(candidates),
@@ -173,16 +244,20 @@ def apply_results(worksheet, existing_reviews, work_dir):
     return updated
 
 
-def run_export():
+def run_export(limit=None):
     sheet_id = os.environ["GOOGLE_SHEET_ID"]
     credentials_json = os.environ["GCP_SA_KEY"]
     worksheet = sheets_writer.connect(sheet_id, credentials_json)
     sheets_writer.ensure_header(worksheet)  # key_points 컬럼이 없는 구버전 시트면 여기서 붙인다
     existing = sheets_writer.read_existing_reviews(worksheet)
-    candidates = find_candidates(existing)
+    competitor_ids = load_competitor_ids()
+    total = find_candidates(existing, competitor_ids)
+    candidates = total if limit is None else find_candidates(existing, competitor_ids, limit=limit)
     path = export_for_claude(candidates, WORK_DIR, count_key_points(existing))
     if path:
-        print(f"재분류 후보 {len(candidates)}건 -> {path}")
+        own = sum(1 for c in total if c["hospital_id"] not in competitor_ids)
+        print(f"재분류 후보 {len(candidates)}건 -> {path} "
+              f"(전체 대기 {len(total)}건: 자사 {own} / 경쟁병원 최근 {COMPETITOR_RECENT_MONTHS}개월 {len(total) - own})")
     else:
         print("재분류·주요 포인트 대상이 없습니다.")
 
@@ -201,9 +276,10 @@ if __name__ == "__main__":
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("--export", action="store_true", help="재분류 후보를 JSON으로 내보낸다")
     group.add_argument("--apply", action="store_true", help="Claude가 작성한 결과를 시트에 반영한다")
+    parser.add_argument("--limit", type=int, help="--export 후보 최대 건수(자사 병원 먼저). 대량일 때 회차를 나눈다")
     args = parser.parse_args()
 
     if args.export:
-        run_export()
+        run_export(args.limit)
     else:
         run_apply()
