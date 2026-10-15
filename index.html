@@ -265,8 +265,8 @@
   .admin-tabs button:hover { border-color:var(--border-strong); }
   .admin-tabs button[aria-pressed="true"] { background:var(--navy-700); border-color:var(--navy-700); color:#fff; }
   .admin-tabs button:focus-visible { outline:2px solid var(--chart-1); outline-offset:2px; }
-  .admin-tabs { align-items:center; }
-  .admin-tabs select { flex:0 1 320px; min-width:0; border:1px solid var(--border); background:var(--surface); color:var(--text-primary); font-size:13px; font-weight:700; padding:8px 12px; border-radius:8px; cursor:pointer; }
+  .admin-tabs { align-items:center; flex-wrap:wrap; }
+  .admin-tabs select { flex:0 1 260px; min-width:0; border:1px solid var(--border); background:var(--surface); color:var(--text-primary); font-size:13px; font-weight:700; padding:8px 12px; border-radius:8px; cursor:pointer; }
   .admin-tabs select.is-active { border-color:var(--navy-700); box-shadow:0 0 0 1px var(--navy-700); }
   .admin-tabs select:focus-visible { outline:2px solid var(--chart-1); outline-offset:2px; }
   .summary-table-wrap { overflow-x:auto; }
@@ -1314,7 +1314,7 @@
   // 관리자 모드: 상단 탭(전체 요약 + hospitals_meta.json의 자사 병원별)으로 화면 전환
   // ---------------------------------------------------------------
   // 병원 드롭다운은 병원명 가나다순(숫자로 시작하는 이름이 앞). 마스터 표는 buildSummaryRows에서 따로 리스크순 정렬한다.
-  // 병원이 55곳으로 늘어(2026-10-15) 버튼 나열 대신 "마스터 대시보드" 버튼 + 병원 드롭다운으로 바꿨다.
+  // 병원이 55곳으로 늘어(2026-10-15) 버튼 나열 대신 "마스터 대시보드" 버튼 + 권역별 병원 드롭다운으로 바꿨다.
   function adminHospitalIds() {
     return Object.keys(META_ALL).sort(function (a, b) {
       return (META_ALL[a].name || a).localeCompare(META_ALL[b].name || b, "ko");
@@ -1331,34 +1331,31 @@
     btn.addEventListener("click", function () { showAdminView("summary"); });
     nav.appendChild(btn);
 
-    var ids = adminHospitalIds();
-    var sel = document.createElement("select");
-    sel.id = "adminHospitalSelect";
-    sel.setAttribute("aria-label", "병원 선택");
-    var ph = document.createElement("option");
-    ph.value = "";
-    ph.textContent = "병원 선택 (" + ids.length + "곳)";
-    sel.appendChild(ph);
-    // hospitals_meta.json의 region(권역)별로 묶는다. 권역 순서는 처음 나온 순서, region이 없으면 "기타".
+    // hospitals_meta.json의 region(권역)마다 드롭다운을 하나씩 만든다(2026-10-15 사용자 결정).
+    // 권역 순서는 meta에 처음 나온 순서, region이 없으면 "기타".
     var groups = {}, order = [];
     Object.keys(META_ALL).forEach(function (id) {
       var r = META_ALL[id].region || "기타";
       if (!groups[r]) { groups[r] = []; order.push(r); }
     });
-    ids.forEach(function (id) { groups[META_ALL[id].region || "기타"].push(id); });
+    adminHospitalIds().forEach(function (id) { groups[META_ALL[id].region || "기타"].push(id); });
     order.forEach(function (r) {
-      var og = document.createElement("optgroup");
-      og.label = r + " (" + groups[r].length + "곳)";
+      var sel = document.createElement("select");
+      sel.className = "admin-hospital-select";
+      sel.setAttribute("aria-label", r + " 병원 선택");
+      var ph = document.createElement("option");
+      ph.value = "";
+      ph.textContent = r + " (" + groups[r].length + "곳)";
+      sel.appendChild(ph);
       groups[r].forEach(function (id) {
         var opt = document.createElement("option");
         opt.value = id;
         opt.textContent = META_ALL[id].name || id;
-        og.appendChild(opt);
+        sel.appendChild(opt);
       });
-      sel.appendChild(og);
+      sel.addEventListener("change", function () { showAdminView(sel.value || "summary"); });
+      nav.appendChild(sel);
     });
-    sel.addEventListener("change", function () { showAdminView(sel.value || "summary"); });
-    nav.appendChild(sel);
     nav.hidden = false;
   }
 
@@ -1366,9 +1363,12 @@
     var isSummary = !META_ALL[view];
     var viewId = isSummary ? "summary" : view;
     document.getElementById("adminSummaryBtn").setAttribute("aria-pressed", isSummary ? "true" : "false");
-    var hospSel = document.getElementById("adminHospitalSelect");
-    hospSel.value = isSummary ? "" : viewId;
-    hospSel.classList.toggle("is-active", !isSummary);
+    // 선택한 병원이 속한 드롭다운만 그 병원을 표시하고, 나머지 권역 드롭다운은 처음 문구로 되돌린다.
+    document.querySelectorAll("#adminTabs .admin-hospital-select").forEach(function (s) {
+      var has = !isSummary && !!s.querySelector('option[value="' + viewId + '"]');
+      s.value = has ? viewId : "";
+      s.classList.toggle("is-active", has);
+    });
     document.getElementById("adminSummary").hidden = !isSummary;
     document.getElementById("dashboardView").hidden = isSummary;
     document.querySelector(".sidebar-nav").hidden = isSummary;
