@@ -169,6 +169,12 @@ python reclassify.py --apply
 부정 비율 10% 이상) → 주의(`watch`) → 부정 비율 순. 포털 바로가기는 `config/hospitals_config.json`의
 채널 주소를 그대로 쓴다(구글은 `google_place_id`로 지도 링크 생성).
 
+## 자사 병원 추가 시 권역(`region`)
+
+관리자 모드 상단 병원 드롭다운은 `hospitals_meta.json`의 `region`으로 묶어 보여준다(2026-10-15 사용자 결정).
+처음 등록한 29곳 = `"서울경기권"`, 2026-10-15 추가 26곳(부산·대구·경남·경북·울산) = `"대구부산권"`.
+새 자사 병원을 meta에 넣을 때 `region`을 꼭 적는다(없으면 "기타" 그룹으로 표시됨). 어느 권역인지 애매하면 사용자에게 묻는다.
+
 ## 자사 병원별 인근 경쟁 병원 선정·수집 (2026-10-13~)
 
 설계서는 `docs/superpowers/specs/2026-10-13-competitor-expansion-design.md`에 있다.
