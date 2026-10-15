@@ -113,3 +113,22 @@ def test_build_config_keeps_existing_and_merges_shared_competitors():
 
 if __name__ == "__main__":
     test_build_config_keeps_existing_and_merges_shared_competitors()
+
+
+def test_build_config_blanks_channels_shared_with_own_hospital():
+    # 2026-10-15 실측: 같은 건물 "다니엘성형외과의원"이 이름 부분일치로 자사 "다니엘웰니스의원"의
+    # 네이버·구글 장소에 연결됐다 → 자사 리뷰가 경쟁병원으로 중복 수집되지 않게 비운다(카카오는 유지).
+    from find_competitors import build_config
+    s = {"kakao_id": "5", "name": "다니엘성형외과의원", "category": "성형외과", "lat": 1.0, "lng": 2.0,
+         "address": "가상시 테스트로 1", "search_rank": 1, "distance_km": 0.0, "score": 0.1}
+    channels = {"5": {"naver_place_id": "77", "naver_name": "", "google_place_id": "0xa:0xb", "google_name": ""}}
+    out = build_config({"competitors": []}, {"h1": [s]}, channels,
+                       own_naver_ids={"77"}, own_google_ids={"0xa:0xb"})
+    ch = out["competitors"][0]["channels"]
+    assert ch["naver_place_url"] == "" and ch["google_place_id"] == "", ch
+    assert ch["kakao_place_url"].endswith("/5")
+    print("PASS: test_build_config_blanks_channels_shared_with_own_hospital")
+
+
+if __name__ == "__main__":
+    test_build_config_blanks_channels_shared_with_own_hospital()

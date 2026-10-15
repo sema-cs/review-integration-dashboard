@@ -35,6 +35,8 @@ METRO_PREFIXES = ("서울", "부산", "대구", "인천", "광주", "대전", "�
 # 자사 진료과 → 카카오 검색어/분류(cate_name_depth3) 목록
 CATEGORY_QUERIES = {
     "피부과·성형외과": ["피부과", "성형외과"],
+    # 다니엘웰니스의원: 카카오 분류는 "일반의원"이지만 성형외과·피부과·내과 진료(2026-10-15 사용자 확인)
+    "성형외과·피부과·내과": ["성형외과", "피부과", "내과"],
 }
 
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -386,8 +388,11 @@ CONFIG_COMMENT = (
 )
 
 
-def build_config(old_config, selected, channels):
-    """순수 함수: 기존 설정 + 선정 결과 + 채널 대조 결과 → 새 competitors_config dict."""
+def build_config(old_config, selected, channels, own_naver_ids=(), own_google_ids=()):
+    """순수 함수: 기존 설정 + 선정 결과 + 채널 대조 결과 → 새 competitors_config dict.
+
+    자사 병원과 같은 네이버/구글 장소로 연결된 채널은 비운다(2026-10-15 실측: 같은 건물
+    다니엘성형외과의원이 이름 부분일치로 자사 다니엘웰니스의원 장소에 연결됨)."""
     kept = []
     for c in old_config.get("competitors", []):
         # 이전에 이 도구로 만든 항목(comp_k<숫자>)만 다시 만든다. 단순 접두사 비교는 기존 실측
@@ -399,7 +404,11 @@ def build_config(old_config, selected, channels):
     for hid in sorted(selected):
         for s in selected[hid]:
             cid = f"comp_k{s['kakao_id']}"
-            ch = channels[s["kakao_id"]]
+            ch = dict(channels[s["kakao_id"]])
+            if ch["naver_place_id"] in own_naver_ids:
+                ch["naver_place_id"] = ""
+            if ch["google_place_id"] in own_google_ids:
+                ch["google_place_id"] = ""
             entry = new.setdefault(cid, {
                 "competitor_id": cid,
                 "name": s["name"],
@@ -432,7 +441,11 @@ def apply_config():
     stamp = time.strftime("%Y%m%d_%H%M%S")
     COMPETITORS_CONFIG.with_name(f"competitors_config.backup_{stamp}.json").write_text(
         json.dumps(old, ensure_ascii=False, indent=2), encoding="utf-8")
-    new = build_config(old, selected, channels)
+    own = [h["channels"] for h in json.loads(HOSPITALS_CONFIG.read_text(encoding="utf-8"))["hospitals"]]
+    own_naver = {m.group(1) for c in own
+                 for m in [re.search(r"/(\d+)/", c.get("naver_place_url") or "")] if m}
+    own_google = {c["google_place_id"] for c in own if c.get("google_place_id")}
+    new = build_config(old, selected, channels, own_naver, own_google)
     COMPETITORS_CONFIG.write_text(json.dumps(new, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     comps = new["competitors"]
     print(f"경쟁병원 {len(comps)}곳 기록 (네이버 {sum(1 for c in comps if c['channels']['naver_place_url'])}, "
