@@ -613,5 +613,161 @@
       { "id": "comp_k1946717179", "name": "소통한방병원", "lat": 37.64984887, "lng": 126.91394862 },
       { "id": "comp_k998814558", "name": "여기한방병원", "lat": 37.64867742, "lng": 126.91495734 }
     ]
+  },
+  "busan_riora_women": {
+    "name": "리오라여성의원",
+    "lat": 35.15825046,
+    "lng": 129.05996054,
+    "competitors": []
+  },
+  "daegu_parknlee_derm": {
+    "name": "박앤리피부과의원",
+    "lat": 35.81788033,
+    "lng": 128.53924811,
+    "competitors": []
+  },
+  "daegu_mipeum_clinic": {
+    "name": "미쁨의원",
+    "lat": 35.82509571,
+    "lng": 128.52619208,
+    "competitors": []
+  },
+  "busan_yeba_ortho_dental": {
+    "name": "예바치과교정과치과의원",
+    "lat": 35.15824862,
+    "lng": 129.05996268,
+    "competitors": []
+  },
+  "busan_deokcheon_yeppeunmiso_dental": {
+    "name": "예쁜미소바른이치과의원 덕천점",
+    "lat": 35.21032096,
+    "lng": 129.00480888,
+    "competitors": []
+  },
+  "busan_thebody_ps": {
+    "name": "더바디성형외과의원",
+    "lat": 35.15541287,
+    "lng": 129.05756496,
+    "competitors": []
+  },
+  "changwon_first_derm": {
+    "name": "창원퍼스트피부과의원",
+    "lat": 35.26016084,
+    "lng": 128.62588019,
+    "competitors": []
+  },
+  "gyeongsan_s_korean_med": {
+    "name": "경산S한의원",
+    "lat": 35.83372463,
+    "lng": 128.74185295,
+    "competitors": []
+  },
+  "daegu_rayul_korean_med": {
+    "name": "라율한의원",
+    "lat": 35.86600976,
+    "lng": 128.59378946,
+    "competitors": []
+  },
+  "daegu_areumdaun_derm": {
+    "name": "아름다운피부과의원",
+    "lat": 35.8201819,
+    "lng": 128.64059928,
+    "competitors": []
+  },
+  "gyeongsan_min_dental": {
+    "name": "민치과의원 경산",
+    "lat": 35.8237073,
+    "lng": 128.7358405,
+    "competitors": []
+  },
+  "gimhae_yulha_seonhan_dental": {
+    "name": "율하선한치과의원",
+    "lat": 35.17189775,
+    "lng": 128.82340542,
+    "competitors": []
+  },
+  "changwon_elle_medi_women": {
+    "name": "엘르메디여성의원",
+    "lat": 35.26232754,
+    "lng": 128.61348283,
+    "competitors": []
+  },
+  "daegu_naui_gyejeol_clinic": {
+    "name": "나의계절의원",
+    "lat": 35.86485185,
+    "lng": 128.59473496,
+    "competitors": []
+  },
+  "daegu_sintong_neuro": {
+    "name": "신통신경과의원",
+    "lat": 35.86508971,
+    "lng": 128.59276913,
+    "competitors": []
+  },
+  "daegu_prive_ps": {
+    "name": "프라이브성형외과의원",
+    "lat": 35.84724283,
+    "lng": 128.62404515,
+    "competitors": []
+  },
+  "daegu_pureuncheong_neuro": {
+    "name": "푸른청신경과의원",
+    "lat": 35.84046408,
+    "lng": 128.70752188,
+    "competitors": []
+  },
+  "daegu_eyecare_eye": {
+    "name": "아이케어안과의원",
+    "lat": 35.94299428,
+    "lng": 128.55773859,
+    "competitors": []
+  },
+  "daegu_rene_women": {
+    "name": "르네여성의원",
+    "lat": 35.85812511,
+    "lng": 128.62523685,
+    "competitors": []
+  },
+  "busan_nell_clinic": {
+    "name": "넬의원",
+    "lat": 35.15612867,
+    "lng": 129.05802629,
+    "competitors": []
+  },
+  "changwon_daniel_wellness": {
+    "name": "다니엘웰니스의원",
+    "lat": 35.22410614,
+    "lng": 128.68364069,
+    "competitors": []
+  },
+  "busan_w_dental": {
+    "name": "더블유치과의원",
+    "lat": 35.18805461,
+    "lng": 129.08066469,
+    "competitors": []
+  },
+  "daegu_kwakjaehyuk_neuro": {
+    "name": "곽재혁신경과의원",
+    "lat": 35.86545708,
+    "lng": 128.58270203,
+    "competitors": []
+  },
+  "ulsan_bk_internal": {
+    "name": "비케이내과의원",
+    "lat": 35.56505112,
+    "lng": 129.33665853,
+    "competitors": []
+  },
+  "daegu_leesinil_grace_ps": {
+    "name": "이신일그레이스성형외과의원",
+    "lat": 35.86954422,
+    "lng": 128.59696466,
+    "competitors": []
+  },
+  "daegu_beomeo_first_ortho": {
+    "name": "범어퍼스트정형외과의원",
+    "lat": 35.85844263,
+    "lng": 128.63378256,
+    "competitors": []
   }
 }

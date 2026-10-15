@@ -377,6 +377,344 @@
         "naver_place_url": "https://m.place.naver.com/hospital/1412309619/review/visitor",
         "kakao_place_url": "https://place.map.kakao.com/1555763070"
       }
+    },
+    {
+      "hospital_id": "busan_riora_women",
+      "hospital_name": "리오라여성의원",
+      "category": "산부인과",
+      "lat": 35.15825046,
+      "lng": 129.05996054,
+      "address": "부산 부산진구 중앙대로 736 3,6-7층",
+      "channels": {
+        "google_place_id": "0x3568eb70142d41b9:0xcc98c7756a65a8bd",
+        "naver_place_url": "https://m.place.naver.com/hospital/1022159064/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/294530957"
+      }
+    },
+    {
+      "hospital_id": "daegu_parknlee_derm",
+      "hospital_name": "박앤리피부과의원",
+      "category": "피부과",
+      "lat": 35.81788033,
+      "lng": 128.53924811,
+      "address": "대구 달서구 월곡로 260 상인프라자 5층",
+      "channels": {
+        "google_place_id": "0x3565fb3a92311657:0x5083413fcca3af03",
+        "naver_place_url": "https://m.place.naver.com/hospital/11887170/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/7890879"
+      }
+    },
+    {
+      "hospital_id": "daegu_mipeum_clinic",
+      "hospital_name": "미쁨의원",
+      "category": "피부과",
+      "lat": 35.82509571,
+      "lng": 128.52619208,
+      "address": "대구 달서구 조암로 32 신월성미소지움 3층 301~303호",
+      "channels": {
+        "google_place_id": "0x3565fba077d3afad:0x741e023109ee2acd",
+        "naver_place_url": "https://m.place.naver.com/hospital/1187841951/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/263345101"
+      }
+    },
+    {
+      "hospital_id": "busan_yeba_ortho_dental",
+      "hospital_name": "예바치과교정과치과의원",
+      "category": "치과",
+      "lat": 35.15824862,
+      "lng": 129.05996268,
+      "address": "부산 부산진구 중앙대로 736 경암센터 4층",
+      "channels": {
+        "google_place_id": "0x3568eb6de9c178bb:0x4cb23f8310471205",
+        "naver_place_url": "https://m.place.naver.com/hospital/1708686978/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/639753026"
+      }
+    },
+    {
+      "hospital_id": "busan_deokcheon_yeppeunmiso_dental",
+      "hospital_name": "예쁜미소바른이치과의원 덕천점",
+      "category": "치과",
+      "lat": 35.21032096,
+      "lng": 129.00480888,
+      "address": "부산 북구 낙동대로 1791 한진빌딩 5층 501호",
+      "channels": {
+        "google_place_id": "0x3568954919ac969d:0xe05bbbbd74c44d0b",
+        "naver_place_url": "https://m.place.naver.com/hospital/20570881/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/14702274"
+      }
+    },
+    {
+      "hospital_id": "busan_thebody_ps",
+      "hospital_name": "더바디성형외과의원",
+      "category": "성형외과",
+      "lat": 35.15541287,
+      "lng": 129.05756496,
+      "address": "부산 부산진구 서면로 51 4-7층",
+      "channels": {
+        "google_place_id": "0x1520fc44494f3b5b:0x97f3fc5564e5bd85",
+        "naver_place_url": "https://m.place.naver.com/hospital/13327850/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/19293942"
+      }
+    },
+    {
+      "hospital_id": "changwon_first_derm",
+      "hospital_name": "창원퍼스트피부과의원",
+      "category": "피부과",
+      "lat": 35.26016084,
+      "lng": 128.62588019,
+      "address": "경남 창원시 의창구 평산로207번길 4 킹덤시티 5-6층",
+      "channels": {
+        "google_place_id": "0x356f336fd3cc0041:0xed4e048ff84fb758",
+        "naver_place_url": "https://m.place.naver.com/hospital/1011335226/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/948428572"
+      }
+    },
+    {
+      "hospital_id": "gyeongsan_s_korean_med",
+      "hospital_name": "경산S한의원",
+      "category": "한의원",
+      "lat": 35.83372463,
+      "lng": 128.74185295,
+      "address": "경북 경산시 남매공원로1길 9 임당타워 3층 301~304호",
+      "channels": {
+        "google_place_id": "0x35660d642327eb4d:0x48739ca305cc3b49",
+        "naver_place_url": "https://m.place.naver.com/hospital/1889706971/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/1869290646"
+      }
+    },
+    {
+      "hospital_id": "daegu_rayul_korean_med",
+      "hospital_name": "라율한의원",
+      "category": "한의원",
+      "lat": 35.86600976,
+      "lng": 128.59378946,
+      "address": "대구 중구 중앙대로 366 반월센트럴타워 9층 901,902호",
+      "channels": {
+        "google_place_id": "0x3565e382859df98f:0xe4598751f80965d2",
+        "naver_place_url": "https://m.place.naver.com/hospital/1826579051/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/466851473"
+      }
+    },
+    {
+      "hospital_id": "daegu_areumdaun_derm",
+      "hospital_name": "아름다운피부과의원",
+      "category": "피부과",
+      "lat": 35.8201819,
+      "lng": 128.64059928,
+      "address": "대구 수성구 지범로 200 7층 701~702호",
+      "channels": {
+        "google_place_id": "0x3565e28f27570f29:0x29c1d561518deb8",
+        "naver_place_url": "https://m.place.naver.com/hospital/12998840/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/9213444"
+      }
+    },
+    {
+      "hospital_id": "gyeongsan_min_dental",
+      "hospital_name": "민치과의원 경산",
+      "category": "치과",
+      "lat": 35.8237073,
+      "lng": 128.7358405,
+      "address": "경북 경산시 중앙로 81 4층",
+      "channels": {
+        "google_place_id": "0x35660964af5a4f51:0x8e803bafc7bbf019",
+        "naver_place_url": "https://m.place.naver.com/hospital/1020420810/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/96128800"
+      }
+    },
+    {
+      "hospital_id": "gimhae_yulha_seonhan_dental",
+      "hospital_name": "율하선한치과의원",
+      "category": "치과",
+      "lat": 35.17189775,
+      "lng": 128.82340542,
+      "address": "경남 김해시 율하6로 64 굿프라임빌딩 3층 303호",
+      "channels": {
+        "google_place_id": "0x3568c508c1a3e8a7:0x22edaac3ec88f6c",
+        "naver_place_url": "https://m.place.naver.com/hospital/1929932321/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/1341626302"
+      }
+    },
+    {
+      "hospital_id": "changwon_elle_medi_women",
+      "hospital_name": "엘르메디여성의원",
+      "category": "산부인과",
+      "lat": 35.26232754,
+      "lng": 128.61348283,
+      "address": "경남 창원시 의창구 서상로 1",
+      "channels": {
+        "google_place_id": "0x356f3375cb0a982f:0xb70694c682d4f702",
+        "naver_place_url": "https://m.place.naver.com/hospital/12910975/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/12423874"
+      }
+    },
+    {
+      "hospital_id": "daegu_naui_gyejeol_clinic",
+      "hospital_name": "나의계절의원",
+      "category": "피부과",
+      "lat": 35.86485185,
+      "lng": 128.59473496,
+      "address": "대구 중구 명륜로23길 106 클래시아2차 상가 5층 502~503호",
+      "channels": {
+        "google_place_id": "0x3565e3ccf3f2d9eb:0x96a502a1e1f18184",
+        "naver_place_url": "https://m.place.naver.com/hospital/1984795663/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/1172712223"
+      }
+    },
+    {
+      "hospital_id": "daegu_sintong_neuro",
+      "hospital_name": "신통신경과의원",
+      "category": "신경과",
+      "lat": 35.86508971,
+      "lng": 128.59276913,
+      "address": "대구 중구 중앙대로 359 반월당메티칼오피스타워 1층",
+      "channels": {
+        "google_place_id": "0x3565e3dfc813854d:0x96c410b948100d",
+        "naver_place_url": "https://m.place.naver.com/hospital/1861705986/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/1963273425"
+      }
+    },
+    {
+      "hospital_id": "daegu_prive_ps",
+      "hospital_name": "프라이브성형외과의원",
+      "category": "성형외과",
+      "lat": 35.84724283,
+      "lng": 128.62404515,
+      "address": "대구 수성구 범어천로 3 1-2층",
+      "channels": {
+        "google_place_id": "0x3565e3a484c36703:0x10ad258ba2dd64f3",
+        "naver_place_url": "https://m.place.naver.com/hospital/1363821807/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/526307586"
+      }
+    },
+    {
+      "hospital_id": "daegu_pureuncheong_neuro",
+      "hospital_name": "푸른청신경과의원",
+      "category": "신경과",
+      "lat": 35.84046408,
+      "lng": 128.70752188,
+      "address": "대구 수성구 달구벌대로 3205 2,5층",
+      "channels": {
+        "google_place_id": "0x35660bd85042a39d:0xda7326540c3adde9",
+        "naver_place_url": "https://m.place.naver.com/hospital/1801024622/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/1647098111"
+      }
+    },
+    {
+      "hospital_id": "daegu_eyecare_eye",
+      "hospital_name": "아이케어안과의원",
+      "category": "안과",
+      "lat": 35.94299428,
+      "lng": 128.55773859,
+      "address": "대구 북구 팔거천동로 213 2층",
+      "channels": {
+        "google_place_id": "0x3565e73e0d9b3a37:0x34d9fd130f614249",
+        "naver_place_url": "https://m.place.naver.com/hospital/1187594081/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/1503344263"
+      }
+    },
+    {
+      "hospital_id": "daegu_rene_women",
+      "hospital_name": "르네여성의원",
+      "category": "산부인과",
+      "lat": 35.85812511,
+      "lng": 128.62523685,
+      "address": "대구 수성구 동대구로 311 범어애플타워 3-4층",
+      "channels": {
+        "google_place_id": "0x3565e3374ee0250d:0x6bf816bc154ea328",
+        "naver_place_url": "https://m.place.naver.com/hospital/1020540320/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/1685335081"
+      }
+    },
+    {
+      "hospital_id": "busan_nell_clinic",
+      "hospital_name": "넬의원",
+      "category": "피부과",
+      "lat": 35.15612867,
+      "lng": 129.05802629,
+      "address": "부산 부산진구 서면로 60 센텀메디컬타워 1-2층",
+      "channels": {
+        "google_place_id": "0x3568eb6feb39fa0d:0x28ba37600b5fecde",
+        "naver_place_url": "https://m.place.naver.com/hospital/35782035/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/25807464"
+      }
+    },
+    {
+      "hospital_id": "changwon_daniel_wellness",
+      "hospital_name": "다니엘웰니스의원",
+      "category": "일반의원",
+      "lat": 35.22410614,
+      "lng": 128.68364069,
+      "address": "경남 창원시 성산구 상남로 126 세종엠필드 3층 301~302,304호",
+      "channels": {
+        "google_place_id": "0x3568cceff16906ab:0x3d5fa2fa1ca0d6b9",
+        "naver_place_url": "https://m.place.naver.com/hospital/36792104/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/1299547821"
+      }
+    },
+    {
+      "hospital_id": "busan_w_dental",
+      "hospital_name": "더블유치과의원",
+      "category": "치과",
+      "lat": 35.18805461,
+      "lng": 129.08066469,
+      "address": "부산 연제구 중앙대로 1125 시티타워 A동 4층 405호",
+      "channels": {
+        "google_place_id": "0x3568935b4162b749:0xea7a6701bd8ce7de",
+        "naver_place_url": "https://m.place.naver.com/hospital/1027886880/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/22842742"
+      }
+    },
+    {
+      "hospital_id": "daegu_kwakjaehyuk_neuro",
+      "hospital_name": "곽재혁신경과의원",
+      "category": "신경과",
+      "lat": 35.86545708,
+      "lng": 128.58270203,
+      "address": "대구 중구 달구벌대로 1999 메디칼스타빌딩 4층",
+      "channels": {
+        "google_place_id": "0x3565e39306411b53:0x78a57b6960cf0853",
+        "naver_place_url": "https://m.place.naver.com/hospital/1074434662/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/1577911808"
+      }
+    },
+    {
+      "hospital_id": "ulsan_bk_internal",
+      "hospital_name": "비케이내과의원",
+      "category": "내과",
+      "lat": 35.56505112,
+      "lng": 129.33665853,
+      "address": "울산 중구 번영로 487",
+      "channels": {
+        "google_place_id": "0x3567cd8470ae99d9:0xb56ee9d460004063",
+        "naver_place_url": "https://m.place.naver.com/hospital/1448999467/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/1745221642"
+      }
+    },
+    {
+      "hospital_id": "daegu_leesinil_grace_ps",
+      "hospital_name": "이신일그레이스성형외과의원",
+      "category": "성형외과",
+      "lat": 35.86954422,
+      "lng": 128.59696466,
+      "address": "대구 중구 동성로2길 81 3층",
+      "channels": {
+        "google_place_id": "0x3565e3c3895601c9:0xeca788866cff2115",
+        "naver_place_url": "https://m.place.naver.com/hospital/1372696113/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/8056838"
+      }
+    },
+    {
+      "hospital_id": "daegu_beomeo_first_ortho",
+      "hospital_name": "범어퍼스트정형외과의원",
+      "category": "정형외과",
+      "lat": 35.85844263,
+      "lng": 128.63378256,
+      "address": "대구 수성구 달구벌대로 2480 2,3층",
+      "channels": {
+        "google_place_id": "0x3565e3002f1ceda1:0x929d856f4847e6d8",
+        "naver_place_url": "https://m.place.naver.com/hospital/1036680593/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/1490168391"
+      }
     }
   ]
 }
