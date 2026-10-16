@@ -111,6 +111,15 @@ _SCROLL_STEP_JS = """(fraction) => {
     return { scrollTop: el.scrollTop, scrollHeight: el.scrollHeight, clientHeight: el.clientHeight };
 }"""
 
+# 리뷰 카드가 아직 없을 때 쓰는 스크롤: 카드 대신 장소 패널의 스크롤 영역을 찾는다.
+_SCROLL_PANEL_JS = """(fraction) => {
+    const els = [...document.querySelectorAll('[role=main] *')].filter(e =>
+        e.scrollHeight > e.clientHeight + 10 && /auto|scroll/.test(getComputedStyle(e).overflowY));
+    if (!els.length) return null;
+    els[0].scrollTop += els[0].clientHeight * fraction;
+    return els[0].scrollTop;
+}"""
+
 
 def _to_review_dict(raw):
     rating = None
@@ -155,6 +164,14 @@ def _scrape_reviews(place_url):
                 page.wait_for_timeout(2000)
                 review_tab = page.get_by_role("tab", name=re.compile("리뷰"))
                 review_tab.first.click(timeout=20000)
+            # "온라인 예약" 블록이 있는 병원은 리뷰 카드가 첫 화면 아래로 밀려
+            # 패널을 스크롤하기 전에는 카드가 아예 생성되지 않는다(2026-10-16 실측,
+            # 넬의원·더바디성형외과 0건의 원인). 카드가 없으면 패널을 먼저 내린다.
+            for _ in range(5):
+                if page.locator(".jftiEf").count():
+                    break
+                page.evaluate(_SCROLL_PANEL_JS, 0.8)
+                page.wait_for_timeout(1500)
             page.wait_for_selector(".jftiEf", timeout=15000)
 
             stable_rounds = 0

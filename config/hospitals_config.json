@@ -490,7 +490,7 @@
       "lng": 128.59378946,
       "address": "대구 중구 중앙대로 366 반월센트럴타워 9층 901,902호",
       "channels": {
-        "google_place_id": "0x3565e382859df98f:0xe4598751f80965d2",
+        "google_place_id": "0x3565e35fe579822d:0x23955bae46ff6d5a",
         "naver_place_url": "https://m.place.naver.com/hospital/1826579051/review/visitor",
         "kakao_place_url": "https://place.map.kakao.com/466851473"
       }
