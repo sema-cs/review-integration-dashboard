@@ -140,6 +140,7 @@
   .cc-total { margin-left:auto; font-family:var(--font-display); font-weight:700; font-size:20px; }
   .cc-total .unit { font-size:12px; font-weight:600; color:var(--text-muted); margin-left:2px; }
   .cc-rating { font-size:11.5px; color:var(--text-muted); }
+  .cc-note { font-size:12px; line-height:1.45; color:var(--text-secondary); background:var(--surface-sunken); border-radius:8px; padding:8px 10px; }
   .cc-bar-row { display:flex; align-items:center; gap:8px; font-size:12px; padding:4px; margin:-4px; border-radius:8px; cursor:pointer; }
   .cc-bar-row:hover { background:var(--surface-sunken); }
   .cc-bar-label { width:34px; flex:none; font-weight:700; }
@@ -723,6 +724,22 @@
   // 채널별 요약 카드 (구글/네이버/카카오맵 개별 카드로 분리)
   // ---------------------------------------------------------------
   var CHAN_BADGE = { naver: "N", kakao: "K", google: "G" };
+  // 이 기간 리뷰가 0건인 채널 카드에 붙이는 사유. hospitals_meta.json의 channel_notes
+  // (예: 카카오 후기 미제공 — 실제 장소 페이지를 확인해 적은 값)가 우선이고, 없으면
+  // 기간 밖에 예전 리뷰가 있는지로 안내한다.
+  function emptyChannelNote(ch) {
+    var notes = (HOSPITAL_META && HOSPITAL_META.channel_notes) || {};
+    if (notes[ch]) return notes[ch];
+    var latest = null;
+    REVIEWS.forEach(function (r) {
+      if (r.channel === ch && r.date && (!latest || r.date > latest)) latest = r.date;
+    });
+    if (latest) {
+      return "이 기간에는 " + PLATFORM_LABEL[ch] + " 리뷰가 없습니다. 마지막 리뷰는 " +
+        latest.slice(0, 4) + "년 " + parseInt(latest.slice(5, 7), 10) + "월입니다(조회 기간을 늘리면 보입니다).";
+    }
+    return "수집된 " + PLATFORM_LABEL[ch] + " 리뷰가 없습니다.";
+  }
   function renderChannelCards() {
     var list = rangeReviews();
     document.getElementById("rangeCaption").textContent = rangeLabel() + " 기준 · 총 " + list.length + "건";
@@ -748,7 +765,9 @@
           '<span class="cc-name">' + PLATFORM_LABEL[ch] + '</span>' +
           '<span class="cc-total tnum">' + total + '<span class="unit">건</span></span>' +
         '</div>' +
-        '<div class="cc-rating">' + (avgRating != null ? ("평균 ★" + avgRating.toFixed(1)) : "별점 제공 리뷰 없음(데이터 없음)") + '</div>' +
+        (total === 0
+          ? '<div class="cc-note">' + escapeHtml(emptyChannelNote(ch)) + '</div>'
+          : '<div class="cc-rating">' + (avgRating != null ? ("평균 ★" + avgRating.toFixed(1)) : "별점 제공 리뷰 없음(데이터 없음)") + '</div>') +
         '<div class="cc-bar-row" data-sentiment="positive"><span class="cc-bar-label pos">긍정</span><span class="cc-bar-track"><span class="cc-bar-fill pos" style="width:' + posPct + '%"></span></span><span class="cc-bar-count tnum">' + pos + '건 · ' + posPct + '%</span></div>' +
         '<div class="cc-bar-row" data-sentiment="negative"><span class="cc-bar-label neg">부정</span><span class="cc-bar-track"><span class="cc-bar-fill neg" style="width:' + negPct + '%"></span></span><span class="cc-bar-count tnum">' + neg + '건 · ' + negPct + '%</span></div>';
       card.addEventListener("click", function (e) {
