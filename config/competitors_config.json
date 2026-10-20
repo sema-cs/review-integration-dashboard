@@ -354,29 +354,6 @@
       ]
     },
     {
-      "competitor_id": "comp_k1003643066",
-      "name": "서면뉴욕치과의원",
-      "category": "치과",
-      "lat": 35.15549389,
-      "lng": 129.05958488,
-      "address": "부산 부산진구 중앙대로 704",
-      "for_hospitals": [
-        "busan_yeba_ortho_dental"
-      ],
-      "selection": {
-        "busan_yeba_ortho_dental": {
-          "search_rank": 5,
-          "distance_km": 0.308,
-          "score": 0.1705
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1003643066",
-        "google_place_id": "0x3568ebd293a64317:0x5634c3384636d01e",
-        "naver_place_url": "https://m.place.naver.com/hospital/1956846259/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k1007022598",
       "name": "블리비의원 인천부평점",
       "category": "피부과",
@@ -469,29 +446,6 @@
       }
     },
     {
-      "competitor_id": "comp_k1015311352",
-      "name": "플란치과병원 부산점",
-      "category": "치과",
-      "lat": 35.14579016,
-      "lng": 129.05889594,
-      "address": "부산 부산진구 범일로 177",
-      "for_hospitals": [
-        "busan_yeba_ortho_dental"
-      ],
-      "selection": {
-        "busan_yeba_ortho_dental": {
-          "search_rank": 1,
-          "distance_km": 1.389,
-          "score": 0.3864
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1015311352",
-        "google_place_id": "0x3568ebd13e07a163:0xda30a7f39c05a06",
-        "naver_place_url": "https://m.place.naver.com/hospital/1263686518/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k10169788",
       "name": "경산일침한의원",
       "category": "한의원",
@@ -512,29 +466,6 @@
         "kakao_place_url": "https://place.map.kakao.com/10169788",
         "google_place_id": "",
         "naver_place_url": "https://m.place.naver.com/hospital/13255746/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k1017295503",
-      "name": "연세봄치과의원",
-      "category": "치과",
-      "lat": 35.20988542,
-      "lng": 129.00585886,
-      "address": "부산 북구 백양대로 1204",
-      "for_hospitals": [
-        "busan_deokcheon_yeppeunmiso_dental"
-      ],
-      "selection": {
-        "busan_deokcheon_yeppeunmiso_dental": {
-          "search_rank": 21,
-          "distance_km": 0.107,
-          "score": 0.25
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1017295503",
-        "google_place_id": "0x356895497c61c499:0x249c8528b72dd41b",
-        "naver_place_url": ""
       }
     },
     {
@@ -584,29 +515,6 @@
       }
     },
     {
-      "competitor_id": "comp_k10201382",
-      "name": "김종진내과의원",
-      "category": "내과",
-      "lat": 35.56924065,
-      "lng": 129.34497975,
-      "address": "울산 중구 번영로 577",
-      "for_hospitals": [
-        "ulsan_bk_internal"
-      ],
-      "selection": {
-        "ulsan_bk_internal": {
-          "search_rank": 1,
-          "distance_km": 0.885,
-          "score": 0.15
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/10201382",
-        "google_place_id": "0x3567cce913e3cd37:0x6281ca0e3868ebd1",
-        "naver_place_url": ""
-      }
-    },
-    {
       "competitor_id": "comp_k10224451",
       "name": "그린치과의원",
       "category": "치과",
@@ -614,13 +522,25 @@
       "lng": 127.46704842,
       "address": "충북 청주시 서원구 사직대로 175",
       "for_hospitals": [
-        "cheongju_seoul_top_implant_dental"
+        "cheongju_digitalplant_dental",
+        "cheongju_seoul_top_implant_dental",
+        "cheongju_well_dental"
       ],
       "selection": {
+        "cheongju_digitalplant_dental": {
+          "search_rank": 8,
+          "distance_km": 2.236,
+          "score": 0.1667
+        },
         "cheongju_seoul_top_implant_dental": {
           "search_rank": 8,
           "distance_km": 3.512,
-          "score": 0.2614
+          "score": 0.25
+        },
+        "cheongju_well_dental": {
+          "search_rank": 8,
+          "distance_km": 3.9,
+          "score": 0.2262
         }
       },
       "channels": {
@@ -702,29 +622,6 @@
         "kakao_place_url": "https://place.map.kakao.com/1028020489",
         "google_place_id": "",
         "naver_place_url": "https://m.place.naver.com/hospital/13308229/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k1030492423",
-      "name": "미소드림치과의원",
-      "category": "치과",
-      "lat": 35.23401688,
-      "lng": 128.83915949,
-      "address": "경남 김해시 주촌면 천곡로 6",
-      "for_hospitals": [
-        "gimhae_yulha_seonhan_dental"
-      ],
-      "selection": {
-        "gimhae_yulha_seonhan_dental": {
-          "search_rank": 23,
-          "distance_km": 7.054,
-          "score": 0.3409
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1030492423",
-        "google_place_id": "",
-        "naver_place_url": "https://m.place.naver.com/hospital/1385598361/review/visitor"
       }
     },
     {
@@ -885,29 +782,6 @@
       "channels": {
         "kakao_place_url": "https://place.map.kakao.com/10409508",
         "google_place_id": "0x3565485855555555:0x83c5e02fb9cb9b01",
-        "naver_place_url": ""
-      }
-    },
-    {
-      "competitor_id": "comp_k10419591",
-      "name": "미소를만드는치과의원",
-      "category": "치과",
-      "lat": 35.21148958,
-      "lng": 129.00509237,
-      "address": "부산 북구 금곡대로 16",
-      "for_hospitals": [
-        "busan_deokcheon_yeppeunmiso_dental"
-      ],
-      "selection": {
-        "busan_deokcheon_yeppeunmiso_dental": {
-          "search_rank": 10,
-          "distance_km": 0.132,
-          "score": 0.1477
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/10419591",
-        "google_place_id": "",
         "naver_place_url": ""
       }
     },
@@ -1096,29 +970,6 @@
       }
     },
     {
-      "competitor_id": "comp_k10624463",
-      "name": "요셉성형외과의원",
-      "category": "성형외과",
-      "lat": 35.86981836,
-      "lng": 128.59830538,
-      "address": "대구 중구 동성로3길 99",
-      "for_hospitals": [
-        "daegu_leesinil_grace_ps"
-      ],
-      "selection": {
-        "daegu_leesinil_grace_ps": {
-          "search_rank": 5,
-          "distance_km": 0.125,
-          "score": 0.1023
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/10624463",
-        "google_place_id": "0x3565e3c52202b4d9:0x65cafe2aab1606b8",
-        "naver_place_url": "https://m.place.naver.com/hospital/12940941/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k10635143",
       "name": "예인부부치과의원",
       "category": "치과",
@@ -1234,29 +1085,6 @@
       }
     },
     {
-      "competitor_id": "comp_k10677861",
-      "name": "월드치과의원",
-      "category": "치과",
-      "lat": 35.18659821,
-      "lng": 129.07941351,
-      "address": "부산 연제구 월드컵대로 153",
-      "for_hospitals": [
-        "busan_w_dental"
-      ],
-      "selection": {
-        "busan_w_dental": {
-          "search_rank": 26,
-          "distance_km": 0.198,
-          "score": 0.375
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/10677861",
-        "google_place_id": "",
-        "naver_place_url": "https://m.place.naver.com/hospital/13252118/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k10714121",
       "name": "정왕연세치과",
       "category": "치과",
@@ -1310,9 +1138,15 @@
       "lng": 129.05947323,
       "address": "부산 부산진구 중앙대로 698-1",
       "for_hospitals": [
+        "busan_bada_ps",
         "busan_thebody_ps"
       ],
       "selection": {
+        "busan_bada_ps": {
+          "search_rank": 7,
+          "distance_km": 0.197,
+          "score": 0.3953
+        },
         "busan_thebody_ps": {
           "search_rank": 7,
           "distance_km": 0.177,
@@ -1346,29 +1180,6 @@
         "kakao_place_url": "https://place.map.kakao.com/10785465",
         "google_place_id": "",
         "naver_place_url": "https://m.place.naver.com/hospital/13231812/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k1078859974",
-      "name": "서울뿌리튼튼치과",
-      "category": "치과",
-      "lat": 35.18626084,
-      "lng": 129.08247402,
-      "address": "부산 연제구 반송로 6",
-      "for_hospitals": [
-        "busan_w_dental"
-      ],
-      "selection": {
-        "busan_w_dental": {
-          "search_rank": 10,
-          "distance_km": 0.258,
-          "score": 0.2614
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1078859974",
-        "google_place_id": "0x356893cfdf5c0fad:0x27521c5f2cf86079",
-        "naver_place_url": "https://m.place.naver.com/hospital/1480548114/review/visitor"
       }
     },
     {
@@ -1464,49 +1275,26 @@
       }
     },
     {
-      "competitor_id": "comp_k10893244",
-      "name": "푸른내과의원",
-      "category": "내과",
-      "lat": 35.55711545,
-      "lng": 129.32080886,
-      "address": "울산 중구 장춘로 114",
-      "for_hospitals": [
-        "ulsan_bk_internal"
-      ],
-      "selection": {
-        "ulsan_bk_internal": {
-          "search_rank": 8,
-          "distance_km": 1.683,
-          "score": 0.45
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/10893244",
-        "google_place_id": "",
-        "naver_place_url": ""
-      }
-    },
-    {
-      "competitor_id": "comp_k1089483109",
-      "name": "닥터배치과의원",
+      "competitor_id": "comp_k10865395",
+      "name": "하얀미소치과의원",
       "category": "치과",
-      "lat": 35.18685596,
-      "lng": 129.08171973,
-      "address": "부산 연제구 중앙대로 1112",
+      "lat": 36.63033385,
+      "lng": 127.50473912,
+      "address": "충북 청주시 상당구 중고개로 324",
       "for_hospitals": [
-        "busan_w_dental"
+        "cheongju_digitalplant_dental"
       ],
       "selection": {
-        "busan_w_dental": {
-          "search_rank": 5,
-          "distance_km": 0.164,
-          "score": 0.125
+        "cheongju_digitalplant_dental": {
+          "search_rank": 17,
+          "distance_km": 2.145,
+          "score": 0.25
         }
       },
       "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1089483109",
+        "kakao_place_url": "https://place.map.kakao.com/10865395",
         "google_place_id": "",
-        "naver_place_url": "https://m.place.naver.com/hospital/1865257889/review/visitor"
+        "naver_place_url": "https://m.place.naver.com/hospital/13248170/review/visitor"
       }
     },
     {
@@ -1533,26 +1321,26 @@
       }
     },
     {
-      "competitor_id": "comp_k1101509784",
-      "name": "포미치과의원",
-      "category": "치과",
-      "lat": 35.21034388,
-      "lng": 129.00478529,
-      "address": "부산 북구 낙동대로 1791",
+      "competitor_id": "comp_k1097048438",
+      "name": "브랜드성형외과의원",
+      "category": "성형외과",
+      "lat": 35.15686776,
+      "lng": 129.05807124,
+      "address": "부산 부산진구 서면로68번길 1",
       "for_hospitals": [
-        "busan_deokcheon_yeppeunmiso_dental"
+        "busan_bada_ps"
       ],
       "selection": {
-        "busan_deokcheon_yeppeunmiso_dental": {
-          "search_rank": 8,
-          "distance_km": 0.003,
-          "score": 0.0795
+        "busan_bada_ps": {
+          "search_rank": 36,
+          "distance_km": 0.045,
+          "score": 0.4302
         }
       },
       "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1101509784",
+        "kakao_place_url": "https://place.map.kakao.com/1097048438",
         "google_place_id": "",
-        "naver_place_url": ""
+        "naver_place_url": "https://m.place.naver.com/hospital/295354588/review/visitor"
       }
     },
     {
@@ -1586,13 +1374,19 @@
       "lng": 127.44378608,
       "address": "충북 청주시 흥덕구 가경로 5",
       "for_hospitals": [
-        "cheongju_seoul_top_implant_dental"
+        "cheongju_seoul_top_implant_dental",
+        "cheongju_well_dental"
       ],
       "selection": {
         "cheongju_seoul_top_implant_dental": {
           "search_rank": 9,
           "distance_km": 1.546,
-          "score": 0.1477
+          "score": 0.131
+        },
+        "cheongju_well_dental": {
+          "search_rank": 9,
+          "distance_km": 2.759,
+          "score": 0.2024
         }
       },
       "channels": {
@@ -1691,29 +1485,6 @@
         "kakao_place_url": "https://place.map.kakao.com/11122780",
         "google_place_id": "0x35660ecb6667983d:0xb9f08ea258181cb8",
         "naver_place_url": "https://m.place.naver.com/hospital/19530854/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k11132704",
-      "name": "수성형외과의원",
-      "category": "성형외과",
-      "lat": 35.86897522,
-      "lng": 128.59563687,
-      "address": "대구 중구 동성로6길 2-1",
-      "for_hospitals": [
-        "daegu_leesinil_grace_ps"
-      ],
-      "selection": {
-        "daegu_leesinil_grace_ps": {
-          "search_rank": 17,
-          "distance_km": 0.135,
-          "score": 0.2614
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/11132704",
-        "google_place_id": "0x3565e3c4775549f3:0x99da868e4844826f",
-        "naver_place_url": ""
       }
     },
     {
@@ -1838,29 +1609,6 @@
       }
     },
     {
-      "competitor_id": "comp_k11231262",
-      "name": "티아라의원",
-      "category": "성형외과",
-      "lat": 35.86755122,
-      "lng": 128.59592273,
-      "address": "대구 중구 동성로5길 26",
-      "for_hospitals": [
-        "daegu_leesinil_grace_ps"
-      ],
-      "selection": {
-        "daegu_leesinil_grace_ps": {
-          "search_rank": 11,
-          "distance_km": 0.241,
-          "score": 0.2727
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/11231262",
-        "google_place_id": "0x3565e3c64780e0bf:0xbd7793dcc835b1c9",
-        "naver_place_url": ""
-      }
-    },
-    {
       "competitor_id": "comp_k1126341491",
       "name": "베일러의원",
       "category": "피부과",
@@ -1920,9 +1668,15 @@
       "lng": 129.05853242,
       "address": "부산 부산진구 서면로68번길 15",
       "for_hospitals": [
+        "busan_bada_ps",
         "busan_thebody_ps"
       ],
       "selection": {
+        "busan_bada_ps": {
+          "search_rank": 14,
+          "distance_km": 0.047,
+          "score": 0.2326
+        },
         "busan_thebody_ps": {
           "search_rank": 14,
           "distance_km": 0.13,
@@ -2002,29 +1756,6 @@
         "kakao_place_url": "https://place.map.kakao.com/11387615",
         "google_place_id": "0x357c9041b3bd5e29:0x1deb82639d70760a",
         "naver_place_url": "https://m.place.naver.com/hospital/384937455/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k1141229216",
-      "name": "부원뉴욕치과병원",
-      "category": "치과",
-      "lat": 35.22831565,
-      "lng": 128.88219715,
-      "address": "경남 김해시 가락로 19",
-      "for_hospitals": [
-        "gimhae_yulha_seonhan_dental"
-      ],
-      "selection": {
-        "gimhae_yulha_seonhan_dental": {
-          "search_rank": 4,
-          "distance_km": 8.24,
-          "score": 0.2386
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1141229216",
-        "google_place_id": "0x3568c76af28215bd:0x934c278edc2cdbc6",
-        "naver_place_url": "https://m.place.naver.com/hospital/12914887/review/visitor"
       }
     },
     {
@@ -2150,15 +1881,9 @@
       "lng": 128.68223525,
       "address": "경남 창원시 성산구 상남로 113",
       "for_hospitals": [
-        "changwon_daniel_wellness",
         "changwon_first_derm"
       ],
       "selection": {
-        "changwon_daniel_wellness": {
-          "search_rank": 7,
-          "distance_km": 0.148,
-          "score": 0.1239
-        },
         "changwon_first_derm": {
           "search_rank": 7,
           "distance_km": 6.548,
@@ -2169,29 +1894,6 @@
         "kakao_place_url": "https://place.map.kakao.com/1161612190",
         "google_place_id": "",
         "naver_place_url": ""
-      }
-    },
-    {
-      "competitor_id": "comp_k1164602039",
-      "name": "특편한구강내과치과",
-      "category": "치과",
-      "lat": 35.23619269,
-      "lng": 128.86732119,
-      "address": "경남 김해시 내외중앙로 72",
-      "for_hospitals": [
-        "gimhae_yulha_seonhan_dental"
-      ],
-      "selection": {
-        "gimhae_yulha_seonhan_dental": {
-          "search_rank": 14,
-          "distance_km": 8.187,
-          "score": 0.3409
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1164602039",
-        "google_place_id": "0x3568c7b8be76d289:0x75a36e4a4b77d76a",
-        "naver_place_url": "https://m.place.naver.com/hospital/1695037593/review/visitor"
       }
     },
     {
@@ -2352,15 +2054,9 @@
       "lng": 128.59279926,
       "address": "대구 중구 달구벌대로 2095",
       "for_hospitals": [
-        "daegu_kwakjaehyuk_neuro",
         "daegu_sintong_neuro"
       ],
       "selection": {
-        "daegu_kwakjaehyuk_neuro": {
-          "search_rank": 4,
-          "distance_km": 0.915,
-          "score": 0.4167
-        },
         "daegu_sintong_neuro": {
           "search_rank": 4,
           "distance_km": 0.137,
@@ -2400,29 +2096,6 @@
         "kakao_place_url": "https://place.map.kakao.com/1174926454",
         "google_place_id": "",
         "naver_place_url": "https://m.place.naver.com/hospital/1703849936/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k117494037",
-      "name": "엣지성형외과",
-      "category": "성형외과",
-      "lat": 35.86626557,
-      "lng": 128.59502013,
-      "address": "대구 중구 동성로1길 28",
-      "for_hospitals": [
-        "daegu_leesinil_grace_ps"
-      ],
-      "selection": {
-        "daegu_leesinil_grace_ps": {
-          "search_rank": 3,
-          "distance_km": 0.404,
-          "score": 0.2727
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/117494037",
-        "google_place_id": "0x3565e3789fae1fa5:0x7981237fd913c04c",
-        "naver_place_url": "https://m.place.naver.com/hospital/1278451550/review/visitor"
       }
     },
     {
@@ -2495,29 +2168,6 @@
       }
     },
     {
-      "competitor_id": "comp_k11945680",
-      "name": "스마트e치과",
-      "category": "치과",
-      "lat": 35.15528098,
-      "lng": 129.05952432,
-      "address": "부산 부산진구 중앙대로 700",
-      "for_hospitals": [
-        "busan_yeba_ortho_dental"
-      ],
-      "selection": {
-        "busan_yeba_ortho_dental": {
-          "search_rank": 23,
-          "distance_km": 0.332,
-          "score": 0.3864
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/11945680",
-        "google_place_id": "0x3568eb6fe6eec611:0x462e188e7b302798",
-        "naver_place_url": "https://m.place.naver.com/hospital/19997433/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k1194626327",
       "name": "루센트치과의원",
       "category": "치과",
@@ -2538,29 +2188,6 @@
         "kakao_place_url": "https://place.map.kakao.com/1194626327",
         "google_place_id": "0x357ca3e5df18dee9:0xc177a6b126030d2b",
         "naver_place_url": "https://m.place.naver.com/hospital/1446824808/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k12006105",
-      "name": "미소피부과",
-      "category": "피부과",
-      "lat": 35.84274196,
-      "lng": 128.61210993,
-      "address": "대구 수성구 수성로 193",
-      "for_hospitals": [
-        "daegu_areumdaun_derm"
-      ],
-      "selection": {
-        "daegu_areumdaun_derm": {
-          "search_rank": 11,
-          "distance_km": 3.59,
-          "score": 0.1932
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/12006105",
-        "google_place_id": "0x3565e3a2914b5903:0x1263cda669090cbf",
-        "naver_place_url": "https://m.place.naver.com/hospital/13349810/review/visitor"
       }
     },
     {
@@ -2587,26 +2214,26 @@
       }
     },
     {
-      "competitor_id": "comp_k12111784",
-      "name": "더원성형외과",
-      "category": "성형외과",
-      "lat": 35.86894433,
-      "lng": 128.59687623,
-      "address": "대구 중구 동성로6길 25",
+      "competitor_id": "comp_k1206609688",
+      "name": "청주지웰유디치과의원",
+      "category": "치과",
+      "lat": 36.64148569,
+      "lng": 127.42874009,
+      "address": "충북 청주시 흥덕구 대농로 58",
       "for_hospitals": [
-        "daegu_leesinil_grace_ps"
+        "cheongju_well_dental"
       ],
       "selection": {
-        "daegu_leesinil_grace_ps": {
-          "search_rank": 20,
-          "distance_km": 0.067,
-          "score": 0.2159
+        "cheongju_well_dental": {
+          "search_rank": 34,
+          "distance_km": 0.864,
+          "score": 0.369
         }
       },
       "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/12111784",
-        "google_place_id": "0x3565e3c45ee2e579:0x23d0849885b82c7e",
-        "naver_place_url": "https://m.place.naver.com/hospital/13416610/review/visitor"
+        "kakao_place_url": "https://place.map.kakao.com/1206609688",
+        "google_place_id": "",
+        "naver_place_url": "https://m.place.naver.com/hospital/34103820/review/visitor"
       }
     },
     {
@@ -2699,52 +2326,6 @@
         "kakao_place_url": "https://place.map.kakao.com/12266993",
         "google_place_id": "",
         "naver_place_url": "https://m.place.naver.com/hospital/13248250/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k1231782397",
-      "name": "이정훈한의원",
-      "category": "한의원",
-      "lat": 35.86427942,
-      "lng": 128.59461499,
-      "address": "대구 중구 명륜로23길 97",
-      "for_hospitals": [
-        "daegu_rayul_korean_med"
-      ],
-      "selection": {
-        "daegu_rayul_korean_med": {
-          "search_rank": 12,
-          "distance_km": 0.206,
-          "score": 0.1932
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1231782397",
-        "google_place_id": "",
-        "naver_place_url": ""
-      }
-    },
-    {
-      "competitor_id": "comp_k1232990947",
-      "name": "한음 한방신경정신과한의원 대구점",
-      "category": "한의원",
-      "lat": 35.86528311,
-      "lng": 128.59259144,
-      "address": "대구 중구 달구벌대로 2094",
-      "for_hospitals": [
-        "daegu_rayul_korean_med"
-      ],
-      "selection": {
-        "daegu_rayul_korean_med": {
-          "search_rank": 23,
-          "distance_km": 0.135,
-          "score": 0.2841
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1232990947",
-        "google_place_id": "0x3565e30060c63cab:0xaf2411d94420dbd",
-        "naver_place_url": ""
       }
     },
     {
@@ -2863,29 +2444,6 @@
       }
     },
     {
-      "competitor_id": "comp_k12402441",
-      "name": "하늘체한의원 대구점",
-      "category": "한의원",
-      "lat": 35.8697365,
-      "lng": 128.59707481,
-      "address": "대구 중구 동성로2길 83",
-      "for_hospitals": [
-        "daegu_rayul_korean_med"
-      ],
-      "selection": {
-        "daegu_rayul_korean_med": {
-          "search_rank": 16,
-          "distance_km": 0.509,
-          "score": 0.3182
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/12402441",
-        "google_place_id": "0x3565e3c463656989:0x500e79b3abfefb28",
-        "naver_place_url": ""
-      }
-    },
-    {
       "competitor_id": "comp_k1245434019",
       "name": "이을성형외과의원",
       "category": "성형외과",
@@ -2985,13 +2543,19 @@
       "lng": 127.42768372,
       "address": "충북 청주시 흥덕구 대농로 45",
       "for_hospitals": [
-        "cheongju_seoul_top_implant_dental"
+        "cheongju_seoul_top_implant_dental",
+        "cheongju_well_dental"
       ],
       "selection": {
         "cheongju_seoul_top_implant_dental": {
           "search_rank": 19,
           "distance_km": 2.223,
-          "score": 0.3182
+          "score": 0.3095
+        },
+        "cheongju_well_dental": {
+          "search_rank": 19,
+          "distance_km": 1.151,
+          "score": 0.2381
         }
       },
       "channels": {
@@ -3082,29 +2646,6 @@
       }
     },
     {
-      "competitor_id": "comp_k12728606",
-      "name": "파르베의원",
-      "category": "성형외과",
-      "lat": 35.87006574,
-      "lng": 128.59359059,
-      "address": "대구 중구 중앙대로 413-1",
-      "for_hospitals": [
-        "daegu_leesinil_grace_ps"
-      ],
-      "selection": {
-        "daegu_leesinil_grace_ps": {
-          "search_rank": 13,
-          "distance_km": 0.31,
-          "score": 0.3182
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/12728606",
-        "google_place_id": "0x3565e3c3a41dd675:0xb7c24aaedc7190",
-        "naver_place_url": "https://m.place.naver.com/hospital/11731361/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k12735944",
       "name": "단국대학교 치과대학 죽전치과병원",
       "category": "치과",
@@ -3125,6 +2666,29 @@
         "kakao_place_url": "https://place.map.kakao.com/12735944",
         "google_place_id": "0x357b5755f8fdbbed:0x39475b2899c6463f",
         "naver_place_url": "https://m.place.naver.com/hospital/13584128/review/visitor"
+      }
+    },
+    {
+      "competitor_id": "comp_k12740809",
+      "name": "제이스타성형외과의원",
+      "category": "성형외과",
+      "lat": 35.15725177,
+      "lng": 129.05732159,
+      "address": "부산 부산진구 가야대로784번길 3",
+      "for_hospitals": [
+        "busan_bada_ps"
+      ],
+      "selection": {
+        "busan_bada_ps": {
+          "search_rank": 24,
+          "distance_km": 0.111,
+          "score": 0.4419
+        }
+      },
+      "channels": {
+        "kakao_place_url": "https://place.map.kakao.com/12740809",
+        "google_place_id": "0x3568eb000b6d1a3d:0xf71b19f72a6a43c8",
+        "naver_place_url": "https://m.place.naver.com/hospital/13587753/review/visitor"
       }
     },
     {
@@ -3229,29 +2793,6 @@
         "kakao_place_url": "https://place.map.kakao.com/1288915686",
         "google_place_id": "0x3565e3a23d5e63f5:0x46e404e9a75d0f7e",
         "naver_place_url": "https://m.place.naver.com/hospital/1423789021/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k1292220337",
-      "name": "로이스서울치과의원",
-      "category": "치과",
-      "lat": 35.23481321,
-      "lng": 128.86637132,
-      "address": "경남 김해시 내외중앙로 53",
-      "for_hospitals": [
-        "gimhae_yulha_seonhan_dental"
-      ],
-      "selection": {
-        "gimhae_yulha_seonhan_dental": {
-          "search_rank": 9,
-          "distance_km": 8.011,
-          "score": 0.25
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1292220337",
-        "google_place_id": "",
-        "naver_place_url": "https://m.place.naver.com/hospital/1415107944/review/visitor"
       }
     },
     {
@@ -3382,49 +2923,26 @@
       }
     },
     {
-      "competitor_id": "comp_k13078527",
-      "name": "S성형외과의원",
+      "competitor_id": "comp_k1310976829",
+      "name": "모델라인의원 부산점",
       "category": "성형외과",
-      "lat": 35.87070905,
-      "lng": 128.59373412,
-      "address": "대구 중구 중앙대로 421",
+      "lat": 35.15629261,
+      "lng": 129.05946128,
+      "address": "부산 부산진구 중앙대로 712",
       "for_hospitals": [
-        "daegu_leesinil_grace_ps"
+        "busan_bada_ps"
       ],
       "selection": {
-        "daegu_leesinil_grace_ps": {
-          "search_rank": 16,
-          "distance_km": 0.319,
-          "score": 0.3636
+        "busan_bada_ps": {
+          "search_rank": 8,
+          "distance_km": 0.128,
+          "score": 0.3023
         }
       },
       "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/13078527",
-        "google_place_id": "0x3565e3c30c3a7ee1:0x352b6ce1e3974efe",
+        "kakao_place_url": "https://place.map.kakao.com/1310976829",
+        "google_place_id": "0x3568eb80a793a4e7:0x817f8e248aae6046",
         "naver_place_url": ""
-      }
-    },
-    {
-      "competitor_id": "comp_k13117335",
-      "name": "브이성형외과의원",
-      "category": "성형외과",
-      "lat": 35.86778492,
-      "lng": 128.600843,
-      "address": "대구 중구 공평로10길 18",
-      "for_hospitals": [
-        "daegu_leesinil_grace_ps"
-      ],
-      "selection": {
-        "daegu_leesinil_grace_ps": {
-          "search_rank": 1,
-          "distance_km": 0.4,
-          "score": 0.2273
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/13117335",
-        "google_place_id": "0x3565e3c3f2405619:0x3f141d4935650fbf",
-        "naver_place_url": "https://m.place.naver.com/hospital/12943061/review/visitor"
       }
     },
     {
@@ -3480,29 +2998,6 @@
       }
     },
     {
-      "competitor_id": "comp_k13313702",
-      "name": "대구세브란스피부과의원",
-      "category": "피부과",
-      "lat": 35.8592459,
-      "lng": 128.64261066,
-      "address": "대구 수성구 달구벌대로 2557-1",
-      "for_hospitals": [
-        "daegu_areumdaun_derm"
-      ],
-      "selection": {
-        "daegu_areumdaun_derm": {
-          "search_rank": 1,
-          "distance_km": 4.348,
-          "score": 0.1477
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/13313702",
-        "google_place_id": "0x3565e28ee59bb81d:0x60c7b88242e4b978",
-        "naver_place_url": "https://m.place.naver.com/hospital/11845122/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k13338043",
       "name": "참조은치과병원 청주점",
       "category": "치과",
@@ -3510,13 +3005,25 @@
       "lng": 127.48420778,
       "address": "충북 청주시 서원구 청남로 1990",
       "for_hospitals": [
-        "cheongju_seoul_top_implant_dental"
+        "cheongju_digitalplant_dental",
+        "cheongju_seoul_top_implant_dental",
+        "cheongju_well_dental"
       ],
       "selection": {
+        "cheongju_digitalplant_dental": {
+          "search_rank": 6,
+          "distance_km": 3.94,
+          "score": 0.25
+        },
         "cheongju_seoul_top_implant_dental": {
           "search_rank": 6,
           "distance_km": 5.114,
-          "score": 0.2955
+          "score": 0.2857
+        },
+        "cheongju_well_dental": {
+          "search_rank": 6,
+          "distance_km": 6.111,
+          "score": 0.3333
         }
       },
       "channels": {
@@ -3546,29 +3053,6 @@
         "kakao_place_url": "https://place.map.kakao.com/1339439373",
         "google_place_id": "0x3568ebffa81f2989:0xaa16ae7af41280a1",
         "naver_place_url": "https://m.place.naver.com/hospital/2002924121/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k134391838",
-      "name": "만촌올바른정형외과의원",
-      "category": "정형외과",
-      "lat": 35.85929093,
-      "lng": 128.64689009,
-      "address": "대구 수성구 달구벌대로 2599",
-      "for_hospitals": [
-        "daegu_beomeo_first_ortho"
-      ],
-      "selection": {
-        "daegu_beomeo_first_ortho": {
-          "search_rank": 15,
-          "distance_km": 1.185,
-          "score": 0.225
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/134391838",
-        "google_place_id": "0x3565e326d64f92e3:0x816d32778e95e639",
-        "naver_place_url": "https://m.place.naver.com/hospital/1702121626/review/visitor"
       }
     },
     {
@@ -3792,13 +3276,19 @@
       "lng": 127.44056182,
       "address": "충북 청주시 흥덕구 복대로 179",
       "for_hospitals": [
-        "cheongju_seoul_top_implant_dental"
+        "cheongju_seoul_top_implant_dental",
+        "cheongju_well_dental"
       ],
       "selection": {
         "cheongju_seoul_top_implant_dental": {
           "search_rank": 27,
           "distance_km": 1.26,
-          "score": 0.3068
+          "score": 0.3095
+        },
+        "cheongju_well_dental": {
+          "search_rank": 27,
+          "distance_km": 1.562,
+          "score": 0.369
         }
       },
       "channels": {
@@ -3851,29 +3341,6 @@
         "kakao_place_url": "https://place.map.kakao.com/13548098",
         "google_place_id": "",
         "naver_place_url": "https://m.place.naver.com/hospital/19877961/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k13554004",
-      "name": "해율한의원 대구점",
-      "category": "한의원",
-      "lat": 35.86467342,
-      "lng": 128.59602444,
-      "address": "대구 중구 달구벌대로 2126",
-      "for_hospitals": [
-        "daegu_rayul_korean_med"
-      ],
-      "selection": {
-        "daegu_rayul_korean_med": {
-          "search_rank": 14,
-          "distance_km": 0.25,
-          "score": 0.2386
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/13554004",
-        "google_place_id": "0x3565e3fbf5974377:0xcea5251b4768f8fb",
-        "naver_place_url": ""
       }
     },
     {
@@ -4096,29 +3563,6 @@
       }
     },
     {
-      "competitor_id": "comp_k1386895029",
-      "name": "만촌더설레임피부과의원",
-      "category": "피부과",
-      "lat": 35.85824125,
-      "lng": 128.64661709,
-      "address": "대구 수성구 달구벌대로 2598",
-      "for_hospitals": [
-        "daegu_areumdaun_derm"
-      ],
-      "selection": {
-        "daegu_areumdaun_derm": {
-          "search_rank": 16,
-          "distance_km": 4.267,
-          "score": 0.2727
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1386895029",
-        "google_place_id": "0x3565e39f2296458b:0xf9a92c9363ab1411",
-        "naver_place_url": ""
-      }
-    },
-    {
       "competitor_id": "comp_k139868515",
       "name": "더보다구강악안면외과치과의원",
       "category": "치과",
@@ -4165,75 +3609,6 @@
       }
     },
     {
-      "competitor_id": "comp_k1403925822",
-      "name": "자연과한의원 대구점",
-      "category": "한의원",
-      "lat": 35.86570226,
-      "lng": 128.58992954,
-      "address": "대구 중구 달구벌대로 2068",
-      "for_hospitals": [
-        "daegu_rayul_korean_med"
-      ],
-      "selection": {
-        "daegu_rayul_korean_med": {
-          "search_rank": 7,
-          "distance_km": 0.349,
-          "score": 0.1932
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1403925822",
-        "google_place_id": "0x3565e35b4d4dc9d1:0xdc573ba98e53b83b",
-        "naver_place_url": ""
-      }
-    },
-    {
-      "competitor_id": "comp_k14076440",
-      "name": "자기치아살리기 365일야간 드림플란트치과병원",
-      "category": "치과",
-      "lat": 35.22688474,
-      "lng": 128.88502289,
-      "address": "경남 김해시 김해대로 2361",
-      "for_hospitals": [
-        "gimhae_yulha_seonhan_dental"
-      ],
-      "selection": {
-        "gimhae_yulha_seonhan_dental": {
-          "search_rank": 2,
-          "distance_km": 8.29,
-          "score": 0.2386
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/14076440",
-        "google_place_id": "0x3568c73e6f2a8329:0xc2ab5ef86e6d4447",
-        "naver_place_url": "https://m.place.naver.com/hospital/13136050/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k14077523",
-      "name": "태강내과의원",
-      "category": "내과",
-      "lat": 35.56436514,
-      "lng": 129.33481354,
-      "address": "울산 중구 번영로 475",
-      "for_hospitals": [
-        "ulsan_bk_internal"
-      ],
-      "selection": {
-        "ulsan_bk_internal": {
-          "search_rank": 18,
-          "distance_km": 0.183,
-          "score": 0.5
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/14077523",
-        "google_place_id": "",
-        "naver_place_url": "https://m.place.naver.com/hospital/19523249/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k1418277921",
       "name": "티엔티성형외과의원",
       "category": "성형외과",
@@ -4277,29 +3652,6 @@
         "kakao_place_url": "https://place.map.kakao.com/141841539",
         "google_place_id": "",
         "naver_place_url": "https://m.place.naver.com/hospital/1474045759/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k1418960829",
-      "name": "365바른치과의원 장유점",
-      "category": "치과",
-      "lat": 35.19092486,
-      "lng": 128.80124876,
-      "address": "경남 김해시 번화1로44번길 6",
-      "for_hospitals": [
-        "gimhae_yulha_seonhan_dental"
-      ],
-      "selection": {
-        "gimhae_yulha_seonhan_dental": {
-          "search_rank": 11,
-          "distance_km": 2.921,
-          "score": 0.1591
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1418960829",
-        "google_place_id": "",
-        "naver_place_url": ""
       }
     },
     {
@@ -4470,29 +3822,6 @@
       }
     },
     {
-      "competitor_id": "comp_k1457897142",
-      "name": "디지털아트치과의원",
-      "category": "치과",
-      "lat": 35.15714083,
-      "lng": 129.05451411,
-      "address": "부산 부산진구 부전로 79",
-      "for_hospitals": [
-        "busan_yeba_ortho_dental"
-      ],
-      "selection": {
-        "busan_yeba_ortho_dental": {
-          "search_rank": 4,
-          "distance_km": 0.51,
-          "score": 0.3409
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1457897142",
-        "google_place_id": "0x3568eb6df3fa03b3:0x7967ba99416b3e0a",
-        "naver_place_url": "https://m.place.naver.com/hospital/37933246/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k1463473235",
       "name": "플로르성형외과의원",
       "category": "성형외과",
@@ -4516,29 +3845,6 @@
       }
     },
     {
-      "competitor_id": "comp_k1469683889",
-      "name": "서울스마트치과의원",
-      "category": "치과",
-      "lat": 35.17182319,
-      "lng": 128.82410728,
-      "address": "경남 김해시 율하6로 56",
-      "for_hospitals": [
-        "gimhae_yulha_seonhan_dental"
-      ],
-      "selection": {
-        "gimhae_yulha_seonhan_dental": {
-          "search_rank": 3,
-          "distance_km": 0.064,
-          "score": 0.0227
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1469683889",
-        "google_place_id": "",
-        "naver_place_url": "https://m.place.naver.com/hospital/1515977264/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k1472620695",
       "name": "삼성바른피부과의원",
       "category": "피부과",
@@ -4559,29 +3865,6 @@
         "kakao_place_url": "https://place.map.kakao.com/1472620695",
         "google_place_id": "0x3568cd26382856c5:0x53fde76fefa3951b",
         "naver_place_url": "https://m.place.naver.com/hospital/1672166030/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k1477579478",
-      "name": "서울패밀리병원",
-      "category": "내과",
-      "lat": 35.22081955,
-      "lng": 128.68084149,
-      "address": "경남 창원시 성산구 마디미서로 54",
-      "for_hospitals": [
-        "changwon_daniel_wellness"
-      ],
-      "selection": {
-        "changwon_daniel_wellness": {
-          "search_rank": 1,
-          "distance_km": 0.445,
-          "score": 0.133
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1477579478",
-        "google_place_id": "",
-        "naver_place_url": "https://m.place.naver.com/hospital/13259346/review/visitor"
       }
     },
     {
@@ -4611,52 +3894,6 @@
         "kakao_place_url": "https://place.map.kakao.com/1477838222",
         "google_place_id": "0x3565fb282a706305:0x6ecd3e86ea8618f5",
         "naver_place_url": "https://m.place.naver.com/hospital/37927463/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k14842130",
-      "name": "서울오라클치과의원",
-      "category": "치과",
-      "lat": 35.15596883,
-      "lng": 129.05952992,
-      "address": "부산 부산진구 중앙대로 708",
-      "for_hospitals": [
-        "busan_yeba_ortho_dental"
-      ],
-      "selection": {
-        "busan_yeba_ortho_dental": {
-          "search_rank": 15,
-          "distance_km": 0.257,
-          "score": 0.2273
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/14842130",
-        "google_place_id": "0x3568eb9ee8ba4fdb:0x935c61e198c92bfa",
-        "naver_place_url": "https://m.place.naver.com/hospital/1972723041/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k1484551014",
-      "name": "2080치과의원",
-      "category": "치과",
-      "lat": 35.19911431,
-      "lng": 129.00599024,
-      "address": "부산 북구 시랑로 75",
-      "for_hospitals": [
-        "busan_deokcheon_yeppeunmiso_dental"
-      ],
-      "selection": {
-        "busan_deokcheon_yeppeunmiso_dental": {
-          "search_rank": 14,
-          "distance_km": 1.251,
-          "score": 0.375
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1484551014",
-        "google_place_id": "0x3568eab5d2de8d77:0xddfbba6fdc0b434d",
-        "naver_place_url": "https://m.place.naver.com/hospital/1866996978/review/visitor"
       }
     },
     {
@@ -4706,6 +3943,29 @@
       }
     },
     {
+      "competitor_id": "comp_k1512482614",
+      "name": "차오름치과",
+      "category": "치과",
+      "lat": 36.60725674,
+      "lng": 127.50369007,
+      "address": "충북 청주시 상당구 1순환로 1239",
+      "for_hospitals": [
+        "cheongju_digitalplant_dental"
+      ],
+      "selection": {
+        "cheongju_digitalplant_dental": {
+          "search_rank": 10,
+          "distance_km": 4.398,
+          "score": 0.381
+        }
+      },
+      "channels": {
+        "kakao_place_url": "https://place.map.kakao.com/1512482614",
+        "google_place_id": "",
+        "naver_place_url": "https://m.place.naver.com/hospital/1503738668/review/visitor"
+      }
+    },
+    {
       "competitor_id": "comp_k1512705399",
       "name": "나인피부과의원 강남점",
       "category": "피부과",
@@ -4729,29 +3989,6 @@
       }
     },
     {
-      "competitor_id": "comp_k1516244396",
-      "name": "대구삼성신경과의원",
-      "category": "신경과",
-      "lat": 35.85976463,
-      "lng": 128.62527808,
-      "address": "대구 수성구 달구벌대로 2401",
-      "for_hospitals": [
-        "daegu_pureuncheong_neuro"
-      ],
-      "selection": {
-        "daegu_pureuncheong_neuro": {
-          "search_rank": 2,
-          "distance_km": 7.717,
-          "score": 0.3636
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1516244396",
-        "google_place_id": "0x3565e23b38d47a03:0xed567f939395dad9",
-        "naver_place_url": "https://m.place.naver.com/hospital/1381250898/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k1520264537",
       "name": "김선호치과의원",
       "category": "치과",
@@ -4759,42 +3996,31 @@
       "lng": 127.45488601,
       "address": "충북 청주시 서원구 신화로 49",
       "for_hospitals": [
-        "cheongju_seoul_top_implant_dental"
+        "cheongju_digitalplant_dental",
+        "cheongju_seoul_top_implant_dental",
+        "cheongju_well_dental"
       ],
       "selection": {
+        "cheongju_digitalplant_dental": {
+          "search_rank": 4,
+          "distance_km": 4.214,
+          "score": 0.2857
+        },
         "cheongju_seoul_top_implant_dental": {
           "search_rank": 4,
           "distance_km": 2.31,
-          "score": 0.1705
+          "score": 0.1548
+        },
+        "cheongju_well_dental": {
+          "search_rank": 4,
+          "distance_km": 3.33,
+          "score": 0.1667
         }
       },
       "channels": {
         "kakao_place_url": "https://place.map.kakao.com/1520264537",
         "google_place_id": "0x3565289c55555555:0xac9ecbf5755d4494",
         "naver_place_url": "https://m.place.naver.com/hospital/13247969/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k15225016",
-      "name": "굳센병원",
-      "category": "정형외과",
-      "lat": 35.867234,
-      "lng": 128.62149045,
-      "address": "대구 수성구 국채보상로 830",
-      "for_hospitals": [
-        "daegu_beomeo_first_ortho"
-      ],
-      "selection": {
-        "daegu_beomeo_first_ortho": {
-          "search_rank": 3,
-          "distance_km": 1.477,
-          "score": 0.1125
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/15225016",
-        "google_place_id": "0x3565e22602c0548b:0x69064eb6469f88a",
-        "naver_place_url": "https://m.place.naver.com/hospital/21559914/review/visitor"
       }
     },
     {
@@ -4949,15 +4175,9 @@
       "lng": 128.60454655,
       "address": "대구 중구 동덕로 130",
       "for_hospitals": [
-        "daegu_kwakjaehyuk_neuro",
         "daegu_sintong_neuro"
       ],
       "selection": {
-        "daegu_kwakjaehyuk_neuro": {
-          "search_rank": 8,
-          "distance_km": 1.973,
-          "score": 0.8333
-        },
         "daegu_sintong_neuro": {
           "search_rank": 8,
           "distance_km": 1.075,
@@ -4968,29 +4188,6 @@
         "kakao_place_url": "https://place.map.kakao.com/1543063019",
         "google_place_id": "",
         "naver_place_url": ""
-      }
-    },
-    {
-      "competitor_id": "comp_k1558663880",
-      "name": "수성제니스신경과의원",
-      "category": "신경과",
-      "lat": 35.8592493,
-      "lng": 128.62945972,
-      "address": "대구 수성구 달구벌대로 2435",
-      "for_hospitals": [
-        "daegu_pureuncheong_neuro"
-      ],
-      "selection": {
-        "daegu_pureuncheong_neuro": {
-          "search_rank": 11,
-          "distance_km": 7.339,
-          "score": 0.5909
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1558663880",
-        "google_place_id": "0x3565e3d2727a250b:0x2f0f7b47937e63f6",
-        "naver_place_url": "https://m.place.naver.com/hospital/1775308067/review/visitor"
       }
     },
     {
@@ -5017,6 +4214,29 @@
       }
     },
     {
+      "competitor_id": "comp_k1563147384",
+      "name": "스타비성형외과의원",
+      "category": "성형외과",
+      "lat": 35.15687496,
+      "lng": 129.05807143,
+      "address": "부산 부산진구 서면로68번길 1",
+      "for_hospitals": [
+        "busan_bada_ps"
+      ],
+      "selection": {
+        "busan_bada_ps": {
+          "search_rank": 35,
+          "distance_km": 0.046,
+          "score": 0.4419
+        }
+      },
+      "channels": {
+        "kakao_place_url": "https://place.map.kakao.com/1563147384",
+        "google_place_id": "0x3568eb6fb4a659d9:0xb14845c6bef40c2e",
+        "naver_place_url": "https://m.place.naver.com/hospital/1167911381/review/visitor"
+      }
+    },
+    {
       "competitor_id": "comp_k1563645474",
       "name": "호치과의원",
       "category": "치과",
@@ -5037,6 +4257,29 @@
         "kakao_place_url": "https://place.map.kakao.com/1563645474",
         "google_place_id": "",
         "naver_place_url": "https://m.place.naver.com/hospital/1675258849/review/visitor"
+      }
+    },
+    {
+      "competitor_id": "comp_k1568650116",
+      "name": "가인치과의원",
+      "category": "치과",
+      "lat": 36.61698791,
+      "lng": 127.5169798,
+      "address": "충북 청주시 상당구 중고개로141번길 11-1",
+      "for_hospitals": [
+        "cheongju_digitalplant_dental"
+      ],
+      "selection": {
+        "cheongju_digitalplant_dental": {
+          "search_rank": 15,
+          "distance_km": 3.985,
+          "score": 0.369
+        }
+      },
+      "channels": {
+        "kakao_place_url": "https://place.map.kakao.com/1568650116",
+        "google_place_id": "0x3565273226a1db55:0x4789082134a12514",
+        "naver_place_url": "https://m.place.naver.com/hospital/1981487593/review/visitor"
       }
     },
     {
@@ -5063,29 +4306,6 @@
       }
     },
     {
-      "competitor_id": "comp_k1586350708",
-      "name": "서울바른피부과의원",
-      "category": "피부과",
-      "lat": 35.85943171,
-      "lng": 128.62763692,
-      "address": "대구 수성구 달구벌대로 2421",
-      "for_hospitals": [
-        "daegu_areumdaun_derm"
-      ],
-      "selection": {
-        "daegu_areumdaun_derm": {
-          "search_rank": 10,
-          "distance_km": 4.518,
-          "score": 0.3523
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1586350708",
-        "google_place_id": "0x3565e3000eaaa147:0x54e35b0c7644d6ab",
-        "naver_place_url": "https://m.place.naver.com/hospital/38254013/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k1589092027",
       "name": "에이라인치과병원",
       "category": "치과",
@@ -5093,13 +4313,19 @@
       "lng": 127.42888936,
       "address": "충북 청주시 흥덕구 강서로 115-1",
       "for_hospitals": [
-        "cheongju_seoul_top_implant_dental"
+        "cheongju_seoul_top_implant_dental",
+        "cheongju_well_dental"
       ],
       "selection": {
         "cheongju_seoul_top_implant_dental": {
           "search_rank": 14,
           "distance_km": 0.112,
-          "score": 0.1477
+          "score": 0.1429
+        },
+        "cheongju_well_dental": {
+          "search_rank": 14,
+          "distance_km": 1.196,
+          "score": 0.1905
         }
       },
       "channels": {
@@ -5129,29 +4355,6 @@
         "kakao_place_url": "https://place.map.kakao.com/1606894506",
         "google_place_id": "0x356527c81dc21381:0x9084b3b4dede831d",
         "naver_place_url": "https://m.place.naver.com/hospital/31325009/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k1609020569",
-      "name": "글래드성형외과의원",
-      "category": "성형외과",
-      "lat": 35.86996614,
-      "lng": 128.59945645,
-      "address": "대구 중구 국채보상로 630",
-      "for_hospitals": [
-        "daegu_leesinil_grace_ps"
-      ],
-      "selection": {
-        "daegu_leesinil_grace_ps": {
-          "search_rank": 7,
-          "distance_km": 0.229,
-          "score": 0.2159
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1609020569",
-        "google_place_id": "0x3565e3f6d13c0e5b:0xeccc753a88ebed29",
-        "naver_place_url": "https://m.place.naver.com/hospital/1306583644/review/visitor"
       }
     },
     {
@@ -5247,29 +4450,6 @@
       }
     },
     {
-      "competitor_id": "comp_k1620071872",
-      "name": "더이로운치과의원",
-      "category": "치과",
-      "lat": 35.24008456,
-      "lng": 128.86693589,
-      "address": "경남 김해시 구지로 32",
-      "for_hospitals": [
-        "gimhae_yulha_seonhan_dental"
-      ],
-      "selection": {
-        "gimhae_yulha_seonhan_dental": {
-          "search_rank": 6,
-          "distance_km": 8.552,
-          "score": 0.3295
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1620071872",
-        "google_place_id": "0x3568c7003095c11b:0xde342ed0ff867ec5",
-        "naver_place_url": "https://m.place.naver.com/hospital/1604357743/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k16219480",
       "name": "보람산부인과의원",
       "category": "산부인과",
@@ -5290,52 +4470,6 @@
         "kakao_place_url": "https://place.map.kakao.com/16219480",
         "google_place_id": "",
         "naver_place_url": "https://m.place.naver.com/hospital/13252242/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k16219890",
-      "name": "김피부과의원",
-      "category": "피부과",
-      "lat": 35.8583683,
-      "lng": 128.646157,
-      "address": "대구 수성구 청호로 496",
-      "for_hospitals": [
-        "daegu_areumdaun_derm"
-      ],
-      "selection": {
-        "daegu_areumdaun_derm": {
-          "search_rank": 5,
-          "distance_km": 4.276,
-          "score": 0.1705
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/16219890",
-        "google_place_id": "0x3565e2039433864d:0x1c001026fd528c18",
-        "naver_place_url": "https://m.place.naver.com/hospital/19529730/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k16241530",
-      "name": "이루미치과의원 서면점",
-      "category": "치과",
-      "lat": 35.15797578,
-      "lng": 129.06032121,
-      "address": "부산 부산진구 서전로 5",
-      "for_hospitals": [
-        "busan_yeba_ortho_dental"
-      ],
-      "selection": {
-        "busan_yeba_ortho_dental": {
-          "search_rank": 2,
-          "distance_km": 0.045,
-          "score": 0.0114
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/16241530",
-        "google_place_id": "0x3568eb6e7a1c45db:0xdc122e26623b658",
-        "naver_place_url": "https://m.place.naver.com/hospital/19861442/review/visitor"
       }
     },
     {
@@ -5369,42 +4503,31 @@
       "lng": 127.49209348,
       "address": "충북 청주시 상당구 단재로 9",
       "for_hospitals": [
-        "cheongju_seoul_top_implant_dental"
+        "cheongju_digitalplant_dental",
+        "cheongju_seoul_top_implant_dental",
+        "cheongju_well_dental"
       ],
       "selection": {
+        "cheongju_digitalplant_dental": {
+          "search_rank": 3,
+          "distance_km": 1.957,
+          "score": 0.0595
+        },
         "cheongju_seoul_top_implant_dental": {
           "search_rank": 3,
           "distance_km": 5.544,
-          "score": 0.3068
+          "score": 0.2976
+        },
+        "cheongju_well_dental": {
+          "search_rank": 3,
+          "distance_km": 6.189,
+          "score": 0.3214
         }
       },
       "channels": {
         "kakao_place_url": "https://place.map.kakao.com/1633620826",
         "google_place_id": "",
         "naver_place_url": "https://m.place.naver.com/hospital/1417260226/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k1635690406",
-      "name": "마디팔팔의원",
-      "category": "정형외과",
-      "lat": 35.85825517,
-      "lng": 128.6466528,
-      "address": "대구 수성구 달구벌대로 2598",
-      "for_hospitals": [
-        "daegu_beomeo_first_ortho"
-      ],
-      "selection": {
-        "daegu_beomeo_first_ortho": {
-          "search_rank": 10,
-          "distance_km": 1.16,
-          "score": 0.15
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1635690406",
-        "google_place_id": "0x3565e203ec7d2fed:0x703203ebc6c4dfd9",
-        "naver_place_url": "https://m.place.naver.com/hospital/1613373263/review/visitor"
       }
     },
     {
@@ -5529,52 +4652,6 @@
       }
     },
     {
-      "competitor_id": "comp_k16554548",
-      "name": "밝은미소치과의원",
-      "category": "치과",
-      "lat": 35.18551261,
-      "lng": 129.08081281,
-      "address": "부산 연제구 중앙대로 1093",
-      "for_hospitals": [
-        "busan_w_dental"
-      ],
-      "selection": {
-        "busan_w_dental": {
-          "search_rank": 8,
-          "distance_km": 0.283,
-          "score": 0.25
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/16554548",
-        "google_place_id": "",
-        "naver_place_url": "https://m.place.naver.com/hospital/13165900/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k16577428",
-      "name": "페리오치과의원",
-      "category": "치과",
-      "lat": 35.20905374,
-      "lng": 129.00558146,
-      "address": "부산 북구 백양대로 1196",
-      "for_hospitals": [
-        "busan_deokcheon_yeppeunmiso_dental"
-      ],
-      "selection": {
-        "busan_deokcheon_yeppeunmiso_dental": {
-          "search_rank": 28,
-          "distance_km": 0.157,
-          "score": 0.375
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/16577428",
-        "google_place_id": "",
-        "naver_place_url": ""
-      }
-    },
-    {
       "competitor_id": "comp_k1660061790",
       "name": "강플란트치과의원",
       "category": "치과",
@@ -5595,29 +4672,6 @@
         "kakao_place_url": "https://place.map.kakao.com/1660061790",
         "google_place_id": "",
         "naver_place_url": "https://m.place.naver.com/hospital/36436005/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k16615557",
-      "name": "인다라한의원 대구점",
-      "category": "한의원",
-      "lat": 35.86350841,
-      "lng": 128.59214188,
-      "address": "대구 중구 중앙대로67길 10",
-      "for_hospitals": [
-        "daegu_rayul_korean_med"
-      ],
-      "selection": {
-        "daegu_rayul_korean_med": {
-          "search_rank": 18,
-          "distance_km": 0.315,
-          "score": 0.2955
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/16615557",
-        "google_place_id": "0x3565e3bf81199f59:0xabba9d5cd37de3d1",
-        "naver_place_url": ""
       }
     },
     {
@@ -5759,6 +4813,29 @@
       }
     },
     {
+      "competitor_id": "comp_k168147888",
+      "name": "메이성형외과",
+      "category": "성형외과",
+      "lat": 35.15659663,
+      "lng": 129.05801065,
+      "address": "부산 부산진구 서면로 66",
+      "for_hospitals": [
+        "busan_bada_ps"
+      ],
+      "selection": {
+        "busan_bada_ps": {
+          "search_rank": 38,
+          "distance_km": 0.016,
+          "score": 0.4302
+        }
+      },
+      "channels": {
+        "kakao_place_url": "https://place.map.kakao.com/168147888",
+        "google_place_id": "0x3568eb6e3554d307:0xeed2e74e803f01b4",
+        "naver_place_url": "https://m.place.naver.com/hospital/37864838/review/visitor"
+      }
+    },
+    {
       "competitor_id": "comp_k1682165958",
       "name": "아영산부인과의원",
       "category": "산부인과",
@@ -5812,15 +4889,9 @@
       "lng": 128.6030876,
       "address": "대구 중구 달구벌대로 2191",
       "for_hospitals": [
-        "daegu_kwakjaehyuk_neuro",
         "daegu_sintong_neuro"
       ],
       "selection": {
-        "daegu_kwakjaehyuk_neuro": {
-          "search_rank": 5,
-          "distance_km": 1.849,
-          "score": 0.5833
-        },
         "daegu_sintong_neuro": {
           "search_rank": 5,
           "distance_km": 0.945,
@@ -5857,29 +4928,6 @@
       }
     },
     {
-      "competitor_id": "comp_k1704572624",
-      "name": "사랑니랑구강악안면외과치과의원",
-      "category": "치과",
-      "lat": 35.18667881,
-      "lng": 129.08064936,
-      "address": "부산 연제구 월드컵대로 144",
-      "for_hospitals": [
-        "busan_w_dental"
-      ],
-      "selection": {
-        "busan_w_dental": {
-          "search_rank": 2,
-          "distance_km": 0.153,
-          "score": 0.0682
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1704572624",
-        "google_place_id": "0x356893fb353f00a1:0xf13572633d9d67cc",
-        "naver_place_url": "https://m.place.naver.com/hospital/1596995503/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k17074000",
       "name": "미즈맘산부인과의원",
       "category": "산부인과",
@@ -5900,29 +4948,6 @@
         "kakao_place_url": "https://place.map.kakao.com/17074000",
         "google_place_id": "",
         "naver_place_url": "https://m.place.naver.com/hospital/21077556/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k17077742",
-      "name": "후한의원 대구점",
-      "category": "한의원",
-      "lat": 35.87012722,
-      "lng": 128.59689997,
-      "address": "대구 중구 동성로2길 95",
-      "for_hospitals": [
-        "daegu_rayul_korean_med"
-      ],
-      "selection": {
-        "daegu_rayul_korean_med": {
-          "search_rank": 20,
-          "distance_km": 0.537,
-          "score": 0.375
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/17077742",
-        "google_place_id": "",
-        "naver_place_url": ""
       }
     },
     {
@@ -5969,29 +4994,6 @@
         "kakao_place_url": "https://place.map.kakao.com/17121474",
         "google_place_id": "0x357b518cd5462691:0xb73fb346b70d488b",
         "naver_place_url": "https://m.place.naver.com/hospital/1492890787/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k17161708",
-      "name": "김수현내과의원",
-      "category": "내과",
-      "lat": 35.56804585,
-      "lng": 129.34377594,
-      "address": "울산 중구 번영로 564",
-      "for_hospitals": [
-        "ulsan_bk_internal"
-      ],
-      "selection": {
-        "ulsan_bk_internal": {
-          "search_rank": 10,
-          "distance_km": 0.725,
-          "score": 0.325
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/17161708",
-        "google_place_id": "",
-        "naver_place_url": ""
       }
     },
     {
@@ -6106,15 +5108,9 @@
       "lng": 128.58993818,
       "address": "대구 중구 달구벌대로415길 25",
       "for_hospitals": [
-        "daegu_kwakjaehyuk_neuro",
         "daegu_sintong_neuro"
       ],
       "selection": {
-        "daegu_kwakjaehyuk_neuro": {
-          "search_rank": 2,
-          "distance_km": 0.689,
-          "score": 0.1667
-        },
         "daegu_sintong_neuro": {
           "search_rank": 2,
           "distance_km": 0.367,
@@ -6263,6 +5259,29 @@
         "kakao_place_url": "https://place.map.kakao.com/1749956743",
         "google_place_id": "",
         "naver_place_url": "https://m.place.naver.com/hospital/1089610387/review/visitor"
+      }
+    },
+    {
+      "competitor_id": "comp_k17522242",
+      "name": "육거리제일치과의원",
+      "category": "치과",
+      "lat": 36.63040232,
+      "lng": 127.49137666,
+      "address": "충북 청주시 상당구 상당로26번길 4",
+      "for_hospitals": [
+        "cheongju_digitalplant_dental"
+      ],
+      "selection": {
+        "cheongju_digitalplant_dental": {
+          "search_rank": 23,
+          "distance_km": 1.641,
+          "score": 0.2619
+        }
+      },
+      "channels": {
+        "kakao_place_url": "https://place.map.kakao.com/17522242",
+        "google_place_id": "",
+        "naver_place_url": "https://m.place.naver.com/hospital/21647461/review/visitor"
       }
     },
     {
@@ -6473,29 +5492,6 @@
       }
     },
     {
-      "competitor_id": "comp_k17775141",
-      "name": "리얼성형외과의원",
-      "category": "성형외과",
-      "lat": 35.22083869,
-      "lng": 128.68089131,
-      "address": "경남 창원시 성산구 마디미서로 54",
-      "for_hospitals": [
-        "changwon_daniel_wellness"
-      ],
-      "selection": {
-        "changwon_daniel_wellness": {
-          "search_rank": 5,
-          "distance_km": 0.441,
-          "score": 0.1743
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/17775141",
-        "google_place_id": "",
-        "naver_place_url": "https://m.place.naver.com/hospital/21830317/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k1778438994",
       "name": "더봄구강악안면외과치과의원",
       "category": "치과",
@@ -6572,9 +5568,15 @@
       "lng": 129.05800204,
       "address": "부산 부산진구 서면로 66",
       "for_hospitals": [
+        "busan_bada_ps",
         "busan_thebody_ps"
       ],
       "selection": {
+        "busan_bada_ps": {
+          "search_rank": 15,
+          "distance_km": 0.013,
+          "score": 0.1628
+        },
         "busan_thebody_ps": {
           "search_rank": 15,
           "distance_km": 0.134,
@@ -6608,29 +5610,6 @@
         "kakao_place_url": "https://place.map.kakao.com/1787034144",
         "google_place_id": "0x3565e39804f207bb:0xd735971521115e",
         "naver_place_url": ""
-      }
-    },
-    {
-      "competitor_id": "comp_k17870483",
-      "name": "라인업치과병원",
-      "category": "치과",
-      "lat": 35.15970269,
-      "lng": 129.0563277,
-      "address": "부산 부산진구 서면문화로 26",
-      "for_hospitals": [
-        "busan_yeba_ortho_dental"
-      ],
-      "selection": {
-        "busan_yeba_ortho_dental": {
-          "search_rank": 13,
-          "distance_km": 0.368,
-          "score": 0.3295
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/17870483",
-        "google_place_id": "0x3568eb704aac43e7:0x3db6f8ae97c18281",
-        "naver_place_url": "https://m.place.naver.com/hospital/34240391/review/visitor"
       }
     },
     {
@@ -6677,98 +5656,6 @@
         "kakao_place_url": "https://place.map.kakao.com/17901928",
         "google_place_id": "",
         "naver_place_url": "https://m.place.naver.com/hospital/31699897/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k1791165027",
-      "name": "수성신경과의원",
-      "category": "신경과",
-      "lat": 35.85401247,
-      "lng": 128.61607396,
-      "address": "대구 수성구 명덕로 422",
-      "for_hospitals": [
-        "daegu_pureuncheong_neuro"
-      ],
-      "selection": {
-        "daegu_pureuncheong_neuro": {
-          "search_rank": 9,
-          "distance_km": 8.379,
-          "score": 0.7727
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1791165027",
-        "google_place_id": "0x3565e372d5d1b751:0xadab1432f3359429",
-        "naver_place_url": "https://m.place.naver.com/hospital/1885689441/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k1809025355",
-      "name": "예스치과의원",
-      "category": "치과",
-      "lat": 35.15582934,
-      "lng": 129.05882963,
-      "address": "부산 부산진구 중앙대로 707",
-      "for_hospitals": [
-        "busan_yeba_ortho_dental"
-      ],
-      "selection": {
-        "busan_yeba_ortho_dental": {
-          "search_rank": 22,
-          "distance_km": 0.288,
-          "score": 0.3295
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1809025355",
-        "google_place_id": "0x3568eb95a05f2335:0x13667c441b443c6f",
-        "naver_place_url": "https://m.place.naver.com/hospital/1030387847/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k18107445",
-      "name": "굿윌치과병원 덕천",
-      "category": "치과",
-      "lat": 35.21245026,
-      "lng": 129.00465482,
-      "address": "부산 북구 금곡대로 28",
-      "for_hospitals": [
-        "busan_deokcheon_yeppeunmiso_dental"
-      ],
-      "selection": {
-        "busan_deokcheon_yeppeunmiso_dental": {
-          "search_rank": 1,
-          "distance_km": 0.237,
-          "score": 0.125
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/18107445",
-        "google_place_id": "0x356895cd8f58b1e5:0x82a8761a64291b72",
-        "naver_place_url": ""
-      }
-    },
-    {
-      "competitor_id": "comp_k18123084",
-      "name": "의림한의원",
-      "category": "한의원",
-      "lat": 35.87156682,
-      "lng": 128.58939128,
-      "address": "대구 중구 경상감영길 33-2",
-      "for_hospitals": [
-        "daegu_rayul_korean_med"
-      ],
-      "selection": {
-        "daegu_rayul_korean_med": {
-          "search_rank": 6,
-          "distance_km": 0.734,
-          "score": 0.3182
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/18123084",
-        "google_place_id": "",
-        "naver_place_url": ""
       }
     },
     {
@@ -6848,15 +5735,9 @@
       "lng": 128.68312117,
       "address": "경남 창원시 성산구 상남로 118",
       "for_hospitals": [
-        "changwon_daniel_wellness",
         "changwon_first_derm"
       ],
       "selection": {
-        "changwon_daniel_wellness": {
-          "search_rank": 14,
-          "distance_km": 0.085,
-          "score": 0.1881
-        },
         "changwon_first_derm": {
           "search_rank": 14,
           "distance_km": 6.608,
@@ -6946,9 +5827,15 @@
       "lng": 129.05754922,
       "address": "부산 부산진구 서면로 59",
       "for_hospitals": [
+        "busan_bada_ps",
         "busan_thebody_ps"
       ],
       "selection": {
+        "busan_bada_ps": {
+          "search_rank": 27,
+          "distance_km": 0.069,
+          "score": 0.4186
+        },
         "busan_thebody_ps": {
           "search_rank": 27,
           "distance_km": 0.066,
@@ -7005,6 +5892,29 @@
         "kakao_place_url": "https://place.map.kakao.com/1845366838",
         "google_place_id": "0x357b7d49fa7cdbe7:0x3953b26aa4620008",
         "naver_place_url": "https://m.place.naver.com/hospital/1221660137/review/visitor"
+      }
+    },
+    {
+      "competitor_id": "comp_k1854421583",
+      "name": "연세수치과의원",
+      "category": "치과",
+      "lat": 36.66487008,
+      "lng": 127.49363367,
+      "address": "충북 청주시 청원구 충청대로 98",
+      "for_hospitals": [
+        "cheongju_digitalplant_dental"
+      ],
+      "selection": {
+        "cheongju_digitalplant_dental": {
+          "search_rank": 18,
+          "distance_km": 2.238,
+          "score": 0.2976
+        }
+      },
+      "channels": {
+        "kakao_place_url": "https://place.map.kakao.com/1854421583",
+        "google_place_id": "",
+        "naver_place_url": "https://m.place.naver.com/hospital/37885555/review/visitor"
       }
     },
     {
@@ -7106,75 +6016,6 @@
       }
     },
     {
-      "competitor_id": "comp_k1882338326",
-      "name": "김해안아픈치과의원",
-      "category": "치과",
-      "lat": 35.23728637,
-      "lng": 128.86687724,
-      "address": "경남 김해시 내외중앙로 81",
-      "for_hospitals": [
-        "gimhae_yulha_seonhan_dental"
-      ],
-      "selection": {
-        "gimhae_yulha_seonhan_dental": {
-          "search_rank": 13,
-          "distance_km": 8.274,
-          "score": 0.3523
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1882338326",
-        "google_place_id": "0x3568c7757c02a9cd:0x5a2bee375b217afc",
-        "naver_place_url": "https://m.place.naver.com/hospital/1892642237/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k1884616542",
-      "name": "키다리아저씨 치과교정과치과의원",
-      "category": "치과",
-      "lat": 35.18613498,
-      "lng": 129.08056963,
-      "address": "부산 연제구 월드컵대로 141",
-      "for_hospitals": [
-        "busan_w_dental"
-      ],
-      "selection": {
-        "busan_w_dental": {
-          "search_rank": 14,
-          "distance_km": 0.214,
-          "score": 0.25
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1884616542",
-        "google_place_id": "",
-        "naver_place_url": "https://m.place.naver.com/hospital/1019170955/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k1892934794",
-      "name": "만덕탑치과의원",
-      "category": "치과",
-      "lat": 35.21098341,
-      "lng": 129.02929804,
-      "address": "부산 북구 만덕3로 58",
-      "for_hospitals": [
-        "busan_deokcheon_yeppeunmiso_dental"
-      ],
-      "selection": {
-        "busan_deokcheon_yeppeunmiso_dental": {
-          "search_rank": 6,
-          "distance_km": 2.226,
-          "score": 0.3636
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1892934794",
-        "google_place_id": "0x356895e7fb780fb7:0xd0bcdc641bad804b",
-        "naver_place_url": ""
-      }
-    },
-    {
       "competitor_id": "comp_k1892958788",
       "name": "세라미크의원 강남",
       "category": "피부과",
@@ -7250,29 +6091,6 @@
       }
     },
     {
-      "competitor_id": "comp_k1908487188",
-      "name": "황금피부과의원",
-      "category": "피부과",
-      "lat": 35.84032712,
-      "lng": 128.62353671,
-      "address": "대구 수성구 동대구로 111",
-      "for_hospitals": [
-        "daegu_areumdaun_derm"
-      ],
-      "selection": {
-        "daegu_areumdaun_derm": {
-          "search_rank": 7,
-          "distance_km": 2.717,
-          "score": 0.125
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1908487188",
-        "google_place_id": "0x3565e32bc918d2f7:0xb271628bb223435",
-        "naver_place_url": "https://m.place.naver.com/hospital/1859005055/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k19228750",
       "name": "강남루덴치과의원",
       "category": "치과",
@@ -7293,29 +6111,6 @@
         "kakao_place_url": "https://place.map.kakao.com/19228750",
         "google_place_id": "0x357ca15778427c67:0x56532b39f55c7520",
         "naver_place_url": "https://m.place.naver.com/hospital/11737262/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k19228765",
-      "name": "굿윌치과병원",
-      "category": "치과",
-      "lat": 35.15405573,
-      "lng": 129.05979111,
-      "address": "부산 부산진구 중앙대로 686",
-      "for_hospitals": [
-        "busan_yeba_ortho_dental"
-      ],
-      "selection": {
-        "busan_yeba_ortho_dental": {
-          "search_rank": 8,
-          "distance_km": 0.466,
-          "score": 0.3523
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/19228765",
-        "google_place_id": "0x3568959c0c8309a9:0x6b1242228062e35",
-        "naver_place_url": "https://m.place.naver.com/hospital/12835266/review/visitor"
       }
     },
     {
@@ -7408,29 +6203,6 @@
         "kakao_place_url": "https://place.map.kakao.com/1934827949",
         "google_place_id": "0x357b51332c029ced:0x7eef80b6b330343a",
         "naver_place_url": "https://m.place.naver.com/hospital/2022129249/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k1945436139",
-      "name": "서울스마트피부과의원",
-      "category": "피부과",
-      "lat": 35.83925976,
-      "lng": 128.62509976,
-      "address": "대구 수성구 청수로 156",
-      "for_hospitals": [
-        "daegu_areumdaun_derm"
-      ],
-      "selection": {
-        "daegu_areumdaun_derm": {
-          "search_rank": 14,
-          "distance_km": 2.54,
-          "score": 0.1818
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1945436139",
-        "google_place_id": "0x3565e3001efde007:0x23e1c8aab04e7e55",
-        "naver_place_url": "https://m.place.naver.com/hospital/1443817739/review/visitor"
       }
     },
     {
@@ -7539,15 +6311,9 @@
       "lng": 128.58187174,
       "address": "대구 중구 달성로 37",
       "for_hospitals": [
-        "daegu_kwakjaehyuk_neuro",
         "daegu_sintong_neuro"
       ],
       "selection": {
-        "daegu_kwakjaehyuk_neuro": {
-          "search_rank": 3,
-          "distance_km": 0.343,
-          "score": 0.0833
-        },
         "daegu_sintong_neuro": {
           "search_rank": 3,
           "distance_km": 1.051,
@@ -7581,29 +6347,6 @@
         "kakao_place_url": "https://place.map.kakao.com/1955716890",
         "google_place_id": "0x357b5b9b06bc7d9d:0x8ca3a267867f32dc",
         "naver_place_url": "https://m.place.naver.com/hospital/1656639301/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k1964960681",
-      "name": "최원혁사랑니치과의원",
-      "category": "치과",
-      "lat": 35.15791204,
-      "lng": 129.05643624,
-      "address": "부산 부산진구 가야대로 775-1",
-      "for_hospitals": [
-        "busan_yeba_ortho_dental"
-      ],
-      "selection": {
-        "busan_yeba_ortho_dental": {
-          "search_rank": 20,
-          "distance_km": 0.323,
-          "score": 0.3409
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1964960681",
-        "google_place_id": "0x3568ebdc79dde7cf:0xbfd1be6531d1192a",
-        "naver_place_url": "https://m.place.naver.com/hospital/1289742580/review/visitor"
       }
     },
     {
@@ -7650,29 +6393,6 @@
         "kakao_place_url": "https://place.map.kakao.com/1970384202",
         "google_place_id": "",
         "naver_place_url": "https://m.place.naver.com/hospital/38654000/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k1971708950",
-      "name": "서울마디시원신경과의원",
-      "category": "신경과",
-      "lat": 35.82018273,
-      "lng": 128.64060483,
-      "address": "대구 수성구 지범로 200",
-      "for_hospitals": [
-        "daegu_pureuncheong_neuro"
-      ],
-      "selection": {
-        "daegu_pureuncheong_neuro": {
-          "search_rank": 6,
-          "distance_km": 6.44,
-          "score": 0.2273
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1971708950",
-        "google_place_id": "",
-        "naver_place_url": "https://m.place.naver.com/hospital/1899679743/review/visitor"
       }
     },
     {
@@ -7764,29 +6484,6 @@
       "channels": {
         "kakao_place_url": "https://place.map.kakao.com/1991730153",
         "google_place_id": "",
-        "naver_place_url": ""
-      }
-    },
-    {
-      "competitor_id": "comp_k1991850037",
-      "name": "더올림성형외과의원",
-      "category": "성형외과",
-      "lat": 35.86631847,
-      "lng": 128.59279926,
-      "address": "대구 중구 달구벌대로 2095",
-      "for_hospitals": [
-        "daegu_leesinil_grace_ps"
-      ],
-      "selection": {
-        "daegu_leesinil_grace_ps": {
-          "search_rank": 6,
-          "distance_km": 0.519,
-          "score": 0.3864
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/1991850037",
-        "google_place_id": "0x3565e33502adecb9:0x87c0fa277c1a499c",
         "naver_place_url": ""
       }
     },
@@ -7883,29 +6580,6 @@
       }
     },
     {
-      "competitor_id": "comp_k2006517406",
-      "name": "최기훈신경과의원",
-      "category": "신경과",
-      "lat": 35.82209941,
-      "lng": 128.62908277,
-      "address": "대구 수성구 용학로 186",
-      "for_hospitals": [
-        "daegu_pureuncheong_neuro"
-      ],
-      "selection": {
-        "daegu_pureuncheong_neuro": {
-          "search_rank": 8,
-          "distance_km": 7.36,
-          "score": 0.5
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/2006517406",
-        "google_place_id": "0x3565e30013e09f1b:0xa68495b798a074aa",
-        "naver_place_url": "https://m.place.naver.com/hospital/2012217624/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k20098481",
       "name": "파스텔치과의원",
       "category": "치과",
@@ -7926,75 +6600,6 @@
         "kakao_place_url": "https://place.map.kakao.com/20098481",
         "google_place_id": "",
         "naver_place_url": "https://m.place.naver.com/hospital/32822468/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k2010759503",
-      "name": "태광내과",
-      "category": "내과",
-      "lat": 35.56438765,
-      "lng": 129.33486051,
-      "address": "울산 중구 번영로 475",
-      "for_hospitals": [
-        "ulsan_bk_internal"
-      ],
-      "selection": {
-        "ulsan_bk_internal": {
-          "search_rank": 20,
-          "distance_km": 0.179,
-          "score": 0.525
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/2010759503",
-        "google_place_id": "",
-        "naver_place_url": ""
-      }
-    },
-    {
-      "competitor_id": "comp_k2018634111",
-      "name": "9988정형외과의원",
-      "category": "정형외과",
-      "lat": 35.85707805,
-      "lng": 128.61346731,
-      "address": "대구 수성구 수성로 353",
-      "for_hospitals": [
-        "daegu_beomeo_first_ortho"
-      ],
-      "selection": {
-        "daegu_beomeo_first_ortho": {
-          "search_rank": 14,
-          "distance_km": 1.837,
-          "score": 0.35
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/2018634111",
-        "google_place_id": "0x3565e2350a64f461:0xecb7d179fb137c98",
-        "naver_place_url": "https://m.place.naver.com/hospital/1846812171/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k20247634",
-      "name": "리프트성형외과의원",
-      "category": "성형외과",
-      "lat": 35.86530996,
-      "lng": 128.59660956,
-      "address": "대구 중구 달구벌대로 2127",
-      "for_hospitals": [
-        "daegu_leesinil_grace_ps"
-      ],
-      "selection": {
-        "daegu_leesinil_grace_ps": {
-          "search_rank": 4,
-          "distance_km": 0.472,
-          "score": 0.2955
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/20247634",
-        "google_place_id": "",
-        "naver_place_url": "https://m.place.naver.com/hospital/36466450/review/visitor"
       }
     },
     {
@@ -8044,29 +6649,6 @@
       }
     },
     {
-      "competitor_id": "comp_k2028615046",
-      "name": "나이스정형외과의원",
-      "category": "정형외과",
-      "lat": 35.86992376,
-      "lng": 128.63320674,
-      "address": "대구 수성구 화랑로 46",
-      "for_hospitals": [
-        "daegu_beomeo_first_ortho"
-      ],
-      "selection": {
-        "daegu_beomeo_first_ortho": {
-          "search_rank": 16,
-          "distance_km": 1.278,
-          "score": 0.25
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/2028615046",
-        "google_place_id": "0x3565e13318035603:0xdb331215b811dd20",
-        "naver_place_url": "https://m.place.naver.com/hospital/1211243947/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k20347984",
       "name": "리앤채움의원",
       "category": "피부과",
@@ -8110,29 +6692,6 @@
         "kakao_place_url": "https://place.map.kakao.com/2044456887",
         "google_place_id": "0x357ca2efd39d526b:0xb913bd557ae5c980",
         "naver_place_url": "https://m.place.naver.com/hospital/11853147/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k2044723878",
-      "name": "존스킨한의원",
-      "category": "한의원",
-      "lat": 35.86528042,
-      "lng": 128.59259028,
-      "address": "대구 중구 달구벌대로 2094",
-      "for_hospitals": [
-        "daegu_rayul_korean_med"
-      ],
-      "selection": {
-        "daegu_rayul_korean_med": {
-          "search_rank": 32,
-          "distance_km": 0.135,
-          "score": 0.3977
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/2044723878",
-        "google_place_id": "0x3565e3fdf684b753:0xf46055646e78d647",
-        "naver_place_url": ""
       }
     },
     {
@@ -8228,29 +6787,6 @@
       }
     },
     {
-      "competitor_id": "comp_k20646922",
-      "name": "율하수치과의원",
-      "category": "치과",
-      "lat": 35.17163824,
-      "lng": 128.81374126,
-      "address": "경남 김해시 율하3로 37",
-      "for_hospitals": [
-        "gimhae_yulha_seonhan_dental"
-      ],
-      "selection": {
-        "gimhae_yulha_seonhan_dental": {
-          "search_rank": 18,
-          "distance_km": 0.879,
-          "score": 0.2159
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/20646922",
-        "google_place_id": "0x3568c738a4c32c4d:0xc1140f44d5fcdc16",
-        "naver_place_url": "https://m.place.naver.com/hospital/33050170/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k2068012950",
       "name": "아가나여성의원",
       "category": "산부인과",
@@ -8274,29 +6810,6 @@
       }
     },
     {
-      "competitor_id": "comp_k2087789415",
-      "name": "수성버팔로정형외과의원",
-      "category": "정형외과",
-      "lat": 35.84782675,
-      "lng": 128.61321122,
-      "address": "대구 수성구 수성로 250",
-      "for_hospitals": [
-        "daegu_beomeo_first_ortho"
-      ],
-      "selection": {
-        "daegu_beomeo_first_ortho": {
-          "search_rank": 9,
-          "distance_km": 2.198,
-          "score": 0.3125
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/2087789415",
-        "google_place_id": "",
-        "naver_place_url": "https://m.place.naver.com/hospital/2053362724/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k2089244035",
       "name": "갤럭시성형외과의원",
       "category": "성형외과",
@@ -8317,29 +6830,6 @@
         "kakao_place_url": "https://place.map.kakao.com/2089244035",
         "google_place_id": "0x3568ebb65b8b6a8f:0xff465ced0051d67f",
         "naver_place_url": "https://m.place.naver.com/hospital/38254009/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k2090193726",
-      "name": "이장준신경과의원",
-      "category": "신경과",
-      "lat": 35.82107649,
-      "lng": 128.63909853,
-      "address": "대구 수성구 지범로 182",
-      "for_hospitals": [
-        "daegu_pureuncheong_neuro"
-      ],
-      "selection": {
-        "daegu_pureuncheong_neuro": {
-          "search_rank": 10,
-          "distance_km": 6.534,
-          "score": 0.4545
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/2090193726",
-        "google_place_id": "",
-        "naver_place_url": "https://m.place.naver.com/hospital/325134543/review/visitor"
       }
     },
     {
@@ -8396,13 +6886,19 @@
       "lng": 127.48410686,
       "address": "충북 청주시 서원구 청남로 1997",
       "for_hospitals": [
+        "cheongju_digitalplant_dental",
         "cheongju_seoul_top_implant_dental"
       ],
       "selection": {
+        "cheongju_digitalplant_dental": {
+          "search_rank": 16,
+          "distance_km": 3.848,
+          "score": 0.3571
+        },
         "cheongju_seoul_top_implant_dental": {
           "search_rank": 16,
           "distance_km": 5.075,
-          "score": 0.3977
+          "score": 0.3929
         }
       },
       "channels": {
@@ -8444,75 +6940,6 @@
         "kakao_place_url": "https://place.map.kakao.com/2112182458",
         "google_place_id": "0x357ca5005141cd79:0x858d84c7d527cc89",
         "naver_place_url": "https://m.place.naver.com/hospital/1975377004/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k2115657745",
-      "name": "본스필한의원",
-      "category": "한의원",
-      "lat": 35.86349052,
-      "lng": 128.60297182,
-      "address": "대구 중구 달구벌대로 2191",
-      "for_hospitals": [
-        "daegu_rayul_korean_med"
-      ],
-      "selection": {
-        "daegu_rayul_korean_med": {
-          "search_rank": 2,
-          "distance_km": 0.874,
-          "score": 0.3068
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/2115657745",
-        "google_place_id": "0x3565e3d881ea85c7:0xcab93698b98879f3",
-        "naver_place_url": ""
-      }
-    },
-    {
-      "competitor_id": "comp_k2118930820",
-      "name": "브이의원 수성",
-      "category": "피부과",
-      "lat": 35.82442787,
-      "lng": 128.62483048,
-      "address": "대구 수성구 용학로25안길 3",
-      "for_hospitals": [
-        "daegu_areumdaun_derm"
-      ],
-      "selection": {
-        "daegu_areumdaun_derm": {
-          "search_rank": 15,
-          "distance_km": 1.498,
-          "score": 0.1705
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/2118930820",
-        "google_place_id": "",
-        "naver_place_url": "https://m.place.naver.com/hospital/1002699130/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k21262347",
-      "name": "엘리나의원",
-      "category": "성형외과",
-      "lat": 35.22410614,
-      "lng": 128.68364069,
-      "address": "경남 창원시 성산구 상남로 126",
-      "for_hospitals": [
-        "changwon_daniel_wellness"
-      ],
-      "selection": {
-        "changwon_daniel_wellness": {
-          "search_rank": 9,
-          "distance_km": 0.0,
-          "score": 0.1101
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/21262347",
-        "google_place_id": "0x15211d787413794f:0x3f25296b88c23a1d",
-        "naver_place_url": "https://m.place.naver.com/hospital/20662564/review/visitor"
       }
     },
     {
@@ -8592,15 +7019,9 @@
       "lng": 128.68143572,
       "address": "경남 창원시 성산구 중앙대로100번길 13",
       "for_hospitals": [
-        "changwon_daniel_wellness",
         "changwon_first_derm"
       ],
       "selection": {
-        "changwon_daniel_wellness": {
-          "search_rank": 4,
-          "distance_km": 0.255,
-          "score": 0.1101
-        },
         "changwon_first_derm": {
           "search_rank": 4,
           "distance_km": 6.544,
@@ -8660,29 +7081,6 @@
       }
     },
     {
-      "competitor_id": "comp_k22246010",
-      "name": "바른윤곽치과병원",
-      "category": "치과",
-      "lat": 35.15880715,
-      "lng": 129.05764168,
-      "address": "부산 부산진구 서면문화로 10",
-      "for_hospitals": [
-        "busan_yeba_ortho_dental"
-      ],
-      "selection": {
-        "busan_yeba_ortho_dental": {
-          "search_rank": 17,
-          "distance_km": 0.22,
-          "score": 0.2273
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/22246010",
-        "google_place_id": "0x3568eb6fac808b31:0xf2b08952f677ed13",
-        "naver_place_url": "https://m.place.naver.com/hospital/33647236/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k223066441",
       "name": "365산본플란트치과의원",
       "category": "치과",
@@ -8729,29 +7127,6 @@
       }
     },
     {
-      "competitor_id": "comp_k22379104",
-      "name": "벨다드의원",
-      "category": "성형외과",
-      "lat": 35.22420324,
-      "lng": 128.68449935,
-      "address": "경남 창원시 성산구 마디미서로 3",
-      "for_hospitals": [
-        "changwon_daniel_wellness"
-      ],
-      "selection": {
-        "changwon_daniel_wellness": {
-          "search_rank": 13,
-          "distance_km": 0.079,
-          "score": 0.1789
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/22379104",
-        "google_place_id": "0x3568ccf027de11ed:0x16641ec3c9e5d948",
-        "naver_place_url": "https://m.place.naver.com/hospital/33831217/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k22809043",
       "name": "이끌림치과의원",
       "category": "치과",
@@ -8759,13 +7134,19 @@
       "lng": 127.42757979,
       "address": "충북 청주시 흥덕구 대농로 47",
       "for_hospitals": [
-        "cheongju_seoul_top_implant_dental"
+        "cheongju_seoul_top_implant_dental",
+        "cheongju_well_dental"
       ],
       "selection": {
         "cheongju_seoul_top_implant_dental": {
           "search_rank": 12,
           "distance_km": 1.956,
-          "score": 0.2273
+          "score": 0.2143
+        },
+        "cheongju_well_dental": {
+          "search_rank": 12,
+          "distance_km": 0.898,
+          "score": 0.1429
         }
       },
       "channels": {
@@ -8893,29 +7274,6 @@
         "kakao_place_url": "https://place.map.kakao.com/23345556",
         "google_place_id": "0x3568ea5119f65027:0x684d0f1affd1e102",
         "naver_place_url": "https://m.place.naver.com/hospital/34293104/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k23479452",
-      "name": "울산민내과의원",
-      "category": "내과",
-      "lat": 35.55631598,
-      "lng": 129.30994064,
-      "address": "울산 중구 장춘로 1",
-      "for_hospitals": [
-        "ulsan_bk_internal"
-      ],
-      "selection": {
-        "ulsan_bk_internal": {
-          "search_rank": 5,
-          "distance_km": 2.605,
-          "score": 0.45
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/23479452",
-        "google_place_id": "0x356632c612173f83:0x57a41359b786921c",
-        "naver_place_url": "https://m.place.naver.com/hospital/34344826/review/visitor"
       }
     },
     {
@@ -9139,42 +7497,25 @@
       "lng": 127.43304614,
       "address": "충북 청주시 흥덕구 풍산로 23",
       "for_hospitals": [
-        "cheongju_seoul_top_implant_dental"
+        "cheongju_seoul_top_implant_dental",
+        "cheongju_well_dental"
       ],
       "selection": {
         "cheongju_seoul_top_implant_dental": {
           "search_rank": 29,
           "distance_km": 0.319,
-          "score": 0.3182
+          "score": 0.3214
+        },
+        "cheongju_well_dental": {
+          "search_rank": 29,
+          "distance_km": 1.287,
+          "score": 0.369
         }
       },
       "channels": {
         "kakao_place_url": "https://place.map.kakao.com/24765562",
         "google_place_id": "",
         "naver_place_url": ""
-      }
-    },
-    {
-      "competitor_id": "comp_k24765567",
-      "name": "비엘성형외과의원",
-      "category": "성형외과",
-      "lat": 35.87014369,
-      "lng": 128.5967453,
-      "address": "대구 중구 동성로2길 95",
-      "for_hospitals": [
-        "daegu_leesinil_grace_ps"
-      ],
-      "selection": {
-        "daegu_leesinil_grace_ps": {
-          "search_rank": 2,
-          "distance_km": 0.07,
-          "score": 0.0227
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/24765567",
-        "google_place_id": "",
-        "naver_place_url": "https://m.place.naver.com/hospital/35051633/review/visitor"
       }
     },
     {
@@ -9221,29 +7562,6 @@
         "kakao_place_url": "https://place.map.kakao.com/24870216",
         "google_place_id": "0x356527c9db7024f1:0x1f3b217c6c5d7eb2",
         "naver_place_url": "https://m.place.naver.com/hospital/35103473/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k24874690",
-      "name": "애플피부과의원",
-      "category": "피부과",
-      "lat": 35.85811052,
-      "lng": 128.62524984,
-      "address": "대구 수성구 동대구로 311",
-      "for_hospitals": [
-        "daegu_areumdaun_derm"
-      ],
-      "selection": {
-        "daegu_areumdaun_derm": {
-          "search_rank": 4,
-          "distance_km": 4.439,
-          "score": 0.25
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/24874690",
-        "google_place_id": "",
-        "naver_place_url": "https://m.place.naver.com/hospital/36561630/review/visitor"
       }
     },
     {
@@ -9408,29 +7726,6 @@
       }
     },
     {
-      "competitor_id": "comp_k25629532",
-      "name": "발아정형외과의원",
-      "category": "정형외과",
-      "lat": 35.83878179,
-      "lng": 128.62852079,
-      "address": "대구 수성구 청수로 186",
-      "for_hospitals": [
-        "daegu_beomeo_first_ortho"
-      ],
-      "selection": {
-        "daegu_beomeo_first_ortho": {
-          "search_rank": 6,
-          "distance_km": 2.237,
-          "score": 0.2875
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/25629532",
-        "google_place_id": "0x3565e3bbfd91ea9b:0x73eb5faa538d2a9b",
-        "naver_place_url": "https://m.place.naver.com/hospital/1730345362/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k25659620",
       "name": "유디치과의원 산본점",
       "category": "치과",
@@ -9523,29 +7818,6 @@
       }
     },
     {
-      "competitor_id": "comp_k25914967",
-      "name": "바움성형외과의원",
-      "category": "성형외과",
-      "lat": 35.86997501,
-      "lng": 128.59879013,
-      "address": "대구 중구 동성로3길 106",
-      "for_hospitals": [
-        "daegu_leesinil_grace_ps"
-      ],
-      "selection": {
-        "daegu_leesinil_grace_ps": {
-          "search_rank": 14,
-          "distance_km": 0.171,
-          "score": 0.2614
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/25914967",
-        "google_place_id": "0x3565e3c3aaaaaaab:0x2df2dd1aef950c63",
-        "naver_place_url": "https://m.place.naver.com/hospital/35727220/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k26016506",
       "name": "하나이비인후과의원 서청주점",
       "category": "이비인후과",
@@ -9599,13 +7871,25 @@
       "lng": 127.43558632,
       "address": "충북 청주시 흥덕구 대신로 132",
       "for_hospitals": [
-        "cheongju_seoul_top_implant_dental"
+        "cheongju_digitalplant_dental",
+        "cheongju_seoul_top_implant_dental",
+        "cheongju_well_dental"
       ],
       "selection": {
+        "cheongju_digitalplant_dental": {
+          "search_rank": 2,
+          "distance_km": 4.784,
+          "score": 0.3095
+        },
         "cheongju_seoul_top_implant_dental": {
           "search_rank": 2,
           "distance_km": 2.264,
-          "score": 0.1364
+          "score": 0.119
+        },
+        "cheongju_well_dental": {
+          "search_rank": 2,
+          "distance_km": 1.537,
+          "score": 0.0714
         }
       },
       "channels": {
@@ -9622,9 +7906,15 @@
       "lng": 129.05802468,
       "address": "부산 부산진구 서면로 62-1",
       "for_hospitals": [
+        "busan_bada_ps",
         "busan_thebody_ps"
       ],
       "selection": {
+        "busan_bada_ps": {
+          "search_rank": 1,
+          "distance_km": 0.015,
+          "score": 0.0116
+        },
         "busan_thebody_ps": {
           "search_rank": 1,
           "distance_km": 0.11,
@@ -9759,29 +8049,6 @@
       }
     },
     {
-      "competitor_id": "comp_k26782940",
-      "name": "백봉력내과의원",
-      "category": "내과",
-      "lat": 35.5648484,
-      "lng": 129.33623911,
-      "address": "울산 중구 번영로 485",
-      "for_hospitals": [
-        "ulsan_bk_internal"
-      ],
-      "selection": {
-        "ulsan_bk_internal": {
-          "search_rank": 4,
-          "distance_km": 0.044,
-          "score": 0.1
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/26782940",
-        "google_place_id": "",
-        "naver_place_url": "https://m.place.naver.com/hospital/13337858/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k26785156",
       "name": "올진한의원",
       "category": "한의원",
@@ -9802,29 +8069,6 @@
         "kakao_place_url": "https://place.map.kakao.com/26785156",
         "google_place_id": "0x35660eb983b28bcf:0xbb7391c717a10d79",
         "naver_place_url": "https://m.place.naver.com/hospital/36663071/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k26820084",
-      "name": "다니엘성형외과의원",
-      "category": "성형외과",
-      "lat": 35.22402371,
-      "lng": 128.68373564,
-      "address": "경남 창원시 성산구 상남로 126",
-      "for_hospitals": [
-        "changwon_daniel_wellness"
-      ],
-      "selection": {
-        "changwon_daniel_wellness": {
-          "search_rank": 4,
-          "distance_km": 0.013,
-          "score": 0.0459
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/26820084",
-        "google_place_id": "",
-        "naver_place_url": ""
       }
     },
     {
@@ -9871,29 +8115,6 @@
         "kakao_place_url": "https://place.map.kakao.com/26826339",
         "google_place_id": "0x357ca2f198e6ca6b:0xe319bdc65f9dfd75",
         "naver_place_url": "https://m.place.naver.com/hospital/36782930/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k26862426",
-      "name": "연세리버내과의원",
-      "category": "내과",
-      "lat": 35.55348609,
-      "lng": 129.32192589,
-      "address": "울산 중구 시계탑거리 39",
-      "for_hospitals": [
-        "ulsan_bk_internal"
-      ],
-      "selection": {
-        "ulsan_bk_internal": {
-          "search_rank": 3,
-          "distance_km": 1.852,
-          "score": 0.35
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/26862426",
-        "google_place_id": "0x3567cd3317ff5cb3:0x540007aaadf9ff43",
-        "naver_place_url": ""
       }
     },
     {
@@ -10156,75 +8377,6 @@
       }
     },
     {
-      "competitor_id": "comp_k27418740",
-      "name": "화접몽한의원 대구점",
-      "category": "한의원",
-      "lat": 35.87054605,
-      "lng": 128.59603373,
-      "address": "대구 중구 국채보상로 598",
-      "for_hospitals": [
-        "daegu_rayul_korean_med"
-      ],
-      "selection": {
-        "daegu_rayul_korean_med": {
-          "search_rank": 10,
-          "distance_km": 0.543,
-          "score": 0.2841
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/27418740",
-        "google_place_id": "0x3565e3c497c3581d:0xa2f8340437281434",
-        "naver_place_url": ""
-      }
-    },
-    {
-      "competitor_id": "comp_k27423166",
-      "name": "디에스다솜치과의원",
-      "category": "치과",
-      "lat": 35.18534935,
-      "lng": 129.08076913,
-      "address": "부산 연제구 중앙대로 1091",
-      "for_hospitals": [
-        "busan_w_dental"
-      ],
-      "selection": {
-        "busan_w_dental": {
-          "search_rank": 7,
-          "distance_km": 0.301,
-          "score": 0.25
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/27423166",
-        "google_place_id": "0x3568935ac7a5962b:0x40a4b814bf7a05b1",
-        "naver_place_url": "https://m.place.naver.com/hospital/37296558/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k27489838",
-      "name": "서울삼성치과의원",
-      "category": "치과",
-      "lat": 35.21013647,
-      "lng": 129.00647993,
-      "address": "부산 북구 만덕대로 12",
-      "for_hospitals": [
-        "busan_deokcheon_yeppeunmiso_dental"
-      ],
-      "selection": {
-        "busan_deokcheon_yeppeunmiso_dental": {
-          "search_rank": 4,
-          "distance_km": 0.153,
-          "score": 0.1023
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/27489838",
-        "google_place_id": "0x3568950bbe472193:0xbe325c6ac652e913",
-        "naver_place_url": ""
-      }
-    },
-    {
       "competitor_id": "comp_k27492145",
       "name": "올바른치과의원",
       "category": "치과",
@@ -10245,29 +8397,6 @@
         "kakao_place_url": "https://place.map.kakao.com/27492145",
         "google_place_id": "0x357b7e5ffaac80d7:0xb123a5f7e28f5bbd",
         "naver_place_url": "https://m.place.naver.com/hospital/37468990/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k27494551",
-      "name": "오오치과병원",
-      "category": "치과",
-      "lat": 35.18489961,
-      "lng": 129.08030104,
-      "address": "부산 연제구 중앙대로 1085",
-      "for_hospitals": [
-        "busan_w_dental"
-      ],
-      "selection": {
-        "busan_w_dental": {
-          "search_rank": 1,
-          "distance_km": 0.352,
-          "score": 0.25
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/27494551",
-        "google_place_id": "0x356893a6377084f5:0xef048f9d87f37f74",
-        "naver_place_url": "https://m.place.naver.com/hospital/37623477/review/visitor"
       }
     },
     {
@@ -10392,52 +8521,6 @@
       }
     },
     {
-      "competitor_id": "comp_k28077595",
-      "name": "밝은이치과의원",
-      "category": "치과",
-      "lat": 35.18529066,
-      "lng": 129.08150966,
-      "address": "부산 연제구 중앙대로 1098",
-      "for_hospitals": [
-        "busan_w_dental"
-      ],
-      "selection": {
-        "busan_w_dental": {
-          "search_rank": 12,
-          "distance_km": 0.317,
-          "score": 0.3409
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/28077595",
-        "google_place_id": "",
-        "naver_place_url": "https://m.place.naver.com/hospital/1648241690/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k280964399",
-      "name": "꽃비피부과",
-      "category": "피부과",
-      "lat": 35.85820588,
-      "lng": 128.62692553,
-      "address": "대구 수성구 동대구로 312",
-      "for_hospitals": [
-        "daegu_areumdaun_derm"
-      ],
-      "selection": {
-        "daegu_areumdaun_derm": {
-          "search_rank": 17,
-          "distance_km": 4.404,
-          "score": 0.3523
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/280964399",
-        "google_place_id": "0x3565e39b05086553:0xe7d9f71cac7a7b3d",
-        "naver_place_url": "https://m.place.naver.com/hospital/34849703/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k285537265",
       "name": "헤어로의원 부산",
       "category": "피부과",
@@ -10458,29 +8541,6 @@
         "kakao_place_url": "https://place.map.kakao.com/285537265",
         "google_place_id": "",
         "naver_place_url": "https://m.place.naver.com/hospital/1369419836/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k287470481",
-      "name": "덕천38플란트치과의원",
-      "category": "치과",
-      "lat": 35.21046121,
-      "lng": 129.00776492,
-      "address": "부산 북구 만덕대로 24",
-      "for_hospitals": [
-        "busan_deokcheon_yeppeunmiso_dental"
-      ],
-      "selection": {
-        "busan_deokcheon_yeppeunmiso_dental": {
-          "search_rank": 12,
-          "distance_km": 0.269,
-          "score": 0.2841
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/287470481",
-        "google_place_id": "0x356895007b9aa6c1:0x3526787f466e2b6c",
-        "naver_place_url": ""
       }
     },
     {
@@ -10686,29 +8746,6 @@
       }
     },
     {
-      "competitor_id": "comp_k303102419",
-      "name": "수성신세계정형외과의원",
-      "category": "정형외과",
-      "lat": 35.85448736,
-      "lng": 128.61754806,
-      "address": "대구 수성구 들안로 274",
-      "for_hospitals": [
-        "daegu_beomeo_first_ortho"
-      ],
-      "selection": {
-        "daegu_beomeo_first_ortho": {
-          "search_rank": 18,
-          "distance_km": 1.528,
-          "score": 0.3125
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/303102419",
-        "google_place_id": "0x3565e2361f67bae9:0x6e5d85adc15fbe9f",
-        "naver_place_url": "https://m.place.naver.com/hospital/1793250149/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k304933390",
       "name": "더스케치성형외과의원",
       "category": "성형외과",
@@ -10716,9 +8753,15 @@
       "lng": 129.0573381,
       "address": "부산 부산진구 가야대로784번길 21",
       "for_hospitals": [
+        "busan_bada_ps",
         "busan_thebody_ps"
       ],
       "selection": {
+        "busan_bada_ps": {
+          "search_rank": 18,
+          "distance_km": 0.067,
+          "score": 0.314
+        },
         "busan_thebody_ps": {
           "search_rank": 18,
           "distance_km": 0.129,
@@ -10752,6 +8795,29 @@
         "kakao_place_url": "https://place.map.kakao.com/307412681",
         "google_place_id": "0x357c830c8e8b4ddf:0xd7362e50f05deb34",
         "naver_place_url": "https://m.place.naver.com/hospital/1698942918/review/visitor"
+      }
+    },
+    {
+      "competitor_id": "comp_k309320188",
+      "name": "연세영훈치과교정과치과의원",
+      "category": "치과",
+      "lat": 36.64211259,
+      "lng": 127.42806592,
+      "address": "충북 청주시 흥덕구 대농로 49",
+      "for_hospitals": [
+        "cheongju_well_dental"
+      ],
+      "selection": {
+        "cheongju_well_dental": {
+          "search_rank": 35,
+          "distance_km": 0.892,
+          "score": 0.3929
+        }
+      },
+      "channels": {
+        "kakao_place_url": "https://place.map.kakao.com/309320188",
+        "google_place_id": "0x356529b8c0856f23:0x92f561094593a7dd",
+        "naver_place_url": "https://m.place.naver.com/hospital/1892706948/review/visitor"
       }
     },
     {
@@ -10922,29 +8988,6 @@
       }
     },
     {
-      "competitor_id": "comp_k341295278",
-      "name": "굿모닝연합정형외과의원",
-      "category": "정형외과",
-      "lat": 35.84030342,
-      "lng": 128.6228899,
-      "address": "대구 수성구 청수로 133",
-      "for_hospitals": [
-        "daegu_beomeo_first_ortho"
-      ],
-      "selection": {
-        "daegu_beomeo_first_ortho": {
-          "search_rank": 8,
-          "distance_km": 2.243,
-          "score": 0.325
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/341295278",
-        "google_place_id": "0x3565e3b485e20d43:0x1078023224caf09d",
-        "naver_place_url": "https://m.place.naver.com/hospital/1562989750/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k342583649",
       "name": "사적인아름다움 지유의원 강남본점",
       "category": "피부과",
@@ -10991,52 +9034,6 @@
       }
     },
     {
-      "competitor_id": "comp_k343723703",
-      "name": "김해바른치과의원",
-      "category": "치과",
-      "lat": 35.23474178,
-      "lng": 128.86691228,
-      "address": "경남 김해시 내외중앙로 56",
-      "for_hospitals": [
-        "gimhae_yulha_seonhan_dental"
-      ],
-      "selection": {
-        "gimhae_yulha_seonhan_dental": {
-          "search_rank": 8,
-          "distance_km": 8.029,
-          "score": 0.25
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/343723703",
-        "google_place_id": "0x3568c7717672eb69:0xca9c07bc39a09029",
-        "naver_place_url": "https://m.place.naver.com/hospital/1015895406/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k354500257",
-      "name": "더큰나래신경과의원",
-      "category": "신경과",
-      "lat": 35.85824125,
-      "lng": 128.64661709,
-      "address": "대구 수성구 달구벌대로 2598",
-      "for_hospitals": [
-        "daegu_pureuncheong_neuro"
-      ],
-      "selection": {
-        "daegu_pureuncheong_neuro": {
-          "search_rank": 5,
-          "distance_km": 5.834,
-          "score": 0.1364
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/354500257",
-        "google_place_id": "0x3565e300690f87ef:0x860ce0f8f5a919c9",
-        "naver_place_url": "https://m.place.naver.com/hospital/1263778448/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k361214525",
       "name": "바른약속치과의원 부천본원",
       "category": "치과",
@@ -11057,29 +9054,6 @@
         "kakao_place_url": "https://place.map.kakao.com/361214525",
         "google_place_id": "0x357b7d29893fdee9:0x5b1a2309745fa564",
         "naver_place_url": "https://m.place.naver.com/hospital/38304958/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k365769195",
-      "name": "미클린의원",
-      "category": "피부과",
-      "lat": 35.82054705,
-      "lng": 128.63390504,
-      "address": "대구 수성구 용학로 234",
-      "for_hospitals": [
-        "daegu_areumdaun_derm"
-      ],
-      "selection": {
-        "daegu_areumdaun_derm": {
-          "search_rank": 32,
-          "distance_km": 0.605,
-          "score": 0.3523
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/365769195",
-        "google_place_id": "",
-        "naver_place_url": "https://m.place.naver.com/hospital/1612588302/review/visitor"
       }
     },
     {
@@ -11136,9 +9110,15 @@
       "lng": 129.05753197,
       "address": "부산 부산진구 서면로 69",
       "for_hospitals": [
+        "busan_bada_ps",
         "busan_thebody_ps"
       ],
       "selection": {
+        "busan_bada_ps": {
+          "search_rank": 9,
+          "distance_km": 0.068,
+          "score": 0.2209
+        },
         "busan_thebody_ps": {
           "search_rank": 9,
           "distance_km": 0.164,
@@ -11198,52 +9178,6 @@
       }
     },
     {
-      "competitor_id": "comp_k410780816",
-      "name": "덕천어린이치과의원",
-      "category": "치과",
-      "lat": 35.21034026,
-      "lng": 129.00755881,
-      "address": "부산 북구 만덕대로 22",
-      "for_hospitals": [
-        "busan_deokcheon_yeppeunmiso_dental"
-      ],
-      "selection": {
-        "busan_deokcheon_yeppeunmiso_dental": {
-          "search_rank": 9,
-          "distance_km": 0.25,
-          "score": 0.2386
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/410780816",
-        "google_place_id": "",
-        "naver_place_url": ""
-      }
-    },
-    {
-      "competitor_id": "comp_k412558024",
-      "name": "범어탄탄정형외과의원",
-      "category": "정형외과",
-      "lat": 35.85955833,
-      "lng": 128.62427425,
-      "address": "대구 수성구 달구벌대로 2393",
-      "for_hospitals": [
-        "daegu_beomeo_first_ortho"
-      ],
-      "selection": {
-        "daegu_beomeo_first_ortho": {
-          "search_rank": 22,
-          "distance_km": 0.866,
-          "score": 0.275
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/412558024",
-        "google_place_id": "0x3565e3a99bb8ba7b:0x802ede3ce6497ef2",
-        "naver_place_url": "https://m.place.naver.com/hospital/1192413552/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k413453916",
       "name": "더센트럴치과의원",
       "category": "치과",
@@ -11290,29 +9224,6 @@
       }
     },
     {
-      "competitor_id": "comp_k423225577",
-      "name": "김남용내과의원",
-      "category": "내과",
-      "lat": 35.55616704,
-      "lng": 129.32737536,
-      "address": "울산 중구 학성로 150",
-      "for_hospitals": [
-        "ulsan_bk_internal"
-      ],
-      "selection": {
-        "ulsan_bk_internal": {
-          "search_rank": 2,
-          "distance_km": 1.297,
-          "score": 0.25
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/423225577",
-        "google_place_id": "0x3567cd2f19d04f6b:0x60e41afc04edcb2e",
-        "naver_place_url": ""
-      }
-    },
-    {
       "competitor_id": "comp_k428136245",
       "name": "턱투미구강내과치과의원",
       "category": "치과",
@@ -11333,29 +9244,6 @@
         "kakao_place_url": "https://place.map.kakao.com/428136245",
         "google_place_id": "0x357c9f38becbf30b:0xa4f2846fc8629153",
         "naver_place_url": "https://m.place.naver.com/hospital/1701887816/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k428987461",
-      "name": "턱편한 구강내과치과의원",
-      "category": "치과",
-      "lat": 35.21032766,
-      "lng": 129.00483979,
-      "address": "부산 북구 낙동대로 1791",
-      "for_hospitals": [
-        "busan_deokcheon_yeppeunmiso_dental"
-      ],
-      "selection": {
-        "busan_deokcheon_yeppeunmiso_dental": {
-          "search_rank": 18,
-          "distance_km": 0.003,
-          "score": 0.1932
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/428987461",
-        "google_place_id": "0x3568954919ac969d:0xa33b1a7f2b8394f1",
-        "naver_place_url": ""
       }
     },
     {
@@ -11435,13 +9323,25 @@
       "lng": 127.48966584,
       "address": "충북 청주시 상당구 상당로69번길 15",
       "for_hospitals": [
-        "cheongju_seoul_top_implant_dental"
+        "cheongju_digitalplant_dental",
+        "cheongju_seoul_top_implant_dental",
+        "cheongju_well_dental"
       ],
       "selection": {
+        "cheongju_digitalplant_dental": {
+          "search_rank": 7,
+          "distance_km": 1.202,
+          "score": 0.0714
+        },
         "cheongju_seoul_top_implant_dental": {
           "search_rank": 7,
           "distance_km": 5.42,
-          "score": 0.3182
+          "score": 0.3095
+        },
+        "cheongju_well_dental": {
+          "search_rank": 7,
+          "distance_km": 5.918,
+          "score": 0.3095
         }
       },
       "channels": {
@@ -11481,9 +9381,15 @@
       "lng": 129.05735827,
       "address": "부산 부산진구 가야대로784번길 29",
       "for_hospitals": [
+        "busan_bada_ps",
         "busan_thebody_ps"
       ],
       "selection": {
+        "busan_bada_ps": {
+          "search_rank": 21,
+          "distance_km": 0.076,
+          "score": 0.3721
+        },
         "busan_thebody_ps": {
           "search_rank": 21,
           "distance_km": 0.078,
@@ -11762,26 +9668,26 @@
       }
     },
     {
-      "competitor_id": "comp_k491349461",
-      "name": "신신당부치과의원",
+      "competitor_id": "comp_k494165655",
+      "name": "연세탁월한치과의원",
       "category": "치과",
-      "lat": 35.15945903,
-      "lng": 129.05868191,
-      "address": "부산 부산진구 새싹로14번길 14",
+      "lat": 36.63469715,
+      "lng": 127.45999396,
+      "address": "충북 청주시 서원구 사직대로 112",
       "for_hospitals": [
-        "busan_yeba_ortho_dental"
+        "cheongju_seoul_top_implant_dental"
       ],
       "selection": {
-        "busan_yeba_ortho_dental": {
-          "search_rank": 14,
-          "distance_km": 0.178,
-          "score": 0.1818
+        "cheongju_seoul_top_implant_dental": {
+          "search_rank": 25,
+          "distance_km": 2.885,
+          "score": 0.4048
         }
       },
       "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/491349461",
-        "google_place_id": "0x3568eb0057401259:0xee721adedd46a4ba",
-        "naver_place_url": "https://m.place.naver.com/hospital/2001006911/review/visitor"
+        "kakao_place_url": "https://place.map.kakao.com/494165655",
+        "google_place_id": "",
+        "naver_place_url": "https://m.place.naver.com/hospital/1458434418/review/visitor"
       }
     },
     {
@@ -11828,52 +9734,6 @@
         "kakao_place_url": "https://place.map.kakao.com/503007467",
         "google_place_id": "",
         "naver_place_url": "https://m.place.naver.com/hospital/1279676173/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k504514374",
-      "name": "케이신경과의원",
-      "category": "신경과",
-      "lat": 35.83927347,
-      "lng": 128.62468613,
-      "address": "대구 수성구 동대구로 102",
-      "for_hospitals": [
-        "daegu_pureuncheong_neuro"
-      ],
-      "selection": {
-        "daegu_pureuncheong_neuro": {
-          "search_rank": 7,
-          "distance_km": 7.468,
-          "score": 0.5
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/504514374",
-        "google_place_id": "",
-        "naver_place_url": "https://m.place.naver.com/hospital/1508503068/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k506249067",
-      "name": "정현철케이내과의원",
-      "category": "내과",
-      "lat": 35.56897513,
-      "lng": 129.3464917,
-      "address": "울산 중구 번영로 590",
-      "for_hospitals": [
-        "ulsan_bk_internal"
-      ],
-      "selection": {
-        "ulsan_bk_internal": {
-          "search_rank": 19,
-          "distance_km": 0.991,
-          "score": 0.65
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/506249067",
-        "google_place_id": "",
-        "naver_place_url": ""
       }
     },
     {
@@ -12131,29 +9991,6 @@
       }
     },
     {
-      "competitor_id": "comp_k552608729",
-      "name": "365편안한치과의원",
-      "category": "치과",
-      "lat": 35.18696865,
-      "lng": 129.08108814,
-      "address": "부산 연제구 중앙대로 1113",
-      "for_hospitals": [
-        "busan_w_dental"
-      ],
-      "selection": {
-        "busan_w_dental": {
-          "search_rank": 32,
-          "distance_km": 0.127,
-          "score": 0.3523
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/552608729",
-        "google_place_id": "0x35689300143f6ac9:0xb87676da2723ab",
-        "naver_place_url": "https://m.place.naver.com/hospital/1974587810/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k554879974",
       "name": "유앤아이의원 대구점",
       "category": "피부과",
@@ -12174,29 +10011,6 @@
         "kakao_place_url": "https://place.map.kakao.com/554879974",
         "google_place_id": "0x3565e3d33d9a8df5:0x95b04d776f84a220",
         "naver_place_url": ""
-      }
-    },
-    {
-      "competitor_id": "comp_k558930570",
-      "name": "청주웰치과의원",
-      "category": "치과",
-      "lat": 36.63503575,
-      "lng": 127.42334968,
-      "address": "충북 청주시 흥덕구 2순환로 1120",
-      "for_hospitals": [
-        "cheongju_seoul_top_implant_dental"
-      ],
-      "selection": {
-        "cheongju_seoul_top_implant_dental": {
-          "search_rank": 1,
-          "distance_km": 1.277,
-          "score": 0.0341
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/558930570",
-        "google_place_id": "0x3565288d8823985d:0x2e0b7dddc9476065",
-        "naver_place_url": "https://m.place.naver.com/hospital/1460272105/review/visitor"
       }
     },
     {
@@ -12335,29 +10149,6 @@
         "kakao_place_url": "https://place.map.kakao.com/579079757",
         "google_place_id": "0x357c8300733c07f1:0x78200c18809925ce",
         "naver_place_url": "https://m.place.naver.com/hospital/2075019485/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k581462767",
-      "name": "옥치과의원",
-      "category": "치과",
-      "lat": 35.23034302,
-      "lng": 128.83949501,
-      "address": "경남 김해시 주촌면 천곡로15번길 47",
-      "for_hospitals": [
-        "gimhae_yulha_seonhan_dental"
-      ],
-      "selection": {
-        "gimhae_yulha_seonhan_dental": {
-          "search_rank": 17,
-          "distance_km": 6.661,
-          "score": 0.2614
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/581462767",
-        "google_place_id": "",
-        "naver_place_url": "https://m.place.naver.com/hospital/2040574346/review/visitor"
       }
     },
     {
@@ -12505,29 +10296,6 @@
       }
     },
     {
-      "competitor_id": "comp_k649869248",
-      "name": "고르다치과의원 부산점",
-      "category": "치과",
-      "lat": 35.15954686,
-      "lng": 129.06030048,
-      "address": "부산 부산진구 중앙대로 749",
-      "for_hospitals": [
-        "busan_yeba_ortho_dental"
-      ],
-      "selection": {
-        "busan_yeba_ortho_dental": {
-          "search_rank": 3,
-          "distance_km": 0.148,
-          "score": 0.0568
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/649869248",
-        "google_place_id": "0x3568eb00464d1b3b:0xfa8f39c04e56e9de",
-        "naver_place_url": "https://m.place.naver.com/hospital/1522550380/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k655362723",
       "name": "프리샤산부인과의원",
       "category": "산부인과",
@@ -12656,15 +10424,9 @@
       "lng": 128.68087507,
       "address": "경남 창원시 성산구 중앙대로 110",
       "for_hospitals": [
-        "changwon_daniel_wellness",
         "changwon_first_derm"
       ],
       "selection": {
-        "changwon_daniel_wellness": {
-          "search_rank": 5,
-          "distance_km": 0.253,
-          "score": 0.1239
-        },
         "changwon_first_derm": {
           "search_rank": 5,
           "distance_km": 6.424,
@@ -12685,15 +10447,9 @@
       "lng": 128.68233538,
       "address": "경남 창원시 성산구 마디미서로 30",
       "for_hospitals": [
-        "changwon_daniel_wellness",
         "changwon_first_derm"
       ],
       "selection": {
-        "changwon_daniel_wellness": {
-          "search_rank": 8,
-          "distance_km": 0.206,
-          "score": 0.156
-        },
         "changwon_first_derm": {
           "search_rank": 8,
           "distance_km": 6.614,
@@ -12829,9 +10585,15 @@
       "lng": 129.05690179,
       "address": "부산 부산진구 부전로66번길 40",
       "for_hospitals": [
+        "busan_bada_ps",
         "busan_thebody_ps"
       ],
       "selection": {
+        "busan_bada_ps": {
+          "search_rank": 12,
+          "distance_km": 0.132,
+          "score": 0.3605
+        },
         "busan_thebody_ps": {
           "search_rank": 12,
           "distance_km": 0.071,
@@ -12891,29 +10653,6 @@
       }
     },
     {
-      "competitor_id": "comp_k74126199",
-      "name": "서면오늘플란트치과의원",
-      "category": "치과",
-      "lat": 35.15848217,
-      "lng": 129.05905342,
-      "address": "부산 부산진구 새싹로 2",
-      "for_hospitals": [
-        "busan_yeba_ortho_dental"
-      ],
-      "selection": {
-        "busan_yeba_ortho_dental": {
-          "search_rank": 7,
-          "distance_km": 0.087,
-          "score": 0.0795
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/74126199",
-        "google_place_id": "0x3568eb00599f7743:0xb7f4f8fb5ebcbcb8",
-        "naver_place_url": "https://m.place.naver.com/hospital/1060480489/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k746780739",
       "name": "강남밴스의원",
       "category": "피부과",
@@ -12960,52 +10699,6 @@
       }
     },
     {
-      "competitor_id": "comp_k750469875",
-      "name": "조용원브레인신경과",
-      "category": "신경과",
-      "lat": 35.85993626,
-      "lng": 128.61964363,
-      "address": "대구 수성구 달구벌대로469길 6",
-      "for_hospitals": [
-        "daegu_pureuncheong_neuro"
-      ],
-      "selection": {
-        "daegu_pureuncheong_neuro": {
-          "search_rank": 4,
-          "distance_km": 8.211,
-          "score": 0.5
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/750469875",
-        "google_place_id": "0x3565e31e3d7b7a51:0x40a341a05e0a7bbd",
-        "naver_place_url": "https://m.place.naver.com/hospital/1601481617/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k759093146",
-      "name": "대구삼성글로벌정형외과",
-      "category": "정형외과",
-      "lat": 35.85397378,
-      "lng": 128.61606985,
-      "address": "대구 수성구 명덕로 422",
-      "for_hospitals": [
-        "daegu_beomeo_first_ortho"
-      ],
-      "selection": {
-        "daegu_beomeo_first_ortho": {
-          "search_rank": 4,
-          "distance_km": 1.672,
-          "score": 0.1625
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/759093146",
-        "google_place_id": "0x3565e31df008d049:0x7df5556ebe0cc7f8",
-        "naver_place_url": "https://m.place.naver.com/hospital/1496045476/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k759663680",
       "name": "연세김앤김치과의원",
       "category": "치과",
@@ -13026,29 +10719,6 @@
         "kakao_place_url": "https://place.map.kakao.com/759663680",
         "google_place_id": "0x357c9ff4c0200855:0xb8037094ef22591b",
         "naver_place_url": "https://m.place.naver.com/hospital/1908378181/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k769260874",
-      "name": "로담한의원 대구점",
-      "category": "한의원",
-      "lat": 35.86611638,
-      "lng": 128.59383588,
-      "address": "대구 중구 중앙대로 366",
-      "for_hospitals": [
-        "daegu_rayul_korean_med"
-      ],
-      "selection": {
-        "daegu_rayul_korean_med": {
-          "search_rank": 9,
-          "distance_km": 0.013,
-          "score": 0.1023
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/769260874",
-        "google_place_id": "0x3565e3287e414667:0x71f1c654b09b826",
-        "naver_place_url": ""
       }
     },
     {
@@ -13098,75 +10768,6 @@
       }
     },
     {
-      "competitor_id": "comp_k778430402",
-      "name": "장유뉴욕치과병원",
-      "category": "치과",
-      "lat": 35.19077907,
-      "lng": 128.80232468,
-      "address": "경남 김해시 계동로 221",
-      "for_hospitals": [
-        "gimhae_yulha_seonhan_dental"
-      ],
-      "selection": {
-        "gimhae_yulha_seonhan_dental": {
-          "search_rank": 7,
-          "distance_km": 2.842,
-          "score": 0.1023
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/778430402",
-        "google_place_id": "0x3568cf66e1d70f61:0x38f2fee9bfb6cb0c",
-        "naver_place_url": ""
-      }
-    },
-    {
-      "competitor_id": "comp_k782915641",
-      "name": "화이트이치과의원",
-      "category": "치과",
-      "lat": 35.21064658,
-      "lng": 129.00642221,
-      "address": "부산 북구 만덕대로 11-1",
-      "for_hospitals": [
-        "busan_deokcheon_yeppeunmiso_dental"
-      ],
-      "selection": {
-        "busan_deokcheon_yeppeunmiso_dental": {
-          "search_rank": 3,
-          "distance_km": 0.151,
-          "score": 0.0795
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/782915641",
-        "google_place_id": "0x356895714c176de5:0xe1b54053baaa234b",
-        "naver_place_url": "https://m.place.naver.com/hospital/1022188628/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k7837528",
-      "name": "덕천치과의원",
-      "category": "치과",
-      "lat": 35.21079143,
-      "lng": 129.00687157,
-      "address": "부산 북구 만덕대로 17",
-      "for_hospitals": [
-        "busan_deokcheon_yeppeunmiso_dental"
-      ],
-      "selection": {
-        "busan_deokcheon_yeppeunmiso_dental": {
-          "search_rank": 5,
-          "distance_km": 0.195,
-          "score": 0.1591
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/7837528",
-        "google_place_id": "0x356895398a6b3675:0x1921180179117dab",
-        "naver_place_url": "https://m.place.naver.com/hospital/13249951/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k7855296",
       "name": "마디사랑병원",
       "category": "정형외과",
@@ -13197,13 +10798,25 @@
       "lng": 127.48118568,
       "address": "충북 청주시 청원구 사뜸로 54",
       "for_hospitals": [
-        "cheongju_seoul_top_implant_dental"
+        "cheongju_digitalplant_dental",
+        "cheongju_seoul_top_implant_dental",
+        "cheongju_well_dental"
       ],
       "selection": {
+        "cheongju_digitalplant_dental": {
+          "search_rank": 5,
+          "distance_km": 2.531,
+          "score": 0.1667
+        },
         "cheongju_seoul_top_implant_dental": {
           "search_rank": 5,
           "distance_km": 6.529,
-          "score": 0.375
+          "score": 0.3571
+        },
+        "cheongju_well_dental": {
+          "search_rank": 5,
+          "distance_km": 6.259,
+          "score": 0.3571
         }
       },
       "channels": {
@@ -13265,52 +10878,6 @@
       }
     },
     {
-      "competitor_id": "comp_k7881831",
-      "name": "디지털민트부부치과의원",
-      "category": "치과",
-      "lat": 35.21102588,
-      "lng": 129.00794902,
-      "address": "부산 북구 만덕대로27번길 3",
-      "for_hospitals": [
-        "busan_deokcheon_yeppeunmiso_dental"
-      ],
-      "selection": {
-        "busan_deokcheon_yeppeunmiso_dental": {
-          "search_rank": 17,
-          "distance_km": 0.296,
-          "score": 0.3409
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/7881831",
-        "google_place_id": "0x3568954819f39969:0x7958316cbbfcb23d",
-        "naver_place_url": ""
-      }
-    },
-    {
-      "competitor_id": "comp_k791915549",
-      "name": "김보경연합내과의원",
-      "category": "내과",
-      "lat": 35.56493094,
-      "lng": 129.336676,
-      "address": "울산 중구 번영로 487",
-      "for_hospitals": [
-        "ulsan_bk_internal"
-      ],
-      "selection": {
-        "ulsan_bk_internal": {
-          "search_rank": 11,
-          "distance_km": 0.013,
-          "score": 0.25
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/791915549",
-        "google_place_id": "",
-        "naver_place_url": ""
-      }
-    },
-    {
       "competitor_id": "comp_k793862229",
       "name": "본한의원",
       "category": "한의원",
@@ -13334,26 +10901,26 @@
       }
     },
     {
-      "competitor_id": "comp_k7964771",
-      "name": "수성카톨릭피부과의원",
-      "category": "피부과",
-      "lat": 35.85444879,
-      "lng": 128.61833762,
-      "address": "대구 수성구 명덕로 441",
+      "competitor_id": "comp_k794164599",
+      "name": "유안치과의원",
+      "category": "치과",
+      "lat": 36.62906052,
+      "lng": 127.49160069,
+      "address": "충북 청주시 상당구 상당로 10",
       "for_hospitals": [
-        "daegu_areumdaun_derm"
+        "cheongju_digitalplant_dental"
       ],
       "selection": {
-        "daegu_areumdaun_derm": {
-          "search_rank": 8,
-          "distance_km": 4.306,
-          "score": 0.2045
+        "cheongju_digitalplant_dental": {
+          "search_rank": 13,
+          "distance_km": 1.792,
+          "score": 0.1667
         }
       },
       "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/7964771",
-        "google_place_id": "0x3565e24a1d1b28d1:0x128c352b94b6eded",
-        "naver_place_url": "https://m.place.naver.com/hospital/1916126040/review/visitor"
+        "kakao_place_url": "https://place.map.kakao.com/794164599",
+        "google_place_id": "0x356527fe87a0ce79:0xe9fd4662d14d91af",
+        "naver_place_url": "https://m.place.naver.com/hospital/1587443323/review/visitor"
       }
     },
     {
@@ -13456,15 +11023,9 @@
       "lng": 128.68279875,
       "address": "경남 창원시 성산구 마디미로22번길 17",
       "for_hospitals": [
-        "changwon_daniel_wellness",
         "changwon_first_derm"
       ],
       "selection": {
-        "changwon_daniel_wellness": {
-          "search_rank": 2,
-          "distance_km": 0.139,
-          "score": 0.055
-        },
         "changwon_first_derm": {
           "search_rank": 2,
           "distance_km": 6.613,
@@ -13697,29 +11258,6 @@
       }
     },
     {
-      "competitor_id": "comp_k8114388",
-      "name": "최창환내과의원",
-      "category": "내과",
-      "lat": 35.56858342,
-      "lng": 129.34541495,
-      "address": "울산 중구 번영로 580",
-      "for_hospitals": [
-        "ulsan_bk_internal"
-      ],
-      "selection": {
-        "ulsan_bk_internal": {
-          "search_rank": 12,
-          "distance_km": 0.884,
-          "score": 0.4
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/8114388",
-        "google_place_id": "",
-        "naver_place_url": ""
-      }
-    },
-    {
       "competitor_id": "comp_k8133893",
       "name": "파티마여성병원",
       "category": "산부인과",
@@ -13809,52 +11347,6 @@
         "kakao_place_url": "https://place.map.kakao.com/8206566",
         "google_place_id": "0x357ca452cc4c32f7:0x2ad98def602dd",
         "naver_place_url": "https://m.place.naver.com/hospital/13009835/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k8217361",
-      "name": "뉴욕치과의원",
-      "category": "치과",
-      "lat": 35.18700605,
-      "lng": 129.08169063,
-      "address": "부산 연제구 중앙대로 1114",
-      "for_hospitals": [
-        "busan_w_dental"
-      ],
-      "selection": {
-        "busan_w_dental": {
-          "search_rank": 29,
-          "distance_km": 0.149,
-          "score": 0.3409
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/8217361",
-        "google_place_id": "",
-        "naver_place_url": "https://m.place.naver.com/hospital/11699811/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k8219790",
-      "name": "상남굿모닝내과병원",
-      "category": "내과",
-      "lat": 35.22072079,
-      "lng": 128.67990596,
-      "address": "경남 창원시 성산구 상남로 73",
-      "for_hospitals": [
-        "changwon_daniel_wellness"
-      ],
-      "selection": {
-        "changwon_daniel_wellness": {
-          "search_rank": 4,
-          "distance_km": 0.507,
-          "score": 0.1835
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/8219790",
-        "google_place_id": "0x3568cce4187ae219:0xfc9d8c5d056f2cc6",
-        "naver_place_url": "https://m.place.naver.com/hospital/12000405/review/visitor"
       }
     },
     {
@@ -14025,29 +11517,6 @@
       }
     },
     {
-      "competitor_id": "comp_k8317203",
-      "name": "범어로제피부과의원",
-      "category": "피부과",
-      "lat": 35.85984415,
-      "lng": 128.62486236,
-      "address": "대구 수성구 달구벌대로 2397",
-      "for_hospitals": [
-        "daegu_areumdaun_derm"
-      ],
-      "selection": {
-        "daegu_areumdaun_derm": {
-          "search_rank": 2,
-          "distance_km": 4.633,
-          "score": 0.3182
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/8317203",
-        "google_place_id": "0x3565e23ba00ae045:0x6152c7a891368b63",
-        "naver_place_url": "https://m.place.naver.com/hospital/13138621/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k8322143",
       "name": "반치과의원",
       "category": "치과",
@@ -14094,29 +11563,6 @@
       }
     },
     {
-      "competitor_id": "comp_k8336544",
-      "name": "명문정형외과의원",
-      "category": "정형외과",
-      "lat": 35.85852293,
-      "lng": 128.64473663,
-      "address": "대구 수성구 달구벌대로 2578",
-      "for_hospitals": [
-        "daegu_beomeo_first_ortho"
-      ],
-      "selection": {
-        "daegu_beomeo_first_ortho": {
-          "search_rank": 23,
-          "distance_km": 0.987,
-          "score": 0.3
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/8336544",
-        "google_place_id": "",
-        "naver_place_url": "https://m.place.naver.com/hospital/13255183/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k8358449",
       "name": "리즈피부과",
       "category": "피부과",
@@ -14143,29 +11589,6 @@
         "kakao_place_url": "https://place.map.kakao.com/8358449",
         "google_place_id": "",
         "naver_place_url": "https://m.place.naver.com/hospital/13254764/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k8360911",
-      "name": "삼영한의원",
-      "category": "한의원",
-      "lat": 35.86548479,
-      "lng": 128.59545617,
-      "address": "대구 중구 달구벌대로 2117",
-      "for_hospitals": [
-        "daegu_rayul_korean_med"
-      ],
-      "selection": {
-        "daegu_rayul_korean_med": {
-          "search_rank": 26,
-          "distance_km": 0.161,
-          "score": 0.3409
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/8360911",
-        "google_place_id": "0x3565e3c6d2f7f22b:0xc630f1d7726567b6",
-        "naver_place_url": ""
       }
     },
     {
@@ -14330,29 +11753,6 @@
       }
     },
     {
-      "competitor_id": "comp_k843758637",
-      "name": "이형신경과의원",
-      "category": "신경과",
-      "lat": 35.85917723,
-      "lng": 128.62079938,
-      "address": "대구 수성구 달구벌대로 2362",
-      "for_hospitals": [
-        "daegu_pureuncheong_neuro"
-      ],
-      "selection": {
-        "daegu_pureuncheong_neuro": {
-          "search_rank": 1,
-          "distance_km": 8.088,
-          "score": 0.3636
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/843758637",
-        "google_place_id": "",
-        "naver_place_url": "https://m.place.naver.com/hospital/1513209338/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k8443426",
       "name": "성모안과",
       "category": "안과",
@@ -14402,29 +11802,6 @@
         "kakao_place_url": "https://place.map.kakao.com/8448078",
         "google_place_id": "",
         "naver_place_url": "https://m.place.naver.com/hospital/11532366/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k8473710",
-      "name": "워싱턴치과의원",
-      "category": "치과",
-      "lat": 35.18535532,
-      "lng": 129.08241359,
-      "address": "부산 연제구 월드컵대로 124",
-      "for_hospitals": [
-        "busan_w_dental"
-      ],
-      "selection": {
-        "busan_w_dental": {
-          "search_rank": 4,
-          "distance_km": 0.34,
-          "score": 0.2614
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/8473710",
-        "google_place_id": "",
-        "naver_place_url": "https://m.place.naver.com/hospital/11717507/review/visitor"
       }
     },
     {
@@ -14517,29 +11894,6 @@
         "kakao_place_url": "https://place.map.kakao.com/8523708",
         "google_place_id": "0x357b6772c12ab227:0x360d83a89a14c119",
         "naver_place_url": "https://m.place.naver.com/hospital/11568506/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k8523977",
-      "name": "레드성형외과의원",
-      "category": "성형외과",
-      "lat": 35.22018875,
-      "lng": 128.68343127,
-      "address": "경남 창원시 성산구 단정로 25",
-      "for_hospitals": [
-        "changwon_daniel_wellness"
-      ],
-      "selection": {
-        "changwon_daniel_wellness": {
-          "search_rank": 1,
-          "distance_km": 0.436,
-          "score": 0.1284
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/8523977",
-        "google_place_id": "0x3568cce445927111:0x8936959e6fa007cf",
-        "naver_place_url": "https://m.place.naver.com/hospital/13137395/review/visitor"
       }
     },
     {
@@ -14658,29 +12012,6 @@
       }
     },
     {
-      "competitor_id": "comp_k857595743",
-      "name": "우가주치과병원",
-      "category": "치과",
-      "lat": 35.22875284,
-      "lng": 128.87085742,
-      "address": "경남 김해시 전하로 287",
-      "for_hospitals": [
-        "gimhae_yulha_seonhan_dental"
-      ],
-      "selection": {
-        "gimhae_yulha_seonhan_dental": {
-          "search_rank": 10,
-          "distance_km": 7.652,
-          "score": 0.2045
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/857595743",
-        "google_place_id": "0x3568c70fb21c8aed:0x895da78fb2f9fb7f",
-        "naver_place_url": "https://m.place.naver.com/hospital/896688990/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k860356253",
       "name": "연세검단치과의원",
       "category": "치과",
@@ -14724,75 +12055,6 @@
         "kakao_place_url": "https://place.map.kakao.com/8610891",
         "google_place_id": "",
         "naver_place_url": ""
-      }
-    },
-    {
-      "competitor_id": "comp_k8628164",
-      "name": "홍성주성형외과의원",
-      "category": "성형외과",
-      "lat": 35.86892283,
-      "lng": 128.59598567,
-      "address": "대구 중구 동성로6길 12",
-      "for_hospitals": [
-        "daegu_leesinil_grace_ps"
-      ],
-      "selection": {
-        "daegu_leesinil_grace_ps": {
-          "search_rank": 22,
-          "distance_km": 0.112,
-          "score": 0.2727
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/8628164",
-        "google_place_id": "",
-        "naver_place_url": ""
-      }
-    },
-    {
-      "competitor_id": "comp_k8654149",
-      "name": "약전골목홍익한의원",
-      "category": "한의원",
-      "lat": 35.86876606,
-      "lng": 128.58802892,
-      "address": "대구 중구 남성로 10",
-      "for_hospitals": [
-        "daegu_rayul_korean_med"
-      ],
-      "selection": {
-        "daegu_rayul_korean_med": {
-          "search_rank": 3,
-          "distance_km": 0.603,
-          "score": 0.2273
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/8654149",
-        "google_place_id": "",
-        "naver_place_url": ""
-      }
-    },
-    {
-      "competitor_id": "comp_k865735237",
-      "name": "셀럽성형외과의원",
-      "category": "성형외과",
-      "lat": 35.22065198,
-      "lng": 128.68537372,
-      "address": "경남 창원시 성산구 마디미동로 31",
-      "for_hospitals": [
-        "changwon_daniel_wellness"
-      ],
-      "selection": {
-        "changwon_daniel_wellness": {
-          "search_rank": 3,
-          "distance_km": 0.415,
-          "score": 0.1468
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/865735237",
-        "google_place_id": "0x3568ccfac4036131:0x3669f50302be22cc",
-        "naver_place_url": "https://m.place.naver.com/hospital/689363881/review/visitor"
       }
     },
     {
@@ -14940,52 +12202,6 @@
       }
     },
     {
-      "competitor_id": "comp_k8699991",
-      "name": "가지런이치과의원",
-      "category": "치과",
-      "lat": 35.18853914,
-      "lng": 129.08068143,
-      "address": "부산 연제구 중앙대로 1131",
-      "for_hospitals": [
-        "busan_w_dental"
-      ],
-      "selection": {
-        "busan_w_dental": {
-          "search_rank": 21,
-          "distance_km": 0.054,
-          "score": 0.2273
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/8699991",
-        "google_place_id": "",
-        "naver_place_url": "https://m.place.naver.com/hospital/11848188/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k873511686",
-      "name": "대구 동성로 끗 한의원",
-      "category": "한의원",
-      "lat": 35.86544261,
-      "lng": 128.59143551,
-      "address": "대구 중구 달구벌대로 2082",
-      "for_hospitals": [
-        "daegu_rayul_korean_med"
-      ],
-      "selection": {
-        "daegu_rayul_korean_med": {
-          "search_rank": 1,
-          "distance_km": 0.221,
-          "score": 0.0795
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/873511686",
-        "google_place_id": "0x3565e3a5d565a7f1:0x7b59722338f6903e",
-        "naver_place_url": ""
-      }
-    },
-    {
       "competitor_id": "comp_k8745829",
       "name": "고운미소치과의원",
       "category": "치과",
@@ -15016,15 +12232,9 @@
       "lng": 128.58293031,
       "address": "대구 중구 달성로 56",
       "for_hospitals": [
-        "daegu_kwakjaehyuk_neuro",
         "daegu_sintong_neuro"
       ],
       "selection": {
-        "daegu_kwakjaehyuk_neuro": {
-          "search_rank": 7,
-          "distance_km": 0.46,
-          "score": 0.4167
-        },
         "daegu_sintong_neuro": {
           "search_rank": 7,
           "distance_km": 1.018,
@@ -15081,52 +12291,6 @@
         "kakao_place_url": "https://place.map.kakao.com/8806917",
         "google_place_id": "0x35660eab437b546b:0xee8f69da8cfd29a",
         "naver_place_url": "https://m.place.naver.com/hospital/13255656/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k8815288",
-      "name": "김춘섭내과의원",
-      "category": "내과",
-      "lat": 35.55244239,
-      "lng": 129.29456003,
-      "address": "울산 중구 태화로 172",
-      "for_hospitals": [
-        "ulsan_bk_internal"
-      ],
-      "selection": {
-        "ulsan_bk_internal": {
-          "search_rank": 7,
-          "distance_km": 4.058,
-          "score": 0.6
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/8815288",
-        "google_place_id": "0x356632914d06413d:0x1b829f37e626bd23",
-        "naver_place_url": ""
-      }
-    },
-    {
-      "competitor_id": "comp_k8856517",
-      "name": "뉴욕치과병원",
-      "category": "치과",
-      "lat": 35.2375916,
-      "lng": 128.8675378,
-      "address": "경남 김해시 내외중앙로 86",
-      "for_hospitals": [
-        "gimhae_yulha_seonhan_dental"
-      ],
-      "selection": {
-        "gimhae_yulha_seonhan_dental": {
-          "search_rank": 1,
-          "distance_km": 8.333,
-          "score": 0.2386
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/8856517",
-        "google_place_id": "0x3568c7096c104af3:0x662ff92e527e64b7",
-        "naver_place_url": "https://m.place.naver.com/hospital/13002666/review/visitor"
       }
     },
     {
@@ -15257,26 +12421,26 @@
       }
     },
     {
-      "competitor_id": "comp_k9085699",
-      "name": "미소를만드는치과교정과치과의원 서면클리닉",
-      "category": "치과",
-      "lat": 35.15597353,
-      "lng": 129.05957174,
-      "address": "부산 부산진구 중앙대로 708",
+      "competitor_id": "comp_k905508504",
+      "name": "미테크성형외과의원",
+      "category": "성형외과",
+      "lat": 35.15562607,
+      "lng": 129.05954871,
+      "address": "부산 부산진구 중앙대로 704-1",
       "for_hospitals": [
-        "busan_yeba_ortho_dental"
+        "busan_bada_ps"
       ],
       "selection": {
-        "busan_yeba_ortho_dental": {
-          "search_rank": 25,
-          "distance_km": 0.255,
-          "score": 0.3295
+        "busan_bada_ps": {
+          "search_rank": 10,
+          "distance_km": 0.164,
+          "score": 0.3488
         }
       },
       "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/9085699",
-        "google_place_id": "0x3568eb6feb38d85d:0x137b9fa6b56654a",
-        "naver_place_url": ""
+        "kakao_place_url": "https://place.map.kakao.com/905508504",
+        "google_place_id": "0x3568ebeda6ed8c33:0xbfe9f84777b560",
+        "naver_place_url": "https://m.place.naver.com/hospital/1571597547/review/visitor"
       }
     },
     {
@@ -15300,29 +12464,6 @@
         "kakao_place_url": "https://place.map.kakao.com/9102050",
         "google_place_id": "",
         "naver_place_url": "https://m.place.naver.com/hospital/13247547/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k9127992",
-      "name": "소담치과의원",
-      "category": "치과",
-      "lat": 35.18898187,
-      "lng": 129.08187167,
-      "address": "부산 연제구 중앙대로1134번길 15",
-      "for_hospitals": [
-        "busan_w_dental"
-      ],
-      "selection": {
-        "busan_w_dental": {
-          "search_rank": 24,
-          "distance_km": 0.151,
-          "score": 0.2955
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/9127992",
-        "google_place_id": "",
-        "naver_place_url": "https://m.place.naver.com/hospital/11856594/review/visitor"
       }
     },
     {
@@ -15372,29 +12513,6 @@
       }
     },
     {
-      "competitor_id": "comp_k9156348",
-      "name": "수성동대구피부과의원",
-      "category": "피부과",
-      "lat": 35.84087747,
-      "lng": 128.61479587,
-      "address": "대구 수성구 청수로 59-1",
-      "for_hospitals": [
-        "daegu_areumdaun_derm"
-      ],
-      "selection": {
-        "daegu_areumdaun_derm": {
-          "search_rank": 12,
-          "distance_km": 3.272,
-          "score": 0.1932
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/9156348",
-        "google_place_id": "",
-        "naver_place_url": "https://m.place.naver.com/hospital/11615899/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k9170867",
       "name": "석한의원",
       "category": "한의원",
@@ -15415,6 +12533,29 @@
         "kakao_place_url": "https://place.map.kakao.com/9170867",
         "google_place_id": "0x35660eab32d0536f:0x3f239e8c631accf",
         "naver_place_url": "https://m.place.naver.com/hospital/11703502/review/visitor"
+      }
+    },
+    {
+      "competitor_id": "comp_k9173353",
+      "name": "신세계치과의원",
+      "category": "치과",
+      "lat": 36.64571502,
+      "lng": 127.47790707,
+      "address": "충북 청주시 흥덕구 사운로 189",
+      "for_hospitals": [
+        "cheongju_digitalplant_dental"
+      ],
+      "selection": {
+        "cheongju_digitalplant_dental": {
+          "search_rank": 31,
+          "distance_km": 1.011,
+          "score": 0.3333
+        }
+      },
+      "channels": {
+        "kakao_place_url": "https://place.map.kakao.com/9173353",
+        "google_place_id": "0x356527db3aed5609:0x9544501875e96349",
+        "naver_place_url": "https://m.place.naver.com/hospital/19515315/review/visitor"
       }
     },
     {
@@ -15487,29 +12628,6 @@
       }
     },
     {
-      "competitor_id": "comp_k9266393",
-      "name": "아인성형외과의원",
-      "category": "성형외과",
-      "lat": 35.22346636,
-      "lng": 128.68311678,
-      "address": "경남 창원시 성산구 상남로 118",
-      "for_hospitals": [
-        "changwon_daniel_wellness"
-      ],
-      "selection": {
-        "changwon_daniel_wellness": {
-          "search_rank": 15,
-          "distance_km": 0.086,
-          "score": 0.2156
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/9266393",
-        "google_place_id": "",
-        "naver_place_url": "https://m.place.naver.com/hospital/11853294/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k931443150",
       "name": "파인타워치과의원",
       "category": "치과",
@@ -15533,29 +12651,6 @@
       }
     },
     {
-      "competitor_id": "comp_k9328158",
-      "name": "이강희내과의원",
-      "category": "내과",
-      "lat": 35.55598426,
-      "lng": 129.32452083,
-      "address": "울산 중구 학성로 125",
-      "for_hospitals": [
-        "ulsan_bk_internal"
-      ],
-      "selection": {
-        "ulsan_bk_internal": {
-          "search_rank": 13,
-          "distance_km": 1.491,
-          "score": 0.55
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/9328158",
-        "google_place_id": "0x3567cd2ded3c1387:0xa43ed62194d74658",
-        "naver_place_url": ""
-      }
-    },
-    {
       "competitor_id": "comp_k934305353",
       "name": "아이온안과의원",
       "category": "안과",
@@ -15576,52 +12671,6 @@
         "kakao_place_url": "https://place.map.kakao.com/934305353",
         "google_place_id": "0x3565e3234ff6ab41:0x1e7090dcc5f50930",
         "naver_place_url": "https://m.place.naver.com/hospital/1226424605/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k9345259",
-      "name": "이앤미치과병원",
-      "category": "치과",
-      "lat": 35.23542717,
-      "lng": 129.00987394,
-      "address": "부산 북구 화명대로 15",
-      "for_hospitals": [
-        "busan_deokcheon_yeppeunmiso_dental"
-      ],
-      "selection": {
-        "busan_deokcheon_yeppeunmiso_dental": {
-          "search_rank": 2,
-          "distance_km": 2.829,
-          "score": 0.375
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/9345259",
-        "google_place_id": "0x3568950b6a113ad7:0xc190971a7423a665",
-        "naver_place_url": ""
-      }
-    },
-    {
-      "competitor_id": "comp_k9401133",
-      "name": "이영진성형외과의원",
-      "category": "성형외과",
-      "lat": 35.86964768,
-      "lng": 128.59826431,
-      "address": "대구 중구 동성로3길 95",
-      "for_hospitals": [
-        "daegu_leesinil_grace_ps"
-      ],
-      "selection": {
-        "daegu_leesinil_grace_ps": {
-          "search_rank": 21,
-          "distance_km": 0.118,
-          "score": 0.2727
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/9401133",
-        "google_place_id": "0x3565e3c4660980df:0xb3e784f287fc9c43",
-        "naver_place_url": ""
       }
     },
     {
@@ -15667,29 +12716,6 @@
       "channels": {
         "kakao_place_url": "https://place.map.kakao.com/9439031",
         "google_place_id": "0x356548ea6a0425c1:0x9207668297a3bb46",
-        "naver_place_url": ""
-      }
-    },
-    {
-      "competitor_id": "comp_k94404748",
-      "name": "서울신내과의원",
-      "category": "내과",
-      "lat": 35.55858816,
-      "lng": 129.34281456,
-      "address": "울산 중구 염포로 8",
-      "for_hospitals": [
-        "ulsan_bk_internal"
-      ],
-      "selection": {
-        "ulsan_bk_internal": {
-          "search_rank": 6,
-          "distance_km": 0.909,
-          "score": 0.3
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/94404748",
-        "google_place_id": "",
         "naver_place_url": ""
       }
     },
@@ -15772,29 +12798,6 @@
         "kakao_place_url": "https://place.map.kakao.com/956921131",
         "google_place_id": "",
         "naver_place_url": "https://m.place.naver.com/hospital/1045272212/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k9578764",
-      "name": "21세기정형외과의원",
-      "category": "정형외과",
-      "lat": 35.87333205,
-      "lng": 128.6401357,
-      "address": "대구 수성구 화랑로 122",
-      "for_hospitals": [
-        "daegu_beomeo_first_ortho"
-      ],
-      "selection": {
-        "daegu_beomeo_first_ortho": {
-          "search_rank": 2,
-          "distance_km": 1.752,
-          "score": 0.175
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/9578764",
-        "google_place_id": "",
-        "naver_place_url": "https://m.place.naver.com/hospital/13255290/review/visitor"
       }
     },
     {
@@ -15890,75 +12893,6 @@
       }
     },
     {
-      "competitor_id": "comp_k9705878",
-      "name": "늘맑은신경과의원",
-      "category": "신경과",
-      "lat": 35.83880883,
-      "lng": 128.6275231,
-      "address": "대구 수성구 청수로 178",
-      "for_hospitals": [
-        "daegu_pureuncheong_neuro"
-      ],
-      "selection": {
-        "daegu_pureuncheong_neuro": {
-          "search_rank": 12,
-          "distance_km": 7.214,
-          "score": 0.5909
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/9705878",
-        "google_place_id": "0x3565e25ce2844141:0x93cbdf40b330239d",
-        "naver_place_url": "https://m.place.naver.com/hospital/1825507174/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k9731222",
-      "name": "W피부과",
-      "category": "피부과",
-      "lat": 35.8387121,
-      "lng": 128.62754547,
-      "address": "대구 수성구 청수로 178",
-      "for_hospitals": [
-        "daegu_areumdaun_derm"
-      ],
-      "selection": {
-        "daegu_areumdaun_derm": {
-          "search_rank": 22,
-          "distance_km": 2.373,
-          "score": 0.2614
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/9731222",
-        "google_place_id": "",
-        "naver_place_url": ""
-      }
-    },
-    {
-      "competitor_id": "comp_k973474150",
-      "name": "대호정형외과의원",
-      "category": "정형외과",
-      "lat": 35.85514586,
-      "lng": 128.62590882,
-      "address": "대구 수성구 동대구로 278",
-      "for_hospitals": [
-        "daegu_beomeo_first_ortho"
-      ],
-      "selection": {
-        "daegu_beomeo_first_ortho": {
-          "search_rank": 7,
-          "distance_km": 0.799,
-          "score": 0.075
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/973474150",
-        "google_place_id": "0x3565e39c7c60b8f3:0x539577bbd8481940",
-        "naver_place_url": "https://m.place.naver.com/hospital/1197159352/review/visitor"
-      }
-    },
-    {
       "competitor_id": "comp_k9756866",
       "name": "메리놀산부인과의원",
       "category": "산부인과",
@@ -15979,52 +12913,6 @@
         "kakao_place_url": "https://place.map.kakao.com/9756866",
         "google_place_id": "",
         "naver_place_url": "https://m.place.naver.com/hospital/13259307/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k9759810",
-      "name": "마디편한정형외과의원",
-      "category": "정형외과",
-      "lat": 35.85918919,
-      "lng": 128.63686312,
-      "address": "대구 수성구 달구벌대로 2507",
-      "for_hospitals": [
-        "daegu_beomeo_first_ortho"
-      ],
-      "selection": {
-        "daegu_beomeo_first_ortho": {
-          "search_rank": 1,
-          "distance_km": 0.29,
-          "score": 0.0
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/9759810",
-        "google_place_id": "0x3565e21bd519aaa3:0x8d61bb222e327055",
-        "naver_place_url": "https://m.place.naver.com/hospital/13255216/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k9769087",
-      "name": "미시간치과의원",
-      "category": "치과",
-      "lat": 35.18674336,
-      "lng": 129.08114058,
-      "address": "부산 연제구 중앙대로 1111",
-      "for_hospitals": [
-        "busan_w_dental"
-      ],
-      "selection": {
-        "busan_w_dental": {
-          "search_rank": 23,
-          "distance_km": 0.152,
-          "score": 0.2955
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/9769087",
-        "google_place_id": "0x35689344cc4b1097:0xfe3881b2260a4dd",
-        "naver_place_url": "https://m.place.naver.com/hospital/13251975/review/visitor"
       }
     },
     {
