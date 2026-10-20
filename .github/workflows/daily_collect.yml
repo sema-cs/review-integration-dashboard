@@ -2,7 +2,7 @@ name: 매일 리뷰 자동 수집
 
 on:
   schedule:
-    - cron: "0 4 * * *"  # 04:00 UTC = 13:00 KST
+    - cron: "17 3 * * *"  # 03:17 UTC = 12:17 KST — 정각 예약은 GitHub에서 몇 시간씩 밀려 비정각으로(2026-10-20)
   workflow_dispatch:
     inputs:
       competitor_group:

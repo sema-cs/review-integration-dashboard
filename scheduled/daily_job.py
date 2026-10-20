@@ -1,6 +1,7 @@
-"""매일 13:50 Windows 작업 스케줄러가 실행하는 검수 작업(2026-10-14 사용자 결정).
+"""매일 13:50·19:00 Windows 작업 스케줄러가 실행하는 검수 작업(2026-10-14 사용자 결정, 19:00은 2026-10-20 추가).
 
-1. 오늘 13시 GitHub Actions 수집이 끝날 때까지 기다린다(10분 간격, 16:30까지 — 넘기면 그대로 진행).
+1. 오늘 GitHub Actions 수집(12:17 예약) 상태를 로그에 남기기만 하고 기다리지 않는다(2026-10-20 —
+   예약 수집이 몇 시간씩 늦는 날이 잦음). 늦게 들어온 리뷰는 19:00 실행이나 다음 날 실행이 처리한다.
 2. 재분류: reclassify.py --export(회당 300건) → Claude Code(`claude -p`)가 [재분류결과].json 작성
    → reclassify.py --apply. 남은 후보가 있으면 최대 4회 반복, 나머지는 다음 날로 넘어간다.
 3. 주간 특이사항: weekly_notes.py --due가 참(월요일, 또는 월요일을 놓쳐 7일 이상 지남)이면
@@ -30,12 +31,6 @@ KST = datetime.timezone(datetime.timedelta(hours=9))
 
 RECLASSIFY_LIMIT = 300
 RECLASSIFY_MAX_ROUNDS = 4
-WAIT_DEADLINE = datetime.time(16, 30)
-# 이 시각 전에 시작됐으면(PC가 꺼져 놓친 실행을 아침에 따라잡는 경우) 오늘 수집을 기다리지 않는다.
-# 2026-10-19 실측: 08:54 따라잡기 실행이 수집 대기만 하다 5시간 상한(13:54)에 강제 종료됐고,
-# 13:50 정규 실행은 "이미 실행 중"(IgnoreNew)이라 무시돼 그날 재분류가 0건이었다.
-# 아침 실행은 쌓인 분량만 처리하고 끝나며, 오늘 수집분은 13:50 정규 실행이 처리한다.
-COLLECTION_START = datetime.time(13, 0)
 CLAUDE_TIMEOUT = 60 * 60
 CLAUDE_TOOLS = ["--allowedTools", "Read", "Write", "Edit", "Glob", "Grep",
                 "--disallowedTools", "Bash", "PowerShell", "WebFetch", "WebSearch"]
@@ -88,31 +83,22 @@ def ask_claude(prompt):
     run([claude_exe(), "-p", prompt, *CLAUDE_TOOLS], timeout=CLAUDE_TIMEOUT)
 
 
-def should_wait_for_collection(now_time):
-    return now_time >= COLLECTION_START
-
-
-def wait_for_collection(today):
-    if not should_wait_for_collection(datetime.datetime.now(KST).time()):
-        log("13시 전 실행(놓친 실행 따라잡기) → 수집 대기 없이 쌓인 분량부터 처리")
-        return
-    while True:
-        try:
-            with urllib.request.urlopen(RUNS_API, timeout=30) as res:
-                runs = json.load(res)["workflow_runs"]
-            todays = [r for r in runs if r.get("run_started_at") and datetime.datetime.fromisoformat(
-                r["run_started_at"].replace("Z", "+00:00")).astimezone(KST).date() == today]
-            if todays and todays[0]["status"] == "completed":
-                log(f"오늘 수집 완료 확인: {todays[0]['conclusion']} ({todays[0]['updated_at']})")
-                return
-            state = todays[0]["status"] if todays else "아직 시작 전"
-        except Exception as e:  # 네트워크 일시 오류는 기다렸다 재시도
-            state = f"조회 실패: {e}"
-        if datetime.datetime.now(KST).time() >= WAIT_DEADLINE:
-            log(f"16:30까지 수집 완료를 확인 못 함({state}) → 그대로 진행")
-            return
-        log(f"수집 대기: {state} → 10분 후 재확인")
-        time.sleep(600)
+def collection_status(today):
+    """오늘 예약 수집(GitHub Actions) 상태를 한 번 조회해 문자열로 돌려준다. 기다리지 않는다 —
+    2026-10-17~20 예약 수집이 4~5시간씩 늦어져 검수가 대기만 하다 끝났다. 늦게 들어온 리뷰는
+    같은 날 19:00 실행이나 다음 날 실행이 처리한다."""
+    try:
+        with urllib.request.urlopen(RUNS_API, timeout=30) as res:
+            runs = json.load(res)["workflow_runs"]
+    except Exception as e:  # 상태 기록용일 뿐이라 실패해도 검수는 진행한다
+        return f"조회 실패: {e}"
+    todays = [r for r in runs if r.get("run_started_at") and datetime.datetime.fromisoformat(
+        r["run_started_at"].replace("Z", "+00:00")).astimezone(KST).date() == today]
+    if not todays:
+        return "아직 시작 전"
+    if todays[0]["status"] == "completed":
+        return f"completed: {todays[0]['conclusion']} ({todays[0]['updated_at']})"
+    return todays[0]["status"]
 
 
 def archive(work_dir, names, tag):
@@ -173,7 +159,8 @@ def main():
     status = {"date": today.isoformat(), "started_at": datetime.datetime.now(KST).isoformat(timespec="seconds")}
     try:
         log("=== 일일 검수 작업 시작 ===")
-        wait_for_collection(today)
+        status["collection"] = collection_status(today)
+        log(f"오늘 수집 상태: {status['collection']} (기다리지 않고 진행)")
         status["reclassified"] = reclassify_rounds()
         status["weekly_notes"] = weekly_notes_step()
         status["result"] = "success"

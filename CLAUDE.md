@@ -5,7 +5,7 @@
 
 ## 이 폴더의 두 파이프라인
 
-1. **`main.py`** — 매일 13:00 KST GitHub Actions가 완전 무인으로 실행하는 수집
+1. **`main.py`** — 매일 12:17 KST(2026-10-20부터, 이전 13:00) GitHub Actions가 완전 무인으로 실행하는 수집
    파이프라인(collectors → dedup → `classifier/rule_based.py` → Sheets append).
    수집 채널·스케줄·Actions 워크플로우는 설계상 고정이다. 적재(중복 제거 → 분류 → append)는
    `review_ingest.ingest` 공통 함수로, 크롬 확장 브리지와 같은 경로를 쓴다(2026-09-29).
@@ -145,12 +145,12 @@ python reclassify.py --apply
 
 ## 매일 자동 검수 (Windows 작업 스케줄러, 2026-10-14~)
 
-사용자 결정: 담당자 PC의 작업 스케줄러 `ReviewSheet_DailyReclassify`가 **매일 13:50**에
-`scheduled/daily_job.py`를 실행한다(PC가 꺼져 있었으면 켜진 뒤 바로 실행, 최대 5시간).
+사용자 결정: 담당자 PC의 작업 스케줄러 `ReviewSheet_DailyReclassify`가 **매일 13:50과 19:00**에
+`scheduled/daily_job.py`를 실행한다(PC가 꺼져 있었으면 켜진 뒤 바로 실행, 최대 5시간, 겹치면 나중 것은 건너뜀).
 
-1. 오늘 13시 Actions 수집 완료를 GitHub API로 확인(10분 간격, 16:30까지 — 넘으면 그대로 진행).
-   단 13시 전에 시작된 실행(PC가 꺼져 놓친 실행의 아침 따라잡기)은 기다리지 않고 쌓인 분량만 처리한다
-   (2026-10-20 수정 — 대기하다 5시간 상한에 걸려 13:50 정규 실행까지 막혔던 문제).
+1. 오늘 Actions 수집 상태를 GitHub API로 한 번 조회해 로그에 남기고, **기다리지 않고** 진행한다(2026-10-20 사용자 결정).
+   근거: 정각(13:00) 예약 수집이 10-17~20 4~5시간씩 늦어져 검수가 대기만 하다 끝났다 → 수집 예약을 12:17로 옮기고,
+   늦게 들어온 리뷰는 19:00 실행이나 다음 날 실행이 처리한다.
 2. 재분류: `reclassify.py --export --limit 300` → `claude -p`가 `[재분류결과].json` 작성 → `--apply`. 최대 4회, 남으면 다음 날.
 3. 주간 특이사항: `weekly_notes.py --due`(월요일, 또는 월요일을 놓쳐 7일 이상 지남)일 때만
    `--export` → `claude -p`가 `weekly_work/[주간결과].json` 작성 → `--apply` → `weekly_notes.json`만 커밋·push.
