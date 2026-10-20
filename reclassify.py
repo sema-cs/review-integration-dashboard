@@ -7,6 +7,7 @@ Claude Code 세션이 켜져 있을 때만 /loop 등으로 주기 실행되어, 
 
 긍정·부정 리뷰(별점 판정 포함)는 Claude가 주요 칭찬/불만 포인트를 key_points 컬럼에 적는다 —
 대시보드 긍정·부정 키워드 TOP 5의 원천. 설계: docs/superpowers/specs/2026-09-29-negative-key-points-design.md
+부정 리뷰는 심각도(severity: 심각|일반)도 적는다(2026-10-20).
 """
 
 import argparse
@@ -31,6 +32,7 @@ LOG_FILENAME = "reclassify_log.jsonl"
 
 
 _KEY_POINT_SENTIMENTS = ("부정", "긍정")
+SEVERITY_VALUES = ("심각", "일반")
 
 
 def _split_key_points(value):
@@ -39,14 +41,20 @@ def _split_key_points(value):
 
 def _tasks_for(review):
     """이 행에 Claude가 할 일. 감성 재판정은 규칙기반(lexicon) 행만, 주요 포인트는
-    본문이 있고 아직 포인트가 없는 긍정·부정 행(별점 판정 포함) — 감성 작업 행은 판단 결과가
-    긍정·부정일 수 있어 포인트 작업도 같이 받는다. 중립은 포인트를 쓰지 않는다."""
+    본문이 있고 아직 포인트가 없는 긍정·부정 행(별점 판정 포함), 심각도는 본문이 있고 아직
+    심각도가 없는 부정 행 — 감성 작업 행은 판단 결과가 긍정·부정일 수 있어 포인트·심각도 작업도
+    같이 받는다(심각도는 결과가 부정일 때만 쓴다). 중립은 포인트·심각도를 쓰지 않는다."""
     if review.get("method") == "lexicon":
-        return ["sentiment", "key_points"]
-    if (review.get("sentiment") in _KEY_POINT_SENTIMENTS and str(review.get("content") or "").strip()
-            and not _split_key_points(review.get("key_points"))):
-        return ["key_points"]
-    return []
+        return ["sentiment", "key_points", "severity"]
+    if not str(review.get("content") or "").strip():
+        return []
+    sentiment = review.get("sentiment")
+    tasks = []
+    if sentiment in _KEY_POINT_SENTIMENTS and not _split_key_points(review.get("key_points")):
+        tasks.append("key_points")
+    if sentiment == "부정" and str(review.get("severity") or "").strip() not in SEVERITY_VALUES:
+        tasks.append("severity")
+    return tasks
 
 
 def review_date(review):
@@ -230,6 +238,14 @@ def apply_results(worksheet, existing_reviews, work_dir):
         points = [str(p).strip() for p in points if str(p).strip()]
         if "key_points" in tasks and points:
             fields["key_points"] = ",".join(points)
+        severity = result.get("severity")
+        final_sentiment = fields.get("sentiment", candidate["current_sentiment"])
+        if "severity" in tasks and severity is not None:
+            if severity in SEVERITY_VALUES and final_sentiment == "부정":
+                fields["severity"] = severity
+            else:
+                print(f"경고: id={result['id']} severity={severity!r}(최종 감성 {final_sentiment!r})는 반영하지 않습니다 "
+                      f"— 부정 리뷰의 '심각'/'일반'만 씁니다.")
         if not fields:
             continue
         row_updates.append((row_number, fields))
@@ -241,6 +257,7 @@ def apply_results(worksheet, existing_reviews, work_dir):
             "old_sentiment": candidate["current_sentiment"],
             "new_sentiment": result.get("sentiment", candidate["current_sentiment"]),
             "key_points": result.get("key_points", []),
+            "severity": result.get("severity", ""),
             "note": result.get("note", ""),
         })
 

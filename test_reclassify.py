@@ -12,13 +12,13 @@ from test_sheets_writer import FakeWorksheet
 import sheets_writer
 
 
-def _row(hospital_id="gangnam_jstar", channel="네이버", content="좋아요", sentiment="부정", confirmed=True, score=-4, matched_words="염증,스트레스", method="lexicon", key_points=""):
+def _row(hospital_id="gangnam_jstar", channel="네이버", content="좋아요", sentiment="부정", confirmed=True, score=-4, matched_words="염증,스트레스", method="lexicon", key_points="", severity=""):
     return {
         "hospital_id": hospital_id, "channel": channel, "author": "홍길동", "rating": "",
         "date": "2026-08-01", "content": content, "has_reply": False,
         "sentiment": sentiment, "confirmed": confirmed, "score": score,
         "matched_words": matched_words, "method": method, "collected_at": "2026-09-16T00:00:00",
-        "key_points": key_points,
+        "key_points": key_points, "severity": severity,
     }
 
 
@@ -29,10 +29,10 @@ def test_find_candidates_filters_lexicon_only():
     ]
     candidates = reclassify.find_candidates(existing)
     assert len(candidates) == 2, f"실제: {candidates}"
-    assert candidates[0]["channel"] == "네이버" and candidates[0]["tasks"] == ["sentiment", "key_points"]
+    assert candidates[0]["channel"] == "네이버" and candidates[0]["tasks"] == ["sentiment", "key_points", "severity"]
     assert candidates[0]["id"] == 0
     # 별점 판정 행은 감성은 건드리지 않고 주요 포인트만 (spec 3.2)
-    assert candidates[1]["channel"] == "카카오맵" and candidates[1]["tasks"] == ["key_points"]
+    assert candidates[1]["channel"] == "카카오맵" and candidates[1]["tasks"] == ["key_points", "severity"]
     print("PASS: test_find_candidates_filters_lexicon_only")
 
 
@@ -234,12 +234,13 @@ def test_apply_results_raises_when_request_file_missing():
 
 
 
-def _sheet_row(content, sentiment, method, key_points="", hospital_id="h_a", channel="구글"):
+def _sheet_row(content, sentiment, method, key_points="", hospital_id="h_a", channel="구글", severity=""):
     review = {"channel": channel, "author": "", "rating": 1 if method == "rating" else None, "date": "",
               "content": content, "has_reply": False}
     row = sheets_writer.review_to_row(hospital_id, review, {"sentiment": sentiment, "confirmed": True, "score": None,
                                                             "matched_words": [], "method": method}, "2026-09-16T00:00:00")
     row[sheets_writer.HEADER.index("key_points")] = key_points
+    row[sheets_writer.HEADER.index("severity")] = severity
     return row
 
 
@@ -263,14 +264,14 @@ def test_find_candidates_adds_key_point_task_for_negative_rows():
         _row(content="좋아요", sentiment="긍정", method="lexicon"),
     ]
     candidates = reclassify.find_candidates(existing)
-    assert [c["tasks"] for c in candidates] == [["key_points"], ["key_points"], ["sentiment", "key_points"]], f"실제: {candidates}"
+    assert [c["tasks"] for c in candidates] == [["key_points", "severity"], ["key_points", "severity"], ["sentiment", "key_points", "severity"]], f"실제: {candidates}"
     print("PASS: test_find_candidates_adds_key_point_task_for_negative_rows")
 
 
 def test_find_candidates_skips_rows_with_key_points():
     existing = [
-        _row(content="주차가 불편", sentiment="부정", method="rating", key_points="주차"),
-        _row(content="별로", sentiment="부정", method="claude_review", key_points="-"),
+        _row(content="주차가 불편", sentiment="부정", method="rating", key_points="주차", severity="일반"),
+        _row(content="별로", sentiment="부정", method="claude_review", key_points="-", severity="일반"),
         _row(content="", sentiment="부정", method="rating"),
         _row(content="그냥 그래요", sentiment="중립", method="claude_review"),
     ]
@@ -409,6 +410,62 @@ def test_find_candidates_skips_hospitals_no_longer_registered():
     print("PASS: test_find_candidates_skips_hospitals_no_longer_registered")
 
 
+
+def test_find_candidates_severity_task_for_negative_rows():
+    existing = [
+        _row(content="주차가 불편", sentiment="부정", method="rating", key_points="주차"),            # 포인트 있음, 심각도 없음
+        _row(content="시술 후 염증", sentiment="부정", method="claude_review", key_points="부작용", severity="심각"),  # 다 있음
+        _row(content="", sentiment="부정", method="rating"),                                          # 본문 없음
+        _row(content="친절해요", sentiment="긍정", method="claude_review", key_points="직원 친절"),     # 긍정은 심각도 없음
+    ]
+    candidates = reclassify.find_candidates(existing)
+    assert [(c["content"], c["tasks"]) for c in candidates] == [("주차가 불편", ["severity"])], f"실제: {candidates}"
+    print("PASS: test_find_candidates_severity_task_for_negative_rows")
+
+
+def test_apply_results_writes_severity_for_negative():
+    existing = [_row(channel="구글", content="시술 후 염증이 심해졌어요", sentiment="부정", method="rating", matched_words="")]
+    ws, updated = _run_apply([_sheet_row("시술 후 염증이 심해졌어요", "부정", "rating")], existing,
+                             [{"id": 0, "key_points": ["시술 부작용"], "severity": "심각", "note": "시술 후 악화 주장"}])
+    h = sheets_writer.HEADER
+    assert updated == 1 and ws.batch_update_calls == 1
+    assert [ws.values[1][h.index(f)] for f in ("key_points", "severity")] == ["시술 부작용", "심각"], f"실제: {ws.values[1]}"
+    print("PASS: test_apply_results_writes_severity_for_negative")
+
+
+def test_apply_results_lexicon_to_negative_with_severity():
+    existing = [_row(channel="구글", content="원장이 반말하고 소리를 질렀어요", sentiment="중립", method="lexicon", matched_words="")]
+    ws, _ = _run_apply([_sheet_row("원장이 반말하고 소리를 질렀어요", "중립", "lexicon")], existing,
+                       [{"id": 0, "sentiment": "부정", "confirmed": True, "key_points": ["의료진 태도"], "severity": "심각", "note": ""}])
+    h = sheets_writer.HEADER
+    assert [ws.values[1][h.index(f)] for f in ("sentiment", "severity")] == ["부정", "심각"], f"실제: {ws.values[1]}"
+    print("PASS: test_apply_results_lexicon_to_negative_with_severity")
+
+
+def test_apply_results_ignores_invalid_or_non_negative_severity():
+    existing = [
+        _row(channel="구글", content="대기가 길어요", sentiment="부정", method="rating", matched_words="", key_points="대기 시간"),
+        _row(channel="구글", content="친절하고 좋아요", sentiment="중립", method="lexicon", matched_words=""),
+    ]
+    ws, _ = _run_apply([_sheet_row("대기가 길어요", "부정", "rating", key_points="대기 시간"),
+                        _sheet_row("친절하고 좋아요", "중립", "lexicon")], existing,
+                       [{"id": 0, "severity": "높음", "note": "잘못된 값"},
+                        {"id": 1, "sentiment": "긍정", "confirmed": True, "key_points": ["직원 친절"], "severity": "일반", "note": ""}])
+    sv = sheets_writer.HEADER.index("severity")
+    assert ws.values[1][sv] == "" and ws.values[2][sv] == "", f"실제: {ws.values}"
+    assert ws.values[2][sheets_writer.HEADER.index("sentiment")] == "긍정"  # 다른 필드는 정상 반영
+    print("PASS: test_apply_results_ignores_invalid_or_non_negative_severity")
+
+
+def test_negative_without_severity_comes_back_as_severity_candidate():
+    # lexicon → 부정으로 바뀌었는데 severity를 빠뜨린 행은 다음 export에 severity 작업으로 다시 나온다
+    existing = [_row(channel="구글", content="상담이 성의 없어요", sentiment="중립", method="lexicon", matched_words="")]
+    ws, _ = _run_apply([_sheet_row("상담이 성의 없어요", "중립", "lexicon")], existing,
+                       [{"id": 0, "sentiment": "부정", "confirmed": True, "key_points": ["상담 태도"], "note": ""}])
+    after = sheets_writer.read_existing_reviews(ws)
+    assert [c["tasks"] for c in reclassify.find_candidates(after)] == [["severity"]], f"실제: {after}"
+    print("PASS: test_negative_without_severity_comes_back_as_severity_candidate")
+
 if __name__ == "__main__":
     test_find_candidates_skips_hospitals_no_longer_registered()
     test_find_candidates_filters_lexicon_only()
@@ -432,3 +489,8 @@ if __name__ == "__main__":
     test_review_date_formats()
     test_find_candidates_competitor_only_recent_3_months()
     test_find_candidates_limit_puts_own_hospitals_first()
+    test_find_candidates_severity_task_for_negative_rows()
+    test_apply_results_writes_severity_for_negative()
+    test_apply_results_lexicon_to_negative_with_severity()
+    test_apply_results_ignores_invalid_or_non_negative_severity()
+    test_negative_without_severity_comes_back_as_severity_candidate()
