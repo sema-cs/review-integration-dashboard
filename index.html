@@ -300,6 +300,8 @@
   .summary-table.master td { vertical-align:top; }
   .summary-table.master tbody tr { cursor:default; }
   .summary-table.master td.st-note { white-space:normal; text-align:left; min-width:280px; max-width:420px; line-height:1.5; color:var(--text-secondary); }
+  .st-note details summary { cursor:pointer; color:var(--critical); font-weight:700; }
+  .st-note .st-sub { font-size:11.5px; color:var(--text-muted); margin-top:4px; }
   .summary-table.master td.st-kw { white-space:normal; text-align:left; min-width:120px; }
   .summary-table.master th.left { text-align:left; }
   .st-link { border:none; background:none; padding:0; font:inherit; font-weight:700; color:var(--chart-1); cursor:pointer; text-align:left; }
@@ -378,9 +380,9 @@
           <input type="search" id="summarySearch" placeholder="지점명 또는 부정 키워드 검색" aria-label="지점명 또는 부정 키워드 검색">
           <select id="summaryFilter" aria-label="지점 필터">
             <option value="all">전체 지점</option>
-            <option value="flagged">리스크·주의 지점</option>
+            <option value="flagged">리스크·부정 지점</option>
             <option value="negative">부정 리뷰 있는 지점</option>
-            <option value="quiet">이번 주 리뷰 없음</option>
+            <option value="quiet">기간 내 리뷰 없음</option>
           </select>
         </div>
       </div>
@@ -395,7 +397,7 @@
       <div class="card">
         <div class="summary-table-wrap">
           <table class="summary-table master">
-            <thead><tr><th>지점명</th><th>총 리뷰수</th><th>긍정 / 부정 비율</th><th class="left">주요 부정 키워드</th><th class="left">주간 특이사항 요약</th><th>바로가기</th></tr></thead>
+            <thead><tr><th>지점명</th><th>총 리뷰수</th><th>긍정 / 부정 비율</th><th class="left">주요 부정 키워드</th><th class="left">기간 특이사항</th><th>바로가기</th></tr></thead>
             <tbody id="summaryBody"></tbody>
           </table>
         </div>
@@ -665,6 +667,8 @@
       author: raw.author || "익명",
       keywords: keywords,
       keyPoints: keyPoints,
+      // 부정 리뷰 심각도(Claude 재분류 단계에서 기록). 컬럼이 없거나 미판정이면 일반으로 본다.
+      severe: sentiment === "negative" && (raw.severity || "").trim() === "심각",
       content: raw.content || "",
       collected_at: raw.collected_at,
     };
@@ -1472,13 +1476,12 @@
 
   // ---------------------------------------------------------------
   // 지점별 VOC 마스터 대시보드(관리자 첫 화면)
-  //   - 주간 특이사항: weekly_notes.json — "주간 특이사항 갱신" 요청 시 Claude Code가 최근 7일
-  //     리뷰를 읽고 지점별 1문장으로 작성한다(flag: risk=부정 이슈, watch=칭찬 속 개선 요청).
+  //   - 기간 특이사항: 기간 내 리뷰의 severity·key_points 자동 집계 + 기간 안의 주간 문장(weekly_notes.json,
+  //     Claude Code가 매주 지점별 1문장으로 작성).
   //   - 포털 원본 링크: config/hospitals_config.json(수집기 설정)의 채널 주소를 그대로 쓴다.
   // ---------------------------------------------------------------
   var WEEKLY_NOTES = null;
   var CHANNEL_CONFIG = {};
-  var HIGH_NEG_PCT = 10;   // 조회 기간 부정 비율이 이 값(%) 이상이고 리뷰 5건 이상이면 리스크
   var summaryFilterState = { search: "", filter: "all" };
 
   function portalLinks(id) {
@@ -1497,32 +1500,38 @@
       .sort(function (a, b) { return b.count - a.count || a.word.localeCompare(b.word); }).slice(0, n);
   }
 
+  // 정렬(2026-10-20 사용자 결정): ① 기간 내 심각 부정 리뷰 있는 지점(건수 많은 순)
+  // ② 일반 부정 리뷰 있는 지점(부정 건수 → 부정 비율) ③ 부정 없음(긍정 비율 낮은 순 → 리뷰 많은 순).
+  // 칭찬 속 개선 요청·부정 급증은 정렬에 쓰지 않는다(긍정뿐인 지점이 위로 오지 않게).
+  function compareSummaryRows(x, y) {
+    if (y.tier !== x.tier) return y.tier - x.tier;
+    if (x.tier === 2 && y.severe !== x.severe) return y.severe - x.severe;
+    if (x.tier >= 1) return (y.neg - x.neg) || ((y.negPct || 0) - (x.negPct || 0)) || x.name.localeCompare(y.name);
+    var xp = x.posPct == null ? 101 : x.posPct, yp = y.posPct == null ? 101 : y.posPct;  // 기간 리뷰 0건은 맨 아래
+    return (xp - yp) || (y.total - x.total) || x.name.localeCompare(y.name);
+  }
+
   function buildSummaryRows() {
     var b = currentWindowBounds();
-    var notes = (WEEKLY_NOTES && WEEKLY_NOTES.notes) || {};
     return adminHospitalIds().map(function (id) {
       var all = ALL_REVIEWS.filter(function (r) { return r.hospital_id === id; });
       var inRange = all.filter(function (r) { return r.date && d(r.date) >= b.start && d(r.date) <= b.end; });
-      var pos = inRange.filter(function (r) { return r.sentiment === "positive"; }).length;
+      var pos = inRange.filter(function (r) { return r.sentiment === "positive"; });
       var negList = inRange.filter(function (r) { return r.sentiment === "negative"; });
-      var negWords = [];
+      var severeList = negList.filter(function (r) { return r.severe; });
+      var negWords = [], posWords = [];
       negList.forEach(function (r) { negWords = negWords.concat(r.keyPoints); });
-      var note = notes[id] || null;
-      var spike = all.length ? computeSpike(all) : { negSpike: false };
+      pos.forEach(function (r) { posWords = posWords.concat(r.keyPoints); });
       var negPct = inRange.length ? Math.round((negList.length / inRange.length) * 100) : null;
-      var level = 0, reason = "";
-      if ((note && note.flag === "risk") || spike.negSpike) { level = 3; reason = spike.negSpike ? "부정 급증" : "주간 이슈"; }
-      else if (negPct != null && inRange.length >= 5 && negPct >= HIGH_NEG_PCT) { level = 2; reason = "부정 비율 " + negPct + "%"; }
-      else if (note && note.flag === "watch") { level = 1; reason = "개선 요청"; }
       return {
-        id: id, name: META_ALL[id].name || id, total: inRange.length, pos: pos, neg: negList.length,
-        posPct: inRange.length ? Math.round((pos / inRange.length) * 100) : null, negPct: negPct,
-        negWords: negWords, topNeg: topCounts(negWords, 2), note: note, level: level, reason: reason,
+        id: id, name: META_ALL[id].name || id, all: all, inRange: inRange, total: inRange.length,
+        pos: pos.length, neg: negList.length, severe: severeList.length, severeList: severeList, negList: negList,
+        posPct: inRange.length ? Math.round((pos.length / inRange.length) * 100) : null, negPct: negPct,
+        negWords: negWords, posWords: posWords, topNeg: topCounts(negWords, 2),
+        tier: severeList.length ? 2 : (negList.length ? 1 : 0),
         links: portalLinks(id)
       };
-    }).sort(function (x, y) {
-      return (y.level - x.level) || ((y.negPct || 0) - (x.negPct || 0)) || (y.neg - x.neg) || (y.total - x.total);
-    });
+    }).sort(compareSummaryRows);
   }
 
   function renderSummaryKpis(rows) {
@@ -1532,8 +1541,8 @@
     var allNeg = [];
     rows.forEach(function (r) { allNeg = allNeg.concat(r.negWords); });
     var top2 = topCounts(allNeg, 2);
-    var risk = rows.filter(function (r) { return r.level >= 2; }).length;
-    var watch = rows.filter(function (r) { return r.level === 1; }).length;
+    var risk = rows.filter(function (r) { return r.tier === 2; }).length;
+    var negOnly = rows.filter(function (r) { return r.tier === 1; }).length;
 
     document.getElementById("kpiTotal").innerHTML = total.toLocaleString() + '<span class="unit">건</span>';
     document.getElementById("kpiTotalSub").textContent = rangeLabel() + " · 관리 지점 합계";
@@ -1544,7 +1553,7 @@
       ? top2.map(function (k) { return k.word + " " + k.count + "건"; }).join(", ") + " (부정 리뷰 주요 포인트)"
       : "이 기간 부정 리뷰의 주요 포인트가 없습니다";
     document.getElementById("kpiBranches").innerHTML = rows.length + '<span class="unit">곳</span>';
-    document.getElementById("kpiBranchesSub").textContent = "리스크 " + risk + "곳 · 주의 " + watch + "곳";
+    document.getElementById("kpiBranchesSub").textContent = "리스크(심각) " + risk + "곳 · 부정 " + negOnly + "곳";
   }
 
   function summaryRowVisible(row) {
@@ -1555,9 +1564,9 @@
       if (!hit) return false;
     }
     switch (summaryFilterState.filter) {
-      case "flagged": return row.level > 0;
+      case "flagged": return row.tier > 0;
       case "negative": return row.neg > 0;
-      case "quiet": return !!(row.note && row.note.count === 0);
+      case "quiet": return row.total === 0;
       default: return true;
     }
   }
@@ -1571,12 +1580,50 @@
     }).join("") + '</span>';
   }
 
+  function fmtMD(iso) { var p = iso.split("-"); return parseInt(p[1], 10) + "월 " + parseInt(p[2], 10) + "일"; }
+
+  // 프리셋 시작 시각은 "지금 시각" 기준이라, 주간 기간과는 그날 00:00으로 비교한다.
+  function startOfDay(dt) { return d(fmtDateInput(dt)); }
+
+  // 주간 문장(weekly_notes.json)은 그 주가 선택 기간 안에 완전히 들어갈 때만 보여준다.
+  function weeklyNoteFor(id) {
+    if (!WEEKLY_NOTES || !WEEKLY_NOTES.notes || !WEEKLY_NOTES.notes[id]) return null;
+    var b = currentWindowBounds();
+    if (d(WEEKLY_NOTES.period_start) < startOfDay(b.start)) return null;
+    if (d(WEEKLY_NOTES.period_end) > b.end) return null;
+    return WEEKLY_NOTES.notes[id].summary;
+  }
+
+  function periodNoteHtml(row) {
+    var parts = [];
+    if (!row.total) {
+      var dated = row.all.filter(function (r) { return r.date; }).map(function (r) { return r.date; }).sort();
+      parts.push('<span class="st-muted">' + (dated.length ? "기간 내 리뷰 없음(마지막 리뷰 " + fmtMD(dated[dated.length - 1]) + ")" : "수집된 리뷰 없음") + '</span>');
+    } else {
+      if (row.severe) {
+        var sp = topCounts([].concat.apply([], row.severeList.map(function (r) { return r.keyPoints; })), 3).map(function (k) { return k.word; });
+        var items = row.severeList.slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; }).map(function (r) {
+          return '<li>' + escapeHtml(r.date) + ' · ' + escapeHtml(PLATFORM_LABEL[r.channel] || r.channel) + ' — ' + escapeHtml(r.content || "(본문 없음)") + '</li>';
+        }).join("");
+        parts.push('<details><summary>심각 ' + row.severe + '건' + (sp.length ? '(' + escapeHtml(sp.join(", ")) + ')' : '') + '</summary><ul>' + items + '</ul></details>');
+      }
+      var general = row.negList.filter(function (r) { return !r.severe; });
+      if (general.length) {
+        var gp = topCounts([].concat.apply([], general.map(function (r) { return r.keyPoints; })), 3);
+        parts.push('<div>부정 ' + general.length + '건' + (gp.length ? ': ' + gp.map(function (k) { return escapeHtml(k.word) + ' ' + k.count; }).join(", ") : '') + '</div>');
+      }
+      var praise = topCounts(row.posWords, 2).map(function (k) { return k.word; });
+      if (praise.length) parts.push('<div>칭찬: ' + escapeHtml(praise.join(", ")) + '</div>');
+      if (!row.neg && !praise.length) parts.push('<div>부정 리뷰 없음(긍정 ' + row.pos + '건)</div>');
+    }
+    var weekly = weeklyNoteFor(row.id);
+    if (weekly) parts.push('<div class="st-sub">주간 요약(' + WEEKLY_NOTES.period_start.slice(5).replace("-", "/") + '~' + WEEKLY_NOTES.period_end.slice(5).replace("-", "/") + '): ' + escapeHtml(weekly) + '</div>');
+    return parts.join("");
+  }
+
   function renderSummary() {
     var rows = buildSummaryRows();
-    var notesInfo = WEEKLY_NOTES
-      ? "주간 특이사항 " + WEEKLY_NOTES.period_start + " ~ " + WEEKLY_NOTES.period_end + " 기준(Claude 작성)"
-      : "주간 특이사항 데이터 없음";
-    document.getElementById("summaryCaption").textContent = rangeLabel() + " 기준 · 관리 지점 " + rows.length + "곳 · " + notesInfo;
+    document.getElementById("summaryCaption").textContent = rangeLabel() + " 기준 · 관리 지점 " + rows.length + "곳 · 특이사항은 이 기간 리뷰의 심각도·주요 포인트(Claude 재분류) 자동 집계";
     renderSummaryKpis(rows);
 
     var body = document.getElementById("summaryBody");
@@ -1590,8 +1637,8 @@
       body.innerHTML = '<tr><td colspan="6" class="empty-note" style="text-align:center;">조건에 맞는 지점이 없습니다.</td></tr>';
     }
     visible.forEach(function (row) {
-      var chip = row.level >= 2 ? '<span class="risk-chip risk" title="' + escapeHtml(row.reason) + '">리스크</span>'
-        : (row.level === 1 ? '<span class="risk-chip watch" title="' + escapeHtml(row.reason) + '">주의</span>' : "");
+      var chip = row.tier === 2 ? '<span class="risk-chip risk" title="심각 부정 리뷰 ' + row.severe + '건">리스크</span>'
+        : (row.tier === 1 ? '<span class="risk-chip watch" title="부정 리뷰 ' + row.neg + '건">부정</span>' : "");
       var ratio = row.total
         ? '<span class="st-pos">' + row.posPct + '%</span> / <span class="st-neg">' + row.negPct + '%</span>' +
           '<div class="ratio-bar"><span class="pos" style="width:' + row.posPct + '%"></span><span class="neg" style="width:' + row.negPct + '%"></span></div>'
@@ -1599,7 +1646,7 @@
       var kw = row.topNeg.length
         ? row.topNeg.map(function (k) { return '<span class="kw-chip">' + escapeHtml(k.word) + ' ' + k.count + '</span>'; }).join("")
         : (row.neg ? '<span class="st-muted">포인트 없음</span>' : '<span class="st-muted">없음</span>');
-      var note = row.note ? escapeHtml(row.note.summary) : '<span class="st-muted">데이터 없음(주간 특이사항 미작성)</span>';
+      var note = periodNoteHtml(row);
       var tr = document.createElement("tr");
       tr.innerHTML =
         '<td class="st-name"><button type="button" class="st-link">' + escapeHtml(row.name) + '</button>' + chip + '</td>' +
@@ -1614,8 +1661,9 @@
 
     document.getElementById("summaryFootnote").textContent =
       "지점명을 누르면 그 지점 상세 대시보드로, N·K·G 버튼은 네이버·카카오·구글 리뷰 원본으로 이동합니다(회색은 미등록). " +
-      "정렬: 리스크(부정 급증·주간 이슈, 또는 리뷰 5건 이상에서 부정 비율 " + HIGH_NEG_PCT + "% 이상) → 주의(칭찬 속 개선 요청) → 부정 비율 순. " +
-      "총 리뷰수·비율·키워드는 선택한 조회 기간, 주간 특이사항은 위 기준 기간의 리뷰를 Claude가 읽고 작성한 요약입니다. " +
+      "정렬: 리스크(기간 내 심각 부정 리뷰, 건수 순) → 부정(일반 부정 리뷰, 건수·비율 순) → 부정 없음(긍정 비율 낮은 순). " +
+      "심각도는 Claude가 부정 리뷰마다 판정하며(부작용·의료 과실·환불/법적 대응·폭언 등), 아직 판정 전인 부정 리뷰는 일반으로 집계합니다. " +
+      "모든 수치·특이사항은 선택한 조회 기간 기준이고, 주간 요약 문장은 그 주가 조회 기간 안에 있을 때만 함께 표시합니다. " +
       "구글 리뷰는 구글 지도의 \"제한된 보기\"(비로그인 조회 시 대표 리뷰 약 5건만 표시) 때문에 일부만 수집될 수 있습니다.";
   }
 
