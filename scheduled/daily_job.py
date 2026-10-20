@@ -43,9 +43,10 @@ CLAUDE_TOOLS = ["--allowedTools", "Read", "Write", "Edit", "Glob", "Grep",
 RECLASSIFY_PROMPT = (
     "자동 실행된 재분류 작업이다. 사람에게 질문하지 말고 끝까지 처리한다. 명령은 실행하지 않는다.\n"
     "reclassify_work/[재분류요청].json을 읽고, 이 폴더 CLAUDE.md의 `[재분류결과].json 형식`, `판단 기준`, "
-    "`주요 포인트 작성 규칙`을 그대로 따라 reclassify_work/[재분류결과].json을 작성하라. "
+    "`주요 포인트 작성 규칙`, `심각도 판정 기준`을 그대로 따라 reclassify_work/[재분류결과].json을 작성하라. "
     "모든 candidates의 id에 결과를 하나씩 쓴다. 긴 리뷰도 끝까지 읽고 판단한다(결론이 끝에 있다). "
-    "key_points는 existing_key_points의 같은 감성 표현을 우선 재사용한다. 다 쓰면 한 줄로 건수만 보고하라."
+    "key_points는 existing_key_points의 같은 감성 표현을 우선 재사용한다. "
+    "tasks에 severity가 있고 최종 판단이 부정이면 severity를 반드시 쓴다. 다 쓰면 한 줄로 건수만 보고하라."
 )
 WEEKLY_PROMPT = (
     "자동 실행된 주간 특이사항 작성 작업이다. 사람에게 질문하지 말고 끝까지 처리한다. 명령은 실행하지 않는다.\n"
