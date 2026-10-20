@@ -362,9 +362,17 @@
     <div class="content" id="adminSummary" hidden>
       <div class="controls-row">
         <div class="pill-group" role="group" aria-label="조회 기간" id="summaryRangeGroup">
+          <button data-range="1w" aria-pressed="false">최근 1주</button>
           <button data-range="1" aria-pressed="false">최근 1개월</button>
           <button data-range="3" aria-pressed="true">최근 3개월</button>
           <button data-range="6" aria-pressed="false">최근 6개월</button>
+        </div>
+        <div class="date-range-picker">
+          <input type="date" id="summaryCustomStart" aria-label="시작일">
+          <span>~</span>
+          <input type="date" id="summaryCustomEnd" aria-label="종료일">
+          <button id="summaryCustomApply" type="button">기간 적용</button>
+          <button id="summaryCustomReset" type="button" class="drp-reset" hidden>초기화</button>
         </div>
         <div class="master-controls">
           <input type="search" id="summarySearch" placeholder="지점명 또는 부정 키워드 검색" aria-label="지점명 또는 부정 키워드 검색">
@@ -399,6 +407,7 @@
       <div class="section" id="section-home">
         <div class="controls-row">
           <div class="pill-group" role="group" aria-label="조회 기간" id="rangeGroup">
+            <button data-range="1w" aria-pressed="false">최근 1주</button>
             <button data-range="1" aria-pressed="false">최근 1개월</button>
             <button data-range="3" aria-pressed="true">최근 3개월</button>
             <button data-range="6" aria-pressed="false">최근 6개월</button>
@@ -677,13 +686,18 @@
   var REVIEWS = [];
   var HOSPITAL_META = null;
   var COMPETITOR_REVIEWS = {};
-  var state = { mode: "preset", range: 3, customStart: null, customEnd: null, channel: "all", search: "", negOnly: false };
+  var state = { mode: "preset", range: "3", customStart: null, customEnd: null, channel: "all", search: "", negOnly: false };
 
+  // range: "1w"(최근 1주) 또는 개월 수 문자열("1"|"3"|"6")
+  function rangeStartDate(range) {
+    if (range === "1w") { var t = new Date(); t.setDate(t.getDate() - 7); return t; }
+    return monthsAgo(parseInt(range, 10));
+  }
   function currentWindowBounds() {
     if (state.mode === "custom" && state.customStart && state.customEnd) {
       return { start: new Date(state.customStart + "T00:00:00+09:00"), end: new Date(state.customEnd + "T23:59:59+09:00") };
     }
-    return { start: monthsAgo(state.range), end: new Date() };
+    return { start: rangeStartDate(state.range), end: new Date() };
   }
   function priorWindowBounds(cur) {
     var lengthMs = cur.end.getTime() - cur.start.getTime();
@@ -692,7 +706,7 @@
   }
   function rangeLabel() {
     if (state.mode === "custom" && state.customStart && state.customEnd) return state.customStart + " ~ " + state.customEnd;
-    return "최근 " + state.range + "개월";
+    return state.range === "1w" ? "최근 1주" : "최근 " + state.range + "개월";
   }
   function rangeReviews() {
     var b = currentWindowBounds();
@@ -1263,43 +1277,44 @@
     });
   });
 
-  function syncCustomInputsToPreset() {
-    document.getElementById("customStart").value = fmtDateInput(monthsAgo(state.range));
-    document.getElementById("customEnd").value = fmtDateInput(new Date());
+  function syncRangeInputs() {
+    var b = currentWindowBounds();
+    var s = fmtDateInput(b.start), e = fmtDateInput(b.end);
+    ["customStart", "summaryCustomStart"].forEach(function (id) { document.getElementById(id).value = state.mode === "custom" ? state.customStart : s; });
+    ["customEnd", "summaryCustomEnd"].forEach(function (id) { document.getElementById(id).value = state.mode === "custom" ? state.customEnd : e; });
+  }
+  function rerenderCurrentView() {
+    if (!document.getElementById("adminSummary").hidden) renderSummary(); else renderAll();
+  }
+  function applyCustomRange(s, e) {
+    if (!s || !e || s > e) return false;
+    state.mode = "custom"; state.customStart = s; state.customEnd = e;
+    syncRangeButtons(); syncRangeInputs(); rerenderCurrentView();
+    return true;
+  }
+  function resetRangeToDefault() {
+    state.mode = "preset"; state.range = "3";
+    syncRangeButtons(); syncRangeInputs(); rerenderCurrentView();
   }
 
-  var rangeButtons = document.querySelectorAll("#rangeGroup button");
-  rangeButtons.forEach(function (btn) {
+  // 병원 화면·마스터 화면의 기간 버튼과 날짜 입력은 같은 state를 공유한다(2026-10-20).
+  document.querySelectorAll("#rangeGroup button, #summaryRangeGroup button").forEach(function (btn) {
     btn.addEventListener("click", function () {
       state.mode = "preset";
-      state.range = parseInt(btn.getAttribute("data-range"), 10);
-      rangeButtons.forEach(function (b) { b.setAttribute("aria-pressed", b === btn ? "true" : "false"); });
-      document.getElementById("customReset").hidden = true;
-      syncCustomInputsToPreset();
-      renderAll();
+      state.range = btn.getAttribute("data-range");
+      syncRangeButtons(); syncRangeInputs(); rerenderCurrentView();
     });
   });
-  syncCustomInputsToPreset();
+  syncRangeInputs();
 
   document.getElementById("customApply").addEventListener("click", function () {
-    var s = document.getElementById("customStart").value;
-    var e = document.getElementById("customEnd").value;
-    if (!s || !e || s > e) return;
-    state.mode = "custom";
-    state.customStart = s;
-    state.customEnd = e;
-    rangeButtons.forEach(function (b) { b.setAttribute("aria-pressed", "false"); });
-    document.getElementById("customReset").hidden = false;
-    renderAll();
+    applyCustomRange(document.getElementById("customStart").value, document.getElementById("customEnd").value);
   });
-  document.getElementById("customReset").addEventListener("click", function () {
-    state.mode = "preset";
-    state.range = 3;
-    this.hidden = true;
-    rangeButtons.forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-range") === "3" ? "true" : "false"); });
-    syncCustomInputsToPreset();
-    renderAll();
+  document.getElementById("summaryCustomApply").addEventListener("click", function () {
+    applyCustomRange(document.getElementById("summaryCustomStart").value, document.getElementById("summaryCustomEnd").value);
   });
+  document.getElementById("customReset").addEventListener("click", resetRangeToDefault);
+  document.getElementById("summaryCustomReset").addEventListener("click", resetRangeToDefault);
   document.getElementById("competitorSelect").addEventListener("change", renderMap);
 
   function renderAll() {
@@ -1616,20 +1631,12 @@
   // 요약 화면과 병원 화면의 기간 버튼이 같은 기간 상태(state)를 보여주게 맞춘다.
   function syncRangeButtons() {
     document.querySelectorAll("#rangeGroup button, #summaryRangeGroup button").forEach(function (btn) {
-      var on = state.mode === "preset" && parseInt(btn.getAttribute("data-range"), 10) === state.range;
+      var on = state.mode === "preset" && btn.getAttribute("data-range") === state.range;
       btn.setAttribute("aria-pressed", on ? "true" : "false");
     });
     document.getElementById("customReset").hidden = state.mode !== "custom";
+    document.getElementById("summaryCustomReset").hidden = state.mode !== "custom";
   }
-  document.querySelectorAll("#summaryRangeGroup button").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      state.mode = "preset";
-      state.range = parseInt(btn.getAttribute("data-range"), 10);
-      syncCustomInputsToPreset();
-      syncRangeButtons();
-      renderSummary();
-    });
-  });
 
   // ---------------------------------------------------------------
   // 데이터 로드: Google Sheets CSV(공개 링크) + 병원 메타 정보
