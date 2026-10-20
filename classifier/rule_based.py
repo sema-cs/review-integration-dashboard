@@ -91,7 +91,11 @@ def classify(review):
     반환: {"sentiment", "confirmed", "score", "matched_words", "method"}"""
     rating = review.get("rating")
     if rating is not None:
-        if rating <= _NEGATIVE_RATING_MAX:
+        # 글 없는 별점 리뷰는 별점과 무관하게 중립(2026-10-20 사용자 결정 — 리뷰 수가 적은 지점에서
+        # 사유 없는 1점 하나가 부정 비율을 크게 흔들었다)
+        if not str(review.get("content") or "").strip():
+            sentiment = "중립"
+        elif rating <= _NEGATIVE_RATING_MAX:
             sentiment = "부정"
         elif rating >= _POSITIVE_RATING_MIN:
             sentiment = "긍정"

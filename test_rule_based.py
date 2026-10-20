@@ -118,7 +118,17 @@ def test_common_positive_stems():
     print("PASS: test_common_positive_stems")
 
 
+def test_rating_without_text_is_neutral():
+    # 2026-10-20 사용자 결정: 글 없는 별점 리뷰는 별점과 무관하게 중립
+    for rating in (1, 5):
+        for content in ("", "   "):
+            result = classify({"rating": rating, "content": content})
+            assert result == {"sentiment": "중립", "confirmed": True, "score": None, "matched_words": [], "method": "rating"}, result
+    print("PASS: test_rating_without_text_is_neutral")
+
+
 if __name__ == "__main__":
+    test_rating_without_text_is_neutral()
     test_absence_after_negative_word_flips_to_positive()
     test_absence_after_positive_word_flips_to_negative()
     test_common_positive_stems()

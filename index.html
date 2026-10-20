@@ -1139,7 +1139,8 @@
   }
 
   function reviewItemHtml(r) {
-    var isNeg = r.sentiment === "negative" || (r.rating != null && r.rating <= 2);
+    // 글 없는 별점 리뷰는 중립(2026-10-20) — 낮은 별점이라도 본문이 없으면 부정 표시를 하지 않는다
+    var isNeg = r.sentiment === "negative" || (r.rating != null && r.rating <= 2 && r.content.trim() !== "");
     var sentLabel = { positive: "긍정", neutral: "중립", negative: "부정" }[r.sentiment] || "중립";
     // 긍정·부정 리뷰는 주요 칭찬/불만 포인트를 태그로 보여준다(중립은 포인트를 기록하지 않음)
     var tags = r.sentiment === "neutral" ? [] : r.keyPoints;
