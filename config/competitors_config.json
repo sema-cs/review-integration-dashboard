@@ -1951,6 +1951,7 @@
       "address": "서울 강남구 압구정로 168",
       "for_hospitals": [
         "apgujeong_brandnew_clinic",
+        "cheongdam_bieche_derm",
         "cheongdam_thean_clinic",
         "sinsa_kimdongha_derm"
       ],
@@ -1959,6 +1960,11 @@
           "search_rank": 3,
           "distance_km": 1.513,
           "score": 0.1778
+        },
+        "cheongdam_bieche_derm": {
+          "search_rank": 3,
+          "distance_km": 1.357,
+          "score": 0.2222
         },
         "cheongdam_thean_clinic": {
           "search_rank": 3,
@@ -2700,6 +2706,7 @@
       "address": "서울 강남구 논현로167길 16",
       "for_hospitals": [
         "apgujeong_brandnew_clinic",
+        "cheongdam_bieche_derm",
         "cheongdam_thean_clinic",
         "sinsa_kimdongha_derm"
       ],
@@ -2708,6 +2715,11 @@
           "search_rank": 14,
           "distance_km": 1.623,
           "score": 0.3444
+        },
+        "cheongdam_bieche_derm": {
+          "search_rank": 14,
+          "distance_km": 1.409,
+          "score": 0.3667
         },
         "cheongdam_thean_clinic": {
           "search_rank": 14,
@@ -2954,12 +2966,18 @@
       "address": "서울 강남구 도산대로 303",
       "for_hospitals": [
         "apgujeong_brandnew_clinic",
+        "cheongdam_bieche_derm",
         "cheongdam_thean_clinic"
       ],
       "selection": {
         "apgujeong_brandnew_clinic": {
           "search_rank": 26,
           "distance_km": 1.082,
+          "score": 0.3889
+        },
+        "cheongdam_bieche_derm": {
+          "search_rank": 26,
+          "distance_km": 0.744,
           "score": 0.3889
         },
         "cheongdam_thean_clinic": {
@@ -3087,6 +3105,7 @@
       "address": "서울 강남구 학동로 415",
       "for_hospitals": [
         "apgujeong_brandnew_clinic",
+        "cheongdam_bieche_derm",
         "cheongdam_thean_clinic"
       ],
       "selection": {
@@ -3094,6 +3113,11 @@
           "search_rank": 28,
           "distance_km": 0.965,
           "score": 0.3889
+        },
+        "cheongdam_bieche_derm": {
+          "search_rank": 28,
+          "distance_km": 0.607,
+          "score": 0.4
         },
         "cheongdam_thean_clinic": {
           "search_rank": 28,
@@ -3115,13 +3139,19 @@
       "lng": 127.04196168,
       "address": "서울 강남구 압구정로60길 21",
       "for_hospitals": [
-        "apgujeong_brandnew_clinic"
+        "apgujeong_brandnew_clinic",
+        "cheongdam_bieche_derm"
       ],
       "selection": {
         "apgujeong_brandnew_clinic": {
           "search_rank": 37,
           "distance_km": 0.301,
           "score": 0.4
+        },
+        "cheongdam_bieche_derm": {
+          "search_rank": 37,
+          "distance_km": 0.302,
+          "score": 0.4333
         }
       },
       "channels": {
@@ -3467,6 +3497,7 @@
       "address": "서울 강남구 논현로 826",
       "for_hospitals": [
         "apgujeong_brandnew_clinic",
+        "cheongdam_bieche_derm",
         "cheongdam_thean_clinic",
         "sinsa_kimdongha_derm"
       ],
@@ -3475,6 +3506,11 @@
           "search_rank": 16,
           "distance_km": 1.551,
           "score": 0.3333
+        },
+        "cheongdam_bieche_derm": {
+          "search_rank": 16,
+          "distance_km": 1.258,
+          "score": 0.3222
         },
         "cheongdam_thean_clinic": {
           "search_rank": 16,
@@ -5972,6 +6008,7 @@
       "address": "서울 강남구 학동로 413",
       "for_hospitals": [
         "apgujeong_brandnew_clinic",
+        "cheongdam_bieche_derm",
         "cheongdam_thean_clinic"
       ],
       "selection": {
@@ -5979,6 +6016,11 @@
           "search_rank": 22,
           "distance_km": 0.973,
           "score": 0.3333
+        },
+        "cheongdam_bieche_derm": {
+          "search_rank": 22,
+          "distance_km": 0.604,
+          "score": 0.3222
         },
         "cheongdam_thean_clinic": {
           "search_rank": 22,
@@ -6283,6 +6325,7 @@
       "address": "서울 강남구 도산대로55길 36",
       "for_hospitals": [
         "apgujeong_brandnew_clinic",
+        "cheongdam_bieche_derm",
         "cheongdam_thean_clinic"
       ],
       "selection": {
@@ -6290,6 +6333,11 @@
           "search_rank": 19,
           "distance_km": 0.38,
           "score": 0.2111
+        },
+        "cheongdam_bieche_derm": {
+          "search_rank": 19,
+          "distance_km": 0.335,
+          "score": 0.2667
         },
         "cheongdam_thean_clinic": {
           "search_rank": 19,
@@ -6916,6 +6964,7 @@
       "address": "서울 강남구 선릉로 822",
       "for_hospitals": [
         "apgujeong_brandnew_clinic",
+        "cheongdam_bieche_derm",
         "cheongdam_thean_clinic",
         "sinsa_kimdongha_derm"
       ],
@@ -6924,6 +6973,11 @@
           "search_rank": 10,
           "distance_km": 0.473,
           "score": 0.1333
+        },
+        "cheongdam_bieche_derm": {
+          "search_rank": 10,
+          "distance_km": 0.32,
+          "score": 0.1556
         },
         "cheongdam_thean_clinic": {
           "search_rank": 10,
@@ -8575,12 +8629,18 @@
       "address": "서울 강남구 삼성로 731",
       "for_hospitals": [
         "apgujeong_brandnew_clinic",
+        "cheongdam_bieche_derm",
         "cheongdam_thean_clinic"
       ],
       "selection": {
         "apgujeong_brandnew_clinic": {
           "search_rank": 12,
           "distance_km": 0.749,
+          "score": 0.2
+        },
+        "cheongdam_bieche_derm": {
+          "search_rank": 12,
+          "distance_km": 0.591,
           "score": 0.2
         },
         "cheongdam_thean_clinic": {
@@ -8627,6 +8687,7 @@
       "address": "서울 강남구 테헤란로 511",
       "for_hospitals": [
         "apgujeong_brandnew_clinic",
+        "cheongdam_bieche_derm",
         "cheongdam_thean_clinic"
       ],
       "selection": {
@@ -8634,6 +8695,11 @@
           "search_rank": 8,
           "distance_km": 2.429,
           "score": 0.3778
+        },
+        "cheongdam_bieche_derm": {
+          "search_rank": 8,
+          "distance_km": 2.209,
+          "score": 0.4222
         },
         "cheongdam_thean_clinic": {
           "search_rank": 8,
@@ -10327,6 +10393,7 @@
       "address": "서울 강남구 도산대로 420",
       "for_hospitals": [
         "apgujeong_brandnew_clinic",
+        "cheongdam_bieche_derm",
         "cheongdam_thean_clinic"
       ],
       "selection": {
@@ -10334,6 +10401,11 @@
           "search_rank": 24,
           "distance_km": 0.495,
           "score": 0.3222
+        },
+        "cheongdam_bieche_derm": {
+          "search_rank": 24,
+          "distance_km": 0.061,
+          "score": 0.2556
         },
         "cheongdam_thean_clinic": {
           "search_rank": 24,
@@ -11231,6 +11303,7 @@
       "address": "서울 강남구 봉은사로 302",
       "for_hospitals": [
         "apgujeong_brandnew_clinic",
+        "cheongdam_bieche_derm",
         "cheongdam_thean_clinic",
         "sinsa_kimdongha_derm"
       ],
@@ -11238,6 +11311,11 @@
         "apgujeong_brandnew_clinic": {
           "search_rank": 5,
           "distance_km": 2.079,
+          "score": 0.2778
+        },
+        "cheongdam_bieche_derm": {
+          "search_rank": 5,
+          "distance_km": 1.637,
           "score": 0.2778
         },
         "cheongdam_thean_clinic": {
@@ -12325,6 +12403,7 @@
       "address": "서울 강남구 선릉로 646",
       "for_hospitals": [
         "apgujeong_brandnew_clinic",
+        "cheongdam_bieche_derm",
         "cheongdam_thean_clinic",
         "sinsa_kimdongha_derm"
       ],
@@ -12333,6 +12412,11 @@
           "search_rank": 7,
           "distance_km": 1.431,
           "score": 0.2111
+        },
+        "cheongdam_bieche_derm": {
+          "search_rank": 7,
+          "distance_km": 1.007,
+          "score": 0.1889
         },
         "cheongdam_thean_clinic": {
           "search_rank": 7,
@@ -12751,6 +12835,7 @@
       "address": "서울 강남구 도산대로 131",
       "for_hospitals": [
         "apgujeong_brandnew_clinic",
+        "cheongdam_bieche_derm",
         "cheongdam_thean_clinic",
         "sinsa_kimdongha_derm"
       ],
@@ -12758,6 +12843,11 @@
         "apgujeong_brandnew_clinic": {
           "search_rank": 9,
           "distance_km": 2.214,
+          "score": 0.3556
+        },
+        "cheongdam_bieche_derm": {
+          "search_rank": 9,
+          "distance_km": 1.862,
           "score": 0.3556
         },
         "cheongdam_thean_clinic": {

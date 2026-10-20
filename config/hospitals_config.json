@@ -598,6 +598,19 @@
         "naver_place_url": "https://m.place.naver.com/hospital/1781771209/review/visitor",
         "kakao_place_url": "https://place.map.kakao.com/1763126781"
       }
+    },
+    {
+      "hospital_id": "cheongdam_bieche_derm",
+      "hospital_name": "비에체피부과의원",
+      "category": "피부과",
+      "lat": 37.52323436,
+      "lng": 127.04275887,
+      "address": "서울 강남구 도산대로 428 케이사인청담사옥 3층",
+      "channels": {
+        "google_place_id": "0x357ca5000675a999:0x1aa86eb08709b719",
+        "naver_place_url": "https://m.place.naver.com/hospital/1847932216/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/252066491"
+      }
     }
   ]
 }
