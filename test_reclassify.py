@@ -1,3 +1,4 @@
+import datetime
 import json
 import os
 import shutil
@@ -398,7 +399,18 @@ def test_find_candidates_limit_puts_own_hospitals_first():
     print("PASS: test_find_candidates_limit_puts_own_hospitals_first")
 
 
+def test_find_candidates_skips_hospitals_no_longer_registered():
+    # 2026-10-20: 삭제한 자사 12곳·빠진 경쟁병원 리뷰가 "자사"로 잡혀 대기 4,972건이 됐다
+    existing = [_row(hospital_id="own_a", content="자사"), _row(hospital_id="deleted_b", content="삭제됨"),
+                _row(hospital_id="comp_k1", channel="구글", content="경쟁")]
+    existing[2]["date"] = datetime.date.today().isoformat()
+    candidates = reclassify.find_candidates(existing, competitor_ids={"comp_k1"}, own_ids={"own_a"})
+    assert [c["content"] for c in candidates] == ["자사", "경쟁"], f"실제: {candidates}"
+    print("PASS: test_find_candidates_skips_hospitals_no_longer_registered")
+
+
 if __name__ == "__main__":
+    test_find_candidates_skips_hospitals_no_longer_registered()
     test_find_candidates_filters_lexicon_only()
     test_find_candidates_splits_matched_words_into_list()
     test_find_candidates_empty_matched_words_becomes_empty_list()

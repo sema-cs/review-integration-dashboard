@@ -22,6 +22,7 @@ import sheets_writer
 
 WORK_DIR = Path(__file__).resolve().parent / "reclassify_work"
 COMPETITORS_CONFIG_PATH = Path(__file__).resolve().parent / "config" / "competitors_config.json"
+HOSPITALS_CONFIG_PATH = Path(__file__).resolve().parent / "config" / "hospitals_config.json"
 COMPETITOR_RECENT_MONTHS = 3
 _KST = datetime.timezone(datetime.timedelta(hours=9))
 REQUEST_FILENAME = "[재분류요청].json"
@@ -94,11 +95,20 @@ def load_competitor_ids():
     return {c["competitor_id"] for c in data.get("competitors", [])}
 
 
-def find_candidates(existing_reviews, competitor_ids=(), today=None, limit=None):
+def load_own_ids():
+    if not HOSPITALS_CONFIG_PATH.exists():
+        return None
+    data = json.loads(HOSPITALS_CONFIG_PATH.read_text(encoding="utf-8"))
+    return {h["hospital_id"] for h in data.get("hospitals", [])}
+
+
+def find_candidates(existing_reviews, competitor_ids=(), today=None, limit=None, own_ids=None):
     """Claude에게 보낼 후보 목록(작업 종류 tasks 포함).
 
     경쟁병원 행은 최근 COMPETITOR_RECENT_MONTHS개월(작성일 기준) 리뷰만 후보로 낸다 — 2026-10-14
     사용자 결정(초기수집 ~1.8만 건 중 대시보드 기본 조회 기간만 재분류). 작성일을 모르면 제외한다.
+    own_ids가 주어지면 자사·경쟁병원 어디에도 없는(삭제된) 병원의 행은 건너뛴다 — 2026-10-20 자사 12곳
+    삭제 후 그 행들이 자사로 잡혀 대기열을 차지했다. 시트의 행 자체는 보존한다.
     limit이 있으면 자사 병원 후보를 먼저 채우고 남는 자리에 경쟁병원 후보를 넣는다."""
     today = today or datetime.datetime.now(_KST).date()
     since = _months_ago(today, COMPETITOR_RECENT_MONTHS)
@@ -108,7 +118,10 @@ def find_candidates(existing_reviews, competitor_ids=(), today=None, limit=None)
         tasks = _tasks_for(review)
         if not tasks:
             continue
-        if review.get("hospital_id") in competitor_ids:
+        hospital_id = review.get("hospital_id")
+        if own_ids is not None and hospital_id not in own_ids and hospital_id not in competitor_ids:
+            continue
+        if hospital_id in competitor_ids:
             written = review_date(review)
             if written is None or written < since:
                 continue
@@ -251,8 +264,9 @@ def run_export(limit=None):
     sheets_writer.ensure_header(worksheet)  # key_points 컬럼이 없는 구버전 시트면 여기서 붙인다
     existing = sheets_writer.read_existing_reviews(worksheet)
     competitor_ids = load_competitor_ids()
-    total = find_candidates(existing, competitor_ids)
-    candidates = total if limit is None else find_candidates(existing, competitor_ids, limit=limit)
+    own_ids = load_own_ids()
+    total = find_candidates(existing, competitor_ids, own_ids=own_ids)
+    candidates = total if limit is None else find_candidates(existing, competitor_ids, limit=limit, own_ids=own_ids)
     path = export_for_claude(candidates, WORK_DIR, count_key_points(existing))
     if path:
         own = sum(1 for c in total if c["hospital_id"] not in competitor_ids)
