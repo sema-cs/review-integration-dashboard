@@ -100,7 +100,7 @@ def test_review_to_row():
     row = sheets_writer.review_to_row("gangnam_jstar", review, classification, "2026-09-16T00:00:00")
     assert row == [
         "gangnam_jstar", "네이버", "홍길동", "", "2026-08-01", "친절하고 좋았어요", False,
-        "긍정", True, 2, "친절", "lexicon", "2026-09-16T00:00:00", "",
+        "긍정", True, 2, "친절", "lexicon", "2026-09-16T00:00:00", "", "",
     ], f"실제: {row}"
     print("PASS: test_review_to_row")
 
@@ -111,7 +111,7 @@ def test_review_to_row_with_rating_and_no_matched_words():
     row = sheets_writer.review_to_row("gangnam_jstar", review, classification, "2026-09-16T00:00:00")
     assert row == [
         "gangnam_jstar", "카카오맵", "이영희", 1, "2026.07.15.", "별로였어요", True,
-        "부정", True, "", "", "rating", "2026-09-16T00:00:00", "",
+        "부정", True, "", "", "rating", "2026-09-16T00:00:00", "", "",
     ], f"실제: {row}"
     print("PASS: test_review_to_row_with_rating_and_no_matched_words")
 
@@ -225,6 +225,24 @@ def test_review_to_row_key_points_blank():
     print("PASS: test_review_to_row_key_points_blank")
 
 
+def test_header_ends_with_severity_and_row_blank():
+    assert sheets_writer.HEADER[-2:] == ["key_points", "severity"], f"실제: {sheets_writer.HEADER}"
+    classification = {"sentiment": "부정", "confirmed": True, "score": None, "matched_words": [], "method": "rating"}
+    row = sheets_writer.review_to_row("h_a", {"channel": "구글", "author": "", "rating": 1, "date": "", "content": "별로"}, classification, "t")
+    assert len(row) == len(sheets_writer.HEADER)
+    assert row[sheets_writer.HEADER.index("severity")] == ""
+    print("PASS: test_header_ends_with_severity_and_row_blank")
+
+
+def test_ensure_header_adds_severity_to_key_points_era_sheet():
+    # key_points까지만 있는 현재 운영 시트 → severity만 뒤에 붙는다
+    old = sheets_writer.HEADER[:sheets_writer.HEADER.index("key_points") + 1]
+    ws = FakeWorksheet(initial_values=[old, ["h_a"] + [""] * (len(old) - 1)])
+    sheets_writer.ensure_header(ws)
+    assert ws.values[0] == sheets_writer.HEADER, f"실제: {ws.values[0]}"
+    print("PASS: test_ensure_header_adds_severity_to_key_points_era_sheet")
+
+
 if __name__ == "__main__":
     test_ensure_header_writes_header_when_sheet_empty()
     test_ensure_header_writes_header_when_first_row_is_blank()
@@ -242,3 +260,5 @@ if __name__ == "__main__":
     test_ensure_header_extends_missing_trailing_columns()
     test_batch_update_fields_writes_arbitrary_columns_in_one_call()
     test_review_to_row_key_points_blank()
+    test_header_ends_with_severity_and_row_blank()
+    test_ensure_header_adds_severity_to_key_points_era_sheet()

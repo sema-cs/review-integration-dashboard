@@ -11,6 +11,7 @@ HEADER = [
     "hospital_id", "channel", "author", "rating", "date", "content", "has_reply",
     "sentiment", "confirmed", "score", "matched_words", "method", "collected_at",
     "key_points",  # 부정 리뷰의 주요 불만 포인트(Claude 재분류 단계에서 기록, 2026-09-29 추가)
+    "severity",  # 부정 리뷰 심각도 "심각"|"일반"(Claude 재분류 단계에서 기록, 2026-10-20 추가)
 ]
 
 
@@ -63,6 +64,7 @@ def review_to_row(hospital_id, review, classification, collected_at):
         classification["method"],
         collected_at,
         "",  # key_points — 재분류 단계에서 채운다
+        "",  # severity — 재분류 단계에서 채운다(부정 리뷰만)
     ]
 
 
