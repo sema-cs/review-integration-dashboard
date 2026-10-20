@@ -31,6 +31,11 @@ KST = datetime.timezone(datetime.timedelta(hours=9))
 RECLASSIFY_LIMIT = 300
 RECLASSIFY_MAX_ROUNDS = 4
 WAIT_DEADLINE = datetime.time(16, 30)
+# 이 시각 전에 시작됐으면(PC가 꺼져 놓친 실행을 아침에 따라잡는 경우) 오늘 수집을 기다리지 않는다.
+# 2026-10-19 실측: 08:54 따라잡기 실행이 수집 대기만 하다 5시간 상한(13:54)에 강제 종료됐고,
+# 13:50 정규 실행은 "이미 실행 중"(IgnoreNew)이라 무시돼 그날 재분류가 0건이었다.
+# 아침 실행은 쌓인 분량만 처리하고 끝나며, 오늘 수집분은 13:50 정규 실행이 처리한다.
+COLLECTION_START = datetime.time(13, 0)
 CLAUDE_TIMEOUT = 60 * 60
 CLAUDE_TOOLS = ["--allowedTools", "Read", "Write", "Edit", "Glob", "Grep",
                 "--disallowedTools", "Bash", "PowerShell", "WebFetch", "WebSearch"]
@@ -82,7 +87,14 @@ def ask_claude(prompt):
     run([claude_exe(), "-p", prompt, *CLAUDE_TOOLS], timeout=CLAUDE_TIMEOUT)
 
 
+def should_wait_for_collection(now_time):
+    return now_time >= COLLECTION_START
+
+
 def wait_for_collection(today):
+    if not should_wait_for_collection(datetime.datetime.now(KST).time()):
+        log("13시 전 실행(놓친 실행 따라잡기) → 수집 대기 없이 쌓인 분량부터 처리")
+        return
     while True:
         try:
             with urllib.request.urlopen(RUNS_API, timeout=30) as res:

@@ -128,6 +128,8 @@ python reclassify.py --apply
 `scheduled/daily_job.py`를 실행한다(PC가 꺼져 있었으면 켜진 뒤 바로 실행, 최대 5시간).
 
 1. 오늘 13시 Actions 수집 완료를 GitHub API로 확인(10분 간격, 16:30까지 — 넘으면 그대로 진행).
+   단 13시 전에 시작된 실행(PC가 꺼져 놓친 실행의 아침 따라잡기)은 기다리지 않고 쌓인 분량만 처리한다
+   (2026-10-20 수정 — 대기하다 5시간 상한에 걸려 13:50 정규 실행까지 막혔던 문제).
 2. 재분류: `reclassify.py --export --limit 300` → `claude -p`가 `[재분류결과].json` 작성 → `--apply`. 최대 4회, 남으면 다음 날.
 3. 주간 특이사항: `weekly_notes.py --due`(월요일, 또는 월요일을 놓쳐 7일 이상 지남)일 때만
    `--export` → `claude -p`가 `weekly_work/[주간결과].json` 작성 → `--apply` → `weekly_notes.json`만 커밋·push.
