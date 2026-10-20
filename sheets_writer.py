@@ -42,6 +42,10 @@ def ensure_header(worksheet):
             for i in range(len(current), len(HEADER))
         ])
         return
+    # 반대로 시트가 더 길면(새 코드가 먼저 컬럼을 붙였고 이 코드는 아직 옛 버전) 앞부분만 맞으면 통과한다.
+    # append는 HEADER 길이만큼만 쓰므로 뒤 컬럼은 빈 값으로 남는다(2026-10-20 리뷰 지적: 수집 중단 방지).
+    if len(current) > len(HEADER) and current[:len(HEADER)] == HEADER:
+        return
     raise ValueError(f"시트 헤더가 예상과 다릅니다: {values[0]}")
 
 

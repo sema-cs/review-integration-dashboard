@@ -215,8 +215,11 @@ def apply_results(worksheet, existing_reviews, work_dir):
         tasks = candidate.get("tasks", ["sentiment", "key_points"])  # tasks 없는 옛 요청 파일 = lexicon 후보
         row_number = None
         for index, review in enumerate(existing_reviews):
+            # 후보 작업이 지금 그 행의 작업에 모두 포함되면 같은 대상으로 본다 — 작업 종류가 늘기 전에
+            # export한 요청 파일(예: severity 추가 전 ["key_points"])도 반영되게(2026-10-20 리뷰 지적).
+            current = _tasks_for(review)
             if (index in claimed_indexes
-                    or _tasks_for(review) != tasks
+                    or not current or not set(tasks) <= set(current)
                     or review.get("hospital_id") != candidate["hospital_id"]
                     or review.get("channel") != candidate["channel"]
                     or review.get("content") != candidate["content"]):

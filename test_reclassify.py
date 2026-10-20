@@ -466,6 +466,27 @@ def test_negative_without_severity_comes_back_as_severity_candidate():
     assert [c["tasks"] for c in reclassify.find_candidates(after)] == [["severity"]], f"실제: {after}"
     print("PASS: test_negative_without_severity_comes_back_as_severity_candidate")
 
+
+def test_apply_results_matches_request_exported_before_severity_task():
+    # 최종 리뷰 I-2: severity 작업이 생기기 전에 export한 요청 파일(tasks=["key_points"])도 반영돼야 한다
+    existing = [_row(channel="구글", content="주차장이 좁아요", sentiment="부정", method="rating", matched_words="")]
+    work_dir = tempfile.mkdtemp()
+    try:
+        with open(os.path.join(work_dir, reclassify.REQUEST_FILENAME), "w", encoding="utf-8") as f:
+            json.dump({"generated_at": "2026-10-19T10:00:00+09:00", "existing_key_points": {}, "candidates": [
+                {"id": 0, "hospital_id": "gangnam_jstar", "channel": "구글", "content": "주차장이 좁아요",
+                 "current_sentiment": "부정", "current_score": "", "current_matched_words": [], "tasks": ["key_points"]}]},
+                f, ensure_ascii=False)
+        with open(os.path.join(work_dir, reclassify.RESULT_FILENAME), "w", encoding="utf-8") as f:
+            json.dump({"results": [{"id": 0, "key_points": ["주차"], "note": ""}]}, f, ensure_ascii=False)
+        ws = FakeWorksheet(initial_values=[sheets_writer.HEADER, _sheet_row("주차장이 좁아요", "부정", "rating", hospital_id="gangnam_jstar")])
+        updated = reclassify.apply_results(ws, existing, work_dir)
+    finally:
+        shutil.rmtree(work_dir)
+    assert updated == 1 and ws.values[1][sheets_writer.HEADER.index("key_points")] == "주차", f"실제: {ws.values}"
+    print("PASS: test_apply_results_matches_request_exported_before_severity_task")
+
+
 if __name__ == "__main__":
     test_find_candidates_skips_hospitals_no_longer_registered()
     test_find_candidates_filters_lexicon_only()
@@ -494,3 +515,4 @@ if __name__ == "__main__":
     test_apply_results_lexicon_to_negative_with_severity()
     test_apply_results_ignores_invalid_or_non_negative_severity()
     test_negative_without_severity_comes_back_as_severity_candidate()
+    test_apply_results_matches_request_exported_before_severity_task()

@@ -243,6 +243,17 @@ def test_ensure_header_adds_severity_to_key_points_era_sheet():
     print("PASS: test_ensure_header_adds_severity_to_key_points_era_sheet")
 
 
+
+def test_ensure_header_accepts_longer_sheet_header_with_same_prefix():
+    # 최종 리뷰 I-1: 새 코드가 시트에 컬럼을 먼저 붙인 뒤 옛 코드(Actions)가 돌아도 수집이 멈추지 않게,
+    # 시트 헤더가 더 길어도 앞부분이 HEADER와 같으면 통과한다(시트는 건드리지 않음).
+    longer = sheets_writer.HEADER + ["future_col"]
+    ws = FakeWorksheet(initial_values=[list(longer)])
+    sheets_writer.ensure_header(ws)
+    assert ws.values[0] == longer, f"실제: {ws.values[0]}"
+    print("PASS: test_ensure_header_accepts_longer_sheet_header_with_same_prefix")
+
+
 if __name__ == "__main__":
     test_ensure_header_writes_header_when_sheet_empty()
     test_ensure_header_writes_header_when_first_row_is_blank()
@@ -262,3 +273,4 @@ if __name__ == "__main__":
     test_review_to_row_key_points_blank()
     test_header_ends_with_severity_and_row_blank()
     test_ensure_header_adds_severity_to_key_points_era_sheet()
+    test_ensure_header_accepts_longer_sheet_header_with_same_prefix()
