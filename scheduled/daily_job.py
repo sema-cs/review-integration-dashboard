@@ -2,6 +2,8 @@
 
 1. 오늘 GitHub Actions 수집(12:17 예약) 상태를 로그에 남기기만 하고 기다리지 않는다(2026-10-20 —
    예약 수집이 몇 시간씩 늦는 날이 잦음). 늦게 들어온 리뷰는 19:00 실행이나 다음 날 실행이 처리한다.
+   13시가 지났는데 오늘 GitHub 수집(예약·수동)이 아예 없으면 이 PC에서 main.py로 직접 수집한다
+   (2026-10-21 사용자 결정 — 10-20·21 예약 수집이 생성조차 안 됨). 자사 전부 + 오늘 경쟁병원 순번.
 2. 재분류: reclassify.py --export(회당 300건) → Claude Code(`claude -p`)가 [재분류결과].json 작성
    → reclassify.py --apply. 남은 후보가 있으면 최대 4회 반복, 나머지는 다음 날로 넘어간다.
 3. 주간 특이사항: weekly_notes.py --due가 참(월요일, 또는 월요일을 놓쳐 7일 이상 지남)이면
@@ -26,8 +28,15 @@ ROOT = Path(__file__).resolve().parent.parent
 LOG_DIR = ROOT / "scheduled_logs"
 RECLASSIFY_WORK = ROOT / "reclassify_work"
 WEEKLY_WORK = ROOT / "weekly_work"
-RUNS_API = "https://api.github.com/repos/sema-cs/review-integration-dashboard/actions/runs?event=schedule&per_page=3"
+# 예약·수동 실행 모두 본다(수동 실행이 있는 날은 PC 보완 수집을 하지 않는다)
+RUNS_API = ("https://api.github.com/repos/sema-cs/review-integration-dashboard"
+            "/actions/workflows/daily_collect.yml/runs?per_page=5")
 KST = datetime.timezone(datetime.timedelta(hours=9))
+
+LOCAL_COLLECT_AFTER_HOUR = 13  # 이보다 이르면(놓친 실행 따라잡기 등) 12:17 예약을 아직 기다린다
+LOCAL_COLLECT_TIMEOUT = 3 * 60 * 60  # Actions timeout-minutes와 같음(자사 ~30분 + 경쟁 90분 예산)
+LOCAL_COLLECT_MARK = LOG_DIR / "local_collection.json"
+NO_RUN_TODAY = "아직 시작 전"
 
 RECLASSIFY_LIMIT = 300
 RECLASSIFY_MAX_ROUNDS = 4
@@ -92,13 +101,43 @@ def collection_status(today):
             runs = json.load(res)["workflow_runs"]
     except Exception as e:  # 상태 기록용일 뿐이라 실패해도 검수는 진행한다
         return f"조회 실패: {e}"
-    todays = [r for r in runs if r.get("run_started_at") and datetime.datetime.fromisoformat(
-        r["run_started_at"].replace("Z", "+00:00")).astimezone(KST).date() == today]
+    def started(r):
+        ts = r.get("run_started_at") or r.get("created_at")  # 대기(queued) 중인 실행도 오늘 실행으로 센다
+        return ts and datetime.datetime.fromisoformat(ts.replace("Z", "+00:00")).astimezone(KST).date()
+
+    todays = [r for r in runs if started(r) == today]
     if not todays:
-        return "아직 시작 전"
+        return NO_RUN_TODAY
     if todays[0]["status"] == "completed":
         return f"completed: {todays[0]['conclusion']} ({todays[0]['updated_at']})"
     return todays[0]["status"]
+
+
+def local_collection_step(today, collection, now):
+    """GitHub 수집이 오늘 아예 없을 때만 이 PC에서 main.py를 돌린다. 조회 실패면 하지 않는다
+    (GitHub가 돌고 있을 수 있어 중복 적재 위험). 같은 날 이미 성공했으면 19:00 실행은 건너뛴다."""
+    if collection != NO_RUN_TODAY:
+        return "하지 않음(GitHub 수집 있음)" if not collection.startswith("조회 실패") else "하지 않음(상태 조회 실패)"
+    if now.hour < LOCAL_COLLECT_AFTER_HOUR:
+        return f"하지 않음({LOCAL_COLLECT_AFTER_HOUR}시 전 — 예약 수집 대기)"
+    try:
+        mark = json.loads(LOCAL_COLLECT_MARK.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        mark = {}
+    if mark.get("date") == today.isoformat() and mark.get("result") == "success":
+        return "하지 않음(오늘 PC 수집 완료됨)"
+    log("오늘 GitHub 수집이 없어 이 PC에서 직접 수집합니다(자사 전부 + 오늘 경쟁병원 순번)")
+    started_at = datetime.datetime.now(KST).isoformat(timespec="seconds")
+    try:
+        code = run([sys.executable, "main.py"], timeout=LOCAL_COLLECT_TIMEOUT, check=False).returncode
+        result = "success" if code == 0 else f"failed: exit {code}"
+    except subprocess.TimeoutExpired:
+        result = "failed: timeout"
+    LOCAL_COLLECT_MARK.write_text(json.dumps(
+        {"date": today.isoformat(), "started_at": started_at, "result": result,
+         "finished_at": datetime.datetime.now(KST).isoformat(timespec="seconds")},
+        ensure_ascii=False, indent=1), encoding="utf-8")
+    return f"PC 수집 {result}"  # 실패해도 검수는 이미 쌓인 리뷰로 계속 진행한다
 
 
 def archive(work_dir, names, tag):
@@ -161,6 +200,8 @@ def main():
         log("=== 일일 검수 작업 시작 ===")
         status["collection"] = collection_status(today)
         log(f"오늘 수집 상태: {status['collection']} (기다리지 않고 진행)")
+        status["local_collection"] = local_collection_step(today, status["collection"], datetime.datetime.now(KST))
+        log(f"PC 보완 수집: {status['local_collection']}")
         status["reclassified"] = reclassify_rounds()
         status["weekly_notes"] = weekly_notes_step()
         status["result"] = "success"

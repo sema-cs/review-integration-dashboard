@@ -51,6 +51,70 @@ def test_collection_status_network_error_is_reported_not_raised():
     print("PASS: test_collection_status_network_error_is_reported_not_raised")
 
 
+def test_collection_status_counts_queued_manual_run():
+    # 수동 실행(workflow_dispatch)이 대기 중이면 run_started_at이 없어도 오늘 실행으로 센다
+    orig = daily_job.urllib.request.urlopen
+    daily_job.urllib.request.urlopen = _fake_runs([
+        {"created_at": "2026-10-21T06:38:09Z", "status": "queued", "conclusion": None, "updated_at": ""}])
+    try:
+        assert daily_job.collection_status(datetime.date(2026, 10, 21)) == "queued"
+    finally:
+        daily_job.urllib.request.urlopen = orig
+    print("PASS: test_collection_status_counts_queued_manual_run")
+
+
+class _FakeProc:
+    def __init__(self, returncode):
+        self.returncode = returncode
+
+
+def test_local_collection_only_when_github_missed():
+    # 2026-10-20·21 예약 수집이 생성조차 안 됨 → 13시 이후 GitHub 실행이 없으면 PC에서 main.py 실행
+    import tempfile
+    today = datetime.date(2026, 10, 21)
+    at = lambda h: datetime.datetime(2026, 10, 21, h, 50, tzinfo=daily_job.KST)
+    calls = []
+
+    def fake_run(args, timeout=1800, check=True):
+        calls.append(args)
+        return _FakeProc(0)
+
+    orig_run, orig_mark = daily_job.run, daily_job.LOCAL_COLLECT_MARK
+    with tempfile.TemporaryDirectory() as tmp:
+        daily_job.run = fake_run
+        daily_job.LOCAL_COLLECT_MARK = Path(tmp) / "local_collection.json"
+        try:
+            assert daily_job.local_collection_step(today, "in_progress", at(13)).startswith("하지 않음")
+            assert daily_job.local_collection_step(today, "조회 실패: x", at(13)).startswith("하지 않음")
+            assert daily_job.local_collection_step(today, daily_job.NO_RUN_TODAY, at(8)).startswith("하지 않음")
+            assert calls == []
+            assert daily_job.local_collection_step(today, daily_job.NO_RUN_TODAY, at(13)) == "PC 수집 success"
+            assert calls[0][1] == "main.py"
+            # 같은 날 19:00 실행은 다시 수집하지 않는다
+            assert daily_job.local_collection_step(today, daily_job.NO_RUN_TODAY, at(19)).startswith("하지 않음")
+            assert len(calls) == 1
+        finally:
+            daily_job.run, daily_job.LOCAL_COLLECT_MARK = orig_run, orig_mark
+    print("PASS: test_local_collection_only_when_github_missed")
+
+
+def test_local_collection_retries_after_failure():
+    import tempfile
+    today = datetime.date(2026, 10, 21)
+    codes = [1, 0]
+    orig_run, orig_mark = daily_job.run, daily_job.LOCAL_COLLECT_MARK
+    with tempfile.TemporaryDirectory() as tmp:
+        daily_job.run = lambda args, timeout=1800, check=True: _FakeProc(codes.pop(0))
+        daily_job.LOCAL_COLLECT_MARK = Path(tmp) / "local_collection.json"
+        try:
+            now = datetime.datetime(2026, 10, 21, 13, 50, tzinfo=daily_job.KST)
+            assert daily_job.local_collection_step(today, daily_job.NO_RUN_TODAY, now) == "PC 수집 failed: exit 1"
+            assert daily_job.local_collection_step(today, daily_job.NO_RUN_TODAY, now) == "PC 수집 success"
+        finally:
+            daily_job.run, daily_job.LOCAL_COLLECT_MARK = orig_run, orig_mark
+    print("PASS: test_local_collection_retries_after_failure")
+
+
 if __name__ == "__main__":
     for name, fn in list(globals().items()):
         if name.startswith("test_"):
