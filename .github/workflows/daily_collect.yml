@@ -2,7 +2,10 @@ name: 매일 리뷰 자동 수집
 
 on:
   schedule:
-    - cron: "17 3 * * *"  # 03:17 UTC = 12:17 KST — 정각 예약은 GitHub에서 몇 시간씩 밀려 비정각으로(2026-10-20)
+    # 예비용. 2026-10-22부터 주 실행은 PC 작업 스케줄러가 12:17에 workflow_dispatch로 시작한다
+    # (scheduled/trigger_collection.py) — 예약 실행이 4~5시간씩 늦거나 빠져서. 오늘 이미 실행이 있으면
+    # 아래 '오늘 이미 수집했는지 확인' 단계가 이 예약 실행을 건너뛴다.
+    - cron: "17 3 * * *"  # 03:17 UTC = 12:17 KST
   workflow_dispatch:
     inputs:
       competitor_group:
@@ -15,20 +18,37 @@ jobs:
     runs-on: ubuntu-latest
     # 자사 매일 수집(약 30분) + 경쟁병원 90분 예산. 어떤 경우에도 3시간 안에 끝낸다.
     timeout-minutes: 180
+    permissions:
+      contents: read
+      actions: read
     steps:
       - uses: actions/checkout@v4
 
+      - name: 오늘 이미 수집했는지 확인 (예약 실행만)
+        id: gate
+        if: github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          gh api "repos/${{ github.repository }}/actions/workflows/daily_collect.yml/runs?per_page=10" \
+            | python3 scheduled/other_runs_today.py "$RUN_ID" >> "$GITHUB_OUTPUT"
+
       - uses: actions/setup-python@v5
+        if: steps.gate.outputs.skip != 'true'
         with:
           python-version: "3.13"
 
       - name: 의존 패키지 설치
+        if: steps.gate.outputs.skip != 'true'
         run: pip install -r requirements.txt
 
       - name: Playwright 브라우저 설치 (카카오/구글 수집용)
+        if: steps.gate.outputs.skip != 'true'
         run: playwright install --with-deps chromium
 
       - name: 리뷰 수집 실행
+        if: steps.gate.outputs.skip != 'true'
         env:
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
           GOOGLE_SHEET_ID: "1-F-znYuGESKC-l1CjdxRMm6JhBRk6_Sd1LgIgzN7h2E"

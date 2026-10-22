@@ -115,6 +115,61 @@ def test_local_collection_retries_after_failure():
     print("PASS: test_local_collection_retries_after_failure")
 
 
+def test_archive_same_minute_does_not_collide():
+    # 2026-10-22 08:46 회차가 1분 안에 끝나 같은 보관 이름이 이미 있어 WinError 183로 실행 전체가 실패 기록됨
+    import tempfile
+    with tempfile.TemporaryDirectory() as tmp:
+        d = Path(tmp)
+        for _ in range(3):
+            (d / "[재분류요청].json").write_text("{}", encoding="utf-8")
+            daily_job.archive(d, ("[재분류요청].json",), "자동")
+        assert not (d / "[재분류요청].json").exists()
+        assert len(list(d.glob("*_자동_*"))) == 3
+    print("PASS: test_archive_same_minute_does_not_collide")
+
+
+def test_trigger_dispatches_only_when_nothing_ran_today():
+    # 2026-10-22: 예약 실행이 늦거나 빠져 PC가 12:17에 workflow_dispatch로 수집을 시작한다
+    import tempfile
+    import trigger_collection as tc
+    sent = []
+    orig = (daily_job.collection_status, tc.dispatch, daily_job.LOCAL_COLLECT_MARK, daily_job.LOG_DIR,
+            tc.os.environ.get(tc.TOKEN_ENV))
+    with tempfile.TemporaryDirectory() as tmp:
+        daily_job.LOG_DIR = Path(tmp)
+        daily_job.LOCAL_COLLECT_MARK = Path(tmp) / "local_collection.json"
+        tc.dispatch = lambda token: sent.append(token) or 204
+        try:
+            tc.os.environ[tc.TOKEN_ENV] = "t"
+            daily_job.collection_status = lambda today: "in_progress"
+            assert tc.main() == 0 and sent == []
+            daily_job.collection_status = lambda today: daily_job.NO_RUN_TODAY
+            assert tc.main() == 0 and sent == ["t"]
+            tc.os.environ.pop(tc.TOKEN_ENV)
+            assert tc.main() == 1 and sent == ["t"]  # 토큰 없으면 실패로 끝내고 13:50 PC 수집에 맡긴다
+        finally:
+            daily_job.collection_status, tc.dispatch, daily_job.LOCAL_COLLECT_MARK, daily_job.LOG_DIR, tok = orig
+            if tok is None:
+                tc.os.environ.pop(tc.TOKEN_ENV, None)
+            else:
+                tc.os.environ[tc.TOKEN_ENV] = tok
+    print("PASS: test_trigger_dispatches_only_when_nothing_ran_today")
+
+
+def test_other_runs_today_ignores_self_failed_and_yesterday():
+    import other_runs_today as o
+    today = datetime.date(2026, 10, 22)
+    runs = [
+        {"id": 9, "created_at": "2026-10-22T05:00:00Z", "conclusion": None},       # 자기 자신
+        {"id": 8, "created_at": "2026-10-22T03:17:00Z", "conclusion": "failure"},  # 실패는 안 셈
+        {"id": 7, "created_at": "2026-10-21T08:39:30Z", "conclusion": "success"},  # 어제 17:39 KST
+        {"id": 6, "created_at": "2026-10-21T16:00:00Z", "conclusion": "success"},  # 오늘 01:00 KST
+    ]
+    assert o.count_other_runs_today(runs, 9, today) == 1
+    assert o.count_other_runs_today(runs[:3], "9", today) == 0
+    print("PASS: test_other_runs_today_ignores_self_failed_and_yesterday")
+
+
 if __name__ == "__main__":
     for name, fn in list(globals().items()):
         if name.startswith("test_"):

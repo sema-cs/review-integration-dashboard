@@ -145,7 +145,11 @@ def archive(work_dir, names, tag):
     for name in names:
         path = work_dir / name
         if path.exists():
-            path.rename(work_dir / f"{path.stem}_{tag}_{stamp}{path.suffix}")
+            # 회차가 1분 안에 끝나면 같은 이름이 이미 있다(2026-10-22 WinError 183로 실행 전체가 실패 기록됨)
+            target, n = work_dir / f"{path.stem}_{tag}_{stamp}{path.suffix}", 2
+            while target.exists():
+                target, n = work_dir / f"{path.stem}_{tag}_{stamp}_{n}{path.suffix}", n + 1
+            path.rename(target)
 
 
 def reclassify_rounds():

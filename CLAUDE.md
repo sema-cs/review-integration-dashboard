@@ -5,8 +5,13 @@
 
 ## 이 폴더의 두 파이프라인
 
-1. **`main.py`** — 매일 12:17 KST(2026-10-20부터, 이전 13:00) GitHub Actions가 완전 무인으로 실행하는 수집
+1. **`main.py`** — 매일 12:17 KST GitHub Actions가 실행하는 수집
    파이프라인(collectors → dedup → `classifier/rule_based.py` → Sheets append).
+   **시작 방식(2026-10-22~)**: 담당자 PC 작업 스케줄러 `ReviewSheet_DailyCollectTrigger`가 12:17에
+   `scheduled/trigger_collection.py`로 수동 실행(workflow_dispatch)을 요청한다. GitHub 예약(schedule) 실행이
+   10-17부터 4~5시간씩 늦거나 빠졌기 때문이다(GitHub 문서상 예약은 부하 시 지연·누락 가능, 같은 시기 커뮤니티
+   보고 다수, 우리 설정 이상 없음). 토큰은 사용자 환경변수 `REVIEW_DISPATCH_TOKEN`(이 저장소 Actions 읽기·쓰기만).
+   예약 실행은 예비로 남겼고, 그날 다른 실행이 이미 있으면 첫 단계(`scheduled/other_runs_today.py`)가 건너뛴다.
    수집 채널·스케줄·Actions 워크플로우는 설계상 고정이다. 적재(중복 제거 → 분류 → append)는
    `review_ingest.ingest` 공통 함수로, 크롬 확장 브리지와 같은 경로를 쓴다(2026-09-29).
 2. **`reclassify.py`** — Claude Code 세션이 켜져 있을 때만 도는 검수(재분류)
