@@ -522,11 +522,17 @@
       "lng": 127.46704842,
       "address": "충북 청주시 서원구 사직대로 175",
       "for_hospitals": [
+        "cheongju_barungijun_dental",
         "cheongju_digitalplant_dental",
         "cheongju_seoul_top_implant_dental",
         "cheongju_well_dental"
       ],
       "selection": {
+        "cheongju_barungijun_dental": {
+          "search_rank": 8,
+          "distance_km": 3.461,
+          "score": 0.25
+        },
         "cheongju_digitalplant_dental": {
           "search_rank": 8,
           "distance_km": 2.236,
@@ -724,13 +730,19 @@
       "lng": 127.48521005,
       "address": "충북 청주시 서원구 월평로 4",
       "for_hospitals": [
-        "cheongju_duri_ent"
+        "cheongju_duri_ent",
+        "cheongju_isom_ent"
       ],
       "selection": {
         "cheongju_duri_ent": {
           "search_rank": 14,
           "distance_km": 3.64,
-          "score": 0.3108
+          "score": 0.3056
+        },
+        "cheongju_isom_ent": {
+          "search_rank": 14,
+          "distance_km": 6.207,
+          "score": 0.4444
         }
       },
       "channels": {
@@ -845,7 +857,7 @@
         "busan_thebody_ps": {
           "search_rank": 29,
           "distance_km": 0.046,
-          "score": 0.3182
+          "score": 0.314
         }
       },
       "channels": {
@@ -891,7 +903,7 @@
         "cheongju_duri_ent": {
           "search_rank": 34,
           "distance_km": 1.384,
-          "score": 0.4459
+          "score": 0.4444
         }
       },
       "channels": {
@@ -931,13 +943,19 @@
       "lng": 127.51475386,
       "address": "충북 청주시 상당구 중고개로 181",
       "for_hospitals": [
-        "cheongju_duri_ent"
+        "cheongju_duri_ent",
+        "cheongju_isom_ent"
       ],
       "selection": {
         "cheongju_duri_ent": {
           "search_rank": 3,
           "distance_km": 6.411,
-          "score": 0.3108
+          "score": 0.3056
+        },
+        "cheongju_isom_ent": {
+          "search_rank": 3,
+          "distance_km": 8.147,
+          "score": 0.4444
         }
       },
       "channels": {
@@ -1150,7 +1168,7 @@
         "busan_thebody_ps": {
           "search_rank": 7,
           "distance_km": 0.177,
-          "score": 0.3636
+          "score": 0.3605
         }
       },
       "channels": {
@@ -1190,13 +1208,19 @@
       "lng": 127.48834573,
       "address": "충북 청주시 청원구 상당로 291",
       "for_hospitals": [
-        "cheongju_duri_ent"
+        "cheongju_duri_ent",
+        "cheongju_isom_ent"
       ],
       "selection": {
         "cheongju_duri_ent": {
           "search_rank": 2,
           "distance_km": 6.469,
-          "score": 0.3108
+          "score": 0.3056
+        },
+        "cheongju_isom_ent": {
+          "search_rank": 2,
+          "distance_km": 5.584,
+          "score": 0.2083
         }
       },
       "channels": {
@@ -1321,6 +1345,29 @@
       }
     },
     {
+      "competitor_id": "comp_k10931524",
+      "name": "한양대학교병원 외과",
+      "category": "외과",
+      "lat": 37.55966575,
+      "lng": 127.04419442,
+      "address": "서울 성동구 왕십리로 222-1",
+      "for_hospitals": [
+        "wangsimni_naeungil_surgery"
+      ],
+      "selection": {
+        "wangsimni_naeungil_surgery": {
+          "search_rank": 6,
+          "distance_km": 0.908,
+          "score": 0.7
+        }
+      },
+      "channels": {
+        "kakao_place_url": "https://place.map.kakao.com/10931524",
+        "google_place_id": "0x357ca4a6406bac95:0x1994f7522fe4cdc0",
+        "naver_place_url": "https://m.place.naver.com/hospital/12134966/review/visitor"
+      }
+    },
+    {
       "competitor_id": "comp_k1097048438",
       "name": "브랜드성형외과의원",
       "category": "성형외과",
@@ -1374,10 +1421,16 @@
       "lng": 127.44378608,
       "address": "충북 청주시 흥덕구 가경로 5",
       "for_hospitals": [
+        "cheongju_barungijun_dental",
         "cheongju_seoul_top_implant_dental",
         "cheongju_well_dental"
       ],
       "selection": {
+        "cheongju_barungijun_dental": {
+          "search_rank": 9,
+          "distance_km": 1.438,
+          "score": 0.131
+        },
         "cheongju_seoul_top_implant_dental": {
           "search_rank": 9,
           "distance_km": 1.546,
@@ -1485,6 +1538,29 @@
         "kakao_place_url": "https://place.map.kakao.com/11122780",
         "google_place_id": "0x35660ecb6667983d:0xb9f08ea258181cb8",
         "naver_place_url": "https://m.place.naver.com/hospital/19530854/review/visitor"
+      }
+    },
+    {
+      "competitor_id": "comp_k1114161606",
+      "name": "연세다시온치과의원",
+      "category": "치과",
+      "lat": 37.50649134,
+      "lng": 126.90980775,
+      "address": "서울 영등포구 가마산로 483",
+      "for_hospitals": [
+        "yeouido_seoul_sunshine_dental"
+      ],
+      "selection": {
+        "yeouido_seoul_sunshine_dental": {
+          "search_rank": 6,
+          "distance_km": 2.355,
+          "score": 0.3409
+        }
+      },
+      "channels": {
+        "kakao_place_url": "https://place.map.kakao.com/1114161606",
+        "google_place_id": "0x357c9fb7ffd0d97d:0x63dc28286325863b",
+        "naver_place_url": "https://m.place.naver.com/hospital/2009434580/review/visitor"
       }
     },
     {
@@ -1680,7 +1756,7 @@
         "busan_thebody_ps": {
           "search_rank": 14,
           "distance_km": 0.13,
-          "score": 0.3182
+          "score": 0.314
         }
       },
       "channels": {
@@ -2549,10 +2625,16 @@
       "lng": 127.42768372,
       "address": "충북 청주시 흥덕구 대농로 45",
       "for_hospitals": [
+        "cheongju_barungijun_dental",
         "cheongju_seoul_top_implant_dental",
         "cheongju_well_dental"
       ],
       "selection": {
+        "cheongju_barungijun_dental": {
+          "search_rank": 19,
+          "distance_km": 2.302,
+          "score": 0.3214
+        },
         "cheongju_seoul_top_implant_dental": {
           "search_rank": 19,
           "distance_km": 2.223,
@@ -3023,11 +3105,17 @@
       "lng": 127.48420778,
       "address": "충북 청주시 서원구 청남로 1990",
       "for_hospitals": [
+        "cheongju_barungijun_dental",
         "cheongju_digitalplant_dental",
         "cheongju_seoul_top_implant_dental",
         "cheongju_well_dental"
       ],
       "selection": {
+        "cheongju_barungijun_dental": {
+          "search_rank": 6,
+          "distance_km": 5.014,
+          "score": 0.2857
+        },
         "cheongju_digitalplant_dental": {
           "search_rank": 6,
           "distance_km": 3.94,
@@ -3184,6 +3272,29 @@
       }
     },
     {
+      "competitor_id": "comp_k13506796",
+      "name": "이좋은치과",
+      "category": "치과",
+      "lat": 37.52010408,
+      "lng": 126.90126891,
+      "address": "서울 영등포구 영신로34길 1",
+      "for_hospitals": [
+        "yeouido_seoul_sunshine_dental"
+      ],
+      "selection": {
+        "yeouido_seoul_sunshine_dental": {
+          "search_rank": 10,
+          "distance_km": 1.672,
+          "score": 0.2614
+        }
+      },
+      "channels": {
+        "kakao_place_url": "https://place.map.kakao.com/13506796",
+        "google_place_id": "",
+        "naver_place_url": ""
+      }
+    },
+    {
       "competitor_id": "comp_k13507755",
       "name": "닥터홈즈의원",
       "category": "피부과",
@@ -3306,10 +3417,16 @@
       "lng": 127.44056182,
       "address": "충북 청주시 흥덕구 복대로 179",
       "for_hospitals": [
+        "cheongju_barungijun_dental",
         "cheongju_seoul_top_implant_dental",
         "cheongju_well_dental"
       ],
       "selection": {
+        "cheongju_barungijun_dental": {
+          "search_rank": 27,
+          "distance_km": 1.25,
+          "score": 0.3095
+        },
         "cheongju_seoul_top_implant_dental": {
           "search_rank": 27,
           "distance_km": 1.26,
@@ -3576,6 +3693,29 @@
       }
     },
     {
+      "competitor_id": "comp_k13693216",
+      "name": "수이비인후과의원",
+      "category": "이비인후과",
+      "lat": 36.64372032,
+      "lng": 127.4270315,
+      "address": "충북 청주시 흥덕구 대농로 43",
+      "for_hospitals": [
+        "cheongju_isom_ent"
+      ],
+      "selection": {
+        "cheongju_isom_ent": {
+          "search_rank": 31,
+          "distance_km": 0.162,
+          "score": 0.4028
+        }
+      },
+      "channels": {
+        "kakao_place_url": "https://place.map.kakao.com/13693216",
+        "google_place_id": "0x356528ee4454a6c7:0xd78dbc9ba7c4683a",
+        "naver_place_url": "https://m.place.naver.com/hospital/20312116/review/visitor"
+      }
+    },
+    {
       "competitor_id": "comp_k1373540608",
       "name": "이튼튼치과의원",
       "category": "치과",
@@ -3596,6 +3736,29 @@
         "kakao_place_url": "https://place.map.kakao.com/1373540608",
         "google_place_id": "",
         "naver_place_url": ""
+      }
+    },
+    {
+      "competitor_id": "comp_k1389638811",
+      "name": "센트라스삼성유외과의원",
+      "category": "외과",
+      "lat": 37.5651961,
+      "lng": 127.02968924,
+      "address": "서울 성동구 왕십리로 410",
+      "for_hospitals": [
+        "wangsimni_naeungil_surgery"
+      ],
+      "selection": {
+        "wangsimni_naeungil_surgery": {
+          "search_rank": 5,
+          "distance_km": 0.557,
+          "score": 0.5
+        }
+      },
+      "channels": {
+        "kakao_place_url": "https://place.map.kakao.com/1389638811",
+        "google_place_id": "",
+        "naver_place_url": "https://m.place.naver.com/hospital/2024050068/review/visitor"
       }
     },
     {
@@ -3658,7 +3821,7 @@
         "busan_thebody_ps": {
           "search_rank": 25,
           "distance_km": 0.104,
-          "score": 0.3636
+          "score": 0.3721
         }
       },
       "channels": {
@@ -3796,13 +3959,19 @@
       "lng": 127.43004437,
       "address": "충북 청주시 흥덕구 2순환로 1240",
       "for_hospitals": [
-        "cheongju_duri_ent"
+        "cheongju_duri_ent",
+        "cheongju_isom_ent"
       ],
       "selection": {
         "cheongju_duri_ent": {
           "search_rank": 18,
           "distance_km": 2.325,
-          "score": 0.2838
+          "score": 0.2778
+        },
+        "cheongju_isom_ent": {
+          "search_rank": 18,
+          "distance_km": 1.888,
+          "score": 0.2917
         }
       },
       "channels": {
@@ -3848,7 +4017,7 @@
         "busan_thebody_ps": {
           "search_rank": 20,
           "distance_km": 0.128,
-          "score": 0.3523
+          "score": 0.3488
         }
       },
       "channels": {
@@ -3940,13 +4109,19 @@
       "lng": 127.45919265,
       "address": "충북 청주시 서원구 사직대로 108",
       "for_hospitals": [
-        "cheongju_duri_ent"
+        "cheongju_duri_ent",
+        "cheongju_isom_ent"
       ],
       "selection": {
         "cheongju_duri_ent": {
           "search_rank": 4,
           "distance_km": 3.216,
-          "score": 0.1622
+          "score": 0.1667
+        },
+        "cheongju_isom_ent": {
+          "search_rank": 4,
+          "distance_km": 2.947,
+          "score": 0.1389
         }
       },
       "channels": {
@@ -4032,11 +4207,17 @@
       "lng": 127.45488601,
       "address": "충북 청주시 서원구 신화로 49",
       "for_hospitals": [
+        "cheongju_barungijun_dental",
         "cheongju_digitalplant_dental",
         "cheongju_seoul_top_implant_dental",
         "cheongju_well_dental"
       ],
       "selection": {
+        "cheongju_barungijun_dental": {
+          "search_rank": 4,
+          "distance_km": 2.212,
+          "score": 0.131
+        },
         "cheongju_digitalplant_dental": {
           "search_rank": 4,
           "distance_km": 4.214,
@@ -4080,6 +4261,29 @@
         "kakao_place_url": "https://place.map.kakao.com/15253430",
         "google_place_id": "",
         "naver_place_url": ""
+      }
+    },
+    {
+      "competitor_id": "comp_k15262821",
+      "name": "이엘치과의원",
+      "category": "치과",
+      "lat": 37.53373433,
+      "lng": 126.90113781,
+      "address": "서울 영등포구 당산로 223",
+      "for_hospitals": [
+        "yeouido_seoul_sunshine_dental"
+      ],
+      "selection": {
+        "yeouido_seoul_sunshine_dental": {
+          "search_rank": 7,
+          "distance_km": 1.72,
+          "score": 0.25
+        }
+      },
+      "channels": {
+        "kakao_place_url": "https://place.map.kakao.com/15262821",
+        "google_place_id": "0x357b5f0623e3c46d:0x2c821f72b0a24ae7",
+        "naver_place_url": "https://m.place.naver.com/hospital/21093750/review/visitor"
       }
     },
     {
@@ -4349,10 +4553,16 @@
       "lng": 127.42888936,
       "address": "충북 청주시 흥덕구 강서로 115-1",
       "for_hospitals": [
+        "cheongju_barungijun_dental",
         "cheongju_seoul_top_implant_dental",
         "cheongju_well_dental"
       ],
       "selection": {
+        "cheongju_barungijun_dental": {
+          "search_rank": 14,
+          "distance_km": 0.216,
+          "score": 0.1429
+        },
         "cheongju_seoul_top_implant_dental": {
           "search_rank": 14,
           "distance_km": 0.112,
@@ -4539,11 +4749,17 @@
       "lng": 127.49209348,
       "address": "충북 청주시 상당구 단재로 9",
       "for_hospitals": [
+        "cheongju_barungijun_dental",
         "cheongju_digitalplant_dental",
         "cheongju_seoul_top_implant_dental",
         "cheongju_well_dental"
       ],
       "selection": {
+        "cheongju_barungijun_dental": {
+          "search_rank": 3,
+          "distance_km": 5.467,
+          "score": 0.2976
+        },
         "cheongju_digitalplant_dental": {
           "search_rank": 3,
           "distance_km": 1.957,
@@ -4626,7 +4842,7 @@
         "busan_thebody_ps": {
           "search_rank": 13,
           "distance_km": 0.16,
-          "score": 0.3636
+          "score": 0.3605
         }
       },
       "channels": {
@@ -4810,13 +5026,19 @@
       "lng": 127.44250576,
       "address": "충북 청주시 흥덕구 가로수로 1340-1",
       "for_hospitals": [
-        "cheongju_duri_ent"
+        "cheongju_duri_ent",
+        "cheongju_isom_ent"
       ],
       "selection": {
         "cheongju_duri_ent": {
           "search_rank": 17,
           "distance_km": 2.769,
-          "score": 0.3243
+          "score": 0.3194
+        },
+        "cheongju_isom_ent": {
+          "search_rank": 17,
+          "distance_km": 1.688,
+          "score": 0.2222
         }
       },
       "channels": {
@@ -5328,13 +5550,19 @@
       "lng": 127.44747531,
       "address": "충북 청주시 서원구 장전로6번길 34",
       "for_hospitals": [
-        "cheongju_duri_ent"
+        "cheongju_duri_ent",
+        "cheongju_isom_ent"
       ],
       "selection": {
         "cheongju_duri_ent": {
           "search_rank": 23,
           "distance_km": 1.004,
-          "score": 0.2838
+          "score": 0.2778
+        },
+        "cheongju_isom_ent": {
+          "search_rank": 23,
+          "distance_km": 3.342,
+          "score": 0.4028
         }
       },
       "channels": {
@@ -5528,6 +5756,29 @@
       }
     },
     {
+      "competitor_id": "comp_k17784231",
+      "name": "미앤미치과의원",
+      "category": "치과",
+      "lat": 37.52087368,
+      "lng": 126.89515484,
+      "address": "서울 영등포구 당산로 67",
+      "for_hospitals": [
+        "yeouido_seoul_sunshine_dental"
+      ],
+      "selection": {
+        "yeouido_seoul_sunshine_dental": {
+          "search_rank": 9,
+          "distance_km": 2.145,
+          "score": 0.3295
+        }
+      },
+      "channels": {
+        "kakao_place_url": "https://place.map.kakao.com/17784231",
+        "google_place_id": "",
+        "naver_place_url": "https://m.place.naver.com/hospital/11483328/review/visitor"
+      }
+    },
+    {
       "competitor_id": "comp_k1778438994",
       "name": "더봄구강악안면외과치과의원",
       "category": "치과",
@@ -5548,6 +5799,29 @@
         "kakao_place_url": "https://place.map.kakao.com/1778438994",
         "google_place_id": "0x35654b1b59bca8eb:0x568cf32b137eae6e",
         "naver_place_url": "https://m.place.naver.com/hospital/1190220898/review/visitor"
+      }
+    },
+    {
+      "competitor_id": "comp_k17810361",
+      "name": "JS항외과내과",
+      "category": "외과",
+      "lat": 37.56050186,
+      "lng": 127.0671616,
+      "address": "서울 성동구 자동차시장1길 85",
+      "for_hospitals": [
+        "wangsimni_naeungil_surgery"
+      ],
+      "selection": {
+        "wangsimni_naeungil_surgery": {
+          "search_rank": 2,
+          "distance_km": 2.906,
+          "score": 0.4
+        }
+      },
+      "channels": {
+        "kakao_place_url": "https://place.map.kakao.com/17810361",
+        "google_place_id": "0x357ca500249de2bd:0xf67ea6025d26b6a1",
+        "naver_place_url": ""
       }
     },
     {
@@ -5616,7 +5890,7 @@
         "busan_thebody_ps": {
           "search_rank": 15,
           "distance_km": 0.134,
-          "score": 0.3409
+          "score": 0.3372
         }
       },
       "channels": {
@@ -5875,7 +6149,7 @@
         "busan_thebody_ps": {
           "search_rank": 27,
           "distance_km": 0.066,
-          "score": 0.3068
+          "score": 0.3023
         }
       },
       "channels": {
@@ -6130,6 +6404,52 @@
         "kakao_place_url": "https://place.map.kakao.com/1897874230",
         "google_place_id": "",
         "naver_place_url": "https://m.place.naver.com/hospital/1608744613/review/visitor"
+      }
+    },
+    {
+      "competitor_id": "comp_k19145519",
+      "name": "오플란트치과의원 영등포본원",
+      "category": "치과",
+      "lat": 37.51757649,
+      "lng": 126.90646427,
+      "address": "서울 영등포구 영중로 12",
+      "for_hospitals": [
+        "yeouido_seoul_sunshine_dental"
+      ],
+      "selection": {
+        "yeouido_seoul_sunshine_dental": {
+          "search_rank": 16,
+          "distance_km": 1.45,
+          "score": 0.2727
+        }
+      },
+      "channels": {
+        "kakao_place_url": "https://place.map.kakao.com/19145519",
+        "google_place_id": "",
+        "naver_place_url": ""
+      }
+    },
+    {
+      "competitor_id": "comp_k19183908",
+      "name": "연세유앤외과의원",
+      "category": "외과",
+      "lat": 37.56275417,
+      "lng": 127.03389647,
+      "address": "서울 성동구 왕십리로 326",
+      "for_hospitals": [
+        "wangsimni_naeungil_surgery"
+      ],
+      "selection": {
+        "wangsimni_naeungil_surgery": {
+          "search_rank": 4,
+          "distance_km": 0.119,
+          "score": 0.3
+        }
+      },
+      "channels": {
+        "kakao_place_url": "https://place.map.kakao.com/19183908",
+        "google_place_id": "",
+        "naver_place_url": "https://m.place.naver.com/hospital/31739844/review/visitor"
       }
     },
     {
@@ -6464,6 +6784,29 @@
         "kakao_place_url": "https://place.map.kakao.com/1972690159",
         "google_place_id": "",
         "naver_place_url": "https://m.place.naver.com/hospital/13255722/review/visitor"
+      }
+    },
+    {
+      "competitor_id": "comp_k197488387",
+      "name": "당산원치과의원",
+      "category": "치과",
+      "lat": 37.53452061,
+      "lng": 126.90186993,
+      "address": "서울 영등포구 당산로 231",
+      "for_hospitals": [
+        "yeouido_seoul_sunshine_dental"
+      ],
+      "selection": {
+        "yeouido_seoul_sunshine_dental": {
+          "search_rank": 5,
+          "distance_km": 1.707,
+          "score": 0.2159
+        }
+      },
+      "channels": {
+        "kakao_place_url": "https://place.map.kakao.com/197488387",
+        "google_place_id": "0x357c9f58c78155bf:0xf9789886c1d4c26f",
+        "naver_place_url": "https://m.place.naver.com/hospital/1628980692/review/visitor"
       }
     },
     {
@@ -6871,7 +7214,7 @@
         "busan_thebody_ps": {
           "search_rank": 17,
           "distance_km": 0.112,
-          "score": 0.3068
+          "score": 0.314
         }
       },
       "channels": {
@@ -6934,10 +7277,16 @@
       "lng": 127.48410686,
       "address": "충북 청주시 서원구 청남로 1997",
       "for_hospitals": [
+        "cheongju_barungijun_dental",
         "cheongju_digitalplant_dental",
         "cheongju_seoul_top_implant_dental"
       ],
       "selection": {
+        "cheongju_barungijun_dental": {
+          "search_rank": 16,
+          "distance_km": 4.976,
+          "score": 0.3929
+        },
         "cheongju_digitalplant_dental": {
           "search_rank": 16,
           "distance_km": 3.848,
@@ -6994,6 +7343,29 @@
         "kakao_place_url": "https://place.map.kakao.com/2112182458",
         "google_place_id": "0x357ca5005141cd79:0x858d84c7d527cc89",
         "naver_place_url": "https://m.place.naver.com/hospital/1975377004/review/visitor"
+      }
+    },
+    {
+      "competitor_id": "comp_k2122784827",
+      "name": "서울센텀턱구강내과치과의원",
+      "category": "치과",
+      "lat": 37.52175813,
+      "lng": 126.92703376,
+      "address": "서울 영등포구 국제금융로6길 26",
+      "for_hospitals": [
+        "yeouido_seoul_sunshine_dental"
+      ],
+      "selection": {
+        "yeouido_seoul_sunshine_dental": {
+          "search_rank": 2,
+          "distance_km": 0.928,
+          "score": 0.0227
+        }
+      },
+      "channels": {
+        "kakao_place_url": "https://place.map.kakao.com/2122784827",
+        "google_place_id": "0x357c9f6b9dc75a4f:0x1a57046407fc1980",
+        "naver_place_url": "https://m.place.naver.com/hospital/1191881927/review/visitor"
       }
     },
     {
@@ -7188,10 +7560,16 @@
       "lng": 127.42757979,
       "address": "충북 청주시 흥덕구 대농로 47",
       "for_hospitals": [
+        "cheongju_barungijun_dental",
         "cheongju_seoul_top_implant_dental",
         "cheongju_well_dental"
       ],
       "selection": {
+        "cheongju_barungijun_dental": {
+          "search_rank": 12,
+          "distance_km": 2.037,
+          "score": 0.2143
+        },
         "cheongju_seoul_top_implant_dental": {
           "search_rank": 12,
           "distance_km": 1.956,
@@ -7544,6 +7922,29 @@
       }
     },
     {
+      "competitor_id": "comp_k24692882",
+      "name": "드림이비인후과의원",
+      "category": "이비인후과",
+      "lat": 36.6707235,
+      "lng": 127.49630096,
+      "address": "충북 청주시 청원구 주성로 269",
+      "for_hospitals": [
+        "cheongju_isom_ent"
+      ],
+      "selection": {
+        "cheongju_isom_ent": {
+          "search_rank": 9,
+          "distance_km": 6.892,
+          "score": 0.4028
+        }
+      },
+      "channels": {
+        "kakao_place_url": "https://place.map.kakao.com/24692882",
+        "google_place_id": "0x3564d809aaaaaaab:0xc75f382832218eac",
+        "naver_place_url": "https://m.place.naver.com/hospital/34945448/review/visitor"
+      }
+    },
+    {
       "competitor_id": "comp_k24765562",
       "name": "서울바른치과교정과치과의원 청주점",
       "category": "치과",
@@ -7551,10 +7952,16 @@
       "lng": 127.43304614,
       "address": "충북 청주시 흥덕구 풍산로 23",
       "for_hospitals": [
+        "cheongju_barungijun_dental",
         "cheongju_seoul_top_implant_dental",
         "cheongju_well_dental"
       ],
       "selection": {
+        "cheongju_barungijun_dental": {
+          "search_rank": 29,
+          "distance_km": 0.308,
+          "score": 0.3214
+        },
         "cheongju_seoul_top_implant_dental": {
           "search_rank": 29,
           "distance_km": 0.319,
@@ -7662,6 +8069,52 @@
         "kakao_place_url": "https://place.map.kakao.com/252229372",
         "google_place_id": "0x357ca1f11eb0e7f7:0xa01c66da717c6fe4",
         "naver_place_url": "https://m.place.naver.com/hospital/1140081354/review/visitor"
+      }
+    },
+    {
+      "competitor_id": "comp_k252589786",
+      "name": "연세디자인치과의원",
+      "category": "치과",
+      "lat": 37.51172749,
+      "lng": 126.91649288,
+      "address": "서울 영등포구 도신로 228",
+      "for_hospitals": [
+        "yeouido_seoul_sunshine_dental"
+      ],
+      "selection": {
+        "yeouido_seoul_sunshine_dental": {
+          "search_rank": 3,
+          "distance_km": 1.656,
+          "score": 0.1705
+        }
+      },
+      "channels": {
+        "kakao_place_url": "https://place.map.kakao.com/252589786",
+        "google_place_id": "0x357c9fd21172393d:0xefb7b9ed1b3c1fe7",
+        "naver_place_url": "https://m.place.naver.com/hospital/1259101312/review/visitor"
+      }
+    },
+    {
+      "competitor_id": "comp_k252793594",
+      "name": "365열린치과의원",
+      "category": "치과",
+      "lat": 37.50705879,
+      "lng": 126.91074806,
+      "address": "서울 영등포구 신길로 167",
+      "for_hospitals": [
+        "yeouido_seoul_sunshine_dental"
+      ],
+      "selection": {
+        "yeouido_seoul_sunshine_dental": {
+          "search_rank": 1,
+          "distance_km": 2.269,
+          "score": 0.2614
+        }
+      },
+      "channels": {
+        "kakao_place_url": "https://place.map.kakao.com/252793594",
+        "google_place_id": "0x357c9f0016812fc9:0xa53f847b9f6dacca",
+        "naver_place_url": "https://m.place.naver.com/hospital/1696850702/review/visitor"
       }
     },
     {
@@ -7879,13 +8332,19 @@
       "lng": 127.42763528,
       "address": "충북 청주시 흥덕구 대농로 48",
       "for_hospitals": [
-        "cheongju_duri_ent"
+        "cheongju_duri_ent",
+        "cheongju_isom_ent"
       ],
       "selection": {
         "cheongju_duri_ent": {
           "search_rank": 7,
           "distance_km": 4.027,
-          "score": 0.2297
+          "score": 0.2222
+        },
+        "cheongju_isom_ent": {
+          "search_rank": 7,
+          "distance_km": 0.072,
+          "score": 0.0556
         }
       },
       "channels": {
@@ -7925,11 +8384,17 @@
       "lng": 127.43558632,
       "address": "충북 청주시 흥덕구 대신로 132",
       "for_hospitals": [
+        "cheongju_barungijun_dental",
         "cheongju_digitalplant_dental",
         "cheongju_seoul_top_implant_dental",
         "cheongju_well_dental"
       ],
       "selection": {
+        "cheongju_barungijun_dental": {
+          "search_rank": 2,
+          "distance_km": 2.317,
+          "score": 0.131
+        },
         "cheongju_digitalplant_dental": {
           "search_rank": 2,
           "distance_km": 4.784,
@@ -7972,7 +8437,7 @@
         "busan_thebody_ps": {
           "search_rank": 1,
           "distance_km": 0.11,
-          "score": 0.1136
+          "score": 0.1163
         }
       },
       "channels": {
@@ -8172,6 +8637,29 @@
       }
     },
     {
+      "competitor_id": "comp_k26830634",
+      "name": "반듯한치과의원",
+      "category": "치과",
+      "lat": 37.5288623,
+      "lng": 126.89760091,
+      "address": "서울 영등포구 당산로 159",
+      "for_hospitals": [
+        "yeouido_seoul_sunshine_dental"
+      ],
+      "selection": {
+        "yeouido_seoul_sunshine_dental": {
+          "search_rank": 14,
+          "distance_km": 1.853,
+          "score": 0.3409
+        }
+      },
+      "channels": {
+        "kakao_place_url": "https://place.map.kakao.com/26830634",
+        "google_place_id": "",
+        "naver_place_url": "https://m.place.naver.com/hospital/19535134/review/visitor"
+      }
+    },
+    {
       "competitor_id": "comp_k26866763",
       "name": "스타피부과의원",
       "category": "피부과",
@@ -8261,6 +8749,29 @@
         "kakao_place_url": "https://place.map.kakao.com/26901298",
         "google_place_id": "",
         "naver_place_url": ""
+      }
+    },
+    {
+      "competitor_id": "comp_k26928036",
+      "name": "서울그랜드치과의원",
+      "category": "치과",
+      "lat": 37.53516145,
+      "lng": 126.89999771,
+      "address": "서울 영등포구 양평로 64",
+      "for_hospitals": [
+        "yeouido_seoul_sunshine_dental"
+      ],
+      "selection": {
+        "yeouido_seoul_sunshine_dental": {
+          "search_rank": 4,
+          "distance_km": 1.885,
+          "score": 0.2386
+        }
+      },
+      "channels": {
+        "kakao_place_url": "https://place.map.kakao.com/26928036",
+        "google_place_id": "",
+        "naver_place_url": "https://m.place.naver.com/hospital/37000708/review/visitor"
       }
     },
     {
@@ -8451,29 +8962,6 @@
         "kakao_place_url": "https://place.map.kakao.com/27492145",
         "google_place_id": "0x357b7e5ffaac80d7:0xb123a5f7e28f5bbd",
         "naver_place_url": "https://m.place.naver.com/hospital/37468990/review/visitor"
-      }
-    },
-    {
-      "competitor_id": "comp_k27515561",
-      "name": "이솜이비인후과의원",
-      "category": "이비인후과",
-      "lat": 36.64233769,
-      "lng": 127.4276154,
-      "address": "충북 청주시 흥덕구 대농로 47",
-      "for_hospitals": [
-        "cheongju_duri_ent"
-      ],
-      "selection": {
-        "cheongju_duri_ent": {
-          "search_rank": 6,
-          "distance_km": 4.095,
-          "score": 0.2297
-        }
-      },
-      "channels": {
-        "kakao_place_url": "https://place.map.kakao.com/27515561",
-        "google_place_id": "0x356528fd2ba284bd:0x4c25da875127be09",
-        "naver_place_url": "https://m.place.naver.com/hospital/37647470/review/visitor"
       }
     },
     {
@@ -8831,7 +9319,7 @@
         "busan_thebody_ps": {
           "search_rank": 18,
           "distance_km": 0.129,
-          "score": 0.3523
+          "score": 0.3488
         }
       },
       "channels": {
@@ -9188,7 +9676,7 @@
         "busan_thebody_ps": {
           "search_rank": 9,
           "distance_km": 0.164,
-          "score": 0.3409
+          "score": 0.3372
         }
       },
       "channels": {
@@ -9389,11 +9877,17 @@
       "lng": 127.48966584,
       "address": "충북 청주시 상당구 상당로69번길 15",
       "for_hospitals": [
+        "cheongju_barungijun_dental",
         "cheongju_digitalplant_dental",
         "cheongju_seoul_top_implant_dental",
         "cheongju_well_dental"
       ],
       "selection": {
+        "cheongju_barungijun_dental": {
+          "search_rank": 7,
+          "distance_km": 5.354,
+          "score": 0.3095
+        },
         "cheongju_digitalplant_dental": {
           "search_rank": 7,
           "distance_km": 1.202,
@@ -9459,7 +9953,7 @@
         "busan_thebody_ps": {
           "search_rank": 21,
           "distance_km": 0.078,
-          "score": 0.2841
+          "score": 0.2907
         }
       },
       "channels": {
@@ -9741,9 +10235,15 @@
       "lng": 127.45999396,
       "address": "충북 청주시 서원구 사직대로 112",
       "for_hospitals": [
+        "cheongju_barungijun_dental",
         "cheongju_seoul_top_implant_dental"
       ],
       "selection": {
+        "cheongju_barungijun_dental": {
+          "search_rank": 25,
+          "distance_km": 2.838,
+          "score": 0.4048
+        },
         "cheongju_seoul_top_implant_dental": {
           "search_rank": 25,
           "distance_km": 2.885,
@@ -10385,6 +10885,29 @@
       }
     },
     {
+      "competitor_id": "comp_k655809897",
+      "name": "연세준치과의원",
+      "category": "치과",
+      "lat": 37.51698721,
+      "lng": 126.90757128,
+      "address": "서울 영등포구 경인로 855",
+      "for_hospitals": [
+        "yeouido_seoul_sunshine_dental"
+      ],
+      "selection": {
+        "yeouido_seoul_sunshine_dental": {
+          "search_rank": 13,
+          "distance_km": 1.429,
+          "score": 0.2273
+        }
+      },
+      "channels": {
+        "kakao_place_url": "https://place.map.kakao.com/655809897",
+        "google_place_id": "0x357c9efce825d6cd:0x5908bbd51b0c99a5",
+        "naver_place_url": "https://m.place.naver.com/hospital/1169668587/review/visitor"
+      }
+    },
+    {
       "competitor_id": "comp_k66046295",
       "name": "오가나셀 피부과의원",
       "category": "피부과",
@@ -10669,7 +11192,7 @@
         "busan_thebody_ps": {
           "search_rank": 12,
           "distance_km": 0.071,
-          "score": 0.1705
+          "score": 0.1744
         }
       },
       "channels": {
@@ -10870,11 +11393,17 @@
       "lng": 127.48118568,
       "address": "충북 청주시 청원구 사뜸로 54",
       "for_hospitals": [
+        "cheongju_barungijun_dental",
         "cheongju_digitalplant_dental",
         "cheongju_seoul_top_implant_dental",
         "cheongju_well_dental"
       ],
       "selection": {
+        "cheongju_barungijun_dental": {
+          "search_rank": 5,
+          "distance_km": 6.523,
+          "score": 0.3571
+        },
         "cheongju_digitalplant_dental": {
           "search_rank": 5,
           "distance_km": 2.531,
@@ -10996,6 +11525,29 @@
       }
     },
     {
+      "competitor_id": "comp_k7943898",
+      "name": "서울복음치과의원 여의도본원",
+      "category": "치과",
+      "lat": 37.51999605,
+      "lng": 126.93203311,
+      "address": "서울 영등포구 국제금융로 86",
+      "for_hospitals": [
+        "yeouido_seoul_sunshine_dental"
+      ],
+      "selection": {
+        "yeouido_seoul_sunshine_dental": {
+          "search_rank": 11,
+          "distance_km": 1.405,
+          "score": 0.1932
+        }
+      },
+      "channels": {
+        "kakao_place_url": "https://place.map.kakao.com/7943898",
+        "google_place_id": "",
+        "naver_place_url": ""
+      }
+    },
+    {
       "competitor_id": "comp_k7999260",
       "name": "연세이비인후과의원",
       "category": "이비인후과",
@@ -11003,13 +11555,19 @@
       "lng": 127.43409212,
       "address": "충북 청주시 흥덕구 풍산로 32",
       "for_hospitals": [
-        "cheongju_duri_ent"
+        "cheongju_duri_ent",
+        "cheongju_isom_ent"
       ],
       "selection": {
         "cheongju_duri_ent": {
           "search_rank": 13,
           "distance_km": 2.236,
-          "score": 0.2027
+          "score": 0.1944
+        },
+        "cheongju_isom_ent": {
+          "search_rank": 13,
+          "distance_km": 1.866,
+          "score": 0.1944
         }
       },
       "channels": {
@@ -11177,6 +11735,29 @@
         "kakao_place_url": "https://place.map.kakao.com/803643913",
         "google_place_id": "",
         "naver_place_url": "https://m.place.naver.com/hospital/2025339459/review/visitor"
+      }
+    },
+    {
+      "competitor_id": "comp_k8055082",
+      "name": "장이비인후과의원",
+      "category": "이비인후과",
+      "lat": 36.6710596,
+      "lng": 127.48382473,
+      "address": "충북 청주시 청원구 공항로 162-2",
+      "for_hospitals": [
+        "cheongju_isom_ent"
+      ],
+      "selection": {
+        "cheongju_isom_ent": {
+          "search_rank": 16,
+          "distance_km": 5.945,
+          "score": 0.4583
+        }
+      },
+      "channels": {
+        "kakao_place_url": "https://place.map.kakao.com/8055082",
+        "google_place_id": "",
+        "naver_place_url": "https://m.place.naver.com/hospital/13247566/review/visitor"
       }
     },
     {
@@ -11752,7 +12333,7 @@
         "busan_thebody_ps": {
           "search_rank": 34,
           "distance_km": 0.031,
-          "score": 0.3636
+          "score": 0.3605
         }
       },
       "channels": {
@@ -11769,13 +12350,19 @@
       "lng": 127.42979166,
       "address": "충북 청주시 흥덕구 2순환로 1234",
       "for_hospitals": [
-        "cheongju_duri_ent"
+        "cheongju_duri_ent",
+        "cheongju_isom_ent"
       ],
       "selection": {
         "cheongju_duri_ent": {
           "search_rank": 11,
           "distance_km": 2.374,
-          "score": 0.2027
+          "score": 0.1944
+        },
+        "cheongju_isom_ent": {
+          "search_rank": 11,
+          "distance_km": 1.842,
+          "score": 0.1528
         }
       },
       "channels": {
@@ -11919,7 +12506,7 @@
         "cheongju_duri_ent": {
           "search_rank": 10,
           "distance_km": 5.388,
-          "score": 0.3514
+          "score": 0.3333
         }
       },
       "channels": {
@@ -11949,6 +12536,29 @@
         "kakao_place_url": "https://place.map.kakao.com/8509407",
         "google_place_id": "0x357b6713a39de46d:0xd99f88eea775a93b",
         "naver_place_url": "https://m.place.naver.com/hospital/10977717/review/visitor"
+      }
+    },
+    {
+      "competitor_id": "comp_k8522613",
+      "name": "조앤황이비인후과의원",
+      "category": "이비인후과",
+      "lat": 36.66840697,
+      "lng": 127.4846426,
+      "address": "충북 청주시 청원구 율봉로 141",
+      "for_hospitals": [
+        "cheongju_isom_ent"
+      ],
+      "selection": {
+        "cheongju_isom_ent": {
+          "search_rank": 12,
+          "distance_km": 5.855,
+          "score": 0.3611
+        }
+      },
+      "channels": {
+        "kakao_place_url": "https://place.map.kakao.com/8522613",
+        "google_place_id": "0x3564d80a04d07d97:0x9b7125ea68ec58d6",
+        "naver_place_url": "https://m.place.naver.com/hospital/13247561/review/visitor"
       }
     },
     {
@@ -12133,6 +12743,29 @@
         "kakao_place_url": "https://place.map.kakao.com/8610891",
         "google_place_id": "",
         "naver_place_url": ""
+      }
+    },
+    {
+      "competitor_id": "comp_k8613504",
+      "name": "행당외과 영상의학과의원",
+      "category": "외과",
+      "lat": 37.56135559,
+      "lng": 127.03469716,
+      "address": "서울 성동구 왕십리로 309",
+      "for_hospitals": [
+        "wangsimni_naeungil_surgery"
+      ],
+      "selection": {
+        "wangsimni_naeungil_surgery": {
+          "search_rank": 3,
+          "distance_km": 0.057,
+          "score": 0.1
+        }
+      },
+      "channels": {
+        "kakao_place_url": "https://place.map.kakao.com/8613504",
+        "google_place_id": "0x357ca35bd8cac301:0x5820aa5f0b9ded18",
+        "naver_place_url": "https://m.place.naver.com/hospital/12751346/review/visitor"
       }
     },
     {
@@ -12372,6 +13005,29 @@
       }
     },
     {
+      "competitor_id": "comp_k8842416",
+      "name": "다이아몬드치과",
+      "category": "치과",
+      "lat": 37.51852959,
+      "lng": 126.92664099,
+      "address": "서울 영등포구 여의동로3길 10",
+      "for_hospitals": [
+        "yeouido_seoul_sunshine_dental"
+      ],
+      "selection": {
+        "yeouido_seoul_sunshine_dental": {
+          "search_rank": 20,
+          "distance_km": 1.149,
+          "score": 0.25
+        }
+      },
+      "channels": {
+        "kakao_place_url": "https://place.map.kakao.com/8842416",
+        "google_place_id": "",
+        "naver_place_url": "https://m.place.naver.com/hospital/13050145/review/visitor"
+      }
+    },
+    {
       "competitor_id": "comp_k8965335",
       "name": "동산안과",
       "category": "안과",
@@ -12459,6 +13115,29 @@
       }
     },
     {
+      "competitor_id": "comp_k9007222",
+      "name": "문이비인후과의원",
+      "category": "이비인후과",
+      "lat": 36.62608195,
+      "lng": 127.43341962,
+      "address": "충북 청주시 흥덕구 풍산로 26",
+      "for_hospitals": [
+        "cheongju_duri_ent"
+      ],
+      "selection": {
+        "cheongju_duri_ent": {
+          "search_rank": 33,
+          "distance_km": 2.232,
+          "score": 0.4583
+        }
+      },
+      "channels": {
+        "kakao_place_url": "https://place.map.kakao.com/9007222",
+        "google_place_id": "0x356528db803a4269:0xfd98cc802dde939",
+        "naver_place_url": "https://m.place.naver.com/hospital/13247656/review/visitor"
+      }
+    },
+    {
       "competitor_id": "comp_k901061623",
       "name": "아무러스성형외과의원",
       "category": "성형외과",
@@ -12535,13 +13214,19 @@
       "lng": 127.48548874,
       "address": "충북 청주시 청원구 공항로 126",
       "for_hospitals": [
-        "cheongju_duri_ent"
+        "cheongju_duri_ent",
+        "cheongju_isom_ent"
       ],
       "selection": {
         "cheongju_duri_ent": {
           "search_rank": 5,
           "distance_km": 7.639,
-          "score": 0.4189
+          "score": 0.4167
+        },
+        "cheongju_isom_ent": {
+          "search_rank": 5,
+          "distance_km": 5.925,
+          "score": 0.3056
         }
       },
       "channels": {
@@ -12656,7 +13341,7 @@
         "cheongju_duri_ent": {
           "search_rank": 27,
           "distance_km": 1.943,
-          "score": 0.3649
+          "score": 0.3611
         }
       },
       "channels": {
@@ -12732,6 +13417,29 @@
         "kakao_place_url": "https://place.map.kakao.com/931443150",
         "google_place_id": "0x357ca3cde10ad25b:0x72a3076b4dfb5c5f",
         "naver_place_url": "https://m.place.naver.com/hospital/1937219423/review/visitor"
+      }
+    },
+    {
+      "competitor_id": "comp_k933171063",
+      "name": "당산제일치과의원",
+      "category": "치과",
+      "lat": 37.53269135,
+      "lng": 126.904892,
+      "address": "서울 영등포구 양평로 12",
+      "for_hospitals": [
+        "yeouido_seoul_sunshine_dental"
+      ],
+      "selection": {
+        "yeouido_seoul_sunshine_dental": {
+          "search_rank": 8,
+          "distance_km": 1.374,
+          "score": 0.1477
+        }
+      },
+      "channels": {
+        "kakao_place_url": "https://place.map.kakao.com/933171063",
+        "google_place_id": "",
+        "naver_place_url": "https://m.place.naver.com/hospital/1799524063/review/visitor"
       }
     },
     {

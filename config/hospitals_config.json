@@ -611,6 +611,58 @@
         "naver_place_url": "https://m.place.naver.com/hospital/1847932216/review/visitor",
         "kakao_place_url": "https://place.map.kakao.com/252066491"
       }
+    },
+    {
+      "hospital_id": "wangsimni_naeungil_surgery",
+      "hospital_name": "더나은길외과의원",
+      "category": "외과",
+      "lat": 37.56171252,
+      "lng": 127.03422649,
+      "address": "서울 성동구 왕십리로 315 한동타워 9층",
+      "channels": {
+        "google_place_id": "0x357ca3ec9bcbf9b9:0x468e7ead13597858",
+        "naver_place_url": "https://m.place.naver.com/hospital/1797947065/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/266406635"
+      }
+    },
+    {
+      "hospital_id": "cheongju_barungijun_dental",
+      "hospital_name": "바른기준치과의원",
+      "category": "치과",
+      "lat": 36.62425432,
+      "lng": 127.43097111,
+      "address": "충북 청주시 흥덕구 2순환로 1254 6층",
+      "channels": {
+        "google_place_id": "0x3565291296cf8439:0x890dfa02d7af8904",
+        "naver_place_url": "https://m.place.naver.com/hospital/1770573930/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/1349766819"
+      }
+    },
+    {
+      "hospital_id": "yeouido_seoul_sunshine_dental",
+      "hospital_name": "서울선샤인치과의원",
+      "category": "치과",
+      "lat": 37.52654131,
+      "lng": 126.91840523,
+      "address": "서울 영등포구 의사당대로 26 2층 212~213호",
+      "channels": {
+        "google_place_id": "0x357c9f23bb60de03:0x7cae0035e1e41323",
+        "naver_place_url": "https://m.place.naver.com/hospital/1267921668/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/790773361"
+      }
+    },
+    {
+      "hospital_id": "cheongju_isom_ent",
+      "hospital_name": "이솜이비인후과의원",
+      "category": "이비인후과",
+      "lat": 36.64233769,
+      "lng": 127.4276154,
+      "address": "충북 청주시 흥덕구 대농로 47 흥복드림몰 2층 204호",
+      "channels": {
+        "google_place_id": "0x356528fd2ba284bd:0x4c25da875127be09",
+        "naver_place_url": "https://m.place.naver.com/hospital/37647470/review/visitor",
+        "kakao_place_url": "https://place.map.kakao.com/27515561"
+      }
     }
   ]
 }
