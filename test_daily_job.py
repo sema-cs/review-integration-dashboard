@@ -69,10 +69,11 @@ class _FakeProc:
 
 
 def test_local_collection_only_when_github_missed():
-    # 2026-10-20·21 예약 수집이 생성조차 안 됨 → 13시 이후 GitHub 실행이 없으면 PC에서 main.py 실행
+    # 2026-10-20·21 예약 수집이 생성조차 안 됨 → GitHub 실행이 없으면 PC에서 main.py 실행
+    # 2026-10-23 사용자 결정: 13:50이 아니라 12:00부터(11:00 수집 요청이 안 됐을 때)
     import tempfile
     today = datetime.date(2026, 10, 21)
-    at = lambda h: datetime.datetime(2026, 10, 21, h, 50, tzinfo=daily_job.KST)
+    at = lambda h, m=50: datetime.datetime(2026, 10, 21, h, m, tzinfo=daily_job.KST)
     calls = []
 
     def fake_run(args, timeout=1800, check=True):
@@ -87,8 +88,9 @@ def test_local_collection_only_when_github_missed():
             assert daily_job.local_collection_step(today, "in_progress", at(13)).startswith("하지 않음")
             assert daily_job.local_collection_step(today, "조회 실패: x", at(13)).startswith("하지 않음")
             assert daily_job.local_collection_step(today, daily_job.NO_RUN_TODAY, at(8)).startswith("하지 않음")
+            assert daily_job.local_collection_step(today, daily_job.NO_RUN_TODAY, at(11, 59)).startswith("하지 않음")
             assert calls == []
-            assert daily_job.local_collection_step(today, daily_job.NO_RUN_TODAY, at(13)) == "PC 수집 success"
+            assert daily_job.local_collection_step(today, daily_job.NO_RUN_TODAY, at(12, 0)) == "PC 수집 success"
             assert calls[0][1] == "main.py"
             # 같은 날 19:00 실행은 다시 수집하지 않는다
             assert daily_job.local_collection_step(today, daily_job.NO_RUN_TODAY, at(19)).startswith("하지 않음")
@@ -146,7 +148,7 @@ def test_trigger_dispatches_only_when_nothing_ran_today():
             daily_job.collection_status = lambda today: daily_job.NO_RUN_TODAY
             assert tc.main() == 0 and sent == ["t"]
             tc.os.environ.pop(tc.TOKEN_ENV)
-            assert tc.main() == 1 and sent == ["t"]  # 토큰 없으면 실패로 끝내고 13:50 PC 수집에 맡긴다
+            assert tc.main() == 1 and sent == ["t"]  # 토큰 없으면 실패로 끝내고 12:00 PC 수집에 맡긴다
         finally:
             daily_job.collection_status, tc.dispatch, daily_job.LOCAL_COLLECT_MARK, daily_job.LOG_DIR, tok = orig
             if tok is None:

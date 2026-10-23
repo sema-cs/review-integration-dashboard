@@ -9,7 +9,7 @@ GitHub 문서상 예약 실행은 부하가 높으면 늦어지거나 빠질 수
 - 토큰: 사용자 환경변수 REVIEW_DISPATCH_TOKEN (sema-cs/review-integration-dashboard 저장소의
   Actions 읽기·쓰기 권한만 가진 fine-grained 토큰). 저장소·파일에는 저장하지 않는다.
 - 오늘 GitHub 실행(예약·수동)이 이미 있거나 PC 보완 수집이 성공했으면 아무것도 하지 않는다.
-- 실패해도 13:50 daily_job.py가 GitHub 실행이 없음을 보고 PC에서 직접 수집한다.
+- 실패해도 12:00 daily_job.py가 GitHub 실행이 없음을 보고 PC에서 직접 수집한다.
 """
 
 import datetime
@@ -56,12 +56,12 @@ def main():
         return 0
     token = os.environ.get(TOKEN_ENV, "").strip()
     if not token:
-        daily_job.log(f"!! 요청 실패: 환경변수 {TOKEN_ENV}가 없음 — 13:50 PC 보완 수집이 대신함")
+        daily_job.log(f"!! 요청 실패: 환경변수 {TOKEN_ENV}가 없음 — 12:00 PC 보완 수집이 대신함")
         return 1
     try:
         code = dispatch(token)
     except Exception as e:  # 401(토큰 만료·권한 부족) 등. 토큰 값은 로그에 남기지 않는다
-        daily_job.log(f"!! 요청 실패: {e} — 13:50 PC 보완 수집이 대신함")
+        daily_job.log(f"!! 요청 실패: {e} — 12:00 PC 보완 수집이 대신함")
         return 1
     daily_job.log(f"수집 실행 요청 완료(HTTP {code})")
     return 0
