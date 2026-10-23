@@ -117,7 +117,10 @@ def collection_status(today):
 def local_collection_step(today, collection, now):
     """GitHub 수집이 오늘 아예 없을 때만 이 PC에서 main.py를 돌린다. 조회 실패면 하지 않는다
     (GitHub가 돌고 있을 수 있어 중복 적재 위험). 같은 날 이미 성공했으면 19:00 실행은 건너뛴다."""
-    if collection != NO_RUN_TODAY:
+    # 2026-10-23: 오늘 GitHub 수집이 실패·취소로 끝났어도 다시 수집한다(중간에 멈추면 뒤 병원이 빠짐).
+    # 이미 들어간 리뷰는 main.py가 시작할 때 시트를 읽어 건너뛴다. 진행 중·대기 중이면 겹치지 않게 하지 않는다.
+    github_failed = collection.startswith("completed:") and not collection.startswith("completed: success")
+    if collection != NO_RUN_TODAY and not github_failed:
         return "하지 않음(GitHub 수집 있음)" if not collection.startswith("조회 실패") else "하지 않음(상태 조회 실패)"
     if now.hour < LOCAL_COLLECT_AFTER_HOUR:
         return f"하지 않음({LOCAL_COLLECT_AFTER_HOUR}시 전 — 예약 수집 대기)"

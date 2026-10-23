@@ -160,6 +160,11 @@ python reclassify.py --apply
    `main.py`를 직접 돌린다(자사 전부 + 오늘 경쟁병원 순번, 최대 3시간). 근거: 10-20·21 예약 수집이 생성조차 안 됨
    (설정 정상, GitHub 장애 공지 없음 — schedule은 보장되지 않음). 성공하면 `scheduled_logs/local_collection.json`에
    기록해 같은 날 19:00은 다시 수집하지 않고, 실패하면 19:00이 재시도한다. 상태 조회 실패 시엔 하지 않는다(중복 적재 방지).
+   **오늘 GitHub 수집이 실패·취소로 끝난 날도 PC가 다시 수집한다**(2026-10-23 사용자 결정). 진행·대기 중이면 하지 않는다.
+   **시트 쓰기 재시도(2026-10-23)**: 10-22 Actions가 `append_rows` 409 한 번에 통째로 멈춰 뒤 병원이 빠졌다 →
+   `sheets_writer`가 409·429·5xx·연결 오류면 10초·30초 기다려 최대 3번 시도한다. 다시 쓰기 전에 시트를 읽어
+   (hospital_id, channel, content, collected_at)이 같은 행은 빼고 쓴다 — 오류가 났어도 실제로 써졌을 수 있어 같은 행이
+   두 번 들어가지 않게(사용자 요구). 그래도 실패하면 `main.py`는 그 병원만 건너뛰고 끝까지 돈 뒤 exit 1로 끝낸다.
 2. 재분류: `reclassify.py --export --limit 300` → `claude -p`가 `[재분류결과].json` 작성 → `--apply`. 최대 4회, 남으면 다음 날.
 3. 주간 특이사항: `weekly_notes.py --due`(월요일, 또는 월요일을 놓쳐 7일 이상 지남)일 때만
    `--export` → `claude -p`가 `weekly_work/[주간결과].json` 작성 → `--apply` → `weekly_notes.json`만 커밋·push.

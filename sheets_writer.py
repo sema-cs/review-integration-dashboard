@@ -6,6 +6,8 @@
 """
 
 import json
+import time
+from collections import Counter
 
 HEADER = [
     "hospital_id", "channel", "author", "rating", "date", "content", "has_reply",
@@ -77,8 +79,66 @@ def append_reviews(worksheet, hospital_id, reviews_with_classification, collecte
     반환값: 실제로 추가된 행 수."""
     rows = [review_to_row(hospital_id, review, classification, collected_at) for review, classification in reviews_with_classification]
     if rows:
-        worksheet.append_rows(rows, value_input_option="RAW")
+        _append_rows_once(worksheet, rows)
     return len(rows)
+
+
+# 2026-10-22 19:02 Actions에서 append_rows가 409 "The operation was aborted"로 한 번 실패해 수집 전체가 멈췄다.
+# 일시 오류면 기다렸다가 다시 쓰되, 오류가 났어도 실제로는 써졌을 수 있으므로 다시 쓰기 전에 시트를 읽어
+# 이번 수집에서 이미 들어간 행은 빼고 쓴다(2026-10-23 사용자: 같은 행이 두 번 들어가면 안 됨).
+APPEND_MAX_ATTEMPTS = 3
+APPEND_RETRY_WAITS = (10, 30)  # n번째 실패 뒤 기다리는 초
+_TRANSIENT_STATUS = {409, 429, 500, 502, 503, 504}
+_sleep = time.sleep  # 테스트에서 바꿔 끼운다
+
+
+def _status_code(e):
+    code = getattr(e, "code", None)  # gspread APIError
+    if isinstance(code, int):
+        return code
+    return getattr(getattr(e, "response", None), "status_code", None)
+
+
+def _is_transient(e):
+    # requests의 연결·타임아웃 오류는 OSError 하위 클래스다
+    return _status_code(e) in _TRANSIENT_STATUS or isinstance(e, OSError)
+
+
+def _row_key(row):
+    """이번 수집의 같은 행인지 가리는 키. collected_at이 실행마다 달라 예전 수집의 같은 본문과 섞이지 않는다."""
+    pick = [HEADER.index(f) for f in ("hospital_id", "channel", "content", "collected_at")]
+    return tuple(" ".join(str(row[i] if i < len(row) else "").split()) for i in pick)
+
+
+def _rows_not_in_sheet(worksheet, rows):
+    present = Counter(_row_key(r) for r in worksheet.get_all_values()[1:])
+    missing = []
+    for row in rows:
+        key = _row_key(row)
+        if present[key] > 0:
+            present[key] -= 1
+        else:
+            missing.append(row)
+    return missing
+
+
+def _append_rows_once(worksheet, rows):
+    pending = rows
+    for attempt in range(APPEND_MAX_ATTEMPTS):
+        try:
+            if attempt:
+                pending = _rows_not_in_sheet(worksheet, pending)
+                if not pending:
+                    print(f"  시트 확인: 앞선 쓰기가 실제로는 반영돼 있어 다시 쓰지 않음({len(rows)}행)")
+                    return
+            worksheet.append_rows(pending, value_input_option="RAW")
+            return
+        except Exception as e:
+            if attempt == APPEND_MAX_ATTEMPTS - 1 or not _is_transient(e):
+                raise
+            wait = APPEND_RETRY_WAITS[attempt]
+            print(f"  시트 쓰기 일시 오류({e}) — {wait}초 뒤 반영 여부를 확인하고 다시 시도({attempt + 2}/{APPEND_MAX_ATTEMPTS})")
+            _sleep(wait)
 
 
 def _col_letter(index):

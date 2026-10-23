@@ -254,7 +254,102 @@ def test_ensure_header_accepts_longer_sheet_header_with_same_prefix():
     print("PASS: test_ensure_header_accepts_longer_sheet_header_with_same_prefix")
 
 
+class _FakeAPIError(Exception):
+    def __init__(self, code):
+        super().__init__(f"[{code}]: The operation was aborted.")
+        self.code = code
+
+
+class FlakyWorksheet(FakeWorksheet):
+    """append_rows가 앞쪽 몇 번 일시 오류를 낸다. written_anyway=True면 실제로는 써 놓고 오류를 낸다
+    (응답만 잃어버린 경우 — 다시 쓰면 같은 행이 두 번 들어간다)."""
+
+    def __init__(self, initial_values, failures, code=409, written_anyway=False):
+        super().__init__(initial_values)
+        self.failures, self.code, self.written_anyway = failures, code, written_anyway
+        self.append_calls = 0
+
+    def append_rows(self, rows, value_input_option=None):
+        self.append_calls += 1
+        if self.failures > 0:
+            self.failures -= 1
+            if self.written_anyway:
+                super().append_rows(rows)
+            raise _FakeAPIError(self.code)
+        super().append_rows(rows)
+
+
+def _two_reviews():
+    c = {"sentiment": "긍정", "confirmed": False, "score": 0, "matched_words": [], "method": "lexicon"}
+    return [({"channel": "네이버", "author": "", "date": "", "content": "좋아요"}, c),
+            ({"channel": "구글", "author": "", "date": "", "content": "친절  해요"}, c)]
+
+
+def _with_no_sleep(fn):
+    waits = []
+    orig = sheets_writer._sleep
+    sheets_writer._sleep = waits.append
+    try:
+        return fn(), waits
+    finally:
+        sheets_writer._sleep = orig
+
+
+def test_append_retries_transient_error_when_rows_not_written():
+    # 2026-10-22 19:02 Actions: append_rows가 409 "The operation was aborted"로 실패 → 재시도 없이 수집 전체 중단
+    ws = FlakyWorksheet([sheets_writer.HEADER], failures=1)
+    count, waits = _with_no_sleep(lambda: sheets_writer.append_reviews(ws, "h_a", _two_reviews(), "T1"))
+    assert count == 2 and ws.append_calls == 2 and len(waits) == 1
+    assert len(ws.values) == 3, f"실제: {ws.values}"
+    print("PASS: test_append_retries_transient_error_when_rows_not_written")
+
+
+def test_append_does_not_duplicate_when_failed_call_actually_wrote():
+    # 오류가 났어도 실제로 써졌으면 다시 쓰지 않는다(2026-10-23 사용자: 같은 행 두 번은 안 됨)
+    ws = FlakyWorksheet([sheets_writer.HEADER], failures=1, written_anyway=True)
+    count, _ = _with_no_sleep(lambda: sheets_writer.append_reviews(ws, "h_a", _two_reviews(), "T1"))
+    assert count == 2 and ws.append_calls == 1
+    assert len(ws.values) == 3, f"같은 행이 두 번 들어감: {ws.values}"
+    print("PASS: test_append_does_not_duplicate_when_failed_call_actually_wrote")
+
+
+def test_append_rewrites_only_rows_from_this_run():
+    # 같은 본문이 이전 수집(collected_at 다름)에 있어도 이번 행은 써야 한다 — 이번 수집 시각까지 같아야 "이미 씀"
+    old = sheets_writer.review_to_row("h_a", _two_reviews()[0][0], _two_reviews()[0][1], "T0")
+    ws = FlakyWorksheet([sheets_writer.HEADER, old], failures=1)
+    count, _ = _with_no_sleep(lambda: sheets_writer.append_reviews(ws, "h_a", _two_reviews(), "T1"))
+    assert count == 2 and len(ws.values) == 4, f"실제: {ws.values}"
+    print("PASS: test_append_rewrites_only_rows_from_this_run")
+
+
+def test_append_raises_immediately_on_non_transient_error():
+    ws = FlakyWorksheet([sheets_writer.HEADER], failures=1, code=400)
+    try:
+        _with_no_sleep(lambda: sheets_writer.append_reviews(ws, "h_a", _two_reviews(), "T1"))
+        assert False, "400은 재시도하지 않고 바로 예외"
+    except _FakeAPIError:
+        pass
+    assert ws.append_calls == 1
+    print("PASS: test_append_raises_immediately_on_non_transient_error")
+
+
+def test_append_gives_up_after_max_attempts():
+    ws = FlakyWorksheet([sheets_writer.HEADER], failures=99, code=503)
+    try:
+        _with_no_sleep(lambda: sheets_writer.append_reviews(ws, "h_a", _two_reviews(), "T1"))
+        assert False, "끝내 실패하면 예외"
+    except _FakeAPIError:
+        pass
+    assert ws.append_calls == sheets_writer.APPEND_MAX_ATTEMPTS and len(ws.values) == 1
+    print("PASS: test_append_gives_up_after_max_attempts")
+
+
 if __name__ == "__main__":
+    test_append_retries_transient_error_when_rows_not_written()
+    test_append_does_not_duplicate_when_failed_call_actually_wrote()
+    test_append_rewrites_only_rows_from_this_run()
+    test_append_raises_immediately_on_non_transient_error()
+    test_append_gives_up_after_max_attempts()
     test_ensure_header_writes_header_when_sheet_empty()
     test_ensure_header_writes_header_when_first_row_is_blank()
     test_ensure_header_noop_when_header_already_correct()

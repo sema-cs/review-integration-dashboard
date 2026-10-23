@@ -95,6 +95,13 @@ def test_local_collection_only_when_github_missed():
             # 같은 날 19:00 실행은 다시 수집하지 않는다
             assert daily_job.local_collection_step(today, daily_job.NO_RUN_TODAY, at(19)).startswith("하지 않음")
             assert len(calls) == 1
+            # 2026-10-23: GitHub 수집이 실패·취소로 끝난 날도 PC가 다시 수집한다(이미 들어간 리뷰는 dedup이 건너뜀)
+            daily_job.LOCAL_COLLECT_MARK.unlink()
+            assert daily_job.local_collection_step(today, "completed: success (t)", at(13)).startswith("하지 않음")
+            assert daily_job.local_collection_step(today, "completed: failure (t)", at(13)) == "PC 수집 success"
+            daily_job.LOCAL_COLLECT_MARK.unlink()
+            assert daily_job.local_collection_step(today, "completed: cancelled (t)", at(13)) == "PC 수집 success"
+            assert len(calls) == 3
         finally:
             daily_job.run, daily_job.LOCAL_COLLECT_MARK = orig_run, orig_mark
     print("PASS: test_local_collection_only_when_github_missed")

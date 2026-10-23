@@ -11,6 +11,7 @@ import datetime
 import json
 import math
 import os
+import sys
 import time
 from pathlib import Path
 
@@ -129,6 +130,7 @@ def run(hospital_id_filter=None):
 
     all_existing = sheets_writer.read_existing_reviews(worksheet)
     collected_at = datetime.datetime.now().astimezone().isoformat()
+    failed = []
 
     def collect_and_ingest(hospital):
         hospital_id = hospital["hospital_id"]
@@ -137,7 +139,14 @@ def run(hospital_id_filter=None):
             print(err)
 
         existing_for_hospital = [r for r in all_existing if r.get("hospital_id") == hospital_id]
-        added = review_ingest.ingest(worksheet, existing_for_hospital, hospital_id, raw_reviews, collected_at)
+        try:
+            added = review_ingest.ingest(worksheet, existing_for_hospital, hospital_id, raw_reviews, collected_at)
+        except Exception as e:
+            # 2026-10-22: 한 병원의 시트 쓰기 오류로 수집 전체가 멈췄다 → 그 병원만 실패로 남기고 계속한다.
+            # 실행은 마지막에 실패로 끝내, 그날 PC 보완 수집(scheduled/daily_job.py)이 다시 수집하게 한다.
+            failed.append(hospital_id)
+            print(f"::warning title=시트 반영 실패::{hospital_id}: {e}")
+            return
         print(f"{hospital_id}: 수집 {len(raw_reviews)}건 중 신규 {added}건 반영 (실패 채널 {len(errors)}건)")
 
     # 자사 병원은 매일 전부 수집한다
@@ -153,9 +162,13 @@ def run(hospital_id_filter=None):
             break
         collect_and_ingest(hospital)
 
+    if failed:
+        print(f"::error title=시트 반영 실패 {len(failed)}곳::{', '.join(failed)}")
+    return failed
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="병원 리뷰 매일 자동 수집")
     parser.add_argument("--hospital", help="특정 hospital_id만 실행 (생략 시 전체 병원)")
     args = parser.parse_args()
-    run(args.hospital)
+    sys.exit(1 if run(args.hospital) else 0)

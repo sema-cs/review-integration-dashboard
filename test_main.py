@@ -180,7 +180,31 @@ def test_run_stops_competitors_at_time_budget_but_always_collects_own():
     print("PASS: test_run_stops_competitors_at_time_budget_but_always_collects_own")
 
 
+def test_run_continues_after_sheet_write_failure_and_reports_it():
+    # 2026-10-22: 한 병원의 시트 쓰기 오류로 수집 전체가 멈춰 뒤 병원들이 빠졌다 → 그 병원만 실패로 남기고 계속
+    hospitals = [{"hospital_id": h, "hospital_name": h, "channels": {}} for h in ("h_a", "h_b")]
+
+    def fake_ingest(worksheet, existing, hospital_id, reviews, collected_at):
+        if hospital_id == "h_a":
+            raise RuntimeError("[409]: The operation was aborted.")
+        return 0
+
+    with patch.dict(os.environ, {"GOOGLE_SHEET_ID": "x", "GCP_SA_KEY": "{}", "COMPETITOR_GROUP": "all"}), \
+         patch("main.load_hospitals", return_value=hospitals), \
+         patch("main.load_competitors", return_value=[]), \
+         patch("main.sheets_writer.connect", return_value="WS"), \
+         patch("main.sheets_writer.ensure_header"), \
+         patch("main.sheets_writer.read_existing_reviews", return_value=[]), \
+         patch("main.collect_hospital", return_value=([], [])), \
+         patch("main.review_ingest.ingest", side_effect=fake_ingest) as ingest:
+        failed = main.run()
+    assert ingest.call_count == 2, "h_a가 실패해도 h_b는 수집해야 함"
+    assert failed == ["h_a"], f"실제: {failed}"
+    print("PASS: test_run_continues_after_sheet_write_failure_and_reports_it")
+
+
 if __name__ == "__main__":
+    test_run_continues_after_sheet_write_failure_and_reports_it()
     test_competitor_groups_cover_everyone_once_per_cycle()
     test_select_competitors_by_override()
     test_run_stops_competitors_at_time_budget_but_always_collects_own()
