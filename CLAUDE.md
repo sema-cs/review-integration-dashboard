@@ -5,9 +5,9 @@
 
 ## 이 폴더의 두 파이프라인
 
-1. **`main.py`** — 매일 12:17 KST GitHub Actions가 실행하는 수집
+1. **`main.py`** — 매일 11:00 KST(2026-10-23 12:17→11:00, 사용자 결정 — 결과가 늦게 나와서) GitHub Actions가 실행하는 수집
    파이프라인(collectors → dedup → `classifier/rule_based.py` → Sheets append).
-   **시작 방식(2026-10-22~)**: 담당자 PC 작업 스케줄러 `ReviewSheet_DailyCollectTrigger`가 12:17에
+   **시작 방식(2026-10-22~)**: 담당자 PC 작업 스케줄러 `ReviewSheet_DailyCollectTrigger`가 11:00에
    `scheduled/trigger_collection.py`로 수동 실행(workflow_dispatch)을 요청한다. GitHub 예약(schedule) 실행이
    10-17부터 4~5시간씩 늦거나 빠졌기 때문이다(GitHub 문서상 예약은 부하 시 지연·누락 가능, 같은 시기 커뮤니티
    보고 다수, 우리 설정 이상 없음). 토큰은 사용자 환경변수 `REVIEW_DISPATCH_TOKEN`(이 저장소 Actions 읽기·쓰기만).
@@ -154,7 +154,7 @@ python reclassify.py --apply
 `scheduled/daily_job.py`를 실행한다(PC가 꺼져 있었으면 켜진 뒤 바로 실행, 최대 5시간, 겹치면 나중 것은 건너뜀).
 
 1. 오늘 Actions 수집 상태를 GitHub API로 한 번 조회해 로그에 남기고, **기다리지 않고** 진행한다(2026-10-20 사용자 결정).
-   근거: 정각(13:00) 예약 수집이 10-17~20 4~5시간씩 늦어져 검수가 대기만 하다 끝났다 → 수집 예약을 12:17로 옮기고,
+   근거: 정각(13:00) 예약 수집이 10-17~20 4~5시간씩 늦어져 검수가 대기만 하다 끝났다 → 수집 예약을 12:17로(10-23부터 11:00) 옮기고,
    늦게 들어온 리뷰는 19:00 실행이나 다음 날 실행이 처리한다.
    **PC 보완 수집(2026-10-21 사용자 결정)**: 13시 이후인데 오늘 GitHub 수집(예약·수동)이 하나도 없으면 이 PC에서
    `main.py`를 직접 돌린다(자사 전부 + 오늘 경쟁병원 순번, 최대 3시간). 근거: 10-20·21 예약 수집이 생성조차 안 됨

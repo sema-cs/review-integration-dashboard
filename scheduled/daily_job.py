@@ -1,6 +1,6 @@
 """매일 13:50·19:00 Windows 작업 스케줄러가 실행하는 검수 작업(2026-10-14 사용자 결정, 19:00은 2026-10-20 추가).
 
-1. 오늘 GitHub Actions 수집(12:17 예약) 상태를 로그에 남기기만 하고 기다리지 않는다(2026-10-20 —
+1. 오늘 GitHub Actions 수집(11:00 PC 요청, 11:07 예약은 예비) 상태를 로그에 남기기만 하고 기다리지 않는다(2026-10-20 —
    예약 수집이 몇 시간씩 늦는 날이 잦음). 늦게 들어온 리뷰는 19:00 실행이나 다음 날 실행이 처리한다.
    13시가 지났는데 오늘 GitHub 수집(예약·수동)이 아예 없으면 이 PC에서 main.py로 직접 수집한다
    (2026-10-21 사용자 결정 — 10-20·21 예약 수집이 생성조차 안 됨). 자사 전부 + 오늘 경쟁병원 순번.
@@ -33,7 +33,7 @@ RUNS_API = ("https://api.github.com/repos/sema-cs/review-integration-dashboard"
             "/actions/workflows/daily_collect.yml/runs?per_page=5")
 KST = datetime.timezone(datetime.timedelta(hours=9))
 
-LOCAL_COLLECT_AFTER_HOUR = 13  # 이보다 이르면(놓친 실행 따라잡기 등) 12:17 예약을 아직 기다린다
+LOCAL_COLLECT_AFTER_HOUR = 13  # 이보다 이르면(놓친 실행 따라잡기 등) 11:00 수집 요청 결과를 아직 기다린다
 LOCAL_COLLECT_TIMEOUT = 3 * 60 * 60  # Actions timeout-minutes와 같음(자사 ~30분 + 경쟁 90분 예산)
 LOCAL_COLLECT_MARK = LOG_DIR / "local_collection.json"
 NO_RUN_TODAY = "아직 시작 전"

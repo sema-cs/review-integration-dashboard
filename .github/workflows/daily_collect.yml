@@ -2,10 +2,10 @@ name: 매일 리뷰 자동 수집
 
 on:
   schedule:
-    # 예비용. 2026-10-22부터 주 실행은 PC 작업 스케줄러가 12:17에 workflow_dispatch로 시작한다
+    # 예비용. 2026-10-22부터 주 실행은 PC 작업 스케줄러가 11:00에(2026-10-23 12:17→11:00, 사용자 결정) workflow_dispatch로 시작한다
     # (scheduled/trigger_collection.py) — 예약 실행이 4~5시간씩 늦거나 빠져서. 오늘 이미 실행이 있으면
     # 아래 '오늘 이미 수집했는지 확인' 단계가 이 예약 실행을 건너뛴다.
-    - cron: "17 3 * * *"  # 03:17 UTC = 12:17 KST
+    - cron: "7 2 * * *"  # 02:07 UTC = 11:07 KST (PC 요청 11:00 뒤 — 이미 실행 중이면 건너뜀)
   workflow_dispatch:
     inputs:
       competitor_group:

@@ -129,7 +129,7 @@ def test_archive_same_minute_does_not_collide():
 
 
 def test_trigger_dispatches_only_when_nothing_ran_today():
-    # 2026-10-22: 예약 실행이 늦거나 빠져 PC가 12:17에 workflow_dispatch로 수집을 시작한다
+    # 2026-10-22: 예약 실행이 늦거나 빠져 PC가 11:00에(10-23까지 12:17) workflow_dispatch로 수집을 시작한다
     import tempfile
     import trigger_collection as tc
     sent = []

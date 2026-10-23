@@ -1,4 +1,4 @@
-"""매일 12:17 Windows 작업 스케줄러가 GitHub Actions 수집을 수동 실행(workflow_dispatch)으로 시작한다.
+"""매일 11:00(2026-10-23 12:17에서 앞당김) Windows 작업 스케줄러가 GitHub Actions 수집을 수동 실행(workflow_dispatch)으로 시작한다.
 
 2026-10-17부터 GitHub 예약(schedule) 실행이 4~5시간씩 늦거나 아예 빠졌다(10-20 누락, 10-22 13:52까지 미생성).
 GitHub 문서상 예약 실행은 부하가 높으면 늦어지거나 빠질 수 있고, 같은 시기 커뮤니티에도 같은 보고가
