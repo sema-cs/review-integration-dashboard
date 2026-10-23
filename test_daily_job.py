@@ -92,7 +92,7 @@ def test_local_collection_only_when_github_missed():
             assert calls == []
             assert daily_job.local_collection_step(today, daily_job.NO_RUN_TODAY, at(12, 0)) == "PC 수집 success"
             assert calls[0][1] == "main.py"
-            # 같은 날 19:00 실행은 다시 수집하지 않는다
+            # 같은 날 17:00 실행은 다시 수집하지 않는다
             assert daily_job.local_collection_step(today, daily_job.NO_RUN_TODAY, at(19)).startswith("하지 않음")
             assert len(calls) == 1
             # 2026-10-23: GitHub 수집이 실패·취소로 끝난 날도 PC가 다시 수집한다(이미 들어간 리뷰는 dedup이 건너뜀)
