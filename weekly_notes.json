@@ -1,157 +1,157 @@
 {
-  "generated_at": "2026-10-20T16:36:43+09:00",
-  "period_start": "2026-10-14",
-  "period_end": "2026-10-20",
+  "generated_at": "2026-10-26T08:34:26+09:00",
+  "period_start": "2026-10-20",
+  "period_end": "2026-10-26",
   "notes": {
     "gangnam_jstar": {
-      "flag": "risk",
-      "count": 19,
-      "summary": "시술 결과·직원 친절·과잉 권유 없음 칭찬이 대부분이나, 귀 필러 추가 시술 후 붓기·통증·변형으로 재내원했다는 부정 리뷰(같은 내용 2건)가 있으며 비용 세부내역서 발급 거절과 대기·시술 3시간 소요를 지적했습니다."
+      "flag": "none",
+      "count": 9,
+      "summary": "리뷰 9건 모두 긍정으로, 직원·상담실장 친절과 꼼꼼한 상담 설명, 통증이 적은 시술을 칭찬했습니다."
     },
     "gunpo_seoul_s_dental": {
       "flag": "none",
       "count": 1,
-      "summary": "아프지 않게 치료해 준다는 긍정 리뷰 1건이 있었습니다."
+      "summary": "긍정 리뷰 1건으로, 밝고 깨끗한 시설과 치위생사의 친절하고 꼼꼼한 스케일링을 칭찬했습니다."
     },
     "apgujeong_brandnew_clinic": {
       "flag": "none",
-      "count": 3,
-      "summary": "친절과 원장 상담의 전문성·꼼꼼한 설명을 칭찬하는 긍정 리뷰 3건이 있었습니다."
+      "count": 9,
+      "summary": "리뷰 9건 모두 긍정으로, 원장의 정확한 상담·디자인과 과한 권유 없는 시술 추천, 직원 친절을 칭찬했습니다."
     },
     "songpa_sarangai_women": {
-      "flag": "watch",
-      "count": 3,
-      "summary": "자세한 설명과 친절을 칭찬하는 긍정 리뷰 3건이며, 대기 인원이 많을 때가 있으나 간호사가 양해를 구해 준다는 언급이 있었습니다."
+      "flag": "none",
+      "count": 2,
+      "summary": "긍정 리뷰 2건으로, 직원 친절과 대기 인원이 많아도 분주하지 않은 편안한 분위기를 칭찬했습니다."
     },
     "yangcheon_seoul_keun_dental": {
       "flag": "none",
-      "count": 8,
-      "summary": "웨어러블 비니어 결과 만족, 직원 친절, 아프지 않은 치료를 칭찬하는 긍정 리뷰 8건이 있었습니다."
+      "count": 9,
+      "summary": "리뷰 9건 모두 긍정으로, 직원 친절과 앞니 치료 결과 만족, 통증 없는 발치, 과잉진료 없는 꼼꼼한 진료를 칭찬했습니다."
     },
     "daejeon_joandi_dental": {
       "flag": "none",
-      "count": 0,
-      "summary": "최근 7일 새 리뷰가 없습니다(마지막 리뷰 10월 9일)."
+      "count": 1,
+      "summary": "긍정 리뷰 1건으로, 크라운·신경치료 시 원장의 친절하고 섬세한 진료와 지인 임플란트 치료 만족을 전했습니다."
     },
     "incheon_cheongna_dental": {
       "flag": "none",
       "count": 2,
-      "summary": "직원 친절을 칭찬하는 긍정 리뷰 1건과 본문 없는 별점 리뷰 1건이 있었습니다."
+      "summary": "긍정 리뷰 2건으로, 편안한 임플란트 치료와 꼼꼼한 스케일링, 친절한 진료를 칭찬했습니다."
     },
     "seocho_seoul_mothers_ps": {
-      "flag": "none",
-      "count": 3,
-      "summary": "상처 치료 경과, 이른 시간 응급 봉합 진료, 직원의 친절하고 꼼꼼한 설명을 칭찬하는 긍정 리뷰 3건이 있었습니다."
+      "flag": "risk",
+      "count": 4,
+      "summary": "리뷰 4건 중 3건은 흉터 치료 신뢰·친절한 응대를 칭찬했지만, 카카오맵 부정 리뷰 1건이 대기 시간이 너무 길고 예약이 의미가 없다고 지적했습니다."
     },
     "cheongju_duri_ent": {
-      "flag": "none",
-      "count": 3,
-      "summary": "아이 눈높이 진료, 설명, 약 효과, 예약 시 짧은 대기를 칭찬하는 긍정 리뷰 3건이 있었습니다."
+      "flag": "risk",
+      "count": 4,
+      "summary": "리뷰 4건 중 3건은 경청하는 진료와 접수처 친절, 치료 효과를 칭찬했지만, 부정 리뷰 1건이 데스크 직원 불친절을 지적했습니다."
     },
     "siheung_saeroun_dental": {
       "flag": "none",
-      "count": 4,
-      "summary": "예약 없이 방문해도 바로 발치한 점과 원장·직원 친절을 칭찬하는 긍정 리뷰 4건이 있었습니다."
+      "count": 3,
+      "summary": "리뷰 3건 모두 긍정으로, 친절하고 명쾌한 설명과 통증이 덜한 치료를 칭찬했습니다."
     },
     "siheung_seoul_life_dental": {
       "flag": "none",
-      "count": 6,
-      "summary": "직원 친절, 아프지 않은 치료, 꼼꼼한 진료로 꾸준히 다닌다는 긍정 리뷰 6건이 있었습니다."
+      "count": 5,
+      "summary": "리뷰 5건 모두 긍정으로, 꼼꼼한 정기검진·교정 상담 설명과 꼭 필요한 치료만 하는 점, 합리적 가격을 칭찬했습니다."
     },
     "siheung_seoul_ansim_dental": {
       "flag": "none",
       "count": 8,
-      "summary": "고난도 임플란트 결과, 과잉진료 없음, 합리적 가격, 수면마취로 통증이 적었던 점을 칭찬하는 긍정 리뷰 8건이 있었습니다."
+      "summary": "리뷰 8건(글 없는 별점 1건 포함)으로, 통증 없는 치료·수면 임플란트, 과잉진료 없는 상담 설명, 역세권 접근성을 칭찬했습니다."
     },
     "cheongju_seoul_top_implant_dental": {
       "flag": "none",
-      "count": 4,
-      "summary": "사전 설명대로 진행된 치료, 친절하고 꼼꼼한 진료를 칭찬하는 긍정 리뷰 4건이 있었습니다."
+      "count": 5,
+      "summary": "리뷰 5건 모두 긍정으로, 직원 친절과 꼼꼼한 임플란트 진료, 깔끔한 1인실을 칭찬했습니다."
     },
     "bupyeong_oracle_derm": {
       "flag": "none",
-      "count": 8,
-      "summary": "써마지·리투오 등 시술 결과, 꼼꼼한 설명, 깔끔한 시설을 칭찬하는 긍정 리뷰 8건이 있었습니다."
+      "count": 9,
+      "summary": "리뷰 9건 모두 긍정으로, 리쥬란·울쎄라·써마지 시술 결과 만족과 시술 중 통증 체크, 과한 권유 없는 상담을 칭찬했습니다."
     },
     "cheongju_tunteun_ortho": {
       "flag": "none",
-      "count": 1,
-      "summary": "구체적 내용 없이 좋다는 긍정 리뷰 1건이 있었습니다."
+      "count": 0,
+      "summary": "최근 7일 새 리뷰가 없습니다(마지막 리뷰 10월 14일)."
     },
     "geomdan_365barunmun_dental": {
       "flag": "none",
-      "count": 1,
-      "summary": "깔끔한 시설과 아프지 않은 마취, 꼼꼼한 레진 치료를 칭찬하는 긍정 리뷰 1건이 있었습니다."
+      "count": 3,
+      "summary": "리뷰 3건 모두 긍정으로, 데스크·치위생사 친절과 통증 없는 신경치료, 친절한 설명을 칭찬했습니다."
     },
     "daejeon_365seongsim_implant_dental": {
       "flag": "none",
-      "count": 7,
-      "summary": "직원 친절, 자세한 설명, 야간진료, 쾌적한 시설을 칭찬하는 긍정 리뷰 6건과 본문 없는 별점 리뷰 1건이 있었습니다."
+      "count": 9,
+      "summary": "리뷰 9건 모두 긍정으로, 데스크 친절과 과잉진료 없는 상세 설명, 통증 적은 치료, 합리적 가격을 칭찬했습니다."
     },
     "yaksu_365allcare_dental": {
       "flag": "none",
-      "count": 8,
-      "summary": "직원 친절, 깔끔한 시설, 과잉진료 없음을 칭찬하는 긍정 리뷰 8건이 있었습니다."
+      "count": 6,
+      "summary": "리뷰 6건 모두 긍정으로, 직원 친절과 과잉진료 없는 솔직한 진료, 새 공간·장비, 턱관절 치료 효과를 칭찬했습니다."
     },
     "cheongdam_thean_clinic": {
       "flag": "none",
-      "count": 0,
-      "summary": "최근 7일 새 리뷰가 없습니다(마지막 리뷰 10월 7일)."
+      "count": 41,
+      "summary": "리뷰 41건 모두 긍정으로, 리프팅·써마지·울쎄라 시술 결과와 꼼꼼하고 솔직한 상담 설명을 주로 칭찬했습니다."
     },
     "dongbaek_seoul_u_dental": {
       "flag": "none",
-      "count": 1,
-      "summary": "임플란트 후 검진에서 친절하고 만족스러운 진료를 받았다는 긍정 리뷰 1건이 있었습니다."
+      "count": 4,
+      "summary": "리뷰 4건 모두 긍정으로, 엑스레이·사진 촬영 후 상세한 설명과 통증 적은 스케일링, 직원 친절을 칭찬했습니다."
     },
     "jongno_lemiel_ps": {
       "flag": "none",
       "count": 1,
-      "summary": "설명을 잘해 줬다는 긍정 리뷰 1건이 있었습니다."
+      "summary": "긍정 리뷰 1건으로, 상담실장의 자세한 시술·주의사항 안내와 원장의 친절한 시술을 칭찬했습니다."
     },
     "gangnam_mode_dental": {
       "flag": "none",
-      "count": 4,
-      "summary": "신규 개원으로 깔끔한 시설, 친절, 필요한 진료만 권하는 점을 칭찬하는 긍정 리뷰 4건이 있었습니다."
+      "count": 8,
+      "summary": "리뷰 8건 모두 긍정으로, 신규 개원 후 치아미백 이벤트 방문자들이 직원 친절과 깔끔한 시설, 즉각적인 미백 효과를 칭찬했습니다."
     },
     "geomdan_seoul_thetop_dental": {
       "flag": "none",
-      "count": 4,
-      "summary": "임플란트 후 전화 사후관리, 통증 없는 치료, 직원 친절을 칭찬하는 긍정 리뷰 4건이 있었습니다."
+      "count": 2,
+      "summary": "긍정 리뷰 2건으로, 친절한 진료로 치통이 해결됐다는 점과 치료 안내·질문 응대를 칭찬했습니다."
     },
     "bupyeong_seongmo_hawayou_surgery": {
       "flag": "none",
-      "count": 10,
-      "summary": "초음파 등 꼼꼼한 진료와 설명, 쾌적한 시설, 직원 친절을 칭찬하는 긍정 리뷰 10건이 있었습니다."
+      "count": 4,
+      "summary": "리뷰 4건 모두 긍정으로, 유방 혹 진료 시 원장의 차분하고 세세한 설명과 깨끗한 병원, 친절한 의료진을 칭찬했습니다."
     },
     "sinsa_kimdongha_derm": {
-      "flag": "risk",
-      "count": 1,
-      "summary": "권유받은 홍조 치료 10회 동안 트러블과 붉어짐이 반복·악화됐다고 느꼈고 기대한 효과가 없었다는 부정 리뷰 1건이 있었습니다."
+      "flag": "none",
+      "count": 2,
+      "summary": "긍정 리뷰 2건으로, 원장 직접 상담과 과잉진료 없는 눈밑 시술, 직원·원장의 공감하는 응대를 칭찬했습니다."
     },
     "sinsa_egg_clinic": {
       "flag": "none",
-      "count": 16,
-      "summary": "원장의 꼼꼼한 진료와 이해하기 쉬운 설명, 깔끔한 시설, 필러·보톡스 결과를 칭찬하는 긍정 리뷰 16건이 있었습니다."
+      "count": 35,
+      "summary": "리뷰 35건 모두 긍정으로, 꼼꼼한 피부 상담 설명과 울쎄라·리프팅 시술 결과, 직원 친절을 주로 칭찬했습니다."
     },
     "cheongju_is_ps": {
       "flag": "none",
       "count": 1,
-      "summary": "친절한 상담에 감사하다는 긍정 리뷰 1건이 있었습니다."
+      "summary": "긍정 리뷰 1건으로, 직원 친절을 칭찬했습니다."
     },
     "bucheon_yonsei_misoae_dental": {
       "flag": "none",
-      "count": 2,
-      "summary": "넓고 깨끗한 시설, 친절한 설명, 아프지 않은 치료를 칭찬하는 긍정 리뷰 2건이 있었습니다."
+      "count": 3,
+      "summary": "리뷰 3건(글 없는 별점 1건 포함)으로, 친절한 응대와 신경치료 실력을 칭찬했습니다."
     },
     "ilsan_danaeun_korean_med": {
       "flag": "none",
-      "count": 11,
-      "summary": "암 수술·항암 후 입원 환자들이 친절한 케어, 식사, 치료 효과, 힐링 프로그램을 칭찬한 긍정 리뷰 11건이 있었습니다."
+      "count": 3,
+      "summary": "리뷰 3건 모두 긍정으로, 항암·요양 환자 보호자들이 친절하고 따뜻한 분위기와 좋은 주변 환경, 식사 관리를 칭찬했습니다."
     },
     "busan_riora_women": {
       "flag": "none",
-      "count": 5,
-      "summary": "짧은 대기, 편한 예약, 친절한 응대와 설명을 칭찬하는 긍정 리뷰 5건이 있었습니다."
+      "count": 4,
+      "summary": "리뷰 4건 모두 긍정으로, 접수·수납·진료 안내 친절과 짧은 대기, 주사 전 여러 차례 신원 확인을 칭찬했습니다."
     },
     "daegu_parknlee_derm": {
       "flag": "none",
@@ -160,23 +160,23 @@
     },
     "daegu_mipeum_clinic": {
       "flag": "none",
-      "count": 0,
-      "summary": "최근 7일 새 리뷰가 없습니다(마지막 리뷰 10월 11일)."
+      "count": 2,
+      "summary": "긍정 리뷰 2건으로, 짧은 대기와 디테일한 상담, 꼼꼼한 필러 시술, 직원 친절을 칭찬했습니다."
     },
     "busan_thebody_ps": {
       "flag": "none",
-      "count": 7,
-      "summary": "상·하안검 수술과 리쥬란 결과, 실장·원장의 친절한 설명과 회복 안내를 칭찬하는 긍정 리뷰 7건이 있었습니다."
+      "count": 1,
+      "summary": "긍정 리뷰 1건으로, 여유증 상담에서 친절한 안내와 과도한 권유 없는 현실적 제안을 칭찬했습니다."
     },
     "changwon_first_derm": {
-      "flag": "watch",
+      "flag": "none",
       "count": 2,
-      "summary": "꼼꼼한 진료를 칭찬하는 긍정 리뷰 1건과 함께, 피부관리는 편리하나 네이버 페이스사인 결제가 안 된다는 리뷰 1건이 있었습니다."
+      "summary": "긍정 리뷰 2건으로, 전문의의 친절한 진료와 저렴한 비용, 시술 실력을 칭찬했습니다."
     },
     "gyeongsan_s_korean_med": {
       "flag": "none",
-      "count": 7,
-      "summary": "원장의 친절, 꼼꼼한 진료, 다이어트 약 효과와 요요 없음을 칭찬하는 긍정 리뷰 7건이 있었습니다."
+      "count": 11,
+      "summary": "리뷰 11건 모두 긍정으로, 다이어트·교통사고 치료 효과와 원장·간호사의 친절한 설명, 짧은 대기를 칭찬했습니다."
     },
     "gyeongsan_min_dental": {
       "flag": "none",
@@ -185,58 +185,78 @@
     },
     "changwon_elle_medi_women": {
       "flag": "none",
-      "count": 1,
-      "summary": "진료를 잘 받았다는 긍정 리뷰 1건이 있었습니다."
+      "count": 0,
+      "summary": "최근 7일 새 리뷰가 없습니다(마지막 리뷰 10월 17일)."
     },
     "daegu_naui_gyejeol_clinic": {
       "flag": "none",
-      "count": 0,
-      "summary": "최근 7일 새 리뷰가 없습니다(마지막 리뷰 10월 12일)."
+      "count": 2,
+      "summary": "긍정 리뷰 2건으로, 무리하게 권하지 않는 솔직한 상담과 꼼꼼한 진료, 직원 친절을 칭찬했습니다."
     },
     "daegu_sintong_neuro": {
       "flag": "none",
-      "count": 0,
-      "summary": "최근 7일 새 리뷰가 없습니다(마지막 리뷰 10월 6일)."
+      "count": 1,
+      "summary": "긍정 리뷰 1건으로, 대표원장의 자세한 설명과 체계적인 치료에 만족했습니다."
     },
     "daegu_prive_ps": {
       "flag": "none",
       "count": 2,
-      "summary": "눈 수술 결과와 꼼꼼한 디자인, 원장·직원 친절을 칭찬하는 긍정 리뷰 2건이 있었습니다."
+      "summary": "긍정 리뷰 2건으로, 원장의 친절과 요구를 정확히 반영한 자연스러운 볼륨 시술을 칭찬했습니다."
     },
     "daegu_eyecare_eye": {
       "flag": "none",
       "count": 5,
-      "summary": "원장의 상세한 설명, 직원 친절, 쾌적한 시설, 이른 아침 진료를 칭찬하는 긍정 리뷰 5건이 있었습니다."
+      "summary": "리뷰 5건 모두 긍정으로, 직원 친절과 자세한 진료 설명, 빠른 백내장 수술, 깔끔한 인테리어를 칭찬했습니다."
     },
     "daegu_rene_women": {
       "flag": "none",
-      "count": 4,
-      "summary": "여의사 진료, 예약 시간 조정 배려, 쾌적한 내부와 의료진 친절을 칭찬하는 긍정 리뷰 4건이 있었습니다."
+      "count": 2,
+      "summary": "긍정 리뷰 2건으로, 직원 친절과 체계적인 시술 진행, 시술 후 관리 제품 안내를 칭찬했습니다."
     },
     "busan_nell_clinic": {
       "flag": "none",
-      "count": 25,
-      "summary": "압토스·리바이브·울트라클리어 등 시술 결과와 상담 설명을 칭찬하는 긍정 리뷰 22건과 중립 리뷰 2건, 본문 없는 별점 리뷰 1건이 있었습니다."
+      "count": 30,
+      "summary": "리뷰 30건 중 23건 긍정·7건 중립으로, 리바이브·레디어스 등 시술 결과와 자세한 상담 설명을 주로 칭찬했습니다."
     },
     "cheongju_well_dental": {
       "flag": "none",
-      "count": 0,
-      "summary": "최근 7일 새 리뷰가 없습니다(마지막 리뷰 10월 12일)."
+      "count": 2,
+      "summary": "긍정 리뷰 2건으로, 프런트 데스크 응대와 치아 관련 궁금증 해결을 칭찬했습니다."
     },
     "cheongju_digitalplant_dental": {
       "flag": "none",
-      "count": 3,
-      "summary": "체계적이고 빠른 진행, 친절한 아이 진료, 과잉진료 없는 상담을 칭찬하는 긍정 리뷰 3건이 있었습니다."
+      "count": 6,
+      "summary": "리뷰 6건 모두 긍정으로, 직원 친절과 짧은 대기, 넓은 주차장, 퇴근 후·주말 진료를 칭찬했습니다."
     },
     "busan_bada_ps": {
       "flag": "none",
-      "count": 0,
-      "summary": "최근 7일 새 리뷰가 없습니다(마지막 리뷰 10월 6일)."
+      "count": 4,
+      "summary": "리뷰 4건 모두 긍정으로, 과한 권유 없는 상담과 자연스러운 시술 결과, 수술 후 회복 체크 등 사후 관리를 칭찬했습니다."
     },
     "cheongdam_bieche_derm": {
       "flag": "none",
-      "count": 25,
-      "summary": "깔끔한 인테리어, 직원 친절, 꼼꼼한 상담·관리 플랜, 역 접근성, 프라이빗룸을 칭찬하는 긍정 리뷰 25건이 있었습니다."
+      "count": 16,
+      "summary": "리뷰 16건 모두 긍정으로, 1인 프라이빗룸과 전문의 직접 진료·차분한 설명, 역에서 가까운 위치를 칭찬했습니다."
+    },
+    "wangsimni_naeungil_surgery": {
+      "flag": "none",
+      "count": 0,
+      "summary": "최근 7일 새 리뷰가 없습니다(마지막 리뷰 9월 18일)."
+    },
+    "cheongju_barungijun_dental": {
+      "flag": "none",
+      "count": 0,
+      "summary": "최근 7일 새 리뷰가 없습니다(마지막 리뷰 10월 18일)."
+    },
+    "yeouido_seoul_sunshine_dental": {
+      "flag": "none",
+      "count": 0,
+      "summary": "최근 7일 새 리뷰가 없습니다(마지막 리뷰 10월 19일)."
+    },
+    "cheongju_isom_ent": {
+      "flag": "none",
+      "count": 0,
+      "summary": "최근 7일 새 리뷰가 없습니다(마지막 리뷰 9월 17일)."
     }
   }
 }
